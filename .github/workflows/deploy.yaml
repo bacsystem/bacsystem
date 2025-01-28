@@ -23,7 +23,7 @@ jobs:
           node-version: 20
 
       - name: Build Angular app to prod
-        #working-directory: admin-console-web
+        working-directory: admin-console-web
         run: yarn install && yarn build:prod
 
       - name: Deploy to GitHub Pages
