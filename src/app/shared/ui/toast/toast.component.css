@@ -1,0 +1,24 @@
+/* toast.component.css */
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1050; /* Asegúrate de que el toast esté sobre otros elementos */
+  transition: opacity 0.3s ease-in-out;
+  color: white;
+}
+
+.bg-danger-toast {
+  background-color: rgba(207, 85, 97, 0.72) !important;
+}
+.bg-warning-toast {
+  background-color: rgba(236, 90, 5, 0.58) !important;
+}
+.bg-success-toast {
+  background-color: var(--success-color-bs) !important;
+  color: black;
+}
+.bg-info-toast {
+  background-color: rgba(124, 226, 228, 0.81) !important;
+  color: black;
+}

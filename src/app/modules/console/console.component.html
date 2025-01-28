@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-lg-12">
+
+    <ul class="nav">
+      @for (item of listButton; track item) {
+        <li class="nav-item mb-1">
+          <app-button
+            class="m-1"
+            [disabled]="false"
+            color="menu"
+            label="{{item.name}}"
+            routerLink="{{item.link}}"
+            icon="{{item.icon}}"
+          >
+          </app-button>
+        </li>
+      }
+    </ul>
+
+    <div>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

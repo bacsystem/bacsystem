@@ -1,0 +1,9 @@
+<button
+  [ngClass]="['btn','btn-bs-'+color]"
+  [attr.type]="type"
+  [disabled]="disabled"
+  (click)="onClick()"
+>
+  <i *ngIf="icon" [ngClass]="icon" aria-hidden="true"></i>
+  {{ label }}
+</button>

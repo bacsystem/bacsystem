@@ -1,0 +1,20 @@
+<!-- text-input.component.html -->
+<div class="mb-3">
+  <label [attr.for]="label" class="form-label">{{ label }}</label>
+  <input
+    [type]="type"
+    [id]="label"
+    [placeholder]="placeholder"
+    [formControl]="control"
+    (input)="onInputChange()"
+    class="form-control"
+    [ngClass]="{'is-invalid': control.invalid && control.touched}"
+  />
+  <!--
+  <div *ngIf="control.invalid && control.touched" class="invalid-feedback">
+    <ng-container *ngIf="control.errors?.required">Este campo es obligatorio.</ng-container>
+    <ng-container *ngIf="control.errors?.email">Introduzca un email válido.</ng-container>
+    <ng-container *ngIf="control.errors?.minlength">El valor es demasiado corto.</ng-container>
+  </div>
+  -->
+</div>

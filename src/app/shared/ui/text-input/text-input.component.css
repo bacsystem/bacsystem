@@ -1,0 +1,8 @@
+/* text-input.component.css */
+.form-control {
+  border-radius: 0.5rem;
+}
+
+.is-invalid {
+  border-color: #dc3545; /* Color para bordes de error */
+}

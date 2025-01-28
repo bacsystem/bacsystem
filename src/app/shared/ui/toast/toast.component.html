@@ -1,0 +1,23 @@
+<div role="alert"
+     aria-live="assertive"
+     aria-atomic="true"
+     class="toast show"
+     *ngIf="visible"
+     [ngClass]="{'bg-success-toast': type==='success', 'bg-danger-toast': type==='danger', 'bg-warning-toast': type==='warning','bg-info-toast': type==='info'}"
+>
+  <div class="toast-header">
+    <strong class="me-auto">{{ title }}</strong>
+
+    <button type="button"
+            class="btn-close"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+            (click)="hide()"
+    >
+
+    </button>
+  </div>
+  <div class="toast-body">
+    {{ message }}
+  </div>
+</div>
