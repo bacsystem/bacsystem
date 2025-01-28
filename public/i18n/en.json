@@ -1,0 +1,19 @@
+{
+  "application": {
+    "title": "hello demo",
+    "start": "Get Started",
+    "menu": {
+      "home": "Home",
+      "about": "About",
+      "services": "Services",
+      "portfolio": "Portfolio",
+      "team": "Team",
+      "contact": "Contact",
+      "language": "Language"
+    },
+    "home": {
+      "title": "Grow your knowledge with Bacsystem",
+      "description": "We are a team of passionate developers creating code solutions, designed to optimize learning and productivity in each project."
+    }
+  }
+}

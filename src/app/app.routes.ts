@@ -5,10 +5,10 @@ export const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./public/public.routes').then(value => {
-      console.log("Public routes loaded ", value.default);
+      console.log("Public routes loaded ");
       return value.default;
     }).catch(reason => {
-      console.error(reason)
+      console.error("error")
       return reason;
     })
   },
