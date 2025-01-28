@@ -26,6 +26,12 @@ jobs:
         #working-directory: admin-console-web
         run: yarn install && yarn build:prod
 
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: admin-console-web/dist/browser
+          branch: master
+          token: '${{ GHA_TOKEN_APP }}'
 
 
 
