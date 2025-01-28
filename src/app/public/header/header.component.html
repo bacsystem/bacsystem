@@ -1,55 +1,40 @@
 <header id="header" class="header d-flex align-items-center sticky-top">
   <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
-    <a routerLink="/public" class="logo d-flex align-items-center me-auto">
+    <a routerLink="/public/home" class="logo d-flex align-items-center me-auto">
       <!-- Uncomment the line below if you also wish to use an image logo -->
       <!-- <img src="assets/img/logo.png" alt=""> -->
-      <h1 class="site-name">BacSystem</h1>
+      <h1 class="site-name">Bacsystem</h1>
     </a>
 
     <nav id="nav-menu" class="nav-menu">
       <ul>
-        <li>
-          <a routerLink="home" routerLinkActive="active">Home<br></a>
-        </li>
-        <li>
-          <a routerLink="about" routerLinkActive="active">About</a>
-        </li>
-        <li>
-          <a routerLink="services" routerLinkActive="active">Services</a>
-        </li>
-        <li>
-          <a routerLink="portfolio" routerLinkActive="active">Portfolio</a>
-        </li>
-        <li>
-          <a routerLink="team" routerLinkActive="active">Team</a>
-        </li>
-        <!--
-        <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-          <ul>
-            <li><a href="#">Dropdown 1</a></li>
-            <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i
-              class="bi bi-chevron-down toggle-dropdown"></i></a>
-              <ul>
-                <li><a href="#">Deep Dropdown 1</a></li>
-                <li><a href="#">Deep Dropdown 2</a></li>
-                <li><a href="#">Deep Dropdown 3</a></li>
-                <li><a href="#">Deep Dropdown 4</a></li>
-                <li><a href="#">Deep Dropdown 5</a></li>
-              </ul>
+        @for (item of titles; track item.title) {
+          @if (item.active) {
+            <li>
+              <a [routerLink]="item.routerLink"
+                 [routerLinkActive]="item.routerLinkActive">{{ item.title | translate }}
+              </a>
             </li>
-            <li><a href="#">Dropdown 2</a></li>
-            <li><a href="#">Dropdown 3</a></li>
-            <li><a href="#">Dropdown 4</a></li>
+          }
+        }
+
+        <li class="dropdown">
+          <a>
+            <span>{{ 'application.menu.language' | translate }}</span>
+            <i class="bi bi-chevron-down toggle-dropdown"></i>
+          </a>
+          <ul>
+            <li><a style="cursor: pointer" (click)="useLanguage('es')">Es</a></li>
+            <li><a (click)="useLanguage('en')">En</a></li>
           </ul>
         </li>
-        -->
-        <li><a routerLink="contact" routerLinkActive="active">Contact</a></li>
+
       </ul>
       <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
     </nav>
 
-    <a class="btn-get-started">Get Started</a>
+    <a class="btn-get-started">{{ 'application.start' | translate }}</a>
 
   </div>
 </header>

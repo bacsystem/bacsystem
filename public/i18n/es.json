@@ -1,0 +1,19 @@
+{
+  "application": {
+    "title": "hello demo",
+    "start": "Empezar",
+    "menu": {
+      "home": "Inicio",
+      "about": "Acerca de",
+      "services": "Servicios",
+      "portfolio": "Portafolio",
+      "team": "Equipo",
+      "contact": "Contacto",
+      "language": "Idioma"
+    },
+    "home": {
+      "title": "Aumente sus conocimientos con Bacsystem",
+      "description": "Somos un equipo de desarrolladores apasionados por la creación de soluciones de código, diseñadas para optimizar el aprendizaje y la productividad en cada proyecto."
+    }
+  }
+}
