@@ -31,7 +31,7 @@ jobs:
         with:
           folder: admin-console-web/dist/browser
           branch: master
-          token: '${{ GHA_TOKEN_APP }}'
+          token: '${{ secrets.GHA_TOKEN_APP }}'
 
 
 
