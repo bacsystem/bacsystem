@@ -99,15 +99,16 @@
 
   /**
    * Initiate g-lightbox
+
+   const glightbox = GLightbox({
+   selector: '.g-lightbox'
+   });
    */
-  const g_lightbox = GLightbox({
-    selector: '.g-lightbox'
-  });
 
   /**
    * Initiate Pure Counter
    */
-  new PureCounter();
+  //new PureCounter();
 
   /**
    * Init isotope layout and filters
