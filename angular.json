@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/admin-console-web",
+            "outputPath": "dist/",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -33,7 +33,7 @@
               "src/assets/vendor/bootstrap-icons/bootstrap-icons.min.css"
             ],
             "scripts": [
-           
+
               "src/assets/vendor/bootstrap/js/bootstrap.bundle.min.js",
               "src/assets/js/main.js"
             ],
@@ -103,7 +103,7 @@
               "src/assets/vendor/bootstrap-icons/bootstrap-icons.min.css"
             ],
             "scripts": [
-            
+
               "src/assets/vendor/bootstrap/js/bootstrap.bundle.min.js",
               "src/assets/js/main.js"
             ]

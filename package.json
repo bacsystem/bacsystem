@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:prod": "ng build --configuration production --base-href=/admin-console-web/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:admin-console-web": "node dist/admin-console-web/server/server.mjs"
