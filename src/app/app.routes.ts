@@ -5,7 +5,6 @@ export const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./public/public.routes').then(value => {
-      console.log("Public routes loaded ");
       return value.default;
     }).catch(reason => {
       console.error("error")
@@ -21,7 +20,6 @@ export const routes: Routes = [
   {
     path: 'console',
     loadChildren: () => import('./modules/console/console.routes').then(value => {
-      console.log("Console routes loaded ", value);
       return value;
     })
   },

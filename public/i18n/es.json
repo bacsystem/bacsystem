@@ -14,6 +14,31 @@
     "home": {
       "title": "Aumente sus conocimientos con Bacsystem",
       "description": "Somos un equipo de desarrolladores apasionados por la creación de soluciones de código, diseñadas para optimizar el aprendizaje y la productividad en cada proyecto."
+    },
+    "contact": {
+      "title": "Contacto",
+      "description": "",
+      "address": "Dirección",
+      "email": "Envíenos un correo electrónico",
+      "number": "Llámanos",
+      "button": "Enviar Mensaje"
+    },
+    "about": {
+      "title": "Sobre nosotros",
+      "description": "Sobre nosotros",
+      "subject": "Subject",
+      "reference": "Subject Subject Subject",
+      "button": "Sobre nosotros",
+      "cards": {
+        "item1": {
+          "label": "Objeto",
+          "description": "Objeto"
+        },
+        "item2": {
+          "label": "Objeto",
+          "description": "Objeto"
+        }
+      }
     }
   }
 }

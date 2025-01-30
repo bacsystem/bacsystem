@@ -14,6 +14,31 @@
     "home": {
       "title": "Grow your knowledge with Bacsystem",
       "description": "We are a team of passionate developers creating code solutions, designed to optimize learning and productivity in each project."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Contact",
+      "address": "Address",
+      "email": "Email",
+      "number": "Call Up",
+      "button": "Send Message"
+    },
+    "about": {
+      "title": "About Us",
+      "description": "About Us",
+      "subject": "Subject",
+      "reference": "Subject Subject Subject",
+      "button": "About Us",
+      "cards": {
+        "item1": {
+          "label": "Item",
+          "description": "Item"
+        },
+        "item2": {
+          "label": "Item",
+          "description": "Item"
+        }
+      }
     }
   }
 }
