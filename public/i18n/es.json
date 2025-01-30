@@ -25,18 +25,26 @@
     },
     "about": {
       "title": "Sobre nosotros",
-      "description": "Sobre nosotros",
-      "subject": "Subject",
-      "reference": "Subject Subject Subject",
+      "description": "Conozca nuestra historia, misión y cómo podemos ayudarlo a crear soluciones tecnológicas personalizables.",
+      "subject": "Introducción",
+      "reference": "Nos apasiona desarrollar software de calidad. Nuestra misión es ofrecer soluciones prácticas, educativas y de negocio que ayuden a personas y organizaciones a aprender, crecer y lanzar sus propios proyectos tecnológicos.",
       "button": "Sobre nosotros",
       "cards": {
         "item1": {
-          "label": "Objeto",
-          "description": "Objeto"
+          "label": "Misión",
+          "description": "Nuestra Misión facilitar el acceso a proyectos de software listos para implementar, promoviendo el aprendizaje y la innovación."
         },
         "item2": {
-          "label": "Objeto",
-          "description": "Objeto"
+          "label": "Visión",
+          "description": "Ser la plataforma líder para adquirir soluciones de código personalizable en el Perú"
+        },
+        "item3": {
+          "label": "Valores",
+          "description": "Innovación, Compromiso, Educación y Calidad"
+        },
+        "item4": {
+          "label": "Equipo",
+          "description": "Somos desarrolladores con experiencia en tecnologías como Java, Golang, Spring Boot, Angular y mucho más."
         }
       }
     }

@@ -25,18 +25,26 @@
     },
     "about": {
       "title": "About Us",
-      "description": "About Us",
-      "subject": "Subject",
-      "reference": "Subject Subject Subject",
+      "description": "Learn about our history, mission, and how we can help you create customizable technology solutions.",
+      "subject": "Introduction",
+      "reference": "We are passionate about developing quality software. Our mission is to offer practical, educational and business solutions that help people and organizations learn, grow and launch their own technological projects.",
       "button": "About Us",
       "cards": {
         "item1": {
-          "label": "Item",
-          "description": "Item"
+          "label": "Mission",
+          "description": "Our Mission facilitate access to software projects ready to implement, promoting learning and innovation."
         },
         "item2": {
-          "label": "Item",
-          "description": "Item"
+          "label": "Vision",
+          "description": "To be the leading platform to acquire customizable code solutions in Peru"
+        },
+        "item3": {
+          "label": "Values",
+          "description": "Innovation, Commitment, Education and Quality"
+        },
+        "item4": {
+          "label": "Teams",
+          "description": "We are developers with experience in technologies such as Java, Golang, SpringBoot, Angular and much more."
         }
       }
     }
