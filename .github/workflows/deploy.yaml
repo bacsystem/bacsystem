@@ -3,10 +3,13 @@ name: Angular Build and Deploy
 on:
   push:
     branches:
-      - master
+      - '*'
+    tags-ignore:
+      - '*.*'
   pull_request:
     branches:
-      - master
+      - 'master'
+      - 'release/v*'
 
 jobs:
   build:
@@ -29,7 +32,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: ./dist/browser
-          branch: release
+          branch: 'release/v*'
           token: '${{ secrets.GHA_TOKEN_APP }}'
 
 
