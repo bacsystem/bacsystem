@@ -3,13 +3,14 @@ name: Angular Build and Deploy
 on:
   push:
     branches:
-      - '*'
+      - 'master'
+      - 'develop'
     tags-ignore:
       - '*.*'
   pull_request:
     branches:
       - 'master'
-      - 'release/v*'
+      - 'develop'
 
 jobs:
   build:
