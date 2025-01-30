@@ -4,13 +4,6 @@ on:
   push:
     branches:
       - 'master'
-      - 'develop'
-    tags-ignore:
-      - '*.*'
-  pull_request:
-    branches:
-      - 'master'
-      - 'develop'
 
 jobs:
   build:
@@ -33,7 +26,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: ./dist/browser
-          branch: 'release/v*'
+          branch: 'release'
           token: '${{ secrets.GHA_TOKEN_APP }}'
 
 
