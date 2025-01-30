@@ -27,14 +27,19 @@
               }
             ],
             "styles": [
-              "src/styles.css",
               "src/assets/vendor/google-fonts/google-fonts.css",
               "src/assets/vendor/bootstrap/css/bootstrap.min.css",
-              "src/assets/vendor/bootstrap-icons/bootstrap-icons.min.css"
+              "src/assets/vendor/bootstrap-icons/bootstrap-icons.min.css",
+              "src/assets/vendor/g-lightbox/css/glightbox.css",
+              "src/assets/vendor/swiper/swiper-bundle.min.css",
+              "src/styles.css"
             ],
             "scripts": [
-
               "src/assets/vendor/bootstrap/js/bootstrap.bundle.min.js",
+              "src/assets/vendor/aos/aos.js",
+              "src/assets/vendor/g-lightbox/js/glightbox.min.js",
+              "src/assets/vendor/swiper/swiper-bundle.min.js",
+              "src/assets/vendor/purecounter/purecounter_vanilla.js",
               "src/assets/js/main.js"
             ],
             "server": "src/main.server.ts",
@@ -97,14 +102,19 @@
               }
             ],
             "styles": [
-              "src/styles.css",
               "src/assets/vendor/google-fonts/google-fonts.css",
               "src/assets/vendor/bootstrap/css/bootstrap.min.css",
-              "src/assets/vendor/bootstrap-icons/bootstrap-icons.min.css"
+              "src/assets/vendor/bootstrap-icons/bootstrap-icons.min.css",
+              "src/assets/vendor/g-lightbox/css/glightbox.css",
+              "src/assets/vendor/swiper/swiper-bundle.min.css",
+              "src/styles.css"
             ],
             "scripts": [
-
               "src/assets/vendor/bootstrap/js/bootstrap.bundle.min.js",
+              "src/assets/vendor/aos/aos.js",
+              "src/assets/vendor/g-lightbox/js/glightbox.min.js",
+              "src/assets/vendor/swiper/swiper-bundle.min.js",
+              "src/assets/vendor/purecounter/purecounter_vanilla.js",
               "src/assets/js/main.js"
             ]
           }

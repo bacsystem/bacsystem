@@ -12,7 +12,7 @@
         @for (item of titles; track item.title) {
           @if (item.active) {
             <li>
-              <a [routerLink]="item.routerLink"
+              <a [name]="item.id" [routerLink]="item.routerLink"
                  [routerLinkActive]="item.routerLinkActive">{{ item.title | translate }}
               </a>
             </li>

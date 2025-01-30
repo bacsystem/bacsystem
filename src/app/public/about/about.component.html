@@ -1,1 +1,45 @@
-<p>about works!</p>
+<!-- About Section -->
+<section id="about" class="about section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>{{ 'application.about.title'| translate }}</h2>
+    <p>{{ 'application.about.description'| translate }}</p>
+  </div><!-- End Section Title -->
+
+  <div class="container">
+
+    <div class="row gy-5">
+
+      <div class="content col-xl-5 d-flex flex-column" data-aos="fade-up" data-aos-delay="100">
+        <h3>{{ 'application.about.subject'| translate }}</h3>
+        <p>
+          {{ 'application.about.reference'| translate }}
+        </p>
+        <a href="#" class="about-btn align-self-center align-self-xl-start">
+          <span>{{ 'application.about.button'| translate }}</span>
+          <i class="bi bi-chevron-right"></i>
+        </a>
+      </div>
+
+      <div class="col-xl-7" data-aos="fade-up" data-aos-delay="200">
+        <div class="row gy-4">
+          @for (item of items; track item.id) {
+            @if (item.enable) {
+              <div class="col-md-6 icon-box position-relative">
+                <i [class]="item.icon"></i>
+                <h4>
+                  <a href="" class="stretched-link"> {{ (item.name + '.' + item.label) | translate }}</a>
+                </h4>
+                <p> {{ (item.name + '.' + item.description) | translate }}</p>
+              </div><!-- Icon-Box -->
+            }
+          }
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section><!-- /About Section -->

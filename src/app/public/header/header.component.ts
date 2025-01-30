@@ -74,7 +74,7 @@ export class HeaderComponent implements OnInit {
         title: "application.menu.contact",
         routerLink: "contact",
         routerLinkActive: "active",
-        active: false
+        active: true
       }
 
     ]
