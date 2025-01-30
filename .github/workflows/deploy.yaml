@@ -1,6 +1,9 @@
 name: Angular Build and Deploy
 
 on:
+  pull_request:
+    branches:
+      - 'develop'
   push:
     branches:
       - 'master'
@@ -28,8 +31,3 @@ jobs:
           folder: ./dist/browser
           branch: 'release'
           token: '${{ secrets.GHA_TOKEN_APP }}'
-
-
-
-
-
