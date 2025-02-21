@@ -13,4 +13,6 @@ import {TranslateModule} from '@ngx-translate/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+
+  title = 'admin-console-web';
 }
