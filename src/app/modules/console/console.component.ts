@@ -1,15 +1,14 @@
 import {Component, OnInit} from '@angular/core';
-import {NgFor} from '@angular/common';
-import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
+import {RouterLink, RouterOutlet} from '@angular/router';
 import ButtonComponent from "../../shared/ui/button/button.component";
 
 @Component({
   selector: 'app-console',
   standalone: true,
-  imports: [NgFor,
+  imports: [
     RouterLink,
     RouterOutlet,
-    RouterLinkActive, ButtonComponent,
+    ButtonComponent,
   ],
   templateUrl: './console.component.html',
   styleUrl: './console.component.css'
