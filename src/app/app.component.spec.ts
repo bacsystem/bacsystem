@@ -14,10 +14,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'admin-console-web' title`, () => {
+  it(`should have the 'bacsystem' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('admin-console-web');
+    expect(app.title).toEqual('bacsystem');
   });
   /*
     it('should render title', () => {

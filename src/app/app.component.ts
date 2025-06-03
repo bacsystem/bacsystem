@@ -14,5 +14,5 @@ import {TranslateModule} from '@ngx-translate/core';
 })
 export class AppComponent {
 
-  title = 'admin-console-web';
+  title = 'bacsystem';
 }
