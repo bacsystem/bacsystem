@@ -1,14 +1,14 @@
 {
-  "name": "admin-console-web",
+  "name": "bacsystem",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:prod": "ng build --configuration production --base-href=/admin-console-web/",
+    "build:prod": "ng build --configuration production --base-href=/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:admin-console-web": "node dist/admin-console-web/server/server.mjs"
+    "serve:ssr:bacsystem": "node dist/bacsystem/server/server.mjs"
   },
   "private": true,
   "dependencies": {

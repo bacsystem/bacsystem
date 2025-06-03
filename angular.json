@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "admin-console-web": {
+    "bacsystem": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -27,20 +27,20 @@
               }
             ],
             "styles": [
-              "src/assets/vendor/google-fonts/google-fonts.css",
-              "src/assets/vendor/bootstrap/css/bootstrap.min.css",
-              "src/assets/vendor/bootstrap-icons/bootstrap-icons.min.css",
-              "src/assets/vendor/g-lightbox/css/glightbox.css",
-              "src/assets/vendor/swiper/swiper-bundle.min.css",
+              "public/assets/vendor/google-fonts/google-fonts.css",
+              "public/assets/vendor/bootstrap/css/bootstrap.min.css",
+              "public/assets/vendor/bootstrap-icons/bootstrap-icons.min.css",
+              "public/assets/vendor/g-lightbox/css/glightbox.css",
+              "public/assets/vendor/swiper/swiper-bundle.min.css",
               "src/styles.css"
             ],
             "scripts": [
-              "src/assets/vendor/bootstrap/js/bootstrap.bundle.min.js",
-              "src/assets/vendor/aos/aos.js",
-              "src/assets/vendor/g-lightbox/js/glightbox.min.js",
-              "src/assets/vendor/swiper/swiper-bundle.min.js",
-              "src/assets/vendor/purecounter/purecounter_vanilla.js",
-              "src/assets/js/main.js"
+              "public/assets/vendor/bootstrap/js/bootstrap.bundle.min.js",
+              "public/assets/vendor/aos/aos.js",
+              "public/assets/vendor/g-lightbox/js/glightbox.min.js",
+              "public/assets/vendor/swiper/swiper-bundle.min.js",
+              "public/assets/vendor/purecounter/purecounter_vanilla.js",
+              "public/assets/js/main.js"
             ],
             "server": "src/main.server.ts",
             "prerender": true,
@@ -76,10 +76,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "admin-console-web:build:production"
+              "buildTarget": "bacsystem:build:production"
             },
             "development": {
-              "buildTarget": "admin-console-web:build:development"
+              "buildTarget": "bacsystem:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -102,20 +102,20 @@
               }
             ],
             "styles": [
-              "src/assets/vendor/google-fonts/google-fonts.css",
-              "src/assets/vendor/bootstrap/css/bootstrap.min.css",
-              "src/assets/vendor/bootstrap-icons/bootstrap-icons.min.css",
-              "src/assets/vendor/g-lightbox/css/glightbox.css",
-              "src/assets/vendor/swiper/swiper-bundle.min.css",
-              "src/styles.css"
+              "public/assets/vendor/google-fonts/google-fonts.css",
+              "public/assets/vendor/bootstrap/css/bootstrap.min.css",
+              "public/assets/vendor/bootstrap-icons/bootstrap-icons.min.css",
+              "public/assets/vendor/g-lightbox/css/glightbox.css",
+              "public/assets/vendor/swiper/swiper-bundle.min.css",
+              "public/styles.css"
             ],
             "scripts": [
-              "src/assets/vendor/bootstrap/js/bootstrap.bundle.min.js",
-              "src/assets/vendor/aos/aos.js",
-              "src/assets/vendor/g-lightbox/js/glightbox.min.js",
-              "src/assets/vendor/swiper/swiper-bundle.min.js",
-              "src/assets/vendor/purecounter/purecounter_vanilla.js",
-              "src/assets/js/main.js"
+              "public/assets/vendor/bootstrap/js/bootstrap.bundle.min.js",
+              "public/assets/vendor/aos/aos.js",
+              "public/assets/vendor/g-lightbox/js/glightbox.min.js",
+              "public/assets/vendor/swiper/swiper-bundle.min.js",
+              "public/assets/vendor/purecounter/purecounter_vanilla.js",
+              "public/assets/js/main.js"
             ]
           }
         }
