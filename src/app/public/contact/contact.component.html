@@ -40,32 +40,36 @@
 
       <div class="col-lg-7">
 
-        <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up"
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="php-email-form" data-aos="fade-up"
               data-aos-delay="500">
           <div class="row gy-4">
 
             <div class="col-md-6">
-              <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+              <input type="text" formControlName="name" class="form-control" placeholder="Your Name" [class.is-invalid]="contactForm.get('name')?.invalid && contactForm.get('name')?.touched">
+              <div class="invalid-feedback" *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched">Name is required.</div>
             </div>
 
             <div class="col-md-6 ">
-              <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+              <input type="email" class="form-control" formControlName="email" placeholder="Your Email" [class.is-invalid]="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
+              <div class="invalid-feedback" *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">Valid email is required.</div>
             </div>
 
             <div class="col-md-12">
-              <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+              <input type="text" class="form-control" formControlName="subject" placeholder="Subject" [class.is-invalid]="contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched">
+              <div class="invalid-feedback" *ngIf="contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched">Subject is required.</div>
             </div>
 
             <div class="col-md-12">
-              <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+              <textarea class="form-control" formControlName="message" rows="6" placeholder="Message" [class.is-invalid]="contactForm.get('message')?.invalid && contactForm.get('message')?.touched"></textarea>
+              <div class="invalid-feedback" *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched">Message is required.</div>
             </div>
 
             <div class="col-md-12 text-center">
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your message has been sent. Thank you!</div>
+              <div class="loading" [class.d-block]="isLoading">Loading</div>
+              <div class="error-message" [class.d-block]="contactForm.invalid && isSubmitted">Please fill all fields correctly.</div>
+              <div class="sent-message" [class.d-block]="isSubmitted && !isLoading">Your message has been sent. Thank you!</div>
 
-              <button type="submit">Send Message</button>
+              <button type="submit" [disabled]="isLoading">Send Message</button>
             </div>
 
           </div>

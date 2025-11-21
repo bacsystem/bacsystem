@@ -47,14 +47,14 @@ export default [
       },
       {
         path: '',
-        redirectTo: 'public/home',
+        redirectTo: 'home',
         pathMatch: 'full',
       }
     ]
   },
   {
     path: '',
-    redirectTo: 'public/home',
+    redirectTo: 'home',
     pathMatch: 'full',
   }
 ] as Routes;

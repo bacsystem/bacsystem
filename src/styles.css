@@ -22,7 +22,8 @@
   --background-color: #ffffff; /* Background color for the entire website, including individual sections */
   --default-color: #444444; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #222222; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #ed1a64; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --accent-color: #2D2E83; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --secondary-color: #41B7A8; /* Secondary accent color for alternative highlights */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
@@ -30,11 +31,11 @@
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
   --nav-color: #444444; /* The default color of the main nav-menu links */
-  --nav-hover-color: #ed1a64; /* Applied to main nav-menu links when they are hovered over or active */
+  --nav-hover-color: #2D2E83; /* Applied to main nav-menu links when they are hovered over or active */
   --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
   --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
   --nav-dropdown-color: #444444; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #ed1a64; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --nav-dropdown-hover-color: #2D2E83; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
@@ -144,7 +145,8 @@ h6 {
 --------------------------------------------------------------*/
 .header {
   color: var(--default-color);
-  background-color: var(--background-color);
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
   padding: 15px 0;
   transition: all 0.5s;
   z-index: 997;
@@ -254,6 +256,7 @@ h6 {
   .nav-menu .active,
   .nav-menu .active:focus {
     color: var(--nav-hover-color);
+    border-bottom: 3px solid #2D2E83;
   }
 
   .nav-menu .dropdown ul {
@@ -375,7 +378,7 @@ h6 {
 
   .nav-menu a i:hover,
   .nav-menu a:focus i:hover {
-    background-color: var(--accent-color);
+    background-color: #2D2E83;
     color: var(--contrast-color);
   }
 
@@ -798,7 +801,7 @@ section,
 
 .about .content .about-btn:hover {
   background: var(--accent-color);
-  color: var(--contrast-color);
+  color: var(--secondary-color);
 }
 
 .about .icon-box i {
@@ -825,8 +828,12 @@ section,
   margin-bottom: 0;
 }
 
-.about .icon-box:hover h4 a {
-  color: var(--accent-color);
+.about .icon-box:hover i {
+  color: var(--secondary-color);
+}
+
+.about .icon-box:hover p {
+  color: var(--default-color);
 }
 
 /*--------------------------------------------------------------
@@ -1715,6 +1722,21 @@ section,
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/
-.starter-section {
-  /* Add your styles here */
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2D2E83;
 }

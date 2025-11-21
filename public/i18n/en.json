@@ -5,15 +5,27 @@
     "menu": {
       "home": "Home",
       "about": "About",
-      "services": "Services",
+      "services": "Solutions",
       "portfolio": "Portfolio",
       "team": "Team",
       "contact": "Contact",
       "language": "Language"
     },
     "home": {
-      "title": "Grow your knowledge with Bacsystem",
-      "description": "We are a team of passionate developers creating code solutions, designed to optimize learning and productivity in each project."
+      "title": "We transform ideas into digital solutions",
+      "description": "Bacsystem is a company specialized in software development, technology consulting and digital transformation. We create innovative solutions that drive your business growth.",
+      "welcome": "Welcome to Bacsystem",
+      "content": "At Bacsystem we specialize in custom software development, web and mobile applications, technology consulting and digital transformation. Our team of experts combines creativity, cutting-edge technology and agile methodologies to deliver solutions that truly make a difference in your business.",
+      "cards": {
+        "development": "Development",
+        "development_desc": "Custom software solutions for your needs.",
+        "innovation": "Innovation",
+        "innovation_desc": "Creative ideas and cutting-edge technologies.",
+        "growth": "Growth",
+        "growth_desc": "We drive the growth of your business.",
+        "team": "Team",
+        "team_desc": "Professionals dedicated to your success."
+      }
     },
     "contact": {
       "title": "Contact",
@@ -25,18 +37,18 @@
     },
     "about": {
       "title": "About Us",
-      "description": "Learn about our history, mission, and how we can help you create customizable technology solutions.",
-      "subject": "Introduction",
-      "reference": "We are passionate about developing quality software. Our mission is to offer practical, educational and business solutions that help people and organizations learn, grow and launch their own technological projects.",
+      "description": "Explore our innovative journey, disruptive vision, and how we co-create technology solutions that redefine industries.",
+      "subject": "Building the Future with Our Clients",
+      "reference": "We are the strategic complement to our clients, providing technological and corporate solutions that drive their growth and strengthen their competitiveness.",
       "button": "About Us",
       "cards": {
         "item1": {
           "label": "Mission",
-          "description": "Our Mission facilitate access to software projects ready to implement, promoting learning and innovation."
+          "description": "Create innovative and quality technological solutions that improve client processes and foster their growth."
         },
         "item2": {
           "label": "Vision",
-          "description": "To be the leading platform to acquire customizable code solutions in Peru"
+          "description": "To be leaders in digital transformation and software development, standing out for excellence and scalable solutions."
         },
         "item3": {
           "label": "Values",
@@ -44,7 +56,77 @@
         },
         "item4": {
           "label": "Teams",
-          "description": "We are developers with experience in technologies such as Java, Golang, SpringBoot, Angular and much more."
+          "description": "We are a dedicated team of skilled professionals committed to delivering exceptional results."
+        }
+      }
+    },
+    "services": {
+      "title": "Our Solutions",
+      "description": "Discover our customized technological solutions",
+      "subtitle": "Innovative Solutions",
+      "content": "At Bacsystem, we offer cutting-edge technological solutions that drive your business growth. Our focus is on innovation, quality and efficiency to meet each client's specific needs.",
+      "button": "Contact Us",
+      "cards": {
+        "webdev": {
+          "title": "Web Development",
+          "description": "Creation of modern and responsive web applications using the latest technologies."
+        },
+        "consulting": {
+          "title": "Consulting",
+          "description": "Expert advice on technologies and best practices to optimize your processes."
+        },
+        "optimization": {
+          "title": "Optimization",
+          "description": "Improvement of performance and efficiency of your existing systems."
+        },
+        "cloud": {
+          "title": "Cloud Solutions",
+          "description": "Migration and implementation of cloud solutions for greater scalability."
+        }
+      }
+    },
+    "portfolio": {
+      "title": "Our Portfolio",
+      "description": "Discover our featured projects and success stories",
+      "filters": {
+        "all": "All",
+        "web": "Web",
+        "mobile": "Mobile",
+        "cloud": "Cloud",
+        "security": "Security"
+      },
+      "projects": {
+        "web1": {
+          "title": "E-commerce Platform",
+          "description": "Complete online store development with payment integration"
+        },
+        "mobile1": {
+          "title": "Delivery App",
+          "description": "Mobile application for delivery management and real-time tracking"
+        },
+        "cloud1": {
+          "title": "Cloud Migration",
+          "description": "Complete migration of local infrastructure to cloud solutions"
+        },
+        "web2": {
+          "title": "Management System",
+          "description": "Web platform for business management with analytical dashboard"
+        },
+        "mobile2": {
+          "title": "Health App",
+          "description": "Mobile application for medical tracking and reminders"
+        },
+        "web3": {
+          "title": "Corporate Portal",
+          "description": "Responsive corporate website with integrated CMS"
+        },
+        "security1": {
+          "title": "Cybersecurity System",
+          "description": "Implementation of advanced security solutions with encryption and continuous monitoring"
+        },
+        "sophia": {
+          "title": "Sophia Smart - Facial Recognition",
+          "description": "Advanced facial recognition system with AI for access control, identity verification and real-time biometric analysis"
         }
       }
     }

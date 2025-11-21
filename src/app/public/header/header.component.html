@@ -3,8 +3,8 @@
 
     <a routerLink="/public/home" class="logo d-flex align-items-center me-auto">
       <!-- Uncomment the line below if you also wish to use an image logo -->
-      <!-- <img src="assets/img/logo.png" alt=""> -->
-      <h1 class="site-name">Bacsystem</h1>
+      <img src="assets/img/logo-bacsystem.png" alt="Bacsystem Logo">
+      <!-- <h1 class="site-name">Bacsystem</h1> -->
     </a>
 
     <nav id="nav-menu" class="nav-menu">
@@ -19,22 +19,14 @@
           }
         }
 
-        <li class="dropdown">
-          <a>
-            <span>{{ 'application.menu.language' | translate }}</span>
-            <i class="bi bi-chevron-down toggle-dropdown"></i>
-          </a>
-          <ul>
-            <li><a style="cursor: pointer" (click)="useLanguage('es')">Es</a></li>
-            <li><a (click)="useLanguage('en')">En</a></li>
-          </ul>
-        </li>
-
       </ul>
       <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
     </nav>
 
-    <a class="btn-get-started">{{ 'application.start' | translate }}</a>
+  </div>
 
+  <div class="language-switcher">
+    <div class="language-indicator"></div>
+    <a class="language-btn" (click)="toggleLanguage()">{{ currentLanguage }}</a>
   </div>
 </header>

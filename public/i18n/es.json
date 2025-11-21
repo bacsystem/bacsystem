@@ -5,15 +5,27 @@
     "menu": {
       "home": "Inicio",
       "about": "Acerca de",
-      "services": "Servicios",
+      "services": "Soluciones",
       "portfolio": "Portafolio",
       "team": "Equipo",
       "contact": "Contacto",
       "language": "Idioma"
     },
     "home": {
-      "title": "Aumente sus conocimientos con Bacsystem",
-      "description": "Somos un equipo de desarrolladores apasionados por la creación de soluciones de código, diseñadas para optimizar el aprendizaje y la productividad en cada proyecto."
+      "title": "Transformamos ideas en soluciones digitales",
+      "description": "Bacsystem es una empresa especializada en desarrollo de software, consultoría tecnológica y transformación digital. Creamos soluciones innovadoras que impulsan el crecimiento de tu negocio.",
+      "welcome": "Bienvenido a Bacsystem",
+      "content": "En Bacsystem nos especializamos en el desarrollo de software a medida, aplicaciones web y móviles, consultoría tecnológica y transformación digital. Nuestro equipo de expertos combina creatividad, tecnología de vanguardia y metodologías ágiles para entregar soluciones que realmente marquen la diferencia en tu negocio.",
+      "cards": {
+        "development": "Desarrollo",
+        "development_desc": "Soluciones de software a medida para tus necesidades.",
+        "innovation": "Innovación",
+        "innovation_desc": "Ideas creativas y tecnologías de vanguardia.",
+        "growth": "Crecimiento",
+        "growth_desc": "Impulsamos el crecimiento de tu negocio.",
+        "team": "Equipo",
+        "team_desc": "Profesionales dedicados a tu éxito."
+      }
     },
     "contact": {
       "title": "Contacto",
@@ -25,26 +37,96 @@
     },
     "about": {
       "title": "Sobre nosotros",
-      "description": "Conozca nuestra historia, misión y cómo podemos ayudarlo a crear soluciones tecnológicas personalizables.",
-      "subject": "Introducción",
-      "reference": "Nos apasiona desarrollar software de calidad. Nuestra misión es ofrecer soluciones prácticas, educativas y de negocio que ayuden a personas y organizaciones a aprender, crecer y lanzar sus propios proyectos tecnológicos.",
+      "description": "Explore nuestra trayectoria innovadora, nuestra visión disruptiva y cómo co-creamos soluciones tecnológicas que redefinen industrias.",
+      "subject": "Construyendo Futuro con Nuestros Clientes",
+      "reference": "Somos el complemento estratégico de nuestros clientes, brindando soluciones tecnológicas y corporativas que impulsan su crecimiento y fortalecen su competitividad.",
       "button": "Sobre nosotros",
       "cards": {
         "item1": {
           "label": "Misión",
-          "description": "Nuestra Misión facilitar el acceso a proyectos de software listos para implementar, promoviendo el aprendizaje y la innovación."
+          "description": "Crear soluciones tecnológicas innovadoras y de calidad que mejoren los procesos de los clientes y fomenten su crecimiento."
         },
         "item2": {
           "label": "Visión",
-          "description": "Ser la plataforma líder para adquirir soluciones de código personalizable en el Perú"
+          "description": "Ser líderes en transformación digital y desarrollo de software, destacando por excelencia y soluciones escalables."
         },
         "item3": {
           "label": "Valores",
-          "description": "Innovación, Compromiso, Educación y Calidad"
+          "description": "Innovación, Integridad, Compromiso, Orientación al Cliente, Trabajo en Equipo y Calidad."
         },
         "item4": {
           "label": "Equipo",
-          "description": "Somos desarrolladores con experiencia en tecnologías como Java, Golang, Spring Boot, Angular y mucho más."
+          "description": "Somos un equipo dedicado de profesionales capacitados comprometidos a entregar resultados excepcionales."
+        }
+      }
+    },
+    "services": {
+      "title": "Nuestras Soluciones",
+      "description": "Descubre nuestras soluciones tecnológicas personalizadas",
+      "subtitle": "Soluciones Innovadoras",
+      "content": "En Bacsystem, ofrecemos soluciones tecnológicas de vanguardia que impulsan el crecimiento de tu negocio. Nuestro enfoque se centra en la innovación, la calidad y la eficiencia para satisfacer las necesidades específicas de cada cliente.",
+      "button": "Contáctanos",
+      "cards": {
+        "webdev": {
+          "title": "Desarrollo Web",
+          "description": "Creación de aplicaciones web modernas y responsivas utilizando las últimas tecnologías."
+        },
+        "consulting": {
+          "title": "Consultoría",
+          "description": "Asesoramiento experto en tecnologías y mejores prácticas para optimizar tus procesos."
+        },
+        "optimization": {
+          "title": "Optimización",
+          "description": "Mejora del rendimiento y eficiencia de tus sistemas existentes."
+        },
+        "cloud": {
+          "title": "Soluciones Cloud",
+          "description": "Migración e implementación de soluciones en la nube para mayor escalabilidad."
+        }
+      }
+    },
+    "portfolio": {
+      "title": "Nuestro Portafolio",
+      "description": "Descubre nuestros proyectos destacados y casos de éxito",
+      "filters": {
+        "all": "Todos",
+        "web": "Web",
+        "mobile": "Móvil",
+        "cloud": "Cloud",
+        "security": "Seguridad"
+      },
+      "projects": {
+        "web1": {
+          "title": "Plataforma E-commerce",
+          "description": "Desarrollo de tienda online completa con integración de pagos"
+        },
+        "mobile1": {
+          "title": "App de Delivery",
+          "description": "Aplicación móvil para gestión de entregas y seguimiento en tiempo real"
+        },
+        "cloud1": {
+          "title": "Migración Cloud",
+          "description": "Migración completa de infraestructura local a soluciones cloud"
+        },
+        "web2": {
+          "title": "Sistema de Gestión",
+          "description": "Plataforma web para gestión empresarial con dashboard analítico"
+        },
+        "mobile2": {
+          "title": "App de Salud",
+          "description": "Aplicación móvil para seguimiento médico y recordatorios"
+        },
+        "web3": {
+          "title": "Portal Corporativo",
+          "description": "Sitio web corporativo responsive con CMS integrado"
+        },
+        "security1": {
+          "title": "Sistema de Ciberseguridad",
+          "description": "Implementación de soluciones de seguridad avanzadas con encriptación y monitoreo continuo"
+        },
+        "sophia": {
+          "title": "Sophia Smart - Reconocimiento Facial",
+          "description": "Sistema avanzado de reconocimiento facial con IA para control de acceso, verificación de identidad y análisis biométrico en tiempo real"
         }
       }
     }
