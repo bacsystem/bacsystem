@@ -1,1 +1,6 @@
-send_metrics=false
+name = "bacsystem-solutions"
+pages_build_output_dir = "dist/browser"
+compatibility_date = "2025-09-27"
+
+[observability]
+enabled = true
