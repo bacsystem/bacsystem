@@ -104,7 +104,7 @@
               "public/assets/vendor/bootstrap-icons/bootstrap-icons.min.css",
               "public/assets/vendor/g-lightbox/css/glightbox.css",
               "public/assets/vendor/swiper/swiper-bundle.min.css",
-              "public/styles.css"
+              "src/styles.css"
             ],
             "scripts": [
               "public/assets/vendor/bootstrap/js/bootstrap.bundle.min.js",
