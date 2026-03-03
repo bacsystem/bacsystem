@@ -3,7 +3,7 @@
 ![Angular](https://img.shields.io/badge/Angular-18-DD0031?logo=angular&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.5-3178C6?logo=typescript&logoColor=white)
 ![Cloudflare Pages](https://img.shields.io/badge/Deploy-Cloudflare%20Pages-F38020?logo=cloudflare&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-green)
+![License](https://img.shields.io/badge/License-Private-lightgrey)
 
 Corporate website for **Bacsystem Solutions**, a company specialized in software development, technology consulting, and digital transformation. Built with Angular 18 with SSR support and deployed on Cloudflare Pages.
 
@@ -37,7 +37,7 @@ Corporate website for **Bacsystem Solutions**, a company specialized in software
 
 ## Project Structure
 
-```
+```text
 src/
 ├── app/
 │   ├── core/            # Shared services (LanguageService, MenuService) and models
