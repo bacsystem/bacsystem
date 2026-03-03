@@ -32,6 +32,7 @@
               "public/assets/vendor/bootstrap-icons/bootstrap-icons.min.css",
               "public/assets/vendor/g-lightbox/css/glightbox.css",
               "public/assets/vendor/swiper/swiper-bundle.min.css",
+              "public/assets/vendor/aos/aos.css",
               "src/styles.css"
             ],
             "scripts": [
@@ -48,16 +49,17 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "10MB",
-                  "maximumError": "10MB"
+                  "maximumWarning": "1.5MB",
+                  "maximumError": "2MB"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "10MB",
-                  "maximumError": "10MB"
+                  "maximumWarning": "6KB",
+                  "maximumError": "10KB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "allowedCommonJsDependencies": ["aos"]
             },
             "development": {
               "optimization": false,

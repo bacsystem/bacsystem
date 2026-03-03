@@ -15,36 +15,8 @@
   window.addEventListener('load', toggleScrolled);
 
   /**
-   * Mobile nav toggle
+   * Mobile nav toggle — handled by Angular (HeaderComponent)
    */
-  const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
-
-  function mobileNavToggle() {
-    if (!mobileNavToggleBtn) return;
-    console.log("mobileNavToggle", mobileNavToggleBtn);
-    document.querySelector('body').classList.toggle('mobile-nav-active');
-    mobileNavToggleBtn.classList.toggle('bi-list');
-    mobileNavToggleBtn.classList.toggle('bi-x');
-  }
-
-  if (mobileNavToggleBtn) {
-    mobileNavToggleBtn.addEventListener('click', mobileNavToggle);
-  }
-
-  /**
-   * Hide mobile nav on same-page/hash links
-   */
-  document.querySelectorAll('#nav-menu a')
-    .forEach(nav_menu => {
-      console.log("nav_menu", nav_menu);
-      nav_menu.addEventListener('click', () => {
-        if (document.querySelector('.mobile-nav-active')) {
-          console.log("if nav_menu", nav_menu);
-          mobileNavToggle();
-        }
-      });
-
-    });
 
   /**
    * Toggle mobile nav dropdowns
@@ -112,15 +84,12 @@
   /**
    * Initiate g-lightbox
    */
-  const glightbox = GLightbox({
-    selector: '.g-lightbox'
-  });
+  GLightbox({ selector: '.g-lightbox' });
 
   /**
    * Initiate Pure Counter
    */
-
-  new PureCounter();
+  new PureCounter(); // eslint-disable-line no-new
 
   /**
    * Init swiper sliders
@@ -134,7 +103,7 @@
       if (swiperElement.classList.contains("swiper-tab")) {
         initSwiperWithCustomPagination(swiperElement, config);
       } else {
-        new Swiper(swiperElement, config);
+        new Swiper(swiperElement, config); // eslint-disable-line no-new
       }
     });
   }
@@ -178,13 +147,13 @@
    * Correct scrolling position upon page load for URLs containing hash links.
    */
   window.addEventListener('load', function (e) {
-    if (window.location.hash) {
-      if (document.querySelector(window.location.hash)) {
+    if (globalThis.location.hash) {
+      if (document.querySelector(globalThis.location.hash)) {
         setTimeout(() => {
-          let section = document.querySelector(window.location.hash);
+          let section = document.querySelector(globalThis.location.hash);
           let scrollMarginTop = getComputedStyle(section).scrollMarginTop;
-          window.scrollTo({
-            top: section.offsetTop - parseInt(scrollMarginTop),
+          globalThis.scrollTo({
+            top: section.offsetTop - Number.parseInt(scrollMarginTop),
             behavior: 'auto'
           });
         }, 100);

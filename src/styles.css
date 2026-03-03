@@ -261,39 +261,60 @@ h6 {
 
   .nav-menu .dropdown ul {
     margin: 0;
-    padding: 10px 0;
+    padding: 8px 0;
     background: var(--nav-dropdown-background-color);
     display: block;
     position: absolute;
     visibility: hidden;
-    left: 14px;
-    top: 130%;
+    left: 0;
+    top: 120%;
     opacity: 0;
-    transition: 0.3s;
-    border-radius: 4px;
+    transition: opacity 0.25s ease, top 0.25s ease, visibility 0.25s ease;
+    border-radius: 8px;
     z-index: 99;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+    border-top: 3px solid var(--accent-color);
+    min-width: 220px;
+  }
+
+  .nav-menu .dropdown ul::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 24px;
+    border-width: 0 7px 8px 7px;
+    border-style: solid;
+    border-color: transparent transparent var(--accent-color) transparent;
   }
 
   .nav-menu .dropdown ul li {
-    min-width: 200px;
+    min-width: 220px;
   }
 
   .nav-menu .dropdown ul a {
     padding: 10px 20px;
-    font-size: 15px;
+    font-size: 14px;
     text-transform: none;
     color: var(--nav-dropdown-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 4px;
+    margin: 2px 6px;
+    transition: background 0.2s ease, color 0.2s ease;
   }
 
   .nav-menu .dropdown ul a i {
-    font-size: 12px;
+    font-size: 16px;
+    color: var(--accent-color);
+    flex-shrink: 0;
   }
 
   .nav-menu .dropdown ul a:hover,
   .nav-menu .dropdown ul .active:hover,
   .nav-menu .dropdown ul li:hover > a {
     color: var(--nav-dropdown-hover-color);
+    background: color-mix(in srgb, var(--accent-color), transparent 92%);
   }
 
   .nav-menu .dropdown:hover > ul {
@@ -302,17 +323,14 @@ h6 {
     visibility: visible;
   }
 
-  .nav-menu .dropdown .dropdown ul {
-    top: 0;
-    left: -90%;
-    visibility: hidden;
+  /* Rotate chevron on hover */
+  .nav-menu .dropdown:hover > a .toggle-dropdown,
+  .nav-menu .dropdown.dropdown-open > a .toggle-dropdown {
+    transform: rotate(180deg);
   }
 
-  .nav-menu .dropdown .dropdown:hover > ul {
-    opacity: 1;
-    top: 0;
-    left: -100%;
-    visibility: visible;
+  .nav-menu .dropdown > a .toggle-dropdown {
+    transition: transform 0.3s ease;
   }
 }
 
@@ -327,119 +345,94 @@ h6 {
     transition: color 0.3s;
   }
 
+  .mobile-nav-toggle i {
+    line-height: 1;
+    display: block;
+  }
+
   .nav-menu {
     padding: 0;
     z-index: 9997;
   }
 
+  /* Drawer panel — oculto fuera de pantalla a la derecha */
   .nav-menu ul {
-    display: none;
+    display: flex;
+    flex-direction: column;
     list-style: none;
-    position: absolute;
-    inset: 60px 20px 20px 20px;
-    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    padding: 70px 0 40px;
     margin: 0;
-    border-radius: 6px;
     background-color: var(--nav-mobile-background-color);
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
     overflow-y: auto;
-    transition: 0.3s;
     z-index: 9998;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .nav-menu li {
+    border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  }
+
+  .nav-menu li:last-child {
+    border-bottom: none;
   }
 
   .nav-menu a,
   .nav-menu a:focus {
     color: var(--nav-dropdown-color);
-    padding: 10px 20px;
-    font-family: var(--nav-font), serif;
-    font-size: 17px;
+    padding: 14px 24px;
+    font-family: var(--nav-font), sans-serif;
+    font-size: 15px;
     font-weight: 500;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 10px;
     white-space: nowrap;
-    transition: 0.3s;
-  }
-
-  .nav-menu a i,
-  .nav-menu a:focus i {
-    font-size: 12px;
-    line-height: 0;
-    margin-left: 5px;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    transition: 0.3s;
-    background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
-  }
-
-  .nav-menu a i:hover,
-  .nav-menu a:focus i:hover {
-    background-color: #2D2E83;
-    color: var(--contrast-color);
+    transition: background 0.2s, color 0.2s;
+    border-radius: 0;
   }
 
   .nav-menu a:hover,
   .nav-menu .active,
   .nav-menu .active:focus {
-    color: var(--nav-dropdown-hover-color);
+    color: var(--accent-color);
+    background: color-mix(in srgb, var(--accent-color), transparent 92%);
   }
 
-  .nav-menu .active i,
-  .nav-menu .active:focus i {
-    background-color: var(--accent-color);
-    color: var(--contrast-color);
-    transform: rotate(180deg);
+  .nav-menu .active {
+    font-weight: 600;
+    border-left: 3px solid var(--accent-color);
   }
 
-  .nav-menu .dropdown ul {
-    position: static;
-    display: none;
-    z-index: 99;
-    padding: 10px 0;
-    margin: 10px 20px;
-    background-color: var(--nav-dropdown-background-color);
-    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-    box-shadow: none;
-    transition: all 0.5s ease-in-out;
-  }
-
-  .nav-menu .dropdown ul ul {
-    background-color: rgba(33, 37, 41, 0.1);
-  }
-
-  .nav-menu .dropdown > .dropdown-active {
-    display: block;
-    background-color: rgba(33, 37, 41, 0.03);
-  }
-
+  /* Overlay / backdrop */
   .mobile-nav-active {
     overflow: hidden;
   }
 
+  /* Botón de cierre — reposicionado sobre el drawer */
   .mobile-nav-active .mobile-nav-toggle {
-    color: #fff;
-    position: absolute;
-    font-size: 32px;
-    top: 15px;
-    right: 15px;
+    color: var(--nav-color);
+    position: fixed;
+    top: 16px;
+    right: 16px;
     margin-right: 0;
     z-index: 9999;
+    font-size: 32px;
   }
 
-  .mobile-nav-active .nav-menu {
-    position: fixed;
-    overflow: hidden;
-    inset: 0;
-    background: rgba(33, 37, 41, 0.8);
-    transition: 0.3s;
-  }
-
-  .mobile-nav-active .nav-menu > ul {
+  .mobile-nav-active .mobile-nav-toggle i {
+    line-height: 1;
     display: block;
+  }
+
+  /* Drawer visible */
+  .mobile-nav-active .nav-menu > ul {
+    right: 0;
   }
 }
 

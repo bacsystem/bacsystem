@@ -7,15 +7,16 @@
       "about": "Acerca de",
       "services": "Soluciones",
       "portfolio": "Portafolio",
+      "products": "Productos",
       "team": "Equipo",
       "contact": "Contacto",
       "language": "Idioma"
     },
     "home": {
       "title": "Transformamos ideas en soluciones digitales",
-      "description": "Bacsystem es una empresa especializada en desarrollo de software, consultoría tecnológica y transformación digital. Creamos soluciones innovadoras que impulsan el crecimiento de tu negocio.",
-      "welcome": "Bienvenido a Bacsystem",
-      "content": "En Bacsystem nos especializamos en el desarrollo de software a medida, aplicaciones web y móviles, consultoría tecnológica y transformación digital. Nuestro equipo de expertos combina creatividad, tecnología de vanguardia y metodologías ágiles para entregar soluciones que realmente marquen la diferencia en tu negocio.",
+      "description": "Bacsystem Solutions es una empresa especializada en desarrollo de software, consultoría tecnológica y transformación digital. Creamos soluciones innovadoras que impulsan el crecimiento de tu negocio.",
+      "welcome": "Bienvenido a Bacsystem Solutions",
+      "content": "En Bacsystem Solutions nos especializamos en el desarrollo de software a medida, aplicaciones web y móviles, consultoría tecnológica y transformación digital. Nuestro equipo de expertos combina creatividad, tecnología de vanguardia y metodologías ágiles para entregar soluciones que realmente marquen la diferencia en tu negocio.",
       "cards": {
         "development": "Desarrollo",
         "development_desc": "Soluciones de software a medida para tus necesidades.",
@@ -127,6 +128,83 @@
         "sophia": {
           "title": "Sophia Smart - Reconocimiento Facial",
           "description": "Sistema avanzado de reconocimiento facial con IA para control de acceso, verificación de identidad y análisis biométrico en tiempo real"
+        }
+      }
+    },
+    "products": {
+      "title": "Productos",
+      "description": "Descubre nuestros productos tecnológicos organizados por área de solución",
+      "categories": {
+        "web": {
+          "title": "Soluciones Web",
+          "items": {
+            "ecommerce": {
+              "title": "Plataforma E-commerce",
+              "description": "Tienda online completa con carrito de compras, pasarelas de pago y panel de administración.",
+              "f1": "Integración con múltiples pasarelas de pago",
+              "f2": "Gestión de inventario en tiempo real",
+              "f3": "Panel administrativo intuitivo"
+            },
+            "erp": {
+              "title": "Sistema ERP Empresarial",
+              "description": "Plataforma integral de gestión empresarial con módulos personalizables.",
+              "f1": "Módulos de RR.HH., finanzas y ventas",
+              "f2": "Reportes y dashboard analítico",
+              "f3": "Integración con sistemas existentes"
+            },
+            "analytics": {
+              "title": "Portal de Analytics",
+              "description": "Herramienta de análisis de datos con visualizaciones interactivas en tiempo real.",
+              "f1": "Dashboards configurables",
+              "f2": "Exportación en múltiples formatos",
+              "f3": "Alertas automáticas de KPIs"
+            }
+          }
+        },
+        "mobile": {
+          "title": "Soluciones Móvil",
+          "items": {
+            "delivery": {
+              "title": "App de Delivery",
+              "description": "Aplicación móvil para entregas a domicilio con seguimiento GPS y notificaciones.",
+              "f1": "Seguimiento GPS en tiempo real",
+              "f2": "Notificaciones push automáticas",
+              "f3": "Gestión de repartidores"
+            },
+            "health": {
+              "title": "App de Salud",
+              "description": "Aplicación móvil para seguimiento médico, citas y recordatorios de medicación.",
+              "f1": "Historial clínico digital",
+              "f2": "Recordatorios de medicación",
+              "f3": "Agendamiento de citas online"
+            }
+          }
+        },
+        "ai": {
+          "title": "IA y Seguridad",
+          "items": {
+            "sophia": {
+              "title": "Sophia Smart",
+              "description": "Sistema avanzado de reconocimiento facial con inteligencia artificial para control de acceso e identidad.",
+              "f1": "Reconocimiento facial en tiempo real",
+              "f2": "Control de acceso biométrico",
+              "f3": "Análisis e informes de acceso"
+            },
+            "cybersecurity": {
+              "title": "Ciberseguridad Avanzada",
+              "description": "Solución integral de seguridad con monitoreo continuo, encriptación y detección de amenazas.",
+              "f1": "Monitoreo 24/7 de amenazas",
+              "f2": "Encriptación de datos avanzada",
+              "f3": "Respuesta automática a incidentes"
+            },
+            "cloud": {
+              "title": "Infraestructura Cloud",
+              "description": "Migración e implementación de infraestructura escalable en la nube con backup automático.",
+              "f1": "Escalado automático de recursos",
+              "f2": "Backup automático diario",
+              "f3": "Monitoreo y alertas 24/7"
+            }
+          }
         }
       }
     }

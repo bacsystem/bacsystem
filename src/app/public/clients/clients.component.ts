@@ -1,15 +1,59 @@
 import { Component } from '@angular/core';
-import {NgOptimizedImage} from '@angular/common';
+import { NgOptimizedImage } from '@angular/common';
+
+export interface Client {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+}
 
 @Component({
   selector: 'app-clients',
   standalone: true,
-  imports: [
-    NgOptimizedImage
-  ],
+  imports: [NgOptimizedImage],
   templateUrl: './clients.component.html',
-  styleUrl: './clients.component.css'
+  styleUrl: './clients.component.css',
 })
 export class ClientsComponent {
+  showClients = false;
 
+  readonly clients: Client[] = [
+    {
+      src: 'assets/img/clients/client-1.png',
+      alt: 'Client 1',
+      width: 400,
+      height: 173,
+    },
+    {
+      src: 'assets/img/clients/client-2.png',
+      alt: 'Client 2',
+      width: 400,
+      height: 140,
+    },
+    {
+      src: 'assets/img/clients/client-3.png',
+      alt: 'Client 3',
+      width: 400,
+      height: 142,
+    },
+    {
+      src: 'assets/img/clients/client-4.png',
+      alt: 'Client 4',
+      width: 400,
+      height: 141,
+    },
+    {
+      src: 'assets/img/clients/client-5.png',
+      alt: 'Client 5',
+      width: 400,
+      height: 142,
+    },
+    {
+      src: 'assets/img/clients/client-6.png',
+      alt: 'Client 6',
+      width: 400,
+      height: 125,
+    },
+  ];
 }

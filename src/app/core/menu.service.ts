@@ -7,63 +7,63 @@ export interface MenuItem {
   routerLink: string;
   routerLinkActive: string;
   active: boolean;
+  children?: MenuItem[];
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MenuService {
-
   getMenuItems(): MenuItem[] {
     return [
       {
         id: 1,
-        icon: "",
-        title: "application.menu.home",
-        routerLink: "home",
-        routerLinkActive: "active",
-        active: true
+        icon: '',
+        title: 'application.menu.home',
+        routerLink: '/public/home',
+        routerLinkActive: 'active',
+        active: true,
       },
       {
         id: 2,
-        icon: "",
-        title: "application.menu.about",
-        routerLink: "about",
-        routerLinkActive: "active",
-        active: true
+        icon: '',
+        title: 'application.menu.about',
+        routerLink: '/public/about',
+        routerLinkActive: 'active',
+        active: true,
       },
       {
         id: 3,
-        icon: "",
-        title: "application.menu.services",
-        routerLink: "services",
-        routerLinkActive: "active",
-        active: true
+        icon: '',
+        title: 'application.menu.services',
+        routerLink: '/public/services',
+        routerLinkActive: 'active',
+        active: true,
       },
       {
         id: 4,
-        icon: "",
-        title: "application.menu.portfolio",
-        routerLink: "portfolio",
-        routerLinkActive: "active",
-        active: true
+        icon: '',
+        title: 'application.menu.products',
+        routerLink: '/public/products',
+        routerLinkActive: 'active',
+        active: true,
       },
       {
         id: 5,
-        icon: "",
-        title: "application.menu.team",
-        routerLink: "team",
-        routerLinkActive: "active",
-        active: false
+        icon: '',
+        title: 'application.menu.team',
+        routerLink: '/public/team',
+        routerLinkActive: 'active',
+        active: false,
       },
       {
         id: 6,
-        icon: "",
-        title: "application.menu.contact",
-        routerLink: "contact",
-        routerLinkActive: "active",
-        active: true
-      }
+        icon: '',
+        title: 'application.menu.contact',
+        routerLink: '/public/contact',
+        routerLinkActive: 'active',
+        active: true,
+      },
     ];
   }
 }

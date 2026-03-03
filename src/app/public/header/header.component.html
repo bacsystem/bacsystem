@@ -1,28 +1,67 @@
 <header id="header" class="header d-flex align-items-center sticky-top">
-  <div class="container-fluid container-xl position-relative d-flex align-items-center">
-
+  <div
+    class="container-fluid container-xl position-relative d-flex align-items-center"
+  >
     <a routerLink="/public/home" class="logo d-flex align-items-center me-auto">
       <!-- Uncomment the line below if you also wish to use an image logo -->
-      <img src="assets/img/logo-bacsystem.png" alt="Bacsystem Logo">
-      <!-- <h1 class="site-name">Bacsystem</h1> -->
+      <img src="assets/img/logo-bacsystem.png" alt="Bacsystem Logo" />
     </a>
 
     <nav id="nav-menu" class="nav-menu">
       <ul>
-        @for (item of titles; track item.title) {
+        @for (item of titles; track item.id) {
           @if (item.active) {
-            <li>
-              <a [name]="item.id" [routerLink]="item.routerLink"
-                 [routerLinkActive]="item.routerLinkActive">{{ item.title | translate }}
-              </a>
-            </li>
+            @if (item.children && item.children.length > 0) {
+              <li class="dropdown" [class.dropdown-open]="activeDropdownId === item.id">
+                <a href="#" (click)="$event.preventDefault(); toggleDropdown(item.id)">
+                  {{ item.title | translate }}
+                  <i class="bi bi-chevron-down toggle-dropdown"></i>
+                </a>
+                <ul [class.dropdown-active]="activeDropdownId === item.id">
+                  @for (child of item.children; track child.id) {
+                    @if (child.active) {
+                      <li>
+                        <a
+                          [routerLink]="child.routerLink"
+                          [routerLinkActive]="child.routerLinkActive"
+                          (click)="closeMobileNav()"
+                        >
+                          <i [class]="child.icon"></i>
+                          {{ child.title | translate }}
+                        </a>
+                      </li>
+                    }
+                  }
+                </ul>
+              </li>
+            } @else {
+              <li>
+                <a
+                  [routerLink]="item.routerLink"
+                  [routerLinkActive]="item.routerLinkActive"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  (click)="closeMobileNav()"
+                  >{{ item.title | translate }}
+                </a>
+              </li>
+            }
           }
         }
-
       </ul>
-      <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      <button
+        type="button"
+        class="mobile-nav-toggle d-xl-none"
+        aria-label="Toggle navigation"
+        (click)="toggleMobileNav()"
+        (keydown.enter)="toggleMobileNav()"
+      >
+        <i
+          class="bi"
+          [class.bi-list]="!mobileNavOpen"
+          [class.bi-x]="mobileNavOpen"
+        ></i>
+      </button>
     </nav>
-
   </div>
 
   <div class="language-switcher">
@@ -30,3 +69,13 @@
     <a class="language-btn" (click)="toggleLanguage()">{{ currentLanguage }}</a>
   </div>
 </header>
+
+@if (mobileNavOpen) {
+  <button
+    type="button"
+    class="nav-backdrop"
+    (click)="closeMobileNav()"
+    (keydown.escape)="closeMobileNav()"
+    aria-label="Close navigation"
+  ></button>
+}

@@ -7,15 +7,16 @@
       "about": "About",
       "services": "Solutions",
       "portfolio": "Portfolio",
+      "products": "Products",
       "team": "Team",
       "contact": "Contact",
       "language": "Language"
     },
     "home": {
       "title": "We transform ideas into digital solutions",
-      "description": "Bacsystem is a company specialized in software development, technology consulting and digital transformation. We create innovative solutions that drive your business growth.",
-      "welcome": "Welcome to Bacsystem",
-      "content": "At Bacsystem we specialize in custom software development, web and mobile applications, technology consulting and digital transformation. Our team of experts combines creativity, cutting-edge technology and agile methodologies to deliver solutions that truly make a difference in your business.",
+      "description": "Bacsystem Solutions is a company specialized in software development, technology consulting and digital transformation. We create innovative solutions that drive your business growth.",
+      "welcome": "Welcome to Bacsystem Solutions",
+      "content": "At Bacsystem Solutions we specialize in custom software development, web and mobile applications, technology consulting and digital transformation. Our team of experts combines creativity, cutting-edge technology and agile methodologies to deliver solutions that truly make a difference in your business.",
       "cards": {
         "development": "Development",
         "development_desc": "Custom software solutions for your needs.",
@@ -127,6 +128,83 @@
         "sophia": {
           "title": "Sophia Smart - Facial Recognition",
           "description": "Advanced facial recognition system with AI for access control, identity verification and real-time biometric analysis"
+        }
+      }
+    },
+    "products": {
+      "title": "Products",
+      "description": "Discover our technology products organized by solution area",
+      "categories": {
+        "web": {
+          "title": "Web Solutions",
+          "items": {
+            "ecommerce": {  
+              "title": "E-commerce Platform",
+              "description": "Complete online store with shopping cart, payment gateways and administration panel.",
+              "f1": "Integration with multiple payment gateways",
+              "f2": "Real-time inventory management",
+              "f3": "Intuitive admin panel"
+            },
+            "erp": {
+              "title": "Enterprise ERP System",
+              "description": "Comprehensive business management platform with customizable modules.",
+              "f1": "HR, finance and sales modules",
+              "f2": "Reports and analytical dashboard",
+              "f3": "Integration with existing systems"
+            },
+            "analytics": {
+              "title": "Analytics Portal",
+              "description": "Data analysis tool with interactive real-time visualizations.",
+              "f1": "Configurable dashboards",
+              "f2": "Export in multiple formats",
+              "f3": "Automatic KPI alerts"
+            }
+          }
+        },
+        "mobile": {
+          "title": "Mobile Solutions",
+          "items": {
+            "delivery": {
+              "title": "Delivery App",
+              "description": "Mobile application for home deliveries with GPS tracking and notifications.",
+              "f1": "Real-time GPS tracking",
+              "f2": "Automatic push notifications",
+              "f3": "Delivery driver management"
+            },
+            "health": {
+              "title": "Health App",
+              "description": "Mobile application for medical tracking, appointments and medication reminders.",
+              "f1": "Digital medical history",
+              "f2": "Medication reminders",
+              "f3": "Online appointment scheduling"
+            }
+          }
+        },
+        "ai": {
+          "title": "AI & Security",
+          "items": {
+            "sophia": {
+              "title": "Sophia Smart",
+              "description": "Advanced facial recognition system with artificial intelligence for access control and identity verification.",
+              "f1": "Real-time facial recognition",
+              "f2": "Biometric access control",
+              "f3": "Access reports and analytics"
+            },
+            "cybersecurity": {
+              "title": "Advanced Cybersecurity",
+              "description": "Comprehensive security solution with continuous monitoring, encryption and threat detection.",
+              "f1": "24/7 threat monitoring",
+              "f2": "Advanced data encryption",
+              "f3": "Automatic incident response"
+            },
+            "cloud": {
+              "title": "Cloud Infrastructure",
+              "description": "Migration and implementation of scalable cloud infrastructure with automatic backup.",
+              "f1": "Automatic resource scaling",
+              "f2": "Daily automatic backup",
+              "f3": "24/7 monitoring and alerts"
+            }
+          }
         }
       }
     }
