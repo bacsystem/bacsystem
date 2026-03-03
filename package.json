@@ -1,6 +1,6 @@
 {
   "name": "bacsystem",
-  "version": "v1.0.0",
+  "version": "v1.1.0",
   "packageManager": "yarn@1.22.22",
   "scripts": {
     "ng": "ng",
