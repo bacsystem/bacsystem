@@ -59,7 +59,7 @@ export async function onRequestPost(context: any) {
                 },
                 {
                     type: "text/html",
-                    value: `<p><b>Nombre:</b> ${escapedName}</p><p><b>Email:</b> ${escapedEmail}</p><p><b>Mensaje:</b><br/>${escapedMessage.replace(/\\n/g, '<br/>')}</p>`,
+                    value: `<p><b>Nombre:</b> ${escapedName}</p><p><b>Email:</b> ${escapedEmail}</p><p><b>Mensaje:</b><br/>${escapedMessage.replace(/\r?\n/g, '<br/>')}</p>`,
                 },
             ],
         };
