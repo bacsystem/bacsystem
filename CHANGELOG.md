@@ -5,6 +5,17 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.2.0] — 2026-03-03
+
+### Added
+- Configured real contact form integration using `nodemailer` via local Express SSR server.
+
+### Changed
+- Updated tab icon (favicon) to use the Bacsystem custom logo color replacing the default Angular one, using the hardcoded standard format.
+- Set version to `v1.2.0`.
+
+---
+
 ## [1.1.0] — 2026-03-03
 
 ### Added
