@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {TranslatePipe} from '@ngx-translate/core';
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import {CommonModule} from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { TranslatePipe } from '@ngx-translate/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-contact',
@@ -21,7 +22,7 @@ export class ContactComponent implements OnInit {
   isSubmitted = false;
   isLoading = false;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private http: HttpClient) {
     this.contactForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -42,12 +43,20 @@ export class ContactComponent implements OnInit {
   onSubmit() {
     if (this.contactForm.valid) {
       this.isLoading = true;
-      // Simulate sending
-      setTimeout(() => {
-        this.isSubmitted = true;
-        this.isLoading = false;
-        console.log('Form submitted:', this.contactForm.value);
-      }, 2000);
+      this.isSubmitted = false;
+
+      this.http.post('/api/contact', this.contactForm.value).subscribe({
+        next: (response: any) => {
+          this.isSubmitted = true;
+          this.isLoading = false;
+          console.log('Form submitted successfully:', response);
+        },
+        error: (error) => {
+          this.isLoading = false;
+          console.error('Error sending message:', error);
+          alert('Hubo un error al enviar el mensaje. Por favor, inténtelo de nuevo.');
+        }
+      });
     } else {
       this.contactForm.markAllAsTouched();
     }

@@ -16,6 +16,10 @@
             "outputPath": "dist",
             "index": "src/index.html",
             "browser": "src/main.ts",
+            "server": "src/main.server.ts",
+            "ssr": {
+              "entry": "server.ts"
+            },
             "polyfills": [
               "zone.js"
             ],
@@ -59,7 +63,9 @@
                 }
               ],
               "outputHashing": "all",
-              "allowedCommonJsDependencies": ["aos"]
+              "allowedCommonJsDependencies": [
+                "aos"
+              ]
             },
             "development": {
               "optimization": false,
