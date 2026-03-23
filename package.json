@@ -6,7 +6,7 @@
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0 --port 4200",
     "build": "ng build",
-    "build:prod": "ng build --configuration production --base-href=/",
+    "build:prod": "ng build --configuration production --base-href=/ && node -e \"require('fs').copyFileSync('public/_redirects', 'dist/browser/_redirects')\"",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:bacsystem": "node dist/bacsystem/server/server.mjs"
@@ -27,7 +27,7 @@
     "@ngx-translate/http-loader": "^16.0.1",
     "aos": "^2.3.4",
     "express": "^4.18.2",
-    "nodemailer": "^8.0.1",
+    "nodemailer": "^7",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10"

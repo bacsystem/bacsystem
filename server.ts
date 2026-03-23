@@ -64,7 +64,7 @@ export function app(): express.Express {
         to: "contact@bacsystemsolutions.com",
         subject: `Nuevo mensaje de contacto: ${escapedSubject}`,
         text: `Nombre: ${name}\nEmail: ${email}\n\nMensaje:\n${message}`,
-        html: `<p><b>Nombre:</b> ${escapedName}</p><p><b>Email:</b> ${escapedEmail}</p><p><b>Mensaje:</b><br/>${escapedMessage.replace(/\\n/g, '<br/>')}</p>`
+        html: `<p><b>Nombre:</b> ${escapedName}</p><p><b>Email:</b> ${escapedEmail}</p><p><b>Mensaje:</b><br/>${escapedMessage.replace(/\r?\n/g, '<br/>')}</p>`
       });
 
       res.status(200).json({ success: true, message: 'Correo enviado satisfactoriamente' });
