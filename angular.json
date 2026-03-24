@@ -16,10 +16,6 @@
             "outputPath": "dist",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "server": "src/main.server.ts",
-            "ssr": {
-              "entry": "server.ts"
-            },
             "polyfills": [
               "zone.js"
             ],
@@ -63,9 +59,7 @@
                 }
               ],
               "outputHashing": "all",
-              "allowedCommonJsDependencies": [
-                "aos"
-              ]
+              "allowedCommonJsDependencies": ["aos"]
             },
             "development": {
               "optimization": false,
@@ -110,7 +104,7 @@
               "public/assets/vendor/bootstrap-icons/bootstrap-icons.min.css",
               "public/assets/vendor/g-lightbox/css/glightbox.css",
               "public/assets/vendor/swiper/swiper-bundle.min.css",
-              "src/styles.css"
+              "public/styles.css"
             ],
             "scripts": [
               "public/assets/vendor/bootstrap/js/bootstrap.bundle.min.js",
