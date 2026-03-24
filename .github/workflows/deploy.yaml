@@ -1,72 +1,33 @@
-name: Deploy to Cloudflare Pages
+name: Angular Build and Deploy
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
     branches:
-      - main
+      - 'develop'
+  push:
+    branches:
+      - 'main'
 
 jobs:
-  validate:
-    name: Test & Validate
+  build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: 22
-          cache: 'yarn'
+          node-version: 20
 
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
+      - name: Build Angular app to prod
+        working-directory: ./
+        run: yarn install && yarn build:prod
 
-      - name: Run tests
-        run: yarn test --watch=false --browsers=ChromeHeadless
-
-  deploy:
-    name: Build & Deploy
-    runs-on: ubuntu-latest
-    needs: validate
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    permissions:
-      contents: read
-      deployments: write
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          node-version: 22
-          cache: 'yarn'
-
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-
-      - name: Build
-        run: yarn build:prod
-
-      - name: Create Cloudflare Pages project (if not exists)
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages project create bacsystem-solutions --production-branch=main
-        continue-on-error: true
-
-      - name: Deploy to Cloudflare Pages
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist/browser --project-name=bacsystem-solutions --commit-dirty=true
+          folder: ./dist/browser
+          branch: 'release'
+          token: '${{ secrets.GHA_TOKEN_APP }}'
