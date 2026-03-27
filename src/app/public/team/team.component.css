@@ -1,0 +1,215 @@
+/* ══════════════════════════════════
+   Team — Premium Redesign
+══════════════════════════════════ */
+
+.tm-section {
+  background: #F8FBFF;
+  padding: 96px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Header ── */
+.tm-header {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto 64px;
+}
+
+.tm-pill {
+  display: inline-block;
+  background: rgba(65, 183, 168, 0.1);
+  color: #1E8A7E;
+  border: 1px solid rgba(65, 183, 168, 0.28);
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 5px 16px;
+  margin-bottom: 16px;
+}
+
+.tm-heading {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 800;
+  color: #1B3080;
+  line-height: 1.2;
+  margin-bottom: 14px;
+  letter-spacing: -0.02em;
+}
+
+.tm-desc {
+  font-size: 16px;
+  color: #6B7280;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ── Card ── */
+.tm-card {
+  background: #fff;
+  border: 1px solid rgba(27, 48, 128, 0.08);
+  border-radius: 18px;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.tm-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(27, 48, 128, 0.12);
+  border-color: rgba(27, 48, 128, 0.14);
+}
+
+/* ── Avatar wrap ── */
+.tm-avatar-wrap {
+  position: relative;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.tm-avatar-wrap--blue {
+  background: linear-gradient(135deg, rgba(27, 48, 128, 0.12), rgba(27, 48, 128, 0.05));
+}
+.tm-avatar-wrap--teal {
+  background: linear-gradient(135deg, rgba(65, 183, 168, 0.14), rgba(65, 183, 168, 0.05));
+}
+.tm-avatar-wrap--purple {
+  background: linear-gradient(135deg, rgba(167, 139, 250, 0.14), rgba(167, 139, 250, 0.04));
+}
+.tm-avatar-wrap--indigo {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(99, 102, 241, 0.04));
+}
+
+/* ── Avatar circle ── */
+.tm-avatar {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.tm-avatar-wrap--blue   .tm-avatar { background: rgba(27, 48, 128, 0.15);  box-shadow: 0 0 0 8px rgba(27, 48, 128, 0.07); }
+.tm-avatar-wrap--teal   .tm-avatar { background: rgba(65, 183, 168, 0.18); box-shadow: 0 0 0 8px rgba(65, 183, 168, 0.08); }
+.tm-avatar-wrap--purple .tm-avatar { background: rgba(167,139,250, 0.18);  box-shadow: 0 0 0 8px rgba(167,139,250, 0.07); }
+.tm-avatar-wrap--indigo .tm-avatar { background: rgba(99, 102, 241, 0.15); box-shadow: 0 0 0 8px rgba(99, 102, 241, 0.06); }
+
+.tm-avatar i {
+  font-size: 46px;
+}
+.tm-avatar-wrap--blue   .tm-avatar i { color: #1B3080; }
+.tm-avatar-wrap--teal   .tm-avatar i { color: #41B7A8; }
+.tm-avatar-wrap--purple .tm-avatar i { color: #A78BFA; }
+.tm-avatar-wrap--indigo .tm-avatar i { color: #6366F1; }
+
+.tm-card:hover .tm-avatar { transform: scale(1.08); }
+
+/* ── Social overlay ── */
+.tm-social {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+
+.tm-avatar-wrap--blue   .tm-social { background: rgba(27, 48, 128, 0.8); }
+.tm-avatar-wrap--teal   .tm-social { background: rgba(30, 100, 95, 0.82); }
+.tm-avatar-wrap--purple .tm-social { background: rgba(100, 75, 160, 0.82); }
+.tm-avatar-wrap--indigo .tm-social { background: rgba(60, 62, 160, 0.82); }
+
+.tm-card:hover .tm-social { opacity: 1; }
+
+.tm-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 16px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+.tm-social a:hover {
+  background: rgba(255, 255, 255, 0.28);
+  transform: scale(1.15);
+  color: #fff;
+}
+
+/* ── Info block ── */
+.tm-info {
+  padding: 22px 22px 26px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.tm-role {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 14px;
+  margin-bottom: 10px;
+  align-self: flex-start;
+}
+
+.tm-avatar-wrap--blue   ~ .tm-info .tm-role { background: rgba(27, 48, 128, 0.1);   color: #1B3080; }
+.tm-avatar-wrap--teal   ~ .tm-info .tm-role { background: rgba(65, 183, 168, 0.12); color: #166E65; }
+.tm-avatar-wrap--purple ~ .tm-info .tm-role { background: rgba(167,139,250, 0.12);  color: #6B45B0; }
+.tm-avatar-wrap--indigo ~ .tm-info .tm-role { background: rgba(99, 102, 241, 0.12); color: #3E41A8; }
+
+.tm-name {
+  font-size: 17px;
+  font-weight: 800;
+  color: #1B3080;
+  margin: 0 0 8px;
+  letter-spacing: -0.01em;
+}
+
+.tm-bio {
+  font-size: 13.5px;
+  color: #6B7280;
+  line-height: 1.65;
+  margin: 0;
+  flex: 1;
+}
+
+/* ── Responsive ── */
+@media (max-width: 767px) {
+  .tm-avatar-wrap { height: 150px; }
+  .tm-avatar { width: 72px; height: 72px; }
+  .tm-avatar i { font-size: 36px; }
+  .tm-info { padding: 18px 18px 20px; }
+}
+@media (max-width: 575px) {
+  .tm-section { padding: 64px 0; }
+  .tm-header { margin-bottom: 36px; }
+  .tm-avatar-wrap { height: 130px; }
+  .tm-avatar { width: 60px; height: 60px; }
+  .tm-avatar i { font-size: 30px; }
+  .tm-name { font-size: 15px; }
+  .tm-bio { font-size: 13px; }
+  .tm-info { padding: 14px 14px 18px; }
+}
+

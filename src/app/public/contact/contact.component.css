@@ -1,0 +1,344 @@
+/* ══════════════════════════════════
+   Contact — Premium Redesign
+══════════════════════════════════ */
+
+.ct-section {
+  background: #F8FBFF;
+  padding: 96px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative blobs */
+.ct-blob {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(90px);
+  z-index: 0;
+}
+.ct-blob-1 {
+  width: 480px; height: 480px;
+  background: rgba(27, 48, 128, 0.06);
+  top: -160px; right: -140px;
+}
+.ct-blob-2 {
+  width: 340px; height: 340px;
+  background: rgba(65, 183, 168, 0.07);
+  bottom: -100px; left: -80px;
+}
+
+/* ── Header ── */
+.ct-header {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto 64px;
+  position: relative;
+  z-index: 1;
+}
+
+.ct-pill {
+  display: inline-block;
+  background: rgba(65, 183, 168, 0.1);
+  color: #166E65;
+  border: 1px solid rgba(65, 183, 168, 0.28);
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 5px 16px;
+  margin-bottom: 16px;
+}
+
+.ct-heading {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 800;
+  color: #1B3080;
+  line-height: 1.2;
+  margin-bottom: 14px;
+  letter-spacing: -0.02em;
+}
+
+.ct-desc {
+  font-size: 16px;
+  color: #6B7280;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ── Info Panel ── */
+.ct-info-panel {
+  background: #fff;
+  border: 1px solid rgba(27, 48, 128, 0.08);
+  border-radius: 20px;
+  padding: 36px 32px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 4px 24px rgba(27, 48, 128, 0.06);
+}
+
+.ct-info-headline {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1B3080;
+  line-height: 1.5;
+  margin: 0;
+  padding-left: 14px;
+  border-left: 3px solid #41B7A8;
+}
+
+.ct-info-items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ct-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.ct-info-icon {
+  width: 46px; height: 46px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+  transition: transform 0.25s;
+}
+.ct-info-item:hover .ct-info-icon { transform: scale(1.08); }
+
+.ct-info-icon--blue   { background: rgba(27, 48, 128, 0.12);  color: #152660; }
+.ct-info-icon--teal   { background: rgba(65, 183, 168, 0.14); color: #0E5950; }
+.ct-info-icon--indigo { background: rgba(99, 102, 241, 0.12); color: #2D2FA0; }
+
+.ct-info-item h3 {
+  font-size: 11px;
+  font-weight: 700;
+  color: #9CA3AF;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin: 0 0 4px;
+}
+
+.ct-info-item p {
+  font-size: 15px;
+  font-weight: 500;
+  color: #374151;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.ct-info-divider {
+  height: 1px;
+  background: rgba(27, 48, 128, 0.07);
+}
+
+/* WhatsApp CTA */
+.ct-whatsapp-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  background: linear-gradient(135deg, rgba(37, 211, 102, 0.08), rgba(37, 211, 102, 0.04));
+  border: 1px solid rgba(37, 211, 102, 0.25);
+  border-radius: 12px;
+  color: #146832;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.25s, border-color 0.25s, transform 0.25s;
+  margin-top: auto;
+}
+.ct-whatsapp-btn .bi-whatsapp { font-size: 20px; color: #25D366; }
+.ct-whatsapp-btn .ct-arrow { margin-left: auto; font-size: 13px; transition: transform 0.2s; }
+.ct-whatsapp-btn:hover {
+  background: linear-gradient(135deg, rgba(37, 211, 102, 0.13), rgba(37, 211, 102, 0.07));
+  border-color: rgba(37, 211, 102, 0.4);
+  transform: translateY(-2px);
+  color: #0F5628;
+}
+.ct-whatsapp-btn:hover .ct-arrow { transform: translateX(4px); }
+
+/* ── Form Panel ── */
+.ct-form-panel {
+  background: #fff;
+  border: 1px solid rgba(27, 48, 128, 0.08);
+  border-radius: 20px;
+  padding: 36px 32px;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 4px 24px rgba(27, 48, 128, 0.06);
+}
+
+/* ── Form fields ── */
+.ct-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ct-label {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #374151;
+  letter-spacing: 0.02em;
+}
+
+.ct-input {
+  width: 100%;
+  padding: 11px 14px;
+  background: #F9FAFB;
+  border: 1.5px solid rgba(27, 48, 128, 0.12);
+  border-radius: 10px;
+  font-size: 14px;
+  color: #111827;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+  font-family: inherit;
+}
+.ct-input::placeholder { color: #B0B9C8; }
+.ct-input:focus {
+  border-color: #1B3080;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(27, 48, 128, 0.08);
+}
+.ct-input--error {
+  border-color: #EF4444;
+  background: #FFF5F5;
+}
+.ct-input--error:focus {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.ct-textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.ct-error {
+  font-size: 12px;
+  color: #DC2626;
+  font-weight: 500;
+}
+
+/* ── Send button ── */
+.ct-btn-send {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px 24px;
+  background: linear-gradient(135deg, #1B3080 0%, #2A4FC7 50%, #41B7A8 100%);
+  background-size: 200%;
+  background-position: left center;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition: background-position 0.45s ease, transform 0.25s, box-shadow 0.25s;
+  box-shadow: 0 4px 18px rgba(27, 48, 128, 0.32), 0 2px 8px rgba(65, 183, 168, 0.15);
+}
+.ct-btn-send:hover:not(:disabled) {
+  background-position: right center;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(27, 48, 128, 0.42), 0 3px 10px rgba(65, 183, 168, 0.2);
+}
+.ct-btn-send:disabled { opacity: 0.65; cursor: not-allowed; }
+
+/* ── Success state ── */
+.ct-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 48px 24px;
+  gap: 14px;
+  animation: ct-pop-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.ct-success-icon {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(65, 183, 168, 0.15), rgba(27, 48, 128, 0.08));
+  border: 2px solid rgba(65, 183, 168, 0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 32px;
+  color: #41B7A8;
+}
+
+.ct-success h4 {
+  font-size: 20px;
+  font-weight: 800;
+  color: #1B3080;
+  margin: 0;
+}
+
+.ct-success p {
+  font-size: 15px;
+  color: #6B7280;
+  max-width: 360px;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.ct-btn-reset {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 24px;
+  background: transparent;
+  color: #1B3080;
+  border: 1.5px solid rgba(27, 48, 128, 0.35);
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s, border-color 0.25s, transform 0.25s;
+  margin-top: 4px;
+}
+.ct-btn-reset:hover {
+  background: #1B3080;
+  color: #fff;
+  border-color: #1B3080;
+  transform: translateY(-1px);
+}
+
+@keyframes ct-pop-in {
+  from { opacity: 0; transform: scale(0.88); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 767px) {
+  .ct-info-panel,
+  .ct-form-panel { padding: 28px 24px; }
+  .ct-info-icon { width: 40px; height: 40px; font-size: 15px; }
+  .ct-info-item p { font-size: 14px; }
+  .ct-whatsapp-btn { font-size: 13px; padding: 12px 16px; }
+}
+@media (max-width: 575px) {
+  .ct-section { padding: 64px 0; }
+  .ct-header { margin-bottom: 36px; }
+  .ct-info-panel,
+  .ct-form-panel { padding: 20px 18px; }
+  .ct-info-headline { font-size: 15px; }
+  .ct-info-icon { width: 36px; height: 36px; font-size: 14px; border-radius: 10px; }
+  .ct-info-items { gap: 14px; }
+  .ct-btn-send { font-size: 14px; padding: 12px 20px; }
+  .ct-textarea { min-height: 100px; }
+  .ct-success { padding: 32px 16px; }
+  .ct-success-icon { width: 58px; height: 58px; font-size: 26px; }
+}
+

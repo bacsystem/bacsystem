@@ -5,6 +5,32 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.2.1] — 2026-03-27
+
+### Changed
+- Replaced all repeated HTML blocks with `@for` control-flow loops across `home`, `about`, `footer`, and `clients` components — eliminates duplicated markup and centralizes data in typed arrays on the component class.
+- Migrated `clients.component.html` marquee track from hardcoded items to data-driven `@for` loops.
+- Migrated dashboard sidebar nav, stat cards, chart bars, donut segments, task rows, and activity bar items to `@for` loops in `home.component.html`.
+- Added `metrics` array to `about.component.ts`; metrics strip now rendered via `@for` with conditional separators using `$last`.
+- Added `svcKeys` array to `footer.component.ts`; services list rendered via `@for` instead of 6 individual `<li>` elements.
+
+### Removed
+- Dead CSS classes `.wave-exit` and `.wave-exit svg` from `home.component.css` (never referenced in any template).
+- Unused `showClients` boolean property and its `@if(showClients)` wrapper from `clients.component` (always `true`).
+- `CommonModule` import from `contact.component.ts` (redundant in Angular 18 standalone with built-in control flow).
+- `RouterModule` import from `home.component.ts` (no router directives in its template).
+- `contact.name` field from the `Contact` interface and its assignment in `ngOnInit` (field never read in the template).
+
+### Fixed
+- `angular.json` test configuration referenced non-existent `public/styles.css`; corrected to `src/styles.css`.
+- All 4 failing unit tests now pass (11/11 `SUCCESS`):
+  - `FooterComponent` — added `TranslateModule.forRoot()` and `provideRouter([])`.
+  - `TeamComponent` — added `TranslateModule.forRoot()`.
+  - `ClientsComponent` — added `TranslateModule.forRoot()`, removed deprecated `RouterTestingModule`.
+  - `PublicComponent` — migrated from deprecated `RouterTestingModule` to `provideRouter([])`, removed `detectChanges()` that triggered `NG0100`.
+
+---
+
 ## [1.2.0] — 2026-03-03
 
 ### Added

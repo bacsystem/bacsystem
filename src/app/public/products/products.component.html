@@ -1,167 +1,1042 @@
 <!-- Products Section -->
-<section id="products" class="products section">
+<section id="products" class="pd-section">
+  <!-- Background -->
+  <div class="pd-bg-glow pd-bg-glow-1" aria-hidden="true"></div>
+  <div class="pd-bg-glow pd-bg-glow-2" aria-hidden="true"></div>
 
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="slide-up" data-aos-duration="800" data-aos-easing="ease-out-cubic">
-    <h2>{{ 'application.products.title' | translate }}</h2>
-    <p>{{ 'application.products.description' | translate }}</p>
+  <div class="container" style="position: relative; z-index: 1">
+    <!-- Header -->
+    <div class="pd-header" data-aos="fade-up">
+      <span class="pd-pill">
+        <i class="bi bi-grid-fill"></i>
+        {{ "application.products.title" | translate }}
+      </span>
+      <h2 class="pd-heading">
+        {{ "application.products.description" | translate }}
+      </h2>
+    </div>
+
+    <!-- ── Cloud & SaaS ── -->
+    <div class="pd-category" data-aos="fade-up">
+      <div class="pd-cat-header">
+        <div class="pd-cat-icon pd-cat-icon--cloud">
+          <i class="bi bi-cloud-fill"></i>
+        </div>
+        <div>
+          <span class="pd-cat-label">01</span>
+          <h3 class="pd-cat-title">Cloud &amp; SaaS</h3>
+        </div>
+        <div class="pd-cat-line"></div>
+      </div>
+
+      <div class="row gy-4">
+        <!-- OperaAI -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <button
+            class="pd-card pd-card--featured pd-card--clickable"
+            (click)="openModal()"
+            aria-label="Ver detalles de OperaAI"
+          >
+            <div class="pd-featured-badge">
+              <i class="bi bi-stars"></i> Cloud SaaS
+            </div>
+
+            <div class="pd-card-top">
+              <div class="pd-icon pd-icon--cloud">
+                <i class="bi bi-cpu-fill"></i>
+              </div>
+            </div>
+
+            <h4 class="pd-card-title">OperaAI</h4>
+            <p class="pd-card-desc">
+              {{ "application.products.operaai.tagline" | translate }}
+            </p>
+
+            <ul class="pd-features">
+              <li>
+                <i class="bi bi-check-circle-fill"></i
+                >{{ "application.products.operaai.f1.title" | translate }}
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i
+                >{{ "application.products.operaai.f2.title" | translate }}
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i
+                >{{ "application.products.operaai.f3.title" | translate }}
+              </li>
+            </ul>
+
+            <div class="pd-card-highlight">
+              <i class="bi bi-patch-check-fill"></i>
+              Facturación electrónica válida ante SUNAT
+            </div>
+          </button>
+        </div>
+
+        <!-- FlowSync -->
+        <!-- <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="180">
+          <div class="pd-card">
+            <div class="pd-card-top">
+              <div class="pd-icon pd-icon--cloud"><i class="bi bi-diagram-3-fill"></i></div>
+            </div>
+            <h4 class="pd-card-title">{{ 'application.products.flowsync.title' | translate }}</h4>
+            <p class="pd-card-desc">{{ 'application.products.flowsync.description' | translate }}</p>
+            <ul class="pd-features">
+              <li><i class="bi bi-check-circle-fill"></i>{{ 'application.products.flowsync.f1' | translate }}</li>
+              <li><i class="bi bi-check-circle-fill"></i>{{ 'application.products.flowsync.f2' | translate }}</li>
+              <li><i class="bi bi-check-circle-fill"></i>{{ 'application.products.flowsync.f3' | translate }}</li>
+            </ul>
+            <a (click)="nav.scrollTo('contact')" class="pd-card-cta" style="cursor:pointer">{{ 'application.services.button' | translate }} <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+ -->
+      </div>
+      <!-- /row -->
+    </div>
+    <!-- /cloud category -->
+
+    <!-- ── Web Solutions ── -->
+  <!--   <div class="pd-category" data-aos="fade-up">
+      <div class="pd-cat-header">
+        <div class="pd-cat-icon pd-cat-icon--blue">
+          <i class="bi bi-globe"></i>
+        </div>
+        <div>
+          <span class="pd-cat-label">02</span>
+          <h3 class="pd-cat-title">
+            {{ "application.products.categories.web.title" | translate }}
+          </h3>
+        </div>
+        <div class="pd-cat-line"></div>
+      </div>
+
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="pd-card">
+            <div class="pd-card-top">
+              <div class="pd-icon pd-icon--blue">
+                <i class="bi bi-cart3"></i>
+              </div>
+            </div>
+            <h4 class="pd-card-title">
+              {{
+                "application.products.categories.web.items.ecommerce.title"
+                  | translate
+              }}
+            </h4>
+            <p class="pd-card-desc">
+              {{
+                "application.products.categories.web.items.ecommerce.description"
+                  | translate
+              }}
+            </p>
+            <ul class="pd-features">
+              <li>
+                <i class="bi bi-check-circle-fill"></i
+                >{{
+                  "application.products.categories.web.items.ecommerce.f1"
+                    | translate
+                }}
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i
+                >{{
+                  "application.products.categories.web.items.ecommerce.f2"
+                    | translate
+                }}
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i
+                >{{
+                  "application.products.categories.web.items.ecommerce.f3"
+                    | translate
+                }}
+              </li>
+            </ul>
+            <a (click)="nav.scrollTo('contact')" class="pd-card-cta" style="cursor:pointer"
+              >{{ "application.services.button" | translate }}
+              <i class="bi bi-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="180">
+          <div class="pd-card">
+            <div class="pd-card-top">
+              <div class="pd-icon pd-icon--blue">
+                <i class="bi bi-kanban"></i>
+              </div>
+            </div>
+            <h4 class="pd-card-title">
+              {{
+                "application.products.categories.web.items.erp.title"
+                  | translate
+              }}
+            </h4>
+            <p class="pd-card-desc">
+              {{
+                "application.products.categories.web.items.erp.description"
+                  | translate
+              }}
+            </p>
+            <ul class="pd-features">
+              <li>
+                <i class="bi bi-check-circle-fill"></i
+                >{{
+                  "application.products.categories.web.items.erp.f1" | translate
+                }}
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i
+                >{{
+                  "application.products.categories.web.items.erp.f2" | translate
+                }}
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i
+                >{{
+                  "application.products.categories.web.items.erp.f3" | translate
+                }}
+              </li>
+            </ul>
+            <a (click)="nav.scrollTo('contact')" class="pd-card-cta" style="cursor:pointer"
+              >{{ "application.services.button" | translate }}
+              <i class="bi bi-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="260">
+          <div class="pd-card">
+            <div class="pd-card-top">
+              <div class="pd-icon pd-icon--blue">
+                <i class="bi bi-bar-chart-line"></i>
+              </div>
+            </div>
+            <h4 class="pd-card-title">
+              {{
+                "application.products.categories.web.items.analytics.title"
+                  | translate
+              }}
+            </h4>
+            <p class="pd-card-desc">
+              {{
+                "application.products.categories.web.items.analytics.description"
+                  | translate
+              }}
+            </p>
+            <ul class="pd-features">
+              <li>
+                <i class="bi bi-check-circle-fill"></i
+                >{{
+                  "application.products.categories.web.items.analytics.f1"
+                    | translate
+                }}
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i
+                >{{
+                  "application.products.categories.web.items.analytics.f2"
+                    | translate
+                }}
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i
+                >{{
+                  "application.products.categories.web.items.analytics.f3"
+                    | translate
+                }}
+              </li>
+            </ul>
+            <a (click)="nav.scrollTo('contact')" class="pd-card-cta" style="cursor:pointer"
+              >{{ "application.services.button" | translate }}
+              <i class="bi bi-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- ── Mobile Solutions ── -->
+    <!-- <div class="pd-category" data-aos="fade-up">
+      <div class="pd-cat-header">
+        <div class="pd-cat-icon pd-cat-icon--teal">
+          <i class="bi bi-phone"></i>
+        </div>
+        <div>
+          <span class="pd-cat-label">03</span>
+          <h3 class="pd-cat-title">
+            {{ "application.products.categories.mobile.title" | translate }}
+          </h3>
+        </div>
+        <div class="pd-cat-line"></div>
+      </div>
+
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="pd-card">
+            <div class="pd-card-top">
+              <div class="pd-icon pd-icon--teal">
+                <i class="bi bi-truck"></i>
+              </div>
+            </div>
+            <h4 class="pd-card-title">
+              {{
+                "application.products.categories.mobile.items.delivery.title"
+                  | translate
+              }}
+            </h4>
+            <p class="pd-card-desc">
+              {{
+                "application.products.categories.mobile.items.delivery.description"
+                  | translate
+              }}
+            </p>
+            <ul class="pd-features">
+              <li>
+                <i class="bi bi-check-circle-fill"></i
+                >{{
+                  "application.products.categories.mobile.items.delivery.f1"
+                    | translate
+                }}
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i
+                >{{
+                  "application.products.categories.mobile.items.delivery.f2"
+                    | translate
+                }}
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i
+                >{{
+                  "application.products.categories.mobile.items.delivery.f3"
+                    | translate
+                }}
+              </li>
+            </ul>
+            <a (click)="nav.scrollTo('contact')" class="pd-card-cta" style="cursor:pointer"
+              >{{ "application.services.button" | translate }}
+              <i class="bi bi-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="180">
+          <div class="pd-card">
+            <div class="pd-card-top">
+              <div class="pd-icon pd-icon--teal">
+                <i class="bi bi-heart-pulse"></i>
+              </div>
+            </div>
+            <h4 class="pd-card-title">
+              {{
+                "application.products.categories.mobile.items.health.title"
+                  | translate
+              }}
+            </h4>
+            <p class="pd-card-desc">
+              {{
+                "application.products.categories.mobile.items.health.description"
+                  | translate
+              }}
+            </p>
+            <ul class="pd-features">
+              <li>
+                <i class="bi bi-check-circle-fill"></i
+                >{{
+                  "application.products.categories.mobile.items.health.f1"
+                    | translate
+                }}
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i
+                >{{
+                  "application.products.categories.mobile.items.health.f2"
+                    | translate
+                }}
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i
+                >{{
+                  "application.products.categories.mobile.items.health.f3"
+                    | translate
+                }}
+              </li>
+            </ul>
+            <a (click)="nav.scrollTo('contact')" class="pd-card-cta" style="cursor:pointer"
+              >{{ "application.services.button" | translate }}
+              <i class="bi bi-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- ── AI & Security ── -->
+    <div class="pd-category" data-aos="fade-up">
+      <div class="pd-cat-header">
+        <div class="pd-cat-icon pd-cat-icon--purple">
+          <i class="bi bi-shield-lock"></i>
+        </div>
+        <div>
+          <span class="pd-cat-label">04</span>
+          <h3 class="pd-cat-title">
+            {{ "application.products.categories.ai.title" | translate }}
+          </h3>
+        </div>
+        <div class="pd-cat-line"></div>
+      </div>
+
+      <div class="row gy-4">
+        <!-- Featured: Sophia -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="pd-card pd-card--featured">
+            <div class="pd-featured-badge">
+              <i class="bi bi-stars"></i> Featured
+            </div>
+            <div class="pd-card-top">
+              <div class="pd-icon pd-icon--purple">
+                <i class="bi bi-person-bounding-box"></i>
+              </div>
+            </div>
+            <h4 class="pd-card-title">
+              {{
+                "application.products.categories.ai.items.sophia.title"
+                  | translate
+              }}
+            </h4>
+            <p class="pd-card-desc">
+              {{
+                "application.products.categories.ai.items.sophia.description"
+                  | translate
+              }}
+            </p>
+            <ul class="pd-features">
+              <li>
+                <i class="bi bi-check-circle-fill"></i
+                >{{
+                  "application.products.categories.ai.items.sophia.f1"
+                    | translate
+                }}
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i
+                >{{
+                  "application.products.categories.ai.items.sophia.f2"
+                    | translate
+                }}
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i
+                >{{
+                  "application.products.categories.ai.items.sophia.f3"
+                    | translate
+                }}
+              </li>
+            </ul>
+            <a
+              (click)="nav.scrollTo('contact')"
+              class="pd-card-cta pd-card-cta--featured"
+              style="cursor:pointer"
+              >{{ "application.services.button" | translate }}
+              <i class="bi bi-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+
+        <!-- <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="180">
+          <div class="pd-card">
+            <div class="pd-card-top">
+              <div class="pd-icon pd-icon--purple">
+                <i class="bi bi-shield-check"></i>
+              </div>
+            </div>
+            <h4 class="pd-card-title">
+              {{
+                "application.products.categories.ai.items.cybersecurity.title"
+                  | translate
+              }}
+            </h4>
+            <p class="pd-card-desc">
+              {{
+                "application.products.categories.ai.items.cybersecurity.description"
+                  | translate
+              }}
+            </p>
+            <ul class="pd-features">
+              <li>
+                <i class="bi bi-check-circle-fill"></i
+                >{{
+                  "application.products.categories.ai.items.cybersecurity.f1"
+                    | translate
+                }}
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i
+                >{{
+                  "application.products.categories.ai.items.cybersecurity.f2"
+                    | translate
+                }}
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i
+                >{{
+                  "application.products.categories.ai.items.cybersecurity.f3"
+                    | translate
+                }}
+              </li>
+            </ul>
+            <a (click)="nav.scrollTo('contact')" class="pd-card-cta" style="cursor:pointer"
+              >{{ "application.services.button" | translate }}
+              <i class="bi bi-arrow-right"></i
+            ></a>
+          </div>
+        </div> -->
+
+        <!-- <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="260">
+          <div class="pd-card">
+            <div class="pd-card-top">
+              <div class="pd-icon pd-icon--purple">
+                <i class="bi bi-cloud-upload"></i>
+              </div>
+            </div>
+            <h4 class="pd-card-title">
+              {{
+                "application.products.categories.ai.items.cloud.title"
+                  | translate
+              }}
+            </h4>
+            <p class="pd-card-desc">
+              {{
+                "application.products.categories.ai.items.cloud.description"
+                  | translate
+              }}
+            </p>
+            <ul class="pd-features">
+              <li>
+                <i class="bi bi-check-circle-fill"></i
+                >{{
+                  "application.products.categories.ai.items.cloud.f1"
+                    | translate
+                }}
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i
+                >{{
+                  "application.products.categories.ai.items.cloud.f2"
+                    | translate
+                }}
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i
+                >{{
+                  "application.products.categories.ai.items.cloud.f3"
+                    | translate
+                }}
+              </li>
+            </ul>
+            <a (click)="nav.scrollTo('contact')" class="pd-card-cta" style="cursor:pointer"
+              >{{ "application.services.button" | translate }}
+              <i class="bi bi-arrow-right"></i
+            ></a>
+          </div>
+        </div> -->
+      </div>
+    </div>
   </div>
-
-  <div class="container">
-
-    <!-- Web Solutions -->
-    <div class="solution-category" data-aos="slide-up" data-aos-duration="800" data-aos-easing="ease-out-cubic">
-      <div class="category-header">
-        <i class="bi bi-globe"></i>
-        <h3>{{ 'application.products.categories.web.title' | translate }}</h3>
-      </div>
-      <div class="row gy-4">
-
-        <div class="col-lg-4 col-md-6" data-aos="slide-up" data-aos-delay="100" data-aos-duration="800">
-          <div class="product-card">
-            <div class="product-icon">
-              <i class="bi bi-cart3"></i>
-            </div>
-            <h4>{{ 'application.products.categories.web.items.ecommerce.title' | translate }}</h4>
-            <p>{{ 'application.products.categories.web.items.ecommerce.description' | translate }}</p>
-            <ul class="features">
-              <li><i class="bi bi-check2"></i> {{ 'application.products.categories.web.items.ecommerce.f1' | translate }}</li>
-              <li><i class="bi bi-check2"></i> {{ 'application.products.categories.web.items.ecommerce.f2' | translate }}</li>
-              <li><i class="bi bi-check2"></i> {{ 'application.products.categories.web.items.ecommerce.f3' | translate }}</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6" data-aos="slide-up" data-aos-delay="200" data-aos-duration="800">
-          <div class="product-card">
-            <div class="product-icon">
-              <i class="bi bi-kanban"></i>
-            </div>
-            <h4>{{ 'application.products.categories.web.items.erp.title' | translate }}</h4>
-            <p>{{ 'application.products.categories.web.items.erp.description' | translate }}</p>
-            <ul class="features">
-              <li><i class="bi bi-check2"></i> {{ 'application.products.categories.web.items.erp.f1' | translate }}</li>
-              <li><i class="bi bi-check2"></i> {{ 'application.products.categories.web.items.erp.f2' | translate }}</li>
-              <li><i class="bi bi-check2"></i> {{ 'application.products.categories.web.items.erp.f3' | translate }}</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6" data-aos="slide-up" data-aos-delay="300" data-aos-duration="800">
-          <div class="product-card">
-            <div class="product-icon">
-              <i class="bi bi-bar-chart-line"></i>
-            </div>
-            <h4>{{ 'application.products.categories.web.items.analytics.title' | translate }}</h4>
-            <p>{{ 'application.products.categories.web.items.analytics.description' | translate }}</p>
-            <ul class="features">
-              <li><i class="bi bi-check2"></i> {{ 'application.products.categories.web.items.analytics.f1' | translate }}</li>
-              <li><i class="bi bi-check2"></i> {{ 'application.products.categories.web.items.analytics.f2' | translate }}</li>
-              <li><i class="bi bi-check2"></i> {{ 'application.products.categories.web.items.analytics.f3' | translate }}</li>
-            </ul>
-          </div>
-        </div>
-
-      </div>
-    </div><!-- End Web Solutions -->
-
-    <!-- Mobile Solutions -->
-    <div class="solution-category" data-aos="slide-up" data-aos-duration="800" data-aos-easing="ease-out-cubic">
-      <div class="category-header">
-        <i class="bi bi-phone"></i>
-        <h3>{{ 'application.products.categories.mobile.title' | translate }}</h3>
-      </div>
-      <div class="row gy-4">
-
-        <div class="col-lg-4 col-md-6" data-aos="slide-up" data-aos-delay="100" data-aos-duration="800">
-          <div class="product-card">
-            <div class="product-icon">
-              <i class="bi bi-truck"></i>
-            </div>
-            <h4>{{ 'application.products.categories.mobile.items.delivery.title' | translate }}</h4>
-            <p>{{ 'application.products.categories.mobile.items.delivery.description' | translate }}</p>
-            <ul class="features">
-              <li><i class="bi bi-check2"></i> {{ 'application.products.categories.mobile.items.delivery.f1' | translate }}</li>
-              <li><i class="bi bi-check2"></i> {{ 'application.products.categories.mobile.items.delivery.f2' | translate }}</li>
-              <li><i class="bi bi-check2"></i> {{ 'application.products.categories.mobile.items.delivery.f3' | translate }}</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6" data-aos="slide-up" data-aos-delay="200" data-aos-duration="800">
-          <div class="product-card">
-            <div class="product-icon">
-              <i class="bi bi-heart-pulse"></i>
-            </div>
-            <h4>{{ 'application.products.categories.mobile.items.health.title' | translate }}</h4>
-            <p>{{ 'application.products.categories.mobile.items.health.description' | translate }}</p>
-            <ul class="features">
-              <li><i class="bi bi-check2"></i> {{ 'application.products.categories.mobile.items.health.f1' | translate }}</li>
-              <li><i class="bi bi-check2"></i> {{ 'application.products.categories.mobile.items.health.f2' | translate }}</li>
-              <li><i class="bi bi-check2"></i> {{ 'application.products.categories.mobile.items.health.f3' | translate }}</li>
-            </ul>
-          </div>
-        </div>
-
-      </div>
-    </div><!-- End Mobile Solutions -->
-
-    <!-- AI & Security Solutions -->
-    <div class="solution-category" data-aos="slide-up" data-aos-duration="800" data-aos-easing="ease-out-cubic">
-      <div class="category-header">
-        <i class="bi bi-shield-lock"></i>
-        <h3>{{ 'application.products.categories.ai.title' | translate }}</h3>
-      </div>
-      <div class="row gy-4">
-
-        <div class="col-lg-4 col-md-6" data-aos="slide-up" data-aos-delay="100" data-aos-duration="800">
-          <div class="product-card product-card--featured">
-            <div class="product-icon">
-              <i class="bi bi-person-bounding-box"></i>
-            </div>
-            <h4>{{ 'application.products.categories.ai.items.sophia.title' | translate }}</h4>
-            <p>{{ 'application.products.categories.ai.items.sophia.description' | translate }}</p>
-            <ul class="features">
-              <li><i class="bi bi-check2"></i> {{ 'application.products.categories.ai.items.sophia.f1' | translate }}</li>
-              <li><i class="bi bi-check2"></i> {{ 'application.products.categories.ai.items.sophia.f2' | translate }}</li>
-              <li><i class="bi bi-check2"></i> {{ 'application.products.categories.ai.items.sophia.f3' | translate }}</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6" data-aos="slide-up" data-aos-delay="200" data-aos-duration="800">
-          <div class="product-card">
-            <div class="product-icon">
-              <i class="bi bi-shield-check"></i>
-            </div>
-            <h4>{{ 'application.products.categories.ai.items.cybersecurity.title' | translate }}</h4>
-            <p>{{ 'application.products.categories.ai.items.cybersecurity.description' | translate }}</p>
-            <ul class="features">
-              <li><i class="bi bi-check2"></i> {{ 'application.products.categories.ai.items.cybersecurity.f1' | translate }}</li>
-              <li><i class="bi bi-check2"></i> {{ 'application.products.categories.ai.items.cybersecurity.f2' | translate }}</li>
-              <li><i class="bi bi-check2"></i> {{ 'application.products.categories.ai.items.cybersecurity.f3' | translate }}</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6" data-aos="slide-up" data-aos-delay="300" data-aos-duration="800">
-          <div class="product-card">
-            <div class="product-icon">
-              <i class="bi bi-cloud-upload"></i>
-            </div>
-            <h4>{{ 'application.products.categories.ai.items.cloud.title' | translate }}</h4>
-            <p>{{ 'application.products.categories.ai.items.cloud.description' | translate }}</p>
-            <ul class="features">
-              <li><i class="bi bi-check2"></i> {{ 'application.products.categories.ai.items.cloud.f1' | translate }}</li>
-              <li><i class="bi bi-check2"></i> {{ 'application.products.categories.ai.items.cloud.f2' | translate }}</li>
-              <li><i class="bi bi-check2"></i> {{ 'application.products.categories.ai.items.cloud.f3' | translate }}</li>
-            </ul>
-          </div>
-        </div>
-
-      </div>
-    </div><!-- End AI & Security Solutions -->
-
-  </div>
-
 </section>
+
+<!-- ══ OperaAI Modal ══ -->
+@if (showOperaModal) {
+  <div
+    class="opera-overlay"
+    (click)="closeModal()"
+    (keydown.escape)="closeModal()"
+  >
+    <dialog
+      class="opera-modal"
+      open
+      (click)="$event.stopPropagation()"
+      (keydown.escape)="closeModal()"
+      aria-modal="true"
+      aria-label="OperaAI"
+    >
+      <!-- Header fijo -->
+      <div class="om-header">
+        <div class="om-brand">
+          <div class="om-brand-icon"><i class="bi bi-cpu-fill"></i></div>
+          <div>
+            <span class="om-saas-badge">Cloud SaaS · Perú</span>
+            <h2 class="om-title">OperaAI</h2>
+          </div>
+        </div>
+        <button
+          class="opera-modal-close"
+          (click)="closeModal()"
+          aria-label="Cerrar"
+        >
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+
+      <!-- Tabs -->
+      <div class="om-tabs">
+        <button
+          class="om-tab"
+          [class.om-tab--active]="activeTab === 'overview'"
+          (click)="setTab('overview')"
+        >
+          Resumen
+        </button>
+        <button
+          class="om-tab"
+          [class.om-tab--active]="activeTab === 'modules'"
+          (click)="setTab('modules')"
+        >
+          Módulos
+        </button>
+        <button
+          class="om-tab"
+          [class.om-tab--active]="activeTab === 'pricing'"
+          (click)="setTab('pricing')"
+        >
+          Precios
+        </button>
+        <button
+          class="om-tab"
+          [class.om-tab--active]="activeTab === 'faq'"
+          (click)="setTab('faq')"
+        >
+          FAQ
+        </button>
+      </div>
+
+      <!-- Contenido scrollable -->
+      <div class="om-body">
+        <!-- ══ OVERVIEW ══ -->
+        @if (activeTab === "overview") {
+          <div class="om-section">
+            <!-- Hero -->
+            <div class="om-hero">
+              <h3 class="om-hero-headline">
+                Deja de perder ventas por no tener el control de tu negocio
+              </h3>
+              <p class="om-hero-sub">
+                OperaAI es el sistema todo-en-uno que le da a los emprendedores
+                peruanos el poder de facturar, controlar su inventario y vender
+                más — sin complicaciones, desde el primer día.
+              </p>
+              <div class="om-badges">
+                <span
+                  ><i class="bi bi-patch-check-fill"></i> Facturación válida
+                  ante SUNAT</span
+                >
+                <span
+                  ><i class="bi bi-shield-lock-fill"></i> Datos 100%
+                  seguros</span
+                >
+                <span><i class="bi bi-headset"></i> Soporte en español</span>
+              </div>
+            </div>
+
+            <!-- Problema -->
+            <h4 class="om-section-title">Sabemos lo que te quita el sueño</h4>
+            <div class="om-problems">
+              <div class="om-problem-card">
+                <i class="bi bi-file-earmark-spreadsheet"></i>
+                <h5>Me paso horas en Excel y aún así me equivoco</h5>
+                <p>
+                  Ventas en hojas de cálculo, inventario en un cuaderno,
+                  facturación en otro sistema. Todo desconectado. Al final del
+                  día nunca sabes exactamente cuánto ganaste.
+                </p>
+              </div>
+              <div class="om-problem-card">
+                <i class="bi bi-receipt-cutoff"></i>
+                <h5>Emitir facturas SUNAT es un dolor de cabeza</h5>
+                <p>
+                  Certificados digitales, códigos, formatos XML, rechazos. Lo
+                  que debería tomar segundos te toma 20 minutos y si te
+                  equivocas tienes que hacer una nota de crédito.
+                </p>
+              </div>
+              <div class="om-problem-card">
+                <i class="bi bi-graph-down"></i>
+                <h5>No sé si mi negocio está creciendo o perdiendo</h5>
+                <p>
+                  Tienes ventas, tienes movimiento — pero no sabes si realmente
+                  estás ganando. El stock se descuadra, los cobros se olvidan y
+                  los reportes los armas a mano.
+                </p>
+              </div>
+            </div>
+
+            <!-- Cómo funciona -->
+            <h4 class="om-section-title">
+              De cero a facturando en menos de 3 minutos
+            </h4>
+            <div class="om-steps">
+              <div class="om-step">
+                <span class="om-step-n">01</span>
+                <div>
+                  <h5>Registra tu empresa</h5>
+                  <p>
+                    Ingresa tu RUC y datos básicos. Sin papeleo, sin
+                    instalaciones.
+                  </p>
+                </div>
+              </div>
+              <div class="om-step">
+                <span class="om-step-n">02</span>
+                <div>
+                  <h5>Agrega tus productos</h5>
+                  <p>Carga tu catálogo manualmente o importa desde Excel.</p>
+                </div>
+              </div>
+              <div class="om-step">
+                <span class="om-step-n">03</span>
+                <div>
+                  <h5>Configura tu facturación</h5>
+                  <p>
+                    OperaAI se conecta automáticamente con SUNAT vía Nubefact.
+                  </p>
+                </div>
+              </div>
+              <div class="om-step">
+                <span class="om-step-n">04</span>
+                <div>
+                  <h5>¡Empieza a vender!</h5>
+                  <p>
+                    Emite tu primera factura electrónica válida desde el primer
+                    día.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Beneficios -->
+            <h4 class="om-section-title">Lo que logras con OperaAI</h4>
+            <div class="om-benefits">
+              <div class="om-benefit">
+                <i class="bi bi-lightning-charge-fill"></i>
+                <div>
+                  <h5>Facturas en segundos, válidas ante SUNAT</h5>
+                  <p>
+                    Sin certificados que instalar ni XML que entender. Cada
+                    comprobante queda en PDF listo para enviar por email o
+                    WhatsApp.
+                  </p>
+                </div>
+              </div>
+              <div class="om-benefit">
+                <i class="bi bi-boxes"></i>
+                <div>
+                  <h5>Nunca más sin stock en el momento de vender</h5>
+                  <p>
+                    El inventario se descuenta automáticamente. Alertas de stock
+                    bajo y registro de compras a proveedores en el mismo
+                    sistema.
+                  </p>
+                </div>
+              </div>
+              <div class="om-benefit">
+                <i class="bi bi-cash-coin"></i>
+                <div>
+                  <h5>Cobra lo que te deben, antes de que se olvide</h5>
+                  <p>
+                    OperaAI te avisa cuando una factura está por vencer para que
+                    cobres a tiempo sin revisar hojas de cálculo.
+                  </p>
+                </div>
+              </div>
+              <div class="om-benefit">
+                <i class="bi bi-bar-chart-fill"></i>
+                <div>
+                  <h5>Ve cuánto ganas, de verdad, en tiempo real</h5>
+                  <p>
+                    Dashboard con ventas del día, semana y mes. Productos más
+                    vendidos. La información para tomar decisiones — sin esperar
+                    al contador.
+                  </p>
+                </div>
+              </div>
+              <div class="om-benefit">
+                <i class="bi bi-people-fill"></i>
+                <div>
+                  <h5>Tu equipo vendiendo desde el primer día</h5>
+                  <p>
+                    Accesos por rol: cada vendedor, cajero o admin ve solo lo
+                    que necesita. Tú ves todo.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        }
+
+        <!-- ══ MÓDULOS ══ -->
+        @if (activeTab === "modules") {
+          <div class="om-section">
+            <p class="om-section-desc">
+              Todo lo que tu negocio necesita, en un solo lugar.
+            </p>
+            <div class="om-modules">
+              <div class="om-module">
+                <div class="om-mod-icon">
+                  <i class="bi bi-file-earmark-text-fill"></i>
+                </div>
+                <div>
+                  <h5>Facturación electrónica</h5>
+                  <p>Facturas y boletas válidas ante SUNAT en segundos</p>
+                </div>
+              </div>
+              <div class="om-module">
+                <div class="om-mod-icon"><i class="bi bi-shop"></i></div>
+                <div>
+                  <h5>POS / Caja rápida</h5>
+                  <p>Vende desde el mostrador sin datos del cliente</p>
+                </div>
+              </div>
+              <div class="om-module">
+                <div class="om-mod-icon"><i class="bi bi-boxes"></i></div>
+                <div>
+                  <h5>Inventario</h5>
+                  <p>
+                    Stock en tiempo real, alertas de reposición, kardex completo
+                  </p>
+                </div>
+              </div>
+              <div class="om-module">
+                <div class="om-mod-icon"><i class="bi bi-people-fill"></i></div>
+                <div>
+                  <h5>Clientes</h5>
+                  <p>Historial de compras, deudas pendientes y contacto</p>
+                </div>
+              </div>
+              <div class="om-module">
+                <div class="om-mod-icon">
+                  <i class="bi bi-file-earmark-check"></i>
+                </div>
+                <div>
+                  <h5>Cotizaciones</h5>
+                  <p>Envía proformas y conviértelas en facturas con 1 clic</p>
+                </div>
+              </div>
+              <div class="om-module">
+                <div class="om-mod-icon"><i class="bi bi-kanban-fill"></i></div>
+                <div>
+                  <h5>CRM y Pipeline</h5>
+                  <p>Sigue cada oportunidad de venta hasta el cierre</p>
+                </div>
+              </div>
+              <div class="om-module">
+                <div class="om-mod-icon"><i class="bi bi-cash-stack"></i></div>
+                <div>
+                  <h5>Finanzas</h5>
+                  <p>
+                    Flujo de caja, gastos y estado de resultados actualizados
+                  </p>
+                </div>
+              </div>
+              <div class="om-module">
+                <div class="om-mod-icon">
+                  <i class="bi bi-person-badge-fill"></i>
+                </div>
+                <div>
+                  <h5>Planilla RRHH</h5>
+                  <p>Planilla peruana automática con AFP, ESSALUD y CTS</p>
+                </div>
+              </div>
+              <div class="om-module om-module--ai">
+                <div class="om-mod-icon om-mod-icon--ai">
+                  <i class="bi bi-stars"></i>
+                </div>
+                <div>
+                  <h5>
+                    IA Copiloto
+                    <span class="om-enterprise-tag">Enterprise</span>
+                  </h5>
+                  <p>
+                    Pregunta en lenguaje natural sobre ventas, stock o finanzas
+                  </p>
+                </div>
+              </div>
+            </div>
+            <p class="om-modules-note">
+              * Los módulos disponibles dependen del plan contratado.
+            </p>
+          </div>
+        }
+
+        <!-- ══ PRECIOS ══ -->
+        @if (activeTab === "pricing") {
+          <div class="om-section">
+            <p class="om-section-desc">
+              Sin contratos anuales. Sin costos ocultos. Paga mensual en soles.
+            </p>
+            <div class="om-plans">
+              <div class="om-plan">
+                <div class="om-plan-header">
+                  <h5 class="om-plan-name">Starter</h5>
+                  <div class="om-plan-price">
+                    <span class="om-price-currency">S/.</span
+                    ><span class="om-price-val">69</span
+                    ><span class="om-price-period">/mes</span>
+                  </div>
+                  <p class="om-plan-desc">
+                    Para emprendedores que empiezan · hasta 3 usuarios
+                  </p>
+                </div>
+                <ul class="om-plan-features">
+                  <li>
+                    <i class="bi bi-check2"></i> Facturación electrónica SUNAT
+                  </li>
+                  <li><i class="bi bi-check2"></i> POS / Caja rápida</li>
+                  <li><i class="bi bi-check2"></i> Productos y clientes</li>
+                  <li><i class="bi bi-check2"></i> Inventario básico</li>
+                  <li><i class="bi bi-check2"></i> Reportes de ventas</li>
+                  <li><i class="bi bi-check2"></i> Dashboard financiero</li>
+                  <li><i class="bi bi-check2"></i> Soporte por email</li>
+                </ul>
+                <a
+                  href="https://operaai.bacsystemsolutions.com/register"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="om-plan-btn"
+                  >Empezar gratis 30 días</a
+                >
+              </div>
+
+              <div class="om-plan om-plan--popular">
+                <div class="om-popular-badge">
+                  <i class="bi bi-star-fill"></i> El más elegido
+                </div>
+                <div class="om-plan-header">
+                  <h5 class="om-plan-name">PYME</h5>
+                  <div class="om-plan-price">
+                    <span class="om-price-currency">S/.</span
+                    ><span class="om-price-val">149</span
+                    ><span class="om-price-period">/mes</span>
+                  </div>
+                  <p class="om-plan-desc">
+                    Para negocios en crecimiento · hasta 15 usuarios
+                  </p>
+                </div>
+                <ul class="om-plan-features">
+                  <li>
+                    <i class="bi bi-check2"></i> Todo lo del Starter, más:
+                  </li>
+                  <li>
+                    <i class="bi bi-check2"></i> Cotizaciones y órdenes de venta
+                  </li>
+                  <li>
+                    <i class="bi bi-check2"></i> Inventario avanzado
+                    multi-almacén
+                  </li>
+                  <li><i class="bi bi-check2"></i> CRM con pipeline Kanban</li>
+                  <li>
+                    <i class="bi bi-check2"></i> Cuentas por cobrar y pagar
+                  </li>
+                  <li><i class="bi bi-check2"></i> Flujo de caja y gastos</li>
+                  <li>
+                    <i class="bi bi-check2"></i> Estado de resultados (P&L)
+                  </li>
+                  <li><i class="bi bi-check2"></i> Soporte prioritario</li>
+                </ul>
+                <a
+                  href="https://operaai.bacsystemsolutions.com/register"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="om-plan-btn om-plan-btn--popular"
+                  >Empezar gratis 30 días</a
+                >
+              </div>
+
+              <div class="om-plan">
+                <div class="om-plan-header">
+                  <h5 class="om-plan-name">Enterprise</h5>
+                  <div class="om-plan-price">
+                    <span class="om-price-currency">S/.</span
+                    ><span class="om-price-val">399</span
+                    ><span class="om-price-period">/mes</span>
+                  </div>
+                  <p class="om-plan-desc">
+                    Para empresas con operaciones complejas · usuarios
+                    ilimitados
+                  </p>
+                </div>
+                <ul class="om-plan-features">
+                  <li><i class="bi bi-check2"></i> Todo lo de PYME, más:</li>
+                  <li>
+                    <i class="bi bi-check2"></i> RRHH y planilla peruana
+                    completa
+                  </li>
+                  <li>
+                    <i class="bi bi-check2"></i> PLAME / PDT 3.5 automático
+                  </li>
+                  <li>
+                    <i class="bi bi-check2"></i> Balance general y presupuesto
+                  </li>
+                  <li><i class="bi bi-check2"></i> IA Copiloto</li>
+                  <li><i class="bi bi-check2"></i> Soporte dedicado con SLA</li>
+                </ul>
+                <a
+                  href="https://operaai.bacsystemsolutions.com/register"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="om-plan-btn"
+                  >Empezar gratis 30 días</a
+                >
+              </div>
+            </div>
+            <p class="om-trial-note">
+              <i class="bi bi-info-circle"></i> Los 3 planes incluyen 30 días de
+              prueba gratuita. Sin tarjeta de crédito.
+            </p>
+          </div>
+        }
+
+        <!-- ══ FAQ ══ -->
+        @if (activeTab === "faq") {
+          <div class="om-section">
+            <div class="om-faq">
+              @for (item of faqItems; track item.q; let i = $index) {
+                <div
+                  class="om-faq-item"
+                  [class.om-faq-item--open]="openFaq === i"
+                >
+                  <button class="om-faq-q" (click)="toggleFaq(i)">
+                    {{ item.q }}
+                    <i
+                      class="bi"
+                      [class.bi-plus-lg]="openFaq !== i"
+                      [class.bi-dash-lg]="openFaq === i"
+                    ></i>
+                  </button>
+                  @if (openFaq === i) {
+                    <p class="om-faq-a">{{ item.a }}</p>
+                  }
+                </div>
+              }
+            </div>
+          </div>
+        }
+      </div>
+
+      <!-- Footer fijo -->
+      <div class="om-footer">
+        <a
+          href="https://operaai.bacsystemsolutions.com/register"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="om-btn-primary"
+        >
+          Empieza gratis 30 días <i class="bi bi-arrow-right"></i>
+        </a>
+        <span class="om-footer-note">Sin tarjeta · Listo en 3 minutos</span>
+      </div>
+    </dialog>
+  </div>
+}

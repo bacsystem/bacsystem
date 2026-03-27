@@ -1,16 +1,17 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 import { Service } from '../../core/models/service.model';
+import { ScrollNavService } from '../../core/scroll-nav.service';
 
 @Component({
   selector: 'app-services',
   standalone: true,
-  imports: [TranslatePipe, RouterModule],
+  imports: [TranslatePipe],
   templateUrl: './services.component.html',
   styleUrl: './services.component.css',
 })
 export class ServicesComponent {
+  constructor(public readonly nav: ScrollNavService) {}
   readonly items: Service[] = [
     {
       id: 1,

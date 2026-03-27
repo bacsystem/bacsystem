@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
+import { TranslatePipe } from '@ngx-translate/core';
 
 export interface Client {
   src: string;
@@ -11,13 +12,11 @@ export interface Client {
 @Component({
   selector: 'app-clients',
   standalone: true,
-  imports: [NgOptimizedImage],
+  imports: [NgOptimizedImage, TranslatePipe],
   templateUrl: './clients.component.html',
   styleUrl: './clients.component.css',
 })
 export class ClientsComponent {
-  showClients = false;
-
   readonly clients: Client[] = [
     {
       src: 'assets/img/clients/client-1.png',

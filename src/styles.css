@@ -10,32 +10,33 @@
 # Font & Color Variables
 # Help: https://bootstrapmade.com/color-system/
 --------------------------------------------------------------*/
-/* Fonts */
+/* Fonts, Colors & Variables — consolidated */
 :root {
+  /* Fonts */
   --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --heading-font: "Raleway", sans-serif;
   --nav-font: "Poppins", sans-serif;
-}
 
-/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
-:root {
-  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
-  --default-color: #444444; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #222222; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #2D2E83; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --secondary-color: #41B7A8; /* Secondary accent color for alternative highlights */
-  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
-}
+  /* Global Colors */
+  --background-color: #ffffff;
+  --default-color: #444444;
+  --heading-color: #1B3080;
+  --accent-color: #1B3080;
+  --accent-color-light: color-mix(in srgb, #1B3080, transparent 88%);
+  --secondary-color: #41B7A8;
+  --surface-color: #ffffff;
+  --contrast-color: #ffffff;
 
-/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
-:root {
-  --nav-color: #444444; /* The default color of the main nav-menu links */
-  --nav-hover-color: #2D2E83; /* Applied to main nav-menu links when they are hovered over or active */
-  --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-  --nav-dropdown-color: #444444; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #2D2E83; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  /* Nav Menu Colors */
+  --nav-color: #444444;
+  --nav-hover-color: #1B3080;
+  --nav-mobile-background-color: #ffffff;
+  --nav-dropdown-background-color: #ffffff;
+  --nav-dropdown-color: #444444;
+  --nav-dropdown-hover-color: #1B3080;
+
+  /* Smooth scroll */
+  scroll-behavior: smooth;
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
@@ -53,10 +54,7 @@
   --contrast-color: #ffffff;
 }
 
-/* Smooth scroll */
-:root {
-  scroll-behavior: smooth;
-}
+
 
 /*--------------------------------------------------------------
 # General Styling & Shared Classes
@@ -145,11 +143,51 @@ h6 {
 --------------------------------------------------------------*/
 .header {
   color: var(--default-color);
-  background-color: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  padding: 15px 0;
-  transition: all 0.5s;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 12px 0;
+  transition: background 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
   z-index: 997;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0;
+  right: 0;
+  width: 100%;
+  border-bottom: 1px solid rgba(27, 48, 128, 0.08);
+  box-shadow: 0 2px 20px rgba(27, 48, 128, 0.07);
+}
+
+/* Forzar layout fijo del header — previene roturas en cualquier estado */
+.header .header-inner {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  flex-wrap: nowrap !important;
+  gap: 0;
+}
+
+.header .header-logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-right: auto;
+}
+
+.header .header-actions {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-left: auto;
+  gap: 10px;
+  order: 10; /* siempre al final */
+}
+
+.header .nav-menu {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  order: 5;
 }
 
 .header .logo {
@@ -185,25 +223,15 @@ h6 {
   background: color-mix(in srgb, var(--accent-color), transparent 15%);
 }
 
-@media (max-width: 1200px) {
-  .header .logo {
-    order: 1;
-  }
-
-  .header .btn-get-started {
-    order: 2;
-    margin: 0 15px 0 0;
-    padding: 6px 15px;
-  }
-
-  .header .nav-menu {
-    order: 3;
-  }
-}
-
+/* Header scrolled — sombra más pronunciada */
 .scrolled .header {
-  box-shadow: 0 0 18px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 28px rgba(27, 48, 128, 0.12);
+  border-bottom-color: rgba(27, 48, 128, 0.1);
 }
+
+/* Header siempre blanco — sin override transparente sobre el hero */
+
+/* Logo siempre visible con colores de marca (se invierte solo sobre el hero) */
 
 /*--------------------------------------------------------------
 # Navigation Menu
@@ -220,6 +248,7 @@ h6 {
     display: flex;
     list-style: none;
     align-items: center;
+    gap: 2px;
   }
 
   .nav-menu li {
@@ -228,41 +257,83 @@ h6 {
 
   .nav-menu a,
   .nav-menu a:focus {
-    color: var(--nav-color);
-    padding: 18px 15px;
-    font-size: 16px;
+    color: #374151;
+    padding: 10px 14px;
+    font-size: 13.5px;
     font-family: var(--nav-font), serif;
-    font-weight: 400;
+    font-weight: 600;
+    letter-spacing: 0.2px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     white-space: nowrap;
-    transition: 0.3s;
+    transition: color 0.25s ease;
+    position: relative;
+    text-decoration: none;
+  }
+
+  /* Animated gradient underline */
+  .nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 14px;
+    right: 14px;
+    height: 2px;
+    background: linear-gradient(90deg, #1B3080, #41B7A8);
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.28s ease;
   }
 
   .nav-menu a i,
   .nav-menu a:focus i {
-    font-size: 12px;
+    font-size: 11px;
     line-height: 0;
     margin-left: 5px;
-    transition: 0.3s;
-  }
-
-  .nav-menu li:last-child a {
-    padding-right: 0;
+    transition: transform 0.25s ease;
   }
 
   .nav-menu li:hover > a,
   .nav-menu .active,
   .nav-menu .active:focus {
-    color: var(--nav-hover-color);
-    border-bottom: 3px solid #2D2E83;
+    color: #1B3080;
+    border-bottom: none;
+  }
+
+  .nav-menu li:hover > a::after,
+  .nav-menu .active::after,
+  .nav-menu .active:focus::after {
+    transform: scaleX(1);
+  }
+
+  /* When scrolled: same colors (header always white) */
+  .scrolled .nav-menu a,
+  .scrolled .nav-menu a:focus {
+    color: #374151;
+  }
+
+  .scrolled .nav-menu li:hover > a,
+  .scrolled .nav-menu .active,
+  .scrolled .nav-menu .active:focus {
+    color: #1B3080;
+  }
+
+  .scrolled .nav-menu li:hover > a::after,
+  .scrolled .nav-menu .active::after,
+  .scrolled .nav-menu .active:focus::after {
+    transform: scaleX(1);
+  }
+
+  .nav-menu .dropdown:hover > a i {
+    transform: rotate(180deg);
   }
 
   .nav-menu .dropdown ul {
     margin: 0;
     padding: 8px 0;
-    background: var(--nav-dropdown-background-color);
+    background: #fff;
     display: block;
     position: absolute;
     visibility: hidden;
@@ -270,10 +341,13 @@ h6 {
     top: 120%;
     opacity: 0;
     transition: opacity 0.25s ease, top 0.25s ease, visibility 0.25s ease;
-    border-radius: 8px;
+    border-radius: 12px;
     z-index: 99;
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
-    border-top: 3px solid var(--accent-color);
+    box-shadow: 0 12px 48px rgba(27, 48, 128, 0.14);
+    border-top: 2px solid transparent;
+    background-image: linear-gradient(#fff, #fff), linear-gradient(90deg, #1B3080, #41B7A8);
+    background-clip: padding-box, border-box;
+    background-origin: padding-box, border-box;
     min-width: 220px;
   }
 
@@ -284,7 +358,7 @@ h6 {
     left: 24px;
     border-width: 0 7px 8px 7px;
     border-style: solid;
-    border-color: transparent transparent var(--accent-color) transparent;
+    border-color: transparent transparent #1B3080 transparent;
   }
 
   .nav-menu .dropdown ul li {
@@ -293,28 +367,32 @@ h6 {
 
   .nav-menu .dropdown ul a {
     padding: 10px 20px;
-    font-size: 14px;
+    font-size: 13.5px;
     text-transform: none;
-    color: var(--nav-dropdown-color);
+    color: #374151;
     display: flex;
     align-items: center;
     gap: 10px;
-    border-radius: 4px;
+    border-radius: 6px;
     margin: 2px 6px;
     transition: background 0.2s ease, color 0.2s ease;
   }
 
+  .nav-menu .dropdown ul a::after {
+    display: none;
+  }
+
   .nav-menu .dropdown ul a i {
     font-size: 16px;
-    color: var(--accent-color);
+    color: #41B7A8;
     flex-shrink: 0;
   }
 
   .nav-menu .dropdown ul a:hover,
   .nav-menu .dropdown ul .active:hover,
   .nav-menu .dropdown ul li:hover > a {
-    color: var(--nav-dropdown-hover-color);
-    background: color-mix(in srgb, var(--accent-color), transparent 92%);
+    color: #1B3080;
+    background: rgba(27, 48, 128, 0.06);
   }
 
   .nav-menu .dropdown:hover > ul {
@@ -337,10 +415,9 @@ h6 {
 /* Nav menu - Mobile */
 @media (max-width: 1199px) {
   .mobile-nav-toggle {
-    color: var(--nav-color);
-    font-size: 28px;
+    color: #1B3080;
+    font-size: 26px;
     line-height: 0;
-    margin-right: 10px;
     cursor: pointer;
     transition: color 0.3s;
   }
@@ -363,19 +440,33 @@ h6 {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 280px;
+    width: 300px;
     height: 100vh;
-    padding: 70px 0 40px;
+    padding: 0;
     margin: 0;
-    background-color: var(--nav-mobile-background-color);
-    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+    background: #fff;
+    box-shadow: -8px 0 40px rgba(27, 48, 128, 0.14);
     overflow-y: auto;
     z-index: 9998;
     transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
+  /* Drawer header stripe */
+  .nav-menu ul::before {
+    content: '';
+    display: block;
+    height: 4px;
+    background: linear-gradient(90deg, #1B3080, #41B7A8);
+    flex-shrink: 0;
+  }
+
+  /* Spacer to push items below header close btn */
+  .nav-menu ul > li:first-child {
+    margin-top: 60px;
+  }
+
   .nav-menu li {
-    border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    border-bottom: 1px solid rgba(27, 48, 128, 0.06);
   }
 
   .nav-menu li:last-child {
@@ -384,29 +475,29 @@ h6 {
 
   .nav-menu a,
   .nav-menu a:focus {
-    color: var(--nav-dropdown-color);
-    padding: 14px 24px;
+    color: #374151;
+    padding: 14px 28px;
     font-family: var(--nav-font), sans-serif;
-    font-size: 15px;
-    font-weight: 500;
+    font-size: 14.5px;
+    font-weight: 600;
     display: flex;
     align-items: center;
     gap: 10px;
     white-space: nowrap;
-    transition: background 0.2s, color 0.2s;
-    border-radius: 0;
+    transition: background 0.2s, color 0.2s, padding-left 0.2s;
   }
 
   .nav-menu a:hover,
   .nav-menu .active,
   .nav-menu .active:focus {
-    color: var(--accent-color);
-    background: color-mix(in srgb, var(--accent-color), transparent 92%);
+    color: #1B3080;
+    background: rgba(27, 48, 128, 0.05);
+    padding-left: 34px;
   }
 
   .nav-menu .active {
-    font-weight: 600;
-    border-left: 3px solid var(--accent-color);
+    font-weight: 700;
+    border-left: 3px solid #41B7A8;
   }
 
   /* Overlay / backdrop */
@@ -416,13 +507,13 @@ h6 {
 
   /* Botón de cierre — reposicionado sobre el drawer */
   .mobile-nav-active .mobile-nav-toggle {
-    color: var(--nav-color);
+    color: #1B3080;
     position: fixed;
-    top: 16px;
-    right: 16px;
+    top: 18px;
+    right: 18px;
     margin-right: 0;
     z-index: 9999;
-    font-size: 32px;
+    font-size: 28px;
   }
 
   .mobile-nav-active .mobile-nav-toggle i {
@@ -619,37 +710,57 @@ section,
 /*--------------------------------------------------------------
 # Global Section Titles
 --------------------------------------------------------------*/
+/* ── Section Badge Pill (global) ── */
+.section-badge-pill {
+  display: inline-block;
+  background: rgba(27, 48, 128, 0.07);
+  border: 1px solid rgba(27, 48, 128, 0.2);
+  color: #1B3080;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 5px 16px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+}
+
 .section-title {
   text-align: center;
-  padding-bottom: 60px;
+  padding-bottom: 64px;
   position: relative;
 }
 
 .section-title h2 {
-  font-size: 32px;
-  font-weight: 700;
+  font-size: 38px;
+  font-weight: 800;
   position: relative;
-}
-
-.section-title h2:before,
-.section-title h2:after {
-  content: "";
-  width: 50px;
-  height: 2px;
-  background: var(--accent-color);
-  display: inline-block;
+  margin-bottom: 0;
+  color: #111827;
 }
 
 .section-title h2:before {
-  margin: 0 15px 10px 0;
+  display: none;
 }
 
 .section-title h2:after {
-  margin: 0 0 10px 15px;
+  content: '';
+  display: block;
+  width: 56px;
+  height: 4px;
+  background: linear-gradient(90deg, #1B3080, #41B7A8);
+  border-radius: 2px;
+  margin: 14px auto 20px;
 }
 
 .section-title p {
   margin-bottom: 0;
+  color: #6B7280;
+  font-size: 1.05rem;
+  max-width: 580px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
 }
 
 /*--------------------------------------------------------------
@@ -1731,5 +1842,146 @@ section,
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #2D2E83;
+  background: #1B3080;
+}
+
+/* ══════════════════════════════════════════════════════
+   DARK MODE — body.dark-mode (toggled by ThemeService)
+   Specificity: body.dark-mode .selector = 0,2,1
+   Beats component-scoped .selector[_ngcontent] = 0,2,0
+══════════════════════════════════════════════════════ */
+
+/* ── Base ── */
+body.dark-mode {
+  background-color: #0D1117;
+  color: #C9D1D9;
+}
+
+/* ── Header ── */
+body.dark-mode .header {
+  background: rgba(8, 13, 28, 0.95) !important;
+  border-bottom-color: rgba(255,255,255,0.06) !important;
+}
+body.dark-mode.scrolled .header {
+  background: rgba(8, 13, 28, 0.98) !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5) !important;
+}
+body.dark-mode .header-brand-name    { color: #E6EDF3; }
+body.dark-mode .header-brand-tagline { color: #8B949E; }
+body.dark-mode .nav-menu a { color: rgba(255,255,255,0.8); }
+body.dark-mode .nav-menu a:hover { color: #41B7A8; }
+body.dark-mode .theme-toggle {
+  border-color: rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.8);
+}
+body.dark-mode .theme-toggle:hover {
+  background: #2A3447;
+  border-color: rgba(255,255,255,0.35);
+  color: #fff;
+}
+body.dark-mode .lang-pill {
+  border-color: rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.8);
+}
+body.dark-mode .lang-pill:hover {
+  background: #2A3447;
+  border-color: rgba(255,255,255,0.35);
+  color: #fff;
+  box-shadow: none;
+}
+
+
+/* ── About ── */
+body.dark-mode .ab-section { background: #0D1117; }
+body.dark-mode .ab-heading { color: #E6EDF3; }
+body.dark-mode .ab-desc { color: #8B949E; }
+body.dark-mode .ab-subject { color: #E6EDF3; }
+body.dark-mode .ab-reference { color: #8B949E; border-left-color: rgba(65,183,168,0.45); }
+body.dark-mode .ab-metrics {
+  background: #161B22;
+  border-color: rgba(255,255,255,0.07);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+body.dark-mode .ab-mv { color: #E6EDF3; }
+body.dark-mode .ab-ml { color: #6E7681; }
+body.dark-mode .ab-msep { background: rgba(255,255,255,0.1); }
+body.dark-mode .ab-card { background: #161B22; border-color: rgba(255,255,255,0.07); }
+body.dark-mode .ab-card:hover { box-shadow: 0 16px 40px rgba(0,0,0,0.4); border-color: rgba(255,255,255,0.12); }
+body.dark-mode .ab-card-title { color: #E6EDF3; }
+body.dark-mode .ab-card-desc { color: #8B949E; }
+body.dark-mode .icon-box i { color: #7CE8DC; }
+body.dark-mode .icon-box h4 { color: #E6EDF3; }
+body.dark-mode .icon-box p { color: #8B949E; }
+
+/* ── Clients ── */
+body.dark-mode .cl-section { background: #0D1117; }
+body.dark-mode .cl-title { color: #E6EDF3; }
+body.dark-mode .cl-subtitle { color: #8B949E; }
+body.dark-mode .cl-card { background: #161B22; border-color: rgba(255,255,255,0.07); }
+body.dark-mode .cl-card:hover { border-color: rgba(65,183,168,0.3); box-shadow: 0 8px 28px rgba(0,0,0,0.4); }
+body.dark-mode .cl-img { filter: brightness(0.85) contrast(1.05); }
+body.dark-mode .cl-stats { background: #161B22; border-color: rgba(255,255,255,0.07); }
+body.dark-mode .cl-sn { color: #E6EDF3; }
+body.dark-mode .cl-sp { color: #41B7A8; }
+body.dark-mode .cl-sl { color: #8B949E; }
+body.dark-mode .cl-sep { background: rgba(255,255,255,0.1); }
+body.dark-mode .cl-fade-left  { background: linear-gradient(to right, #0D1117, transparent); }
+body.dark-mode .cl-fade-right { background: linear-gradient(to left,  #0D1117, transparent); }
+
+/* ── Team ── */
+body.dark-mode .tm-section { background: #0D1117; }
+body.dark-mode .tm-heading { color: #E6EDF3; }
+body.dark-mode .tm-desc { color: #8B949E; }
+body.dark-mode .tm-card { background: #161B22; border-color: rgba(255,255,255,0.07); }
+body.dark-mode .tm-card:hover { box-shadow: 0 20px 50px rgba(0,0,0,0.45); border-color: rgba(255,255,255,0.13); }
+body.dark-mode .tm-name { color: #E6EDF3; }
+body.dark-mode .tm-bio { color: #8B949E; }
+body.dark-mode .tm-avatar-wrap--blue   ~ .tm-info .tm-role { background: #13193D; color: #7B9FEF; }
+body.dark-mode .tm-avatar-wrap--teal   ~ .tm-info .tm-role { background: #0E2E2C; color: #7CE8DC; }
+body.dark-mode .tm-avatar-wrap--purple ~ .tm-info .tm-role { background: #221A38; color: #C4ADFD; }
+body.dark-mode .tm-avatar-wrap--indigo ~ .tm-info .tm-role { background: #1C1F3E; color: #A5B4FC; }
+
+/* ── Contact ── */
+body.dark-mode .ct-section { background: #0D1117; }
+body.dark-mode .ct-heading { color: #E6EDF3; }
+body.dark-mode .ct-desc { color: #8B949E; }
+body.dark-mode .ct-info-panel,
+body.dark-mode .ct-form-panel {
+  background: #161B22;
+  border-color: rgba(255,255,255,0.07);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+}
+body.dark-mode .ct-info-headline { color: #E6EDF3; border-left-color: rgba(65,183,168,0.5); }
+body.dark-mode .ct-info-item h3 { color: #6E7681; }
+body.dark-mode .ct-info-item p { color: #C9D1D9; }
+body.dark-mode .ct-info-divider { background: rgba(255,255,255,0.07); }
+body.dark-mode .ct-info-icon--blue   { background: #13193D; color: #7B9FEF; }
+body.dark-mode .ct-info-icon--teal   { background: #0E2E2C; color: #7CE8DC; }
+body.dark-mode .ct-info-icon--indigo { background: #1C1F3E; color: #A5B4FC; }
+body.dark-mode .ct-whatsapp-btn { background: #0E2D18; border-color: rgba(37,211,102,0.25); color: #4ADE80; }
+body.dark-mode .ct-whatsapp-btn:hover { color: #6DEBA0; }
+body.dark-mode .ct-label { color: #C9D1D9; }
+body.dark-mode .ct-input { background: #1C2128; border-color: rgba(255,255,255,0.1); color: #E6EDF3; }
+body.dark-mode .ct-input::placeholder { color: #484F58; }
+body.dark-mode .ct-input:focus { background: #22272E; border-color: rgba(65,183,168,0.5); box-shadow: 0 0 0 3px rgba(65,183,168,0.1); }
+body.dark-mode .ct-input--error { background: rgba(239,68,68,0.08); border-color: #EF4444; }
+body.dark-mode .ct-btn-reset { color: rgba(255,255,255,0.7); border-color: rgba(255,255,255,0.2); }
+body.dark-mode .ct-btn-reset:hover { background: #2A2F38; color: #fff; border-color: rgba(255,255,255,0.35); }
+body.dark-mode .ct-success h4 { color: #E6EDF3; }
+body.dark-mode .ct-success p { color: #8B949E; }
+
+/* ── Scrollbar ── */
+body.dark-mode ::-webkit-scrollbar-track { background: #161B22; }
+body.dark-mode ::-webkit-scrollbar-thumb { background: rgba(65,183,168,0.4); }
+body.dark-mode ::-webkit-scrollbar-thumb:hover { background: #41B7A8; }
+
+/* ── Smooth transition on toggle ── */
+body * {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.2s ease, box-shadow 0.3s ease;
+}
+body .hero-section *,
+body .sv-section *,
+body .pd-section *,
+body .footer * {
+  transition: none !important;
 }

@@ -1,8 +1,8 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
+import {TranslateModule} from '@ngx-translate/core';
 
 import {PublicComponent} from './public.component';
-import {TranslateModule} from '@ngx-translate/core';
-import {RouterTestingModule} from '@angular/router/testing';
 
 describe('PublicComponent', () => {
   let component: PublicComponent;
@@ -10,13 +10,13 @@ describe('PublicComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PublicComponent, RouterTestingModule, TranslateModule.forRoot({})],
+      imports: [PublicComponent, TranslateModule.forRoot({})],
+      providers: [provideRouter([])],
     })
       .compileComponents();
 
     fixture = TestBed.createComponent(PublicComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {

@@ -1,35 +1,69 @@
-@if (showClients) {
-  <section id="clients" class="clients section light-background">
-    <div class="container" data-aos="fade-up">
-      <div class="clients-slider">
-        <div class="clients-track">
-          <!-- Original set -->
-          @for (client of clients; track client.src) {
-            <div class="client-logo">
-              <img
-                [ngSrc]="client.src"
-                class="img-fluid"
-                [alt]="client.alt"
-                [width]="client.width"
-                [height]="client.height"
-              />
-            </div>
-          }
+<section id="clients" class="cl-section">
 
-          <!-- Duplicate for seamless loop -->
-          @for (client of clients; track client.src) {
-            <div class="client-logo">
-              <img
-                [ngSrc]="client.src"
-                class="img-fluid"
-                [alt]="client.alt"
-                [width]="client.width"
-                [height]="client.height"
-              />
-            </div>
-          }
+    <!-- Header -->
+    <div class="container">
+      <div class="cl-header" data-aos="fade-up">
+        <span class="cl-pill">{{ 'application.clients.pill' | translate }}</span>
+        <h2 class="cl-title">{{ 'application.clients.title' | translate }}</h2>
+        <p class="cl-subtitle">{{ 'application.clients.subtitle' | translate }}</p>
+      </div>
+    </div>
+
+    <!-- Marquee con fade lateral -->
+    <div class="cl-marquee-wrap" data-aos="fade-up" data-aos-delay="100">
+      <div class="cl-fade-left"  aria-hidden="true"></div>
+      <div class="cl-fade-right" aria-hidden="true"></div>
+
+      <div class="cl-track">
+        @for (client of clients; track client.src) {
+          <div class="cl-card">
+            <img
+              [ngSrc]="client.src"
+              class="cl-img"
+              [alt]="client.alt"
+              [width]="client.width"
+              [height]="client.height"
+            />
+          </div>
+        }
+        <!-- Duplicate for seamless loop -->
+        @for (client of clients; track client.src) {
+          <div class="cl-card">
+            <img
+              [ngSrc]="client.src"
+              class="cl-img"
+              [alt]="client.alt"
+              [width]="client.width"
+              [height]="client.height"
+            />
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Stats strip -->
+    <div class="container">
+      <div class="cl-stats" data-aos="fade-up" data-aos-delay="150">
+        <div class="cl-stat">
+          <span class="cl-sn">150<span class="cl-sp">+</span></span>
+          <span class="cl-sl">{{ 'application.stats.clients' | translate }}</span>
+        </div>
+        <div class="cl-sep" aria-hidden="true"></div>
+        <div class="cl-stat">
+          <span class="cl-sn">320<span class="cl-sp">+</span></span>
+          <span class="cl-sl">{{ 'application.stats.projects' | translate }}</span>
+        </div>
+        <div class="cl-sep" aria-hidden="true"></div>
+        <div class="cl-stat">
+          <span class="cl-sn">99.8<span class="cl-sp">%</span></span>
+          <span class="cl-sl">{{ 'application.clients.uptime' | translate }}</span>
+        </div>
+        <div class="cl-sep" aria-hidden="true"></div>
+        <div class="cl-stat">
+          <span class="cl-sn">25<span class="cl-sp">+</span></span>
+          <span class="cl-sl">{{ 'application.stats.workers' | translate }}</span>
         </div>
       </div>
     </div>
-  </section>
-}
+
+</section>

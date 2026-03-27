@@ -1,48 +1,55 @@
 <!-- Services Section -->
-<section id="services" class="about section">
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="fade-up">
-    <h2>{{ "application.services.title" | translate }}</h2>
-    <p>{{ "application.services.description" | translate }}</p>
-  </div>
-  <!-- End Section Title -->
+<section id="services" class="sv-section">
 
-  <div class="container">
-    <div class="row gy-5">
-      <div
-        class="content col-xl-5 d-flex flex-column"
-        data-aos="fade-up"
-        data-aos-delay="100"
-      >
-        <h3>{{ "application.services.subtitle" | translate }}</h3>
-        <p>
-          {{ "application.services.content" | translate }}
-        </p>
-        <a routerLink="/public/contact" class="about-btn align-self-center align-self-xl-start">
-          <span>{{ "application.services.button" | translate }}</span>
-          <i class="bi bi-chevron-right"></i>
-        </a>
-      </div>
+  <!-- Background blobs -->
+  <div class="sv-blob sv-blob-1"></div>
+  <div class="sv-blob sv-blob-2"></div>
 
-      <div class="col-xl-7" data-aos="fade-up" data-aos-delay="200">
-        <div class="row gy-4">
-          @for (item of items; track item.id) {
-            @if (item.enable) {
-              <div class="col-md-6 icon-box position-relative">
-                <i [class]="item.icon"></i>
-                <h4>
-                  <a class="stretched-link">{{
-                    item.name + ".title" | translate
-                  }}</a>
-                </h4>
-                <p>{{ item.name + ".description" | translate }}</p>
-              </div>
-              <!-- Icon-Box -->
-            }
-          }
-        </div>
-      </div>
+  <div class="container" style="position:relative;z-index:1">
+
+    <!-- Header -->
+    <div class="sv-header" data-aos="fade-up">
+      <span class="sv-pill">{{ 'application.menu.services' | translate }}</span>
+      <h2 class="sv-heading">{{ 'application.services.title' | translate }}</h2>
+      <p class="sv-subheading">{{ 'application.services.description' | translate }}</p>
     </div>
+
+    <!-- Cards grid -->
+    <div class="sv-grid">
+      @for (item of items; track item.id) {
+        <div class="sv-card" data-aos="fade-up" [attr.data-aos-delay]="(item.id - 1) * 80 + 80">
+          <!-- Card top: icon + number -->
+          <div class="sv-card-top">
+            <div class="sv-icon-ring">
+              <i [class]="item.icon"></i>
+            </div>
+            <span class="sv-num">0{{ item.id }}</span>
+          </div>
+          <!-- Tag -->
+          <span class="sv-tag">{{ item.name + '.tag' | translate }}</span>
+          <!-- Content -->
+          <h3 class="sv-card-title">{{ item.name + '.title' | translate }}</h3>
+          <p class="sv-card-desc">{{ item.name + '.description' | translate }}</p>
+          <!-- CTA -->
+          <a (click)="nav.scrollTo('contact')" class="sv-card-link" style="cursor:pointer">
+            {{ 'application.services.button' | translate }}
+            <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      }
+    </div>
+
+    <!-- Bottom CTA banner -->
+    <div class="sv-cta-banner" data-aos="fade-up" data-aos-delay="400">
+      <div class="sv-cta-content">
+        <h3 class="sv-cta-title">{{ 'application.services.subtitle' | translate }}</h3>
+        <p class="sv-cta-text">{{ 'application.services.content' | translate }}</p>
+      </div>
+      <a (click)="nav.scrollTo('contact')" class="sv-cta-btn" style="cursor:pointer">
+        {{ 'application.services.button' | translate }}
+        <i class="bi bi-arrow-right"></i>
+      </a>
+    </div>
+
   </div>
 </section>
-<!-- /Services Section -->

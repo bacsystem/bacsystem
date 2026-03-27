@@ -1,53 +1,40 @@
-<header id="header" class="header d-flex align-items-center sticky-top">
-  <div
-    class="container-fluid container-xl position-relative d-flex align-items-center"
-  >
-    <a routerLink="/public/home" class="logo d-flex align-items-center me-auto">
-      <!-- Uncomment the line below if you also wish to use an image logo -->
-      <img src="assets/img/logo-bacsystem.png" alt="Bacsystem Logo" />
+<header id="header" class="header">
+  <div class="header-inner container-fluid container-xl">
+
+    <!-- Logo -->
+    <a routerLink="/public/home" class="header-logo">
+      <img [class.d-none]="theme.isDark"  src="assets/img/bacsystem/Logo_BACSYSTEM-[Color-Isotipo].png"  alt="Bacsystem Logo" />
+      <img [class.d-none]="!theme.isDark" src="assets/img/bacsystem/Logo_BACSYSTEM-[Blanco-Isotipo].png" alt="Bacsystem Logo" />
     </a>
 
-    <nav id="nav-menu" class="nav-menu">
+    <!-- Mobile-only nav (hamburger opens this) -->
+    <nav id="nav-menu" class="nav-menu d-xl-none">
       <ul>
         @for (item of titles; track item.id) {
           @if (item.active) {
-            @if (item.children && item.children.length > 0) {
-              <li class="dropdown" [class.dropdown-open]="activeDropdownId === item.id">
-                <a href="#" (click)="$event.preventDefault(); toggleDropdown(item.id)">
-                  {{ item.title | translate }}
-                  <i class="bi bi-chevron-down toggle-dropdown"></i>
-                </a>
-                <ul [class.dropdown-active]="activeDropdownId === item.id">
-                  @for (child of item.children; track child.id) {
-                    @if (child.active) {
-                      <li>
-                        <a
-                          [routerLink]="child.routerLink"
-                          [routerLinkActive]="child.routerLinkActive"
-                          (click)="closeMobileNav()"
-                        >
-                          <i [class]="child.icon"></i>
-                          {{ child.title | translate }}
-                        </a>
-                      </li>
-                    }
-                  }
-                </ul>
-              </li>
-            } @else {
-              <li>
-                <a
-                  [routerLink]="item.routerLink"
-                  [routerLinkActive]="item.routerLinkActive"
-                  [routerLinkActiveOptions]="{ exact: true }"
-                  (click)="closeMobileNav()"
-                  >{{ item.title | translate }}
-                </a>
-              </li>
-            }
+            <li>
+              <a (click)="navClick(item)" style="cursor:pointer">
+                {{ item.title | translate }}
+              </a>
+            </li>
           }
         }
       </ul>
+    </nav>
+
+    <!-- Actions -->
+    <div class="header-actions">
+      <button class="theme-toggle" (click)="theme.cycle()" [attr.aria-label]="'Tema: ' + theme.currentMode">
+        <i class="bi" [ngClass]="theme.icon"></i>
+      </button>
+      <button class="lang-pill" (click)="toggleLanguage()" aria-label="Switch language">
+        <i class="bi bi-globe2"></i>
+        <span class="lang-label">{{ currentLanguage }}</span>
+      </button>
+      <a class="nav-cta d-none d-xl-inline-flex" style="cursor:pointer" (click)="navToSection('contact')">
+        {{ 'application.start' | translate }}
+        <i class="bi bi-arrow-right"></i>
+      </a>
       <button
         type="button"
         class="mobile-nav-toggle d-xl-none"
@@ -55,18 +42,10 @@
         (click)="toggleMobileNav()"
         (keydown.enter)="toggleMobileNav()"
       >
-        <i
-          class="bi"
-          [class.bi-list]="!mobileNavOpen"
-          [class.bi-x]="mobileNavOpen"
-        ></i>
+        <i class="bi" [class.bi-list]="!mobileNavOpen" [class.bi-x]="mobileNavOpen"></i>
       </button>
-    </nav>
-  </div>
+    </div>
 
-  <div class="language-switcher">
-    <div class="language-indicator"></div>
-    <a class="language-btn" (click)="toggleLanguage()">{{ currentLanguage }}</a>
   </div>
 </header>
 

@@ -1,9 +1,101 @@
 :host {
-  display: flex;
-  flex-direction: column;
+  display: block;
   min-height: 100vh;
 }
 
 .main {
-  flex: 1;
+  min-height: calc(100vh - 72px);
+  padding-top: 72px;
 }
+
+/* ═══════════════════════════════════════════════════
+   Floating sections nav — appears on scroll
+═══════════════════════════════════════════════════ */
+
+.sections-nav {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%) translateY(90px);
+  z-index: 998;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 5px;
+  background: rgba(8, 14, 29, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 50px;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(27, 48, 128, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.35s ease,
+    transform 0.42s cubic-bezier(0.34, 1.56, 0.64, 1);
+  white-space: nowrap;
+}
+
+.sections-nav.snav-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+.sections-nav a {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  letter-spacing: 0.2px;
+  transition: all 0.22s ease;
+  position: relative;
+}
+
+.sections-nav a:hover {
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.sections-nav a.snav-active {
+  background: linear-gradient(135deg, #1B3080 0%, #2a4fc7 50%, #41B7A8 100%);
+  color: #ffffff;
+  box-shadow: 0 2px 14px rgba(27, 48, 128, 0.55);
+}
+
+/* Dot indicator on active item */
+.sections-nav a.snav-active::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+/* Hide on small screens — header nav already handles it */
+@media (max-width: 991px) {
+  .sections-nav {
+    display: none;
+  }
+}
+
+/* ── Dark mode ── */
+body.dark-mode .sections-nav {
+  background: rgba(15, 20, 36, 0.92);
+  border-color: rgba(255,255,255,0.1);
+}
+body.dark-mode .sections-nav a { color: rgba(255,255,255,0.5); }
+body.dark-mode .sections-nav a:hover { color: rgba(255,255,255,0.9); }
+body.dark-mode .sections-nav a.snav-active { color: #fff; }
+body.dark-mode .sections-nav a.snav-active::after { background: rgba(255,255,255,0.6); }

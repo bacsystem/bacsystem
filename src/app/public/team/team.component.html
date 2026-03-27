@@ -1,1 +1,51 @@
-<p>team works!</p>
+<!-- Team Section -->
+<section id="team" class="tm-section">
+
+  <div class="container">
+
+    <!-- Header -->
+    <div class="tm-header" data-aos="fade-up">
+      <span class="tm-pill">{{ 'application.menu.team' | translate }}</span>
+      <h2 class="tm-heading">{{ 'application.team.title' | translate }}</h2>
+      <p class="tm-desc">{{ 'application.team.description' | translate }}</p>
+    </div>
+
+    <!-- Cards -->
+    <div class="row gy-4 justify-content-center">
+      @for (member of members; track member.id) {
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" [attr.data-aos-delay]="member.id * 100">
+          <div class="tm-card">
+
+            <!-- Avatar area -->
+            <div class="tm-avatar-wrap tm-avatar-wrap--{{ member.colorClass }}">
+              <div class="tm-avatar">
+                <i class="bi bi-person-fill"></i>
+              </div>
+              <!-- Social overlay -->
+              <div class="tm-social">
+                <a [href]="member.twitter" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
+                  <i class="bi bi-twitter-x"></i>
+                </a>
+                <a [href]="member.linkedin" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                  <i class="bi bi-linkedin"></i>
+                </a>
+                <a [href]="member.github" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+                  <i class="bi bi-github"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Info -->
+            <div class="tm-info">
+              <span class="tm-role">{{ member.roleKey | translate }}</span>
+              <h4 class="tm-name">{{ member.nameKey | translate }}</h4>
+              <p class="tm-bio">{{ member.bioKey | translate }}</p>
+            </div>
+
+          </div>
+        </div>
+      }
+    </div>
+
+  </div>
+</section>

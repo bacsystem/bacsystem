@@ -1,83 +1,156 @@
 <!-- Contact Section -->
-<section id="contact" class="contact section">
+<section id="contact" class="ct-section">
 
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="fade-up">
-    <h2>{{ 'application.contact.title'| translate }}</h2>
-    <p>{{ 'application.contact.description'| translate }}</p>
-  </div><!-- End Section Title -->
+  <!-- Decorative blobs -->
+  <div class="ct-blob ct-blob-1" aria-hidden="true"></div>
+  <div class="ct-blob ct-blob-2" aria-hidden="true"></div>
 
-  <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+  <div class="container">
 
-    <div class="row gy-4">
-
-      <div class="col-lg-5">
-        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
-          <i class="bi bi-geo-alt flex-shrink-0"></i>
-          <div>
-            <h3>{{ 'application.contact.address'| translate }}</h3>
-            <p>{{ contact.address }}</p>
-          </div>
-        </div><!-- End Info Item -->
-
-        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-          <i class="bi bi-telephone flex-shrink-0"></i>
-          <div>
-            <h3>{{ 'application.contact.number'| translate }}</h3>
-            <p>{{ contact.phone }}</p>
-          </div>
-        </div><!-- End Info Item -->
-
-        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-          <i class="bi bi-envelope flex-shrink-0"></i>
-          <div>
-            <h3>{{ 'application.contact.email'| translate }}</h3>
-            <p>{{ contact.email }}</p>
-          </div>
-        </div><!-- End Info Item -->
-
-      </div>
-
-      <div class="col-lg-7">
-
-        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="php-email-form" data-aos="fade-up"
-              data-aos-delay="500">
-          <div class="row gy-4">
-
-            <div class="col-md-6">
-              <input type="text" formControlName="name" class="form-control" placeholder="Your Name" [class.is-invalid]="contactForm.get('name')?.invalid && contactForm.get('name')?.touched">
-              <div class="invalid-feedback" *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched">Name is required.</div>
-            </div>
-
-            <div class="col-md-6 ">
-              <input type="email" class="form-control" formControlName="email" placeholder="Your Email" [class.is-invalid]="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
-              <div class="invalid-feedback" *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">Valid email is required.</div>
-            </div>
-
-            <div class="col-md-12">
-              <input type="text" class="form-control" formControlName="subject" placeholder="Subject" [class.is-invalid]="contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched">
-              <div class="invalid-feedback" *ngIf="contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched">Subject is required.</div>
-            </div>
-
-            <div class="col-md-12">
-              <textarea class="form-control" formControlName="message" rows="6" placeholder="Message" [class.is-invalid]="contactForm.get('message')?.invalid && contactForm.get('message')?.touched"></textarea>
-              <div class="invalid-feedback" *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched">Message is required.</div>
-            </div>
-
-            <div class="col-md-12 text-center">
-              <div class="loading" [class.d-block]="isLoading">Loading</div>
-              <div class="error-message" [class.d-block]="contactForm.invalid && isSubmitted">Please fill all fields correctly.</div>
-              <div class="sent-message" [class.d-block]="isSubmitted && !isLoading">Your message has been sent. Thank you!</div>
-
-              <button type="submit" [disabled]="isLoading">Send Message</button>
-            </div>
-
-          </div>
-        </form>
-      </div><!-- End Contact Form -->
-
+    <!-- Header -->
+    <div class="ct-header" data-aos="fade-up">
+      <span class="ct-pill">{{ 'application.menu.contact' | translate }}</span>
+      <h2 class="ct-heading">{{ 'application.contact.title' | translate }}</h2>
+      <p class="ct-desc">{{ 'application.contact.description' | translate }}</p>
     </div>
 
+    <div class="row gy-4 align-items-stretch">
+
+      <!-- Info panel -->
+      <div class="col-lg-5" data-aos="fade-up" data-aos-delay="100">
+        <div class="ct-info-panel">
+
+          <p class="ct-info-headline">Estamos listos para ayudarte a hacer crecer tu negocio.</p>
+
+          <div class="ct-info-items">
+
+            <div class="ct-info-item">
+              <div class="ct-info-icon ct-info-icon--blue">
+                <i class="bi bi-geo-alt-fill"></i>
+              </div>
+              <div>
+                <h3>{{ 'application.contact.address' | translate }}</h3>
+                <p>{{ contact.address }}</p>
+              </div>
+            </div>
+
+            <div class="ct-info-item">
+              <div class="ct-info-icon ct-info-icon--teal">
+                <i class="bi bi-telephone-fill"></i>
+              </div>
+              <div>
+                <h3>{{ 'application.contact.number' | translate }}</h3>
+                <p>{{ contact.phone }}</p>
+              </div>
+            </div>
+
+            <div class="ct-info-item">
+              <div class="ct-info-icon ct-info-icon--indigo">
+                <i class="bi bi-envelope-fill"></i>
+              </div>
+              <div>
+                <h3>{{ 'application.contact.email' | translate }}</h3>
+                <p>{{ contact.email }}</p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="ct-info-divider"></div>
+
+          <a href="https://wa.me/51907892868" target="_blank" rel="noopener noreferrer" class="ct-whatsapp-btn">
+            <i class="bi bi-whatsapp"></i>
+            Escríbenos por WhatsApp
+            <i class="bi bi-arrow-right ct-arrow"></i>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- Form panel -->
+      <div class="col-lg-7" data-aos="fade-up" data-aos-delay="200">
+        <div class="ct-form-panel">
+
+          @if (isSubmitted) {
+            <div class="ct-success">
+              <div class="ct-success-icon"><i class="bi bi-check-lg"></i></div>
+              <h4>¡Mensaje enviado!</h4>
+              <p>{{ 'application.contact.sent' | translate }}</p>
+              <button class="ct-btn-reset" (click)="resetForm()">
+                {{ 'application.contact.send_another' | translate }}
+              </button>
+            </div>
+          } @else {
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+              <div class="row gy-3">
+
+                <div class="col-md-6">
+                  <div class="ct-field">
+                    <label class="ct-label" for="name">{{ 'application.contact.form.name' | translate }}</label>
+                    <input type="text" id="name" formControlName="name" class="ct-input"
+                      [class.ct-input--error]="contactForm.get('name')?.invalid && contactForm.get('name')?.touched"
+                      [placeholder]="'application.contact.form.name' | translate">
+                    @if (contactForm.get('name')?.invalid && contactForm.get('name')?.touched) {
+                      <span class="ct-error">{{ 'application.contact.form.name_error' | translate }}</span>
+                    }
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="ct-field">
+                    <label class="ct-label" for="ct-email">{{ 'application.contact.form.email' | translate }}</label>
+                    <input type="email" id="ct-email" formControlName="email" class="ct-input"
+                      [class.ct-input--error]="contactForm.get('email')?.invalid && contactForm.get('email')?.touched"
+                      [placeholder]="'application.contact.form.email' | translate">
+                    @if (contactForm.get('email')?.invalid && contactForm.get('email')?.touched) {
+                      <span class="ct-error">{{ 'application.contact.form.email_error' | translate }}</span>
+                    }
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <div class="ct-field">
+                    <label class="ct-label" for="subject">{{ 'application.contact.form.subject' | translate }}</label>
+                    <input type="text" id="subject" formControlName="subject" class="ct-input"
+                      [class.ct-input--error]="contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched"
+                      [placeholder]="'application.contact.form.subject' | translate">
+                    @if (contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched) {
+                      <span class="ct-error">{{ 'application.contact.form.subject_error' | translate }}</span>
+                    }
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <div class="ct-field">
+                    <label class="ct-label" for="message">{{ 'application.contact.form.message' | translate }}</label>
+                    <textarea id="message" formControlName="message" class="ct-input ct-textarea"
+                      [class.ct-input--error]="contactForm.get('message')?.invalid && contactForm.get('message')?.touched"
+                      [placeholder]="'application.contact.form.message' | translate"></textarea>
+                    @if (contactForm.get('message')?.invalid && contactForm.get('message')?.touched) {
+                      <span class="ct-error">{{ 'application.contact.form.message_error' | translate }}</span>
+                    }
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <button type="submit" class="ct-btn-send" [disabled]="isLoading">
+                    @if (isLoading) {
+                      <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                    } @else {
+                      <i class="bi bi-send-fill"></i>
+                    }
+                    {{ 'application.contact.button' | translate }}
+                  </button>
+                </div>
+
+              </div>
+            </form>
+          }
+
+        </div>
+      </div>
+
+    </div>
   </div>
 
-</section><!-- /Contact Section -->
+</section>

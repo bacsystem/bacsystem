@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 import { About } from '../../core/models/about.model';
+import { ScrollNavService } from '../../core/scroll-nav.service';
 
 @Component({
   selector: 'app-about',
@@ -10,6 +11,14 @@ import { About } from '../../core/models/about.model';
   styleUrl: './about.component.css',
 })
 export class AboutComponent {
+  constructor(public readonly nav: ScrollNavService) {}
+
+  readonly metrics = [
+    { value: '10',  suffix: '+', labelKey: 'application.about.years' },
+    { value: '150', suffix: '+', labelKey: 'application.about.stat_clients' },
+    { value: '400', suffix: '+', labelKey: 'application.about.stat_projects' },
+  ];
+
   readonly items: About[] = [
     {
       id: 1,

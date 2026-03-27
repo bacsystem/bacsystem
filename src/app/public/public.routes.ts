@@ -16,46 +16,12 @@ export default [
             return value.HomeComponent;
           }),
       },
-      {
-        path: 'about',
-        loadComponent: () =>
-          import('./about/about.component').then((value) => {
-            return value.AboutComponent;
-          }),
-      },
-      {
-        path: 'services',
-        loadComponent: () =>
-          import('./services/services.component').then((value) => {
-            return value.ServicesComponent;
-          }),
-      },
-      {
-        path: 'products',
-        loadComponent: () =>
-          import('./products/products.component').then((value) => {
-            return value.ProductsComponent;
-          }),
-      },
-      {
-        path: 'team',
-        loadComponent: () =>
-          import('./team/team.component').then((value) => {
-            return value.TeamComponent;
-          }),
-      },
-      {
-        path: 'contact',
-        loadComponent: () =>
-          import('./contact/contact.component').then((value) => {
-            return value.ContactComponent;
-          }),
-      },
-      {
-        path: '',
-        redirectTo: 'home',
-        pathMatch: 'full',
-      },
+      { path: 'about',    redirectTo: 'home', pathMatch: 'full' },
+      { path: 'services', redirectTo: 'home', pathMatch: 'full' },
+      { path: 'products', redirectTo: 'home', pathMatch: 'full' },
+      { path: 'team',     redirectTo: 'home', pathMatch: 'full' },
+      { path: 'contact',  redirectTo: 'home', pathMatch: 'full' },
+      { path: '',         redirectTo: 'home', pathMatch: 'full' },
     ],
   },
 ] as Routes;

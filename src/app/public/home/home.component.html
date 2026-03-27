@@ -1,28 +1,348 @@
-<section id="home" class="home section">
+<div id="section-home">
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="hero-glow hero-glow-1" aria-hidden="true"></div>
+  <div class="hero-glow hero-glow-2" aria-hidden="true"></div>
+
   <div class="container">
-    <div class="row gy-4">
-      <div
-        class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center"
-      >
-        <h1>{{ "application.home.title" | translate }}</h1>
-        <p>{{ "application.home.description" | translate }}</p>
-        <div class="d-flex">
-          <a routerLink="/public/about" class="btn-get-started">{{
-            "application.start" | translate
-          }}</a>
+    <div class="row align-items-center gy-5">
+
+      <div class="col-lg-6" data-aos="fade-right">
+        <div class="hero-pill">
+          <span class="hero-pill-dot"></span>
+          {{ 'application.home.hero_tag' | translate }}
+        </div>
+        <h1 class="hero-title">{{ 'application.home.title' | translate }}</h1>
+        <p class="hero-desc">{{ 'application.home.description' | translate }}</p>
+        <div class="hero-btns">
+          <button (click)="scrollTo('contact')" class="btn-hero-fill">
+            {{ 'application.start' | translate }}
+            <i class="bi bi-arrow-right"></i>
+          </button>
+          <button (click)="scrollTo('services')" class="btn-hero-outline">
+            {{ 'application.menu.services' | translate }}
+          </button>
+        </div>
+        <div class="hero-tech">
+          <span><i class="bi bi-code-slash"></i> Angular</span>
+          <span><i class="bi bi-cloud-fill"></i> Cloud</span>
+          <span><i class="bi bi-phone-fill"></i> Mobile</span>
+          <span><i class="bi bi-stars"></i> AI</span>
+          <span><i class="bi bi-shield-check"></i> DevOps</span>
         </div>
       </div>
-      <div class="col-lg-6 order-1 order-lg-2 hero-img">
-        <img
-          ngSrc="assets/img/home.png"
-          class="img-fluid animated"
-          alt=""
-          height="438"
-          width="539"
-        />
+
+      <div class="col-lg-6" data-aos="fade-left" data-aos-delay="150">
+        <div class="hero-visual">
+
+          <div class="hero-card" [class.flipped]="showApp">
+
+            <!-- FRENTE: código -->
+            <div class="hero-card-front">
+              <div class="code-window">
+                <div class="cw-bar">
+                  <span class="cwb-dot cwb-red"></span>
+                  <span class="cwb-dot cwb-yellow"></span>
+                  <span class="cwb-dot cwb-green"></span>
+                  <span class="cwb-name">bacsystem.app / dashboard.component.ts</span>
+                </div>
+                <div class="cw-body">
+                  @for (line of completedLines; track $index) {
+                    <p [innerHTML]="line"></p>
+                  }
+                  @if (!typingDone) {
+                    <p>{{ currentLineText }}<span class="cw-cursor">|</span></p>
+                  } @else {
+                    <p><span class="cw-cursor">|</span></p>
+                  }
+                </div>
+              </div>
+            </div>
+
+            <!-- REVERSO: app generada -->
+            <div class="hero-card-back">
+              <div class="app-preview">
+                <div class="cw-bar">
+                  <span class="cwb-dot cwb-red"></span>
+                  <span class="cwb-dot cwb-yellow"></span>
+                  <span class="cwb-dot cwb-green"></span>
+                  <span class="cwb-name">bacsystem.app &nbsp;·&nbsp;
+                    <span class="app-status"><i class="bi bi-circle-fill"></i> {{ 'application.home.dash.status' | translate }}</span>
+                  </span>
+                </div>
+                <div class="app-preview-body">
+                  <!-- Dashboard mockup -->
+                  <div class="dash">
+
+                    <!-- Sidebar -->
+                    <nav class="dash-sidebar">
+                      @if (!dashLoaded) {
+                        <div class="skel skl-logo-icon"></div>
+                        <div class="skl-nav-list">
+                          @for (n of navIcons; track n.icon) {
+                            <div class="skel skl-icon" [class.sk-hi]="n.active"></div>
+                          }
+                        </div>
+                      } @else {
+                        <div class="di-logo"><img src="assets/img/bacsystem/Logo_BACSYSTEM-[Color-Isotipo].png" alt="Bacsystem" /></div>
+                        <ul class="di-list">
+                          @for (n of navIcons; track n.icon) {
+                            <li class="di-item" [class.di-active]="n.active"><i [class]="n.icon"></i></li>
+                          }
+                        </ul>
+                      }
+                    </nav>
+
+                    <!-- Main -->
+                    <main class="dash-main">
+
+                      @if (!dashLoaded) {
+
+                        <!-- SKELETON -->
+                        <div class="dash-header">
+                          <div>
+                            <div class="skel" style="width:48px;height:4px;border-radius:3px"></div>
+                            <div class="skel" style="width:36px;height:7px;border-radius:3px;margin-top:3px"></div>
+                          </div>
+                          <div class="dash-header-actions">
+                            <div class="skel" style="width:28px;height:9px;border-radius:7px"></div>
+                            <div class="skel" style="width:12px;height:12px;border-radius:50%"></div>
+                            <div class="skel" style="width:16px;height:16px;border-radius:50%"></div>
+                          </div>
+                        </div>
+                        <div class="dash-stats">
+                          @for (s of dashStats; track s.labelKey) {
+                            <div class="dash-stat-card">
+                              <div class="skel skl-stat-icon"></div>
+                              <div>
+                                <div class="skel" [style.width]="s.sklW1" style="height:7px;border-radius:2px"></div>
+                                <div class="skel" [style.width]="s.sklW2" style="height:5px;border-radius:2px;margin-top:2px"></div>
+                              </div>
+                              <div class="skel skl-badge"></div>
+                            </div>
+                          }
+                        </div>
+                        <div class="dash-charts">
+                          <div class="dash-panel">
+                            <div class="skel skl-panel-title"></div>
+                            <div class="dash-bars">
+                              @for (bar of chartBars; track bar.label + bar.height) {
+                                <div class="dash-bar-col">
+                                  <div class="dash-bar-track">
+                                    <div class="skel dash-bar-fill" [class.skl-bar-hi]="bar.hi" [style.height]="bar.height"></div>
+                                  </div>
+                                </div>
+                              }
+                            </div>
+                          </div>
+                          <div class="dash-panel">
+                            <div class="skel skl-panel-title"></div>
+                            <div class="skel skl-spark-shape"></div>
+                          </div>
+                          <div class="dash-panel">
+                            <div class="skel skl-panel-title"></div>
+                            <div class="dash-donut-wrap">
+                              <div class="dash-donut-svg-wrap">
+                                <svg viewBox="0 0 36 36" class="dash-donut-svg">
+                                  <circle cx="18" cy="18" r="12" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="5"/>
+                                  <circle class="skl-ring skl-ring-1" cx="18" cy="18" r="12" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="5" stroke-dasharray="45 30.55" stroke-dashoffset="18.85" stroke-linecap="round"/>
+                                  <circle class="skl-ring skl-ring-2" cx="18" cy="18" r="12" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="5" stroke-dasharray="20 55.55" stroke-dashoffset="-26.15" stroke-linecap="round"/>
+                                  <circle class="skl-ring skl-ring-3" cx="18" cy="18" r="12" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="5" stroke-dasharray="10 65.55" stroke-dashoffset="-46.15" stroke-linecap="round"/>
+                                </svg>
+                                <div class="dash-donut-center">
+                                  <div class="skel" style="width:13px;height:6px;border-radius:2px"></div>
+                                  <div class="skel" style="width:10px;height:4px;border-radius:2px;margin-top:2px"></div>
+                                </div>
+                              </div>
+                              <div class="dash-donut-legend">
+                                @for (seg of donutSegments; track seg.legendKey) {
+                                  <div class="ddl-item">
+                                    <div class="skel" style="width:5px;height:5px;border-radius:50%;flex-shrink:0"></div>
+                                    <div class="skel" [style.width]="seg.sklW" style="height:5px;border-radius:2px"></div>
+                                  </div>
+                                }
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Tabla skeleton -->
+                        <div class="dash-panel skl-tbl">
+                          <div class="skel skl-panel-title"></div>
+                          <div class="skl-tbl-rows">
+                            @for (t of dashTasks; track t.nameKey) {
+                              <div class="skl-tbl-row">
+                                <div class="skel" style="width:5px;height:5px;border-radius:50%"></div>
+                                <div class="skel" style="flex:1;height:5px;border-radius:2px"></div>
+                                <div class="skel" [style.width]="t.sklBadge" style="height:5px;border-radius:3px"></div>
+                                <div class="skel" [style.width]="t.sklAmt" style="height:5px;border-radius:2px"></div>
+                              </div>
+                            }
+                          </div>
+                        </div>
+
+                        <div class="dash-activity-bar">
+                          @for (a of dashActivity; track a.textKey) {
+                            <span class="dab-item">
+                              <div class="skel" style="width:4px;height:4px;border-radius:50%"></div>
+                              <div class="skel" [style.width]="a.sklW" style="height:5px;border-radius:2px"></div>
+                            </span>
+                          }
+                        </div>
+
+                      } @else {
+
+                        <!-- LOADED —— gráficos reales con fade-in -->
+                        <div class="dl-wrap">
+                          <div class="dash-header">
+                            <div>
+                              <p class="dl-greeting">{{ 'application.home.dash.greeting' | translate }}</p>
+                              <h4 class="dl-title">{{ 'application.home.dash.title' | translate }}</h4>
+                            </div>
+                            <div class="dash-header-actions">
+                              <div class="dl-live">{{ 'application.home.dash.live' | translate }}</div>
+                              <div class="dl-bell"><i class="bi bi-bell-fill"></i><span class="dl-bell-dot"></span></div>
+                              <div class="dl-avatar">A</div>
+                            </div>
+                          </div>
+                          <div class="dash-stats">
+                            @for (s of dashStats; track s.labelKey) {
+                              <div class="dl-stat">
+                                <div class="dl-si {{ s.cls }}"><i class="{{ s.icon }}"></i></div>
+                                <div>
+                                  <div class="dl-sv">{{ s.value }}</div>
+                                  <div class="dl-sl">{{ s.labelKey | translate }}</div>
+                                </div>
+                                <span class="dl-sb {{ s.badgeCls }}">{{ s.badge }}</span>
+                              </div>
+                            }
+                          </div>
+                          <div class="dash-charts">
+
+                            <!-- Panel 1: barras con animación scaleY -->
+                            <div class="dl-panel">
+                              <div class="dl-pt">{{ 'application.home.dash.chart_revenue' | translate }} <span class="dl-pb">+12%</span></div>
+                              <div class="dl-bars">
+                                @for (bar of chartBars; track bar.label + bar.height) {
+                                  <div class="dl-bc">
+                                    <div class="dl-bt">
+                                      <div class="dl-bf" [class.dl-bf-hi]="bar.hi" [style.height]="bar.height"></div>
+                                    </div>
+                                    <span>{{ bar.label }}</span>
+                                  </div>
+                                }
+                              </div>
+                            </div>
+
+                            <!-- Panel 2: sparkline SVG área -->
+                            <div class="dl-panel">
+                              <div class="dl-pt">{{ 'application.home.dash.chart_sessions' | translate }} <span class="dl-pb">+24%</span></div>
+                              <div class="dl-spark-wrap">
+                                <svg class="dl-spark" viewBox="0 0 100 40" preserveAspectRatio="none">
+                                  <defs>
+                                    <linearGradient id="dlg" x1="0" y1="0" x2="0" y2="1">
+                                      <stop offset="0%" stop-color="#41B7A8" stop-opacity="0.35"/>
+                                      <stop offset="100%" stop-color="#41B7A8" stop-opacity="0"/>
+                                    </linearGradient>
+                                  </defs>
+                                  <polygon points="0,40 0,28 14,20 28,24 42,12 56,16 68,7 82,11 100,5 100,40" fill="url(#dlg)"/>
+                                  <polyline points="0,28 14,20 28,24 42,12 56,16 68,7 82,11 100,5" fill="none" stroke="#41B7A8" stroke-width="1.5" stroke-linejoin="round"/>
+                                  <circle cx="100" cy="5" r="2" fill="#41B7A8"/>
+                                </svg>
+                                <div class="dl-spark-l"><span>Mon</span><span>Wed</span><span>Sun</span></div>
+                              </div>
+                            </div>
+
+                            <!-- Panel 3: donut SVG -->
+                            <div class="dl-panel">
+                              <div class="dl-pt">{{ 'application.home.dash.chart_projects' | translate }}</div>
+                              <div class="dl-donut-outer">
+                                <div class="dl-donut-svg-wrap">
+                                  <svg viewBox="0 0 36 36" class="dl-donut-svg">
+                                    <circle cx="18" cy="18" r="12" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="5"/>
+                                    @for (seg of donutSegments; track seg.legendKey) {
+                                      <circle cx="18" cy="18" r="12" fill="none"
+                                        [attr.stroke]="seg.color" stroke-width="5"
+                                        [attr.stroke-dasharray]="seg.dasharray"
+                                        [attr.stroke-dashoffset]="seg.dashoffset"
+                                        stroke-linecap="round"/>
+                                    }
+                                  </svg>
+                                  <div class="dl-dcenter"><span class="dl-dv">55%</span><span class="dl-ds">{{ 'application.home.dash.donut_done' | translate }}</span></div>
+                                </div>
+                                <div class="dl-dlegend">
+                                  @for (seg of donutSegments; track seg.legendKey) {
+                                    <div class="dl-dl"><span [style.background]="seg.color"></span>{{ seg.legendKey | translate }}</div>
+                                  }
+                                </div>
+                              </div>
+                            </div>
+
+                          </div>
+                          <!-- Panel tabla: tareas recientes -->
+                          <div class="dl-table-panel">
+                            <div class="dl-pt">{{ 'application.home.dash.tasks_title' | translate }} <span class="dl-pb">{{ 'application.home.dash.tasks_active' | translate }}</span></div>
+                            <div class="dl-rows">
+                              @for (t of dashTasks; track t.nameKey) {
+                                <div class="dl-row">
+                                  <span class="da-dot {{ t.dotCls }}"></span>
+                                  <span class="dl-rn">{{ t.nameKey | translate }}</span>
+                                  <span class="dl-rs {{ t.statusCls }}">{{ t.statusKey | translate }}</span>
+                                  <span class="dl-ra">{{ t.amount }}</span>
+                                </div>
+                              }
+                            </div>
+                          </div>
+
+                          <div class="dash-activity-bar">
+                            @for (a of dashActivity; track a.textKey) {
+                              <span class="dab-item">
+                                <span class="da-dot {{ a.dotCls }}"></span>
+                                <span class="dal-text">{{ a.textKey | translate }}</span>
+                                <em class="dal-time">{{ a.time }}</em>
+                              </span>
+                            }
+                          </div>
+                        </div>
+
+                      }
+
+                    </main>
+
+                  </div><!-- /dash -->
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /hero-card -->
+
+          <div class="fb fb-1" data-aos="zoom-in" data-aos-delay="500">
+            <i class="bi bi-check-circle-fill"></i>
+            <span>{{ 'application.home.badge_projects' | translate }}</span>
+          </div>
+          <div class="fb fb-2" data-aos="zoom-in" data-aos-delay="700">
+            <i class="bi bi-people-fill"></i>
+            <span>{{ 'application.home.badge_clients' | translate }}</span>
+          </div>
+        </div>
       </div>
+
     </div>
   </div>
 </section>
 
 <app-clients></app-clients>
+</div>
+
+<div id="section-about"><app-about></app-about></div>
+<div id="section-services"><app-services></app-services></div>
+<div id="section-products"><app-products></app-products></div>
+<div id="section-team"><app-team></app-team></div>
+<div id="section-contact"><app-contact></app-contact></div>
+
+<!-- Wave — contact (white) → footer (dark navy) -->
+<div class="wave-footer">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 90" preserveAspectRatio="none">
+    <path fill="#ffffff" d="M0,64 C240,96 480,32 720,56 C960,80 1200,24 1440,48 L1440,0 L0,0 Z"/>
+    <path fill="rgba(255,255,255,0.4)" d="M0,80 C360,48 720,90 1080,64 C1260,52 1380,72 1440,80 L1440,0 L0,0 Z" />
+  </svg>
+</div>

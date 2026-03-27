@@ -13,10 +13,43 @@
       "language": "Language"
     },
     "home": {
+      "hero_tag": "Digital Innovation",
       "title": "We transform ideas into digital solutions",
       "description": "Bacsystem Solutions is a company specialized in software development, technology consulting and digital transformation. We create innovative solutions that drive your business growth.",
       "welcome": "Welcome to Bacsystem Solutions",
       "content": "At Bacsystem Solutions we specialize in custom software development, web and mobile applications, technology consulting and digital transformation. Our team of experts combines creativity, cutting-edge technology and agile methodologies to deliver solutions that truly make a difference in your business.",
+      "badge_projects": "320+ Projects",
+      "badge_clients": "150+ Clients",
+      "dash": {
+        "status": "live",
+        "greeting": "Overview · Q2",
+        "title": "Dashboard",
+        "live": "● Live",
+        "stat_revenue": "Revenue",
+        "stat_users": "Users",
+        "stat_projects": "Projects",
+        "stat_uptime": "Uptime",
+        "chart_revenue": "Revenue",
+        "chart_sessions": "Sessions",
+        "chart_projects": "Projects",
+        "donut_done": "done",
+        "legend_done": "Done",
+        "legend_live": "Live",
+        "legend_queue": "Queue",
+        "tasks_title": "Recent tasks",
+        "tasks_active": "4 active",
+        "task1": "API Gateway",
+        "task2": "Mobile App",
+        "task3": "Analytics",
+        "task4": "Infra upgrade",
+        "status_done": "Done",
+        "status_live": "Live",
+        "status_queue": "Queue",
+        "act1": "Deployed",
+        "act2": "Onboarded",
+        "act3": "API merged",
+        "act4": "Report"
+      },
       "cards": {
         "development": "Development",
         "development_desc": "Custom software solutions for your needs.",
@@ -30,11 +63,28 @@
     },
     "contact": {
       "title": "Contact",
-      "description": "Contact",
+      "description": "Have a question or project in mind? We are here to help you.",
       "address": "Address",
       "email": "Email",
-      "number": "Call Up",
-      "button": "Send Message"
+      "number": "Phone",
+      "button": "Send Message",
+      "sent": "Message sent successfully! We will get back to you soon.",
+      "send_another": "Send another message",
+      "form": {
+        "name": "Your Name",
+        "name_error": "Name is required.",
+        "email": "Email Address",
+        "email_error": "Please enter a valid email.",
+        "subject": "Subject",
+        "subject_error": "Subject is required.",
+        "message": "Message",
+        "message_error": "Message is required."
+      }
+    },    "clients": {
+      "pill": "Companies that trust us",
+      "title": "150+ companies choose us",
+      "subtitle": "We accompany companies of all sizes in their digital transformation, from startups to large corporations.",
+      "uptime": "Guaranteed uptime"
     },
     "about": {
       "title": "About Us",
@@ -42,6 +92,9 @@
       "subject": "Building the Future with Our Clients",
       "reference": "We are the strategic complement to our clients, providing technological and corporate solutions that drive their growth and strengthen their competitiveness.",
       "button": "About Us",
+      "years": "Years of experience",
+      "stat_clients": "Active clients",
+      "stat_projects": "Projects delivered",
       "cards": {
         "item1": {
           "label": "Mission",
@@ -69,18 +122,22 @@
       "button": "Contact Us",
       "cards": {
         "webdev": {
+          "tag": "Web",
           "title": "Web Development",
           "description": "Creation of modern and responsive web applications using the latest technologies."
         },
         "consulting": {
+          "tag": "Strategy",
           "title": "Consulting",
           "description": "Expert advice on technologies and best practices to optimize your processes."
         },
         "optimization": {
+          "tag": "Performance",
           "title": "Optimization",
           "description": "Improvement of performance and efficiency of your existing systems."
         },
         "cloud": {
+          "tag": "Cloud",
           "title": "Cloud Solutions",
           "description": "Migration and implementation of cloud solutions for greater scalability."
         }
@@ -134,6 +191,22 @@
     "products": {
       "title": "Products",
       "description": "Discover our technology products organized by solution area",
+      "flowsync": {
+        "title": "FlowSync",
+        "description": "Cloud workflow automation platform that connects your team, tasks and tools in a single collaborative space.",
+        "f1": "Visual drag-and-drop workflow builder",
+        "f2": "Real-time team collaboration",
+        "f3": "Integration with 200+ business tools"
+      },
+      "operaai": {
+        "tagline": "Intelligent automation platform for modern businesses",
+        "cta": "Discover OperaAI",
+        "description": "OperaAI is an enterprise Cloud SaaS platform that combines artificial intelligence, process automation and real-time analytics to transform the way your organization operates. Designed to scale with your business, from startup to enterprise.",
+        "f1": { "title": "AI-Powered Engine", "desc": "Built-in machine learning models that adapt and improve with your business data automatically." },
+        "f2": { "title": "Real-time Analytics", "desc": "Live dashboards and reports with actionable insights to drive smarter business decisions." },
+        "f3": { "title": "Enterprise Security", "desc": "End-to-end encryption, role-based access control and full compliance with SOC 2 & GDPR." },
+        "f4": { "title": "API-first Integration", "desc": "Seamlessly connects with your existing tools via REST API, webhooks and 100+ native integrations." }
+      },
       "categories": {
         "web": {
           "title": "Web Solutions",
@@ -207,6 +280,55 @@
           }
         }
       }
+    },
+    "stats": {
+      "clients": "Satisfied Clients",
+      "projects": "Completed Projects",
+      "support": "Support Hours",
+      "workers": "Professionals"
+    },
+    "team": {
+      "title": "Our Team",
+      "description": "Meet the passionate professionals who make our clients' digital transformation possible.",
+      "members": {
+        "member1": {
+          "name": "Christian Bacilio",
+          "role": "CEO & Co-Founder",
+          "bio": "Strategic leader with vision in digital transformation and technological innovation."
+        },
+        "member2": {
+          "name": "Ana Torres",
+          "role": "CTO",
+          "bio": "Software architect specialized in scalable solutions and distributed systems."
+        },
+        "member3": {
+          "name": "Luis Mendoza",
+          "role": "Lead Developer",
+          "bio": "Full-stack developer with extensive experience in Angular, Node.js and cloud computing."
+        },
+        "member4": {
+          "name": "María Quispe",
+          "role": "UX/UI Designer",
+          "bio": "Creative designer focused on user-centered digital experiences."
+        }
+      }
+    },
+    "footer": {
+      "svc1": "Software Development",
+      "svc2": "Mobile Apps",
+      "svc3": "Cloud & DevOps",
+      "svc4": "AI & Machine Learning",
+      "svc5": "IT Consulting",
+      "svc6": "Digital Transformation",
+      "rights": "All Rights Reserved",
+      "designed_by": "Designed by",
+      "nav_title": "Navigation",
+      "contact_title": "Contact",
+      "services_title": "Services",
+      "cta_title": "Ready to transform your business?",
+      "schedule": "Mon–Fri: 9:00 AM – 6:00 PM",
+      "support": "Tech Support",
+      "description": "We transform ideas into innovative digital solutions that drive your business growth."
     }
   }
 }

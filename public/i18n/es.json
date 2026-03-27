@@ -13,10 +13,43 @@
       "language": "Idioma"
     },
     "home": {
+      "hero_tag": "Transformación Digital",
       "title": "Transformamos ideas en soluciones digitales",
       "description": "Bacsystem Solutions es una empresa especializada en desarrollo de software, consultoría tecnológica y transformación digital. Creamos soluciones innovadoras que impulsan el crecimiento de tu negocio.",
       "welcome": "Bienvenido a Bacsystem Solutions",
       "content": "En Bacsystem Solutions nos especializamos en el desarrollo de software a medida, aplicaciones web y móviles, consultoría tecnológica y transformación digital. Nuestro equipo de expertos combina creatividad, tecnología de vanguardia y metodologías ágiles para entregar soluciones que realmente marquen la diferencia en tu negocio.",
+      "badge_projects": "320+ Proyectos",
+      "badge_clients": "150+ Clientes",
+      "dash": {
+        "status": "live",
+        "greeting": "Overview · Q2",
+        "title": "Dashboard",
+        "live": "● Live",
+        "stat_revenue": "Revenue",
+        "stat_users": "Usuarios",
+        "stat_projects": "Proyectos",
+        "stat_uptime": "Uptime",
+        "chart_revenue": "Revenue",
+        "chart_sessions": "Sesiones",
+        "chart_projects": "Proyectos",
+        "donut_done": "listo",
+        "legend_done": "Listo",
+        "legend_live": "Activo",
+        "legend_queue": "Cola",
+        "tasks_title": "Tareas recientes",
+        "tasks_active": "4 activas",
+        "task1": "API Gateway",
+        "task2": "App Móvil",
+        "task3": "Analytics",
+        "task4": "Infra upgrade",
+        "status_done": "Listo",
+        "status_live": "Activo",
+        "status_queue": "Cola",
+        "act1": "Desplegado",
+        "act2": "Alta cliente",
+        "act3": "API mergeada",
+        "act4": "Reporte"
+      },
       "cards": {
         "development": "Desarrollo",
         "development_desc": "Soluciones de software a medida para tus necesidades.",
@@ -30,11 +63,29 @@
     },
     "contact": {
       "title": "Contacto",
-      "description": "",
+      "description": "¿Tienes alguna pregunta o proyecto en mente? Estamos aquí para ayudarte.",
       "address": "Dirección",
-      "email": "Envíenos un correo electrónico",
-      "number": "Llámanos",
-      "button": "Enviar Mensaje"
+      "email": "Correo Electrónico",
+      "number": "Teléfono",
+      "button": "Enviar Mensaje",
+      "sent": "¡Mensaje enviado con éxito! Te responderemos pronto.",
+      "send_another": "Enviar otro mensaje",
+      "form": {
+        "name": "Tu Nombre",
+        "name_error": "El nombre es obligatorio.",
+        "email": "Correo Electrónico",
+        "email_error": "Ingresa un correo válido.",
+        "subject": "Asunto",
+        "subject_error": "El asunto es obligatorio.",
+        "message": "Mensaje",
+        "message_error": "El mensaje es obligatorio."
+      }
+    },
+    "clients": {
+      "pill": "Empresas que confían en nosotros",
+      "title": "Más de 150 empresas nos eligen",
+      "subtitle": "Acompañamos a empresas de todos los sectores en su transformación digital, desde startups hasta grandes corporaciones.",
+      "uptime": "Uptime garantizado"
     },
     "about": {
       "title": "Sobre nosotros",
@@ -42,6 +93,9 @@
       "subject": "Construyendo Futuro con Nuestros Clientes",
       "reference": "Somos el complemento estratégico de nuestros clientes, brindando soluciones tecnológicas y corporativas que impulsan su crecimiento y fortalecen su competitividad.",
       "button": "Sobre nosotros",
+      "years": "Años de experiencia",
+      "stat_clients": "Clientes activos",
+      "stat_projects": "Proyectos entregados",
       "cards": {
         "item1": {
           "label": "Misión",
@@ -69,18 +123,22 @@
       "button": "Contáctanos",
       "cards": {
         "webdev": {
+          "tag": "Web",
           "title": "Desarrollo Web",
           "description": "Creación de aplicaciones web modernas y responsivas utilizando las últimas tecnologías."
         },
         "consulting": {
+          "tag": "Estrategia",
           "title": "Consultoría",
           "description": "Asesoramiento experto en tecnologías y mejores prácticas para optimizar tus procesos."
         },
         "optimization": {
+          "tag": "Rendimiento",
           "title": "Optimización",
           "description": "Mejora del rendimiento y eficiencia de tus sistemas existentes."
         },
         "cloud": {
+          "tag": "Cloud",
           "title": "Soluciones Cloud",
           "description": "Migración e implementación de soluciones en la nube para mayor escalabilidad."
         }
@@ -134,6 +192,22 @@
     "products": {
       "title": "Productos",
       "description": "Descubre nuestros productos tecnológicos organizados por área de solución",
+      "flowsync": {
+        "title": "FlowSync",
+        "description": "Plataforma cloud de automatización de flujos de trabajo que conecta tu equipo, tareas y herramientas en un único espacio colaborativo.",
+        "f1": "Constructor visual de flujos drag-and-drop",
+        "f2": "Colaboración de equipo en tiempo real",
+        "f3": "Integración con más de 200 herramientas empresariales"
+      },
+      "operaai": {
+        "tagline": "Plataforma de automatización inteligente para empresas modernas",
+        "cta": "Descubrir OperaAI",
+        "description": "OperaAI es una plataforma Cloud SaaS empresarial que combina inteligencia artificial, automatización de procesos y analítica en tiempo real para transformar la forma en que opera tu organización. Diseñada para escalar con tu negocio, desde startup hasta enterprise.",
+        "f1": { "title": "Motor con IA", "desc": "Modelos de machine learning integrados que se adaptan y mejoran automáticamente con los datos de tu negocio." },
+        "f2": { "title": "Analítica en Tiempo Real", "desc": "Dashboards y reportes en vivo con insights accionables para tomar decisiones empresariales más inteligentes." },
+        "f3": { "title": "Seguridad Enterprise", "desc": "Cifrado extremo a extremo, control de acceso por roles y cumplimiento total con SOC 2 y GDPR." },
+        "f4": { "title": "Integración API-first", "desc": "Se conecta sin fricción con tus herramientas existentes vía REST API, webhooks y más de 100 integraciones nativas." }
+      },
       "categories": {
         "web": {
           "title": "Soluciones Web",
@@ -207,6 +281,55 @@
           }
         }
       }
+    },
+    "stats": {
+      "clients": "Clientes Satisfechos",
+      "projects": "Proyectos Completados",
+      "support": "Horas de Soporte",
+      "workers": "Profesionales"
+    },
+    "team": {
+      "title": "Nuestro Equipo",
+      "description": "Conoce a los profesionales apasionados que hacen posible la transformación digital de nuestros clientes.",
+      "members": {
+        "member1": {
+          "name": "Christian Bacilio",
+          "role": "CEO & Co-Fundador",
+          "bio": "Líder estratégico con visión en transformación digital e innovación tecnológica."
+        },
+        "member2": {
+          "name": "Ana Torres",
+          "role": "CTO",
+          "bio": "Arquitecta de software especializada en soluciones escalables y sistemas distribuidos."
+        },
+        "member3": {
+          "name": "Luis Mendoza",
+          "role": "Lead Developer",
+          "bio": "Desarrollador full-stack con amplia experiencia en Angular, Node.js y cloud computing."
+        },
+        "member4": {
+          "name": "María Quispe",
+          "role": "UX/UI Designer",
+          "bio": "Diseñadora creativa enfocada en experiencias digitales centradas en el usuario."
+        }
+      }
+    },
+    "footer": {
+      "svc1": "Desarrollo de Software",
+      "svc2": "Apps Móviles",
+      "svc3": "Cloud & DevOps",
+      "svc4": "IA & Machine Learning",
+      "svc5": "Consultoría IT",
+      "svc6": "Transformación Digital",
+      "rights": "Todos los derechos reservados",
+      "designed_by": "Diseñado por",
+      "nav_title": "Navegación",
+      "contact_title": "Contacto",
+      "services_title": "Servicios",
+      "cta_title": "¿Listo para transformar tu negocio?",
+      "schedule": "Lun–Vie: 9:00 – 18:00",
+      "support": "Soporte técnico",
+      "description": "Transformamos ideas en soluciones digitales innovadoras que impulsan el crecimiento de tu negocio."
     }
   }
 }

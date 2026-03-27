@@ -54,7 +54,7 @@ export class MenuService {
         title: 'application.menu.team',
         routerLink: '/public/team',
         routerLinkActive: 'active',
-        active: false,
+        active: true,
       },
       {
         id: 6,

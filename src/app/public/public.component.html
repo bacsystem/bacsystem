@@ -1,5 +1,16 @@
 <app-header></app-header>
 
+<!-- Floating scroll-activated sections nav -->
+<nav class="sections-nav" [class.snav-visible]="showSectionsNav">
+  @for (item of navItems; track item.id) {
+    <a
+      (click)="navClick(item)"
+      [class.snav-active]="isNavActive(item)"
+      style="cursor:pointer"
+    >{{ item.title | translate }}</a>
+  }
+</nav>
+
 <main class="main">
   <router-outlet></router-outlet>
 </main>

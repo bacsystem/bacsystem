@@ -1,43 +1,62 @@
 <!-- About Section -->
-<section id="about" class="about section">
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="fade-up">
-    <h2>{{ "application.about.title" | translate }}</h2>
-    <p>{{ "application.about.description" | translate }}</p>
-  </div>
-  <!-- End Section Title -->
+<section id="about" class="ab-section">
+
+  <!-- Decorative blobs -->
+  <div class="ab-blob ab-blob-1"></div>
+  <div class="ab-blob ab-blob-2"></div>
 
   <div class="container">
-    <div class="row gy-5">
-      <div
-        class="content col-xl-5 d-flex flex-column"
-        data-aos="fade-up"
-        data-aos-delay="100"
-      >
-        <h3>{{ "application.about.subject" | translate }}</h3>
-        <p>
-          {{ "application.about.reference" | translate }}
-        </p>
+
+    <!-- Section header -->
+    <div class="ab-header" data-aos="fade-up">
+      <span class="ab-pill">{{ 'application.menu.about' | translate }}</span>
+      <h2 class="ab-heading">{{ 'application.about.title' | translate }}</h2>
+      <p class="ab-desc">{{ 'application.about.description' | translate }}</p>
+    </div>
+
+    <div class="row gy-5 align-items-center">
+
+      <!-- Left: narrative + metrics + CTA -->
+      <div class="col-lg-5" data-aos="fade-right" data-aos-delay="100">
+        <div class="ab-left">
+          <h3 class="ab-subject">{{ 'application.about.subject' | translate }}</h3>
+          <p class="ab-reference">{{ 'application.about.reference' | translate }}</p>
+
+          <!-- Metrics strip -->
+          <div class="ab-metrics">
+            @for (m of metrics; track m.labelKey; let last = $last) {
+              <div class="ab-metric">
+                <span class="ab-mv">{{ m.value }}<span class="ab-ms">{{ m.suffix }}</span></span>
+                <span class="ab-ml">{{ m.labelKey | translate }}</span>
+              </div>
+              @if (!last) { <div class="ab-msep"></div> }
+            }
+          </div>
+
+          <a (click)="nav.scrollTo('contact')" class="ab-cta" style="cursor:pointer">
+            {{ 'application.start' | translate }}
+            <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
       </div>
 
-      <div class="col-xl-7" data-aos="fade-up" data-aos-delay="200">
-        <div class="row gy-4">
+      <!-- Right: feature cards 2×2 -->
+      <div class="col-lg-7" data-aos="fade-left" data-aos-delay="200">
+        <div class="ab-grid">
           @for (item of items; track item.id) {
             @if (item.enable) {
-              <div class="col-md-6 icon-box position-relative">
-                <i [class]="item.icon"></i>
-                <h4>
-                  <a class="stretched-link">
-                    {{ item.name + "." + item.label | translate }}</a
-                  >
-                </h4>
-                <p>{{ item.name + "." + item.description | translate }}</p>
+              <div class="ab-card">
+                <div class="ab-icon"><i [class]="item.icon"></i></div>
+                <div class="ab-card-body">
+                  <h4 class="ab-card-title">{{ item.name + '.' + item.label | translate }}</h4>
+                  <p class="ab-card-desc">{{ item.name + '.' + item.description | translate }}</p>
+                </div>
               </div>
-              <!-- Icon-Box -->
             }
           }
         </div>
       </div>
+
     </div>
   </div>
 </section>
