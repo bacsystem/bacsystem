@@ -329,6 +329,11 @@
       "schedule": "Mon–Fri: 9:00 AM – 6:00 PM",
       "support": "Tech Support",
       "description": "We transform ideas into innovative digital solutions that drive your business growth."
+    },
+    "seo": {
+      "title": "Bacsystem Solutions | Software Development & Digital Transformation",
+      "description": "Bacsystem Solutions: specialists in custom software development, technology consulting and digital transformation. 150+ clients, 320+ projects delivered across Latin America.",
+      "keywords": "software development, technology consulting, digital transformation, web applications, mobile apps, cloud solutions, Angular, Bacsystem"
     }
   }
 }

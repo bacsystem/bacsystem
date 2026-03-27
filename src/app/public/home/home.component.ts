@@ -1,7 +1,9 @@
-import { Component, AfterViewInit, OnDestroy, PLATFORM_ID, inject } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy, OnInit, PLATFORM_ID, inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { TranslatePipe } from '@ngx-translate/core';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
+import { SeoService } from '../../core/seo.service';
 import { ClientsComponent } from '../clients/clients.component';
 import { AboutComponent } from '../about/about.component';
 import { ServicesComponent } from '../services/services.component';
@@ -46,9 +48,11 @@ const START_DELAY = 600;
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent implements AfterViewInit, OnDestroy {
-  private readonly platformId = inject(PLATFORM_ID);
-  private readonly sanitizer = inject(DomSanitizer);
+export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
+  private readonly platformId       = inject(PLATFORM_ID);
+  private readonly sanitizer        = inject(DomSanitizer);
+  private readonly seoService       = inject(SeoService);
+  private readonly translateService = inject(TranslateService);
 
   completedLines: SafeHtml[] = [];
   currentLineText = '';
@@ -61,6 +65,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   private timer: ReturnType<typeof setTimeout> | null = null;
   private flipInterval: ReturnType<typeof setTimeout> | null = null;
   private dashLoadTimer: ReturnType<typeof setTimeout> | null = null;
+  private langSub?: Subscription;
 
   readonly navIcons = [
     { icon: 'bi bi-grid-fill',      active: true  },
@@ -106,6 +111,12 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     { dotCls: 'da-green',  textKey: 'application.home.dash.act4', time: '5h', sklW: '24px' },
   ];
 
+  ngOnInit(): void {
+    this.seoService.update();
+    this.langSub = this.translateService.onLangChange
+      .subscribe(() => this.seoService.update());
+  }
+
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
       const g = globalThis as unknown as Record<string, (new () => object) | undefined>;
@@ -123,6 +134,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     if (this.timer) clearTimeout(this.timer);
     if (this.flipInterval) clearTimeout(this.flipInterval);
     if (this.dashLoadTimer) clearTimeout(this.dashLoadTimer);
+    this.langSub?.unsubscribe();
   }
 
   scrollTo(sectionId: string): void {

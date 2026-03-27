@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://bacsystemsolutions.com/sitemap.xml
