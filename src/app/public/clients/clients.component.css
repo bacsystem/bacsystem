@@ -105,6 +105,7 @@
 
 .cl-img {
   max-width: 100%;
+  width: auto;
   height: auto;
   max-height: 44px;
   filter: grayscale(1);

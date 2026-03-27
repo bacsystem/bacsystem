@@ -18,7 +18,7 @@ export class MenuService {
     return [
       {
         id: 1,
-        icon: '',
+        icon: 'bi-house-fill',
         title: 'application.menu.home',
         routerLink: '/public/home',
         routerLinkActive: 'active',
@@ -26,7 +26,7 @@ export class MenuService {
       },
       {
         id: 2,
-        icon: '',
+        icon: 'bi-person-fill',
         title: 'application.menu.about',
         routerLink: '/public/about',
         routerLinkActive: 'active',
@@ -34,7 +34,7 @@ export class MenuService {
       },
       {
         id: 3,
-        icon: '',
+        icon: 'bi-grid-fill',
         title: 'application.menu.services',
         routerLink: '/public/services',
         routerLinkActive: 'active',
@@ -42,7 +42,7 @@ export class MenuService {
       },
       {
         id: 4,
-        icon: '',
+        icon: 'bi-box-fill',
         title: 'application.menu.products',
         routerLink: '/public/products',
         routerLinkActive: 'active',
@@ -50,7 +50,7 @@ export class MenuService {
       },
       {
         id: 5,
-        icon: '',
+        icon: 'bi-people-fill',
         title: 'application.menu.team',
         routerLink: '/public/team',
         routerLinkActive: 'active',
@@ -58,7 +58,7 @@ export class MenuService {
       },
       {
         id: 6,
-        icon: '',
+        icon: 'bi-chat-dots-fill',
         title: 'application.menu.contact',
         routerLink: '/public/contact',
         routerLinkActive: 'active',

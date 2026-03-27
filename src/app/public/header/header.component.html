@@ -7,21 +7,6 @@
       <img [class.d-none]="!theme.isDark" src="assets/img/bacsystem/Logo_BACSYSTEM-[Blanco-Isotipo].png" alt="Bacsystem Logo" />
     </a>
 
-    <!-- Mobile-only nav (hamburger opens this) -->
-    <nav id="nav-menu" class="nav-menu d-xl-none">
-      <ul>
-        @for (item of titles; track item.id) {
-          @if (item.active) {
-            <li>
-              <a (click)="navClick(item)" style="cursor:pointer">
-                {{ item.title | translate }}
-              </a>
-            </li>
-          }
-        }
-      </ul>
-    </nav>
-
     <!-- Actions -->
     <div class="header-actions">
       <button class="theme-toggle" (click)="theme.cycle()" [attr.aria-label]="'Tema: ' + theme.currentMode">
@@ -48,6 +33,54 @@
 
   </div>
 </header>
+
+<!-- Mobile nav drawer — outside header to avoid backdrop-filter containment -->
+<nav id="nav-menu" class="nav-menu d-xl-none" [class.nav-open]="mobileNavOpen" aria-label="Mobile navigation">
+
+  <!-- Top: brand + close -->
+  <div class="mnav-header">
+    <div class="mnav-brand">
+      <img src="assets/img/bacsystem/Logo_BACSYSTEM-[Blanco-Isotipo].png" alt="Bacsystem" class="mnav-logo" />
+      <span class="mnav-brand-name">BAC<span class="mnav-brand-accent">SYSTEM</span></span>
+    </div>
+    <button class="mnav-close" (click)="closeMobileNav()" aria-label="Cerrar menú">
+      <i class="bi bi-x-lg"></i>
+    </button>
+  </div>
+
+  <!-- Nav links -->
+  <ul class="mnav-items">
+    @for (item of titles; track item.id; let idx = $index) {
+      @if (item.active) {
+        <li class="mnav-item" [style.--i]="idx">
+          <a (click)="navClick(item)">
+            <span class="mnav-icon-wrap"><i class="bi {{ item.icon }}"></i></span>
+            <span class="mnav-label">{{ item.title | translate }}</span>
+            <i class="bi bi-chevron-right mnav-arrow"></i>
+          </a>
+        </li>
+      }
+    }
+  </ul>
+
+  <!-- Bottom: tools + CTA -->
+  <div class="mnav-footer">
+    <div class="mnav-tools">
+      <button class="mnav-tool-btn" (click)="theme.cycle()" [attr.aria-label]="'Tema: ' + theme.currentMode">
+        <i class="bi" [ngClass]="theme.icon"></i>
+      </button>
+      <button class="mnav-tool-btn" (click)="toggleLanguage()" aria-label="Cambiar idioma">
+        <i class="bi bi-globe2"></i>
+        <span>{{ currentLanguage }}</span>
+      </button>
+    </div>
+    <a class="mnav-cta" (click)="navToSection('contact')">
+      {{ 'application.start' | translate }}
+      <i class="bi bi-arrow-right"></i>
+    </a>
+  </div>
+
+</nav>
 
 @if (mobileNavOpen) {
   <button
