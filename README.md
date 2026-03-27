@@ -3,7 +3,7 @@
 ![Angular](https://img.shields.io/badge/Angular-18-DD0031?logo=angular&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.5-3178C6?logo=typescript&logoColor=white)
 ![Cloudflare Pages](https://img.shields.io/badge/Deploy-Cloudflare%20Pages-F38020?logo=cloudflare&logoColor=white)
-![Version](https://img.shields.io/badge/Version-1.2.1-blue)
+![Version](https://img.shields.io/badge/Version-1.2.2-blue)
 ![License](https://img.shields.io/badge/License-Private-lightgrey)
 
 Corporate website for **Bacsystem Solutions**, a company specialized in software development, technology consulting, and digital transformation. Built with Angular 18 with SSR support and deployed on Cloudflare Pages.
@@ -26,6 +26,7 @@ Corporate website for **Bacsystem Solutions**, a company specialized in software
 
 - **Angular 18** with standalone components, lazy-loaded routes, and built-in `@for`/`@if` control flow
 - **Server-Side Rendering (SSR)** via `@angular/ssr` + Express
+- **SEO-ready** — `SeoService` updates `<title>`, Open Graph, Twitter Card, `html[lang]`, and canonical `<link>` dynamically on language change; static JSON-LD Organization schema; `robots.txt` and `sitemap.xml` with `hreflang` alternates
 - **Internationalization (i18n)** with `@ngx-translate` — supports English (`en`) and Spanish (`es`), all visible text served via i18n keys
 - **Data-driven templates** — all repeating UI blocks (dashboard stats, chart bars, donut segments, task rows, footer services, metrics strip) rendered from typed component arrays via `@for` loops
 - **AOS** (Animate On Scroll) for scroll-driven animations
@@ -42,7 +43,7 @@ Corporate website for **Bacsystem Solutions**, a company specialized in software
 ```text
 src/
 ├── app/
-│   ├── core/            # Shared services (LanguageService, MenuService) and models
+│   ├── core/            # Shared services (LanguageService, MenuService, SeoService) and models
 │   ├── public/          # Public-facing pages (lazy-loaded)
 │   │   ├── home/
 │   │   ├── about/
@@ -58,7 +59,9 @@ src/
 └── index.html
 public/
 ├── assets/              # Fonts, images, vendor libraries
-└── i18n/                # Translation files (en.json, es.json)
+├── i18n/                # Translation files (en.json, es.json)
+├── robots.txt           # Crawl rules
+└── sitemap.xml          # URL map with hreflang alternates
 ```
 
 ---

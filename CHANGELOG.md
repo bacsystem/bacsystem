@@ -5,6 +5,23 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.2.2] — 2026-03-27
+
+### Added
+- `SeoService` (`src/app/core/seo.service.ts`) — dynamically updates `<title>`, `<meta description/keywords>`, Open Graph tags, Twitter Card tags, `html[lang]`, and canonical `<link rel="canonical">` using Angular `Title` + `Meta` services; re-runs on every language change via `translateService.onLangChange`.
+- Static Open Graph (`og:*`) and Twitter Card meta tags in `index.html` as SSR baseline — visible to crawlers before Angular hydrates.
+- JSON-LD `Organization` structured data block in `index.html` for Google Knowledge Panel eligibility.
+- `<link rel="canonical" href="https://bacsystemsolutions.com">` in `index.html`.
+- `public/robots.txt` — permits full crawl, references sitemap.
+- `public/sitemap.xml` — canonical URL with `hreflang` alternates for `en` and `es`.
+- SEO i18n keys (`application.seo.title`, `.description`, `.keywords`) added to both `public/i18n/en.json` and `public/i18n/es.json`.
+
+### Changed
+- `HomeComponent` now implements `OnInit`; injects `SeoService` and calls `update()` on init and on each `onLangChange` event.
+- `index.html` — removed duplicate `<meta name="viewport">`, replaced static title/description with SEO-optimised values, added `<base href="/">` as first tag after charset.
+
+---
+
 ## [1.2.1] — 2026-03-27
 
 ### Changed
