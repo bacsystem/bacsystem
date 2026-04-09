@@ -49,14 +49,5 @@ export class TeamComponent {
       linkedin: '#', github: '#', twitter: '#',
       colorClass: 'purple',
     },
-    {
-      id: 4,
-      nameKey: 'application.team.members.member4.name',
-      roleKey: 'application.team.members.member4.role',
-      bioKey:  'application.team.members.member4.bio',
-      avatar: 'assets/img/bacsystem/bacsystem-team-4.jpg',
-      linkedin: '#', github: '#', twitter: '#',
-      colorClass: 'indigo',
-    },
   ];
 }

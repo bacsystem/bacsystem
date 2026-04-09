@@ -12,7 +12,11 @@ import { ScrollNavService } from '../../core/scroll-nav.service';
 export class ProductsComponent {
   constructor(public readonly nav: ScrollNavService) {}
   showOperaModal = false;
+  showSophiaModal = false;
+  showSophiaIAModal = false;
   activeTab: 'overview' | 'modules' | 'pricing' | 'faq' = 'overview';
+  sophiaActiveTab: 'overview' | 'features' | 'specs' = 'overview';
+  sophiaIAActiveTab: 'overview' | 'features' | 'specs' = 'overview';
   openFaq: number | null = null;
 
   readonly faqItems = [
@@ -34,6 +38,36 @@ export class ProductsComponent {
   closeModal(): void {
     this.showOperaModal = false;
     document.body.style.overflow = '';
+  }
+
+  openSophiaModal(): void {
+    this.showSophiaModal = true;
+    this.sophiaActiveTab = 'overview';
+    document.body.style.overflow = 'hidden';
+  }
+
+  closeSophiaModal(): void {
+    this.showSophiaModal = false;
+    document.body.style.overflow = '';
+  }
+
+  setSophiaTab(tab: 'overview' | 'features' | 'specs'): void {
+    this.sophiaActiveTab = tab;
+  }
+
+  openSophiaIAModal(): void {
+    this.showSophiaIAModal = true;
+    this.sophiaIAActiveTab = 'overview';
+    document.body.style.overflow = 'hidden';
+  }
+
+  closeSophiaIAModal(): void {
+    this.showSophiaIAModal = false;
+    document.body.style.overflow = '';
+  }
+
+  setSophiaIATab(tab: 'overview' | 'features' | 'specs'): void {
+    this.sophiaIAActiveTab = tab;
   }
 
   setTab(tab: 'overview' | 'modules' | 'pricing' | 'faq'): void {

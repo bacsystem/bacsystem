@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <rect width="32" height="32" rx="8" fill="#0EA5E9"/>
+  <!-- AI neural/eye icon -->
+  <g transform="translate(6, 6)" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Outer hexagon shape (wisdom/neural) -->
+    <path d="M10 1 L17.5 5 L17.5 13 L10 17 L2.5 13 L2.5 5 Z"/>
+    <!-- Inner circle (core/eye) -->
+    <circle cx="10" cy="9" r="3.5"/>
+    <!-- Center dot -->
+    <circle cx="10" cy="9" r="1.2" fill="white"/>
+    <!-- Connection lines from center to vertices -->
+    <line x1="10" y1="5.5" x2="10" y2="1"/>
+    <line x1="10" y1="12.5" x2="10" y2="17"/>
+    <line x1="6.8" y1="7.2" x2="2.5" y2="5"/>
+    <line x1="13.2" y1="7.2" x2="17.5" y2="5"/>
+    <line x1="6.8" y1="10.8" x2="2.5" y2="13"/>
+    <line x1="13.2" y1="10.8" x2="17.5" y2="13"/>
+  </g>
+</svg>

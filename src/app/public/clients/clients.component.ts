@@ -19,38 +19,14 @@ export interface Client {
 export class ClientsComponent {
   readonly clients: Client[] = [
     {
-      src: 'assets/img/clients/client-1.png',
-      alt: 'Client 1',
-      width: 102,
+      src: 'assets/img/clients/client-7.png',
+      alt: 'Client 7',
+      width: 141,
       height: 44,
     },
     {
-      src: 'assets/img/clients/client-2.png',
-      alt: 'Client 2',
-      width: 126,
-      height: 44,
-    },
-    {
-      src: 'assets/img/clients/client-3.png',
-      alt: 'Client 3',
-      width: 124,
-      height: 44,
-    },
-    {
-      src: 'assets/img/clients/client-4.png',
-      alt: 'Client 4',
-      width: 125,
-      height: 44,
-    },
-    {
-      src: 'assets/img/clients/client-5.png',
-      alt: 'Client 5',
-      width: 124,
-      height: 44,
-    },
-    {
-      src: 'assets/img/clients/client-6.png',
-      alt: 'Client 6',
+      src: 'assets/img/clients/client-8.png',
+      alt: 'Client 8',
       width: 141,
       height: 44,
     },

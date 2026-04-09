@@ -207,6 +207,25 @@
         "f3": { "title": "Enterprise Security", "desc": "End-to-end encryption, role-based access control and full compliance with SOC 2 & GDPR." },
         "f4": { "title": "API-first Integration", "desc": "Seamlessly connects with your existing tools via REST API, webhooks and 100+ native integrations." }
       },
+      "sophia": {
+        "tagline": "Facial recognition and AI for enterprise security",
+        "cta": "Discover Sophia Smart",
+        "description": "Sophia Smart is an AI-powered facial recognition platform enabling biometric access control, identity verification and real-time analysis. Intelligent security for businesses that need next-generation protection.",
+        "f1": { "title": "Facial Recognition", "desc": "Real-time face detection and verification with 99.5%+ accuracy using deep learning models." },
+        "f2": { "title": "Access Control", "desc": "Biometric access management with automatic logging, instant alerts and detailed reports." },
+        "f3": { "title": "Smart Analytics", "desc": "Dashboards with security metrics, access patterns and real-time anomaly detection." },
+        "f4": { "title": "Full Integration", "desc": "Compatible with IP cameras, turnstiles, smart locks and existing security systems." }
+      },
+      "sophia_ia": {
+        "tagline": "Autonomous AI-powered software generation system",
+        "cta": "Discover sophIA",
+        "status": "Under Construction",
+        "description": "sophIA is an autonomous software generation system that orchestrates specialized AI agents to generate code layer by layer. Powered by Claude Code with Tool Use, sophIA transforms requirements into functional software with minimal human intervention.",
+        "f1": { "title": "Agent Orchestration", "desc": "Multiple coordinated specialized agents generating code by layers: models, services, controllers and UI." },
+        "f2": { "title": "Claude Code + Tool Use", "desc": "Generation engine powered by Claude with the ability to execute tools, validate and self-correct code in real time." },
+        "f3": { "title": "Layer-by-Layer Generation", "desc": "Layered architecture producing clean, modular, production-ready code following best practices." },
+        "f4": { "title": "Intelligent Autonomy", "desc": "Autonomous decision-making with human validation checkpoints at critical pipeline stages." }
+      },
       "categories": {
         "web": {
           "title": "Web Solutions",
@@ -297,19 +316,14 @@
           "bio": "Strategic leader with vision in digital transformation and technological innovation."
         },
         "member2": {
-          "name": "Ana Torres",
-          "role": "CTO",
-          "bio": "Software architect specialized in scalable solutions and distributed systems."
+          "name": "José Bacilio",
+          "role": "Lead Developer",
+          "bio": "Full-stack developer specialized in scalable solutions and distributed systems."
         },
         "member3": {
-          "name": "Luis Mendoza",
-          "role": "Lead Developer",
-          "bio": "Full-stack developer with extensive experience in Angular, Node.js and cloud computing."
-        },
-        "member4": {
-          "name": "María Quispe",
-          "role": "UX/UI Designer",
-          "bio": "Creative designer focused on user-centered digital experiences."
+          "name": "Faustina Del Rosario",
+          "role": "CMO & Marketing",
+          "bio": "Marketing strategist specialized in digital growth, brand positioning and client acquisition."
         }
       }
     },

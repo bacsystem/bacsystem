@@ -208,6 +208,25 @@
         "f3": { "title": "Seguridad Enterprise", "desc": "Cifrado extremo a extremo, control de acceso por roles y cumplimiento total con SOC 2 y GDPR." },
         "f4": { "title": "Integración API-first", "desc": "Se conecta sin fricción con tus herramientas existentes vía REST API, webhooks y más de 100 integraciones nativas." }
       },
+      "sophia": {
+        "tagline": "Reconocimiento facial e inteligencia artificial para seguridad empresarial",
+        "cta": "Descubrir Sophia Smart",
+        "description": "Sophia Smart es una plataforma de reconocimiento facial con IA que permite control de acceso biométrico, verificación de identidad y análisis en tiempo real. Seguridad inteligente para empresas que necesitan protección de próxima generación.",
+        "f1": { "title": "Reconocimiento Facial", "desc": "Detección y verificación facial en tiempo real con precisión superior al 99.5% usando modelos de deep learning." },
+        "f2": { "title": "Control de Acceso", "desc": "Gestión biométrica de accesos con registro automático, alertas instantáneas y reportes detallados." },
+        "f3": { "title": "Análisis Inteligente", "desc": "Dashboards con métricas de seguridad, patrones de acceso y detección de anomalías en tiempo real." },
+        "f4": { "title": "Integración Total", "desc": "Compatible con cámaras IP, torniquetes, cerraduras inteligentes y sistemas de seguridad existentes." }
+      },
+      "sophia_ia": {
+        "tagline": "Sistema autónomo de generación de software impulsado por IA",
+        "cta": "Conocer sophIA",
+        "status": "En construcción",
+        "description": "sophIA es un sistema autónomo de generación de software que orquesta agentes especializados de IA para generar código capa por capa. Impulsado por Claude Code con Tool Use, sophIA transforma requerimientos en software funcional con mínima intervención humana.",
+        "f1": { "title": "Orquestación de Agentes", "desc": "Múltiples agentes especializados coordinados que generan código por capas: modelos, servicios, controladores y UI." },
+        "f2": { "title": "Claude Code + Tool Use", "desc": "Motor de generación basado en Claude con capacidad de ejecutar herramientas, validar y autocorregir código en tiempo real." },
+        "f3": { "title": "Generación Capa por Capa", "desc": "Arquitectura layered que produce código limpio, modular y listo para producción siguiendo mejores prácticas." },
+        "f4": { "title": "Autonomía Inteligente", "desc": "Toma de decisiones autónoma con checkpoints de validación humana en puntos críticos del pipeline." }
+      },
       "categories": {
         "web": {
           "title": "Soluciones Web",
@@ -298,19 +317,14 @@
           "bio": "Líder estratégico con visión en transformación digital e innovación tecnológica."
         },
         "member2": {
-          "name": "Ana Torres",
-          "role": "CTO",
-          "bio": "Arquitecta de software especializada en soluciones escalables y sistemas distribuidos."
+          "name": "José Bacilio",
+          "role": "Lead Developer",
+          "bio": "Desarrollador full-stack especializado en soluciones escalables y sistemas distribuidos."
         },
         "member3": {
-          "name": "Luis Mendoza",
-          "role": "Lead Developer",
-          "bio": "Desarrollador full-stack con amplia experiencia en Angular, Node.js y cloud computing."
-        },
-        "member4": {
-          "name": "María Quispe",
-          "role": "UX/UI Designer",
-          "bio": "Diseñadora creativa enfocada en experiencias digitales centradas en el usuario."
+          "name": "Faustina Del Rosario",
+          "role": "CMO & Marketing",
+          "bio": "Estratega de marketing especializado en crecimiento digital, posicionamiento de marca y captación de clientes."
         }
       }
     },

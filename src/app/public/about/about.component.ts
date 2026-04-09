@@ -14,9 +14,9 @@ export class AboutComponent {
   constructor(public readonly nav: ScrollNavService) {}
 
   readonly metrics = [
-    { value: '10',  suffix: '+', labelKey: 'application.about.years' },
-    { value: '150', suffix: '+', labelKey: 'application.about.stat_clients' },
-    { value: '400', suffix: '+', labelKey: 'application.about.stat_projects' },
+    { value: '15',  suffix: '+', labelKey: 'application.about.years' },
+    { value: '2', suffix: '+', labelKey: 'application.about.stat_clients' },
+    { value: '2', suffix: '+', labelKey: 'application.about.stat_projects' },
   ];
 
   readonly items: About[] = [

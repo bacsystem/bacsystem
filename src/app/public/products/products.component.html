@@ -74,8 +74,8 @@
           </button>
         </div>
 
-        <!-- FlowSync -->
-        <!-- <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="180">
+        <!-- FlowSync
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="180">
           <div class="pd-card">
             <div class="pd-card-top">
               <div class="pd-icon pd-icon--cloud"><i class="bi bi-diagram-3-fill"></i></div>
@@ -90,7 +90,7 @@
             <a (click)="nav.scrollTo('contact')" class="pd-card-cta" style="cursor:pointer">{{ 'application.services.button' | translate }} <i class="bi bi-arrow-right"></i></a>
           </div>
         </div>
- -->
+        -->
       </div>
       <!-- /row -->
     </div>
@@ -390,60 +390,92 @@
       </div>
 
       <div class="row gy-4">
-        <!-- Featured: Sophia -->
+        <!-- Featured: Sophia Smart -->
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="pd-card pd-card--featured">
+          <button
+            class="pd-card pd-card--featured pd-card--clickable"
+            (click)="openSophiaModal()"
+            aria-label="Ver detalles de Sophia Smart"
+          >
             <div class="pd-featured-badge">
-              <i class="bi bi-stars"></i> Featured
+              <i class="bi bi-shield-lock-fill"></i> AI Security
             </div>
+
             <div class="pd-card-top">
               <div class="pd-icon pd-icon--purple">
                 <i class="bi bi-person-bounding-box"></i>
               </div>
             </div>
-            <h4 class="pd-card-title">
-              {{
-                "application.products.categories.ai.items.sophia.title"
-                  | translate
-              }}
-            </h4>
+
+            <h4 class="pd-card-title">Sophia Smart</h4>
             <p class="pd-card-desc">
-              {{
-                "application.products.categories.ai.items.sophia.description"
-                  | translate
-              }}
+              {{ "application.products.sophia.tagline" | translate }}
             </p>
+
             <ul class="pd-features">
               <li>
                 <i class="bi bi-check-circle-fill"></i
-                >{{
-                  "application.products.categories.ai.items.sophia.f1"
-                    | translate
-                }}
+                >{{ "application.products.sophia.f1.title" | translate }}
               </li>
               <li>
                 <i class="bi bi-check-circle-fill"></i
-                >{{
-                  "application.products.categories.ai.items.sophia.f2"
-                    | translate
-                }}
+                >{{ "application.products.sophia.f2.title" | translate }}
               </li>
               <li>
                 <i class="bi bi-check-circle-fill"></i
-                >{{
-                  "application.products.categories.ai.items.sophia.f3"
-                    | translate
-                }}
+                >{{ "application.products.sophia.f3.title" | translate }}
               </li>
             </ul>
-            <a
-              (click)="nav.scrollTo('contact')"
-              class="pd-card-cta pd-card-cta--featured"
-              style="cursor:pointer"
-              >{{ "application.services.button" | translate }}
-              <i class="bi bi-arrow-right"></i
-            ></a>
-          </div>
+
+            <div class="pd-card-highlight">
+              <i class="bi bi-patch-check-fill"></i>
+              Precisión facial &gt; 99.5%
+            </div>
+          </button>
+        </div>
+
+        <!-- sophIA -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="180">
+          <button
+            class="pd-card pd-card--featured pd-card--clickable"
+            (click)="openSophiaIAModal()"
+            aria-label="Ver detalles de sophIA"
+          >
+            <div class="pd-featured-badge pd-featured-badge--building">
+              <i class="bi bi-cone-striped"></i> {{ "application.products.sophia_ia.status" | translate }}
+            </div>
+
+            <div class="pd-card-top">
+              <div class="pd-icon pd-icon--purple">
+                <i class="bi bi-robot"></i>
+              </div>
+            </div>
+
+            <h4 class="pd-card-title">sophIA</h4>
+            <p class="pd-card-desc">
+              {{ "application.products.sophia_ia.tagline" | translate }}
+            </p>
+
+            <ul class="pd-features">
+              <li>
+                <i class="bi bi-check-circle-fill"></i
+                >{{ "application.products.sophia_ia.f1.title" | translate }}
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i
+                >{{ "application.products.sophia_ia.f2.title" | translate }}
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i
+                >{{ "application.products.sophia_ia.f3.title" | translate }}
+              </li>
+            </ul>
+
+            <div class="pd-card-highlight">
+              <i class="bi bi-patch-check-fill"></i>
+              Claude Code · Tool Use · Multi-Agent
+            </div>
+          </button>
         </div>
 
         <!-- <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="180">
@@ -1036,6 +1068,256 @@
           Empieza gratis 30 días <i class="bi bi-arrow-right"></i>
         </a>
         <span class="om-footer-note">Sin tarjeta · Listo en 3 minutos</span>
+      </div>
+    </dialog>
+  </div>
+}
+
+<!-- ═══════ Sophia Smart Modal ═══════ -->
+@if (showSophiaModal) {
+  <div class="om-backdrop" (click)="closeSophiaModal()" (keydown.escape)="closeSophiaModal()"></div>
+  <div class="om-wrapper">
+    <dialog class="om-dialog" open>
+      <!-- Close -->
+      <button class="om-close" (click)="closeSophiaModal()" aria-label="Cerrar">
+        <i class="bi bi-x-lg"></i>
+      </button>
+
+      <!-- Header -->
+      <header class="om-hero">
+        <div class="om-hero-badge"><i class="bi bi-shield-lock-fill"></i> AI Security</div>
+        <h2 class="om-hero-title">Sophia Smart</h2>
+        <p class="om-hero-sub">{{ 'application.products.sophia.description' | translate }}</p>
+      </header>
+
+      <!-- Tabs -->
+      <nav class="om-tabs" aria-label="Sophia Smart tabs">
+        <button class="om-tab" [class.om-tab--active]="sophiaActiveTab==='overview'" (click)="setSophiaTab('overview')">
+          <i class="bi bi-eye"></i> Overview
+        </button>
+        <button class="om-tab" [class.om-tab--active]="sophiaActiveTab==='features'" (click)="setSophiaTab('features')">
+          <i class="bi bi-cpu"></i> Funcionalidades
+        </button>
+        <button class="om-tab" [class.om-tab--active]="sophiaActiveTab==='specs'" (click)="setSophiaTab('specs')">
+          <i class="bi bi-gear"></i> Especificaciones
+        </button>
+      </nav>
+
+      <!-- Tab: Overview -->
+      @if (sophiaActiveTab === 'overview') {
+        <section class="om-section">
+          <div class="om-grid-2">
+            <div class="om-feat-card">
+              <div class="om-feat-icon om-feat-icon--purple"><i class="bi bi-person-bounding-box"></i></div>
+              <h4>{{ 'application.products.sophia.f1.title' | translate }}</h4>
+              <p>{{ 'application.products.sophia.f1.desc' | translate }}</p>
+            </div>
+            <div class="om-feat-card">
+              <div class="om-feat-icon om-feat-icon--blue"><i class="bi bi-shield-check"></i></div>
+              <h4>{{ 'application.products.sophia.f2.title' | translate }}</h4>
+              <p>{{ 'application.products.sophia.f2.desc' | translate }}</p>
+            </div>
+            <div class="om-feat-card">
+              <div class="om-feat-icon om-feat-icon--green"><i class="bi bi-graph-up-arrow"></i></div>
+              <h4>{{ 'application.products.sophia.f3.title' | translate }}</h4>
+              <p>{{ 'application.products.sophia.f3.desc' | translate }}</p>
+            </div>
+            <div class="om-feat-card">
+              <div class="om-feat-icon om-feat-icon--orange"><i class="bi bi-plug"></i></div>
+              <h4>{{ 'application.products.sophia.f4.title' | translate }}</h4>
+              <p>{{ 'application.products.sophia.f4.desc' | translate }}</p>
+            </div>
+          </div>
+        </section>
+      }
+
+      <!-- Tab: Features -->
+      @if (sophiaActiveTab === 'features') {
+        <section class="om-section">
+          <div class="om-grid-2">
+            <div class="om-feat-card">
+              <div class="om-feat-icon om-feat-icon--purple"><i class="bi bi-camera-video"></i></div>
+              <h4>Procesamiento en Tiempo Real</h4>
+              <p>Análisis de video en vivo con latencia menor a 200ms para detección y verificación facial instantánea.</p>
+            </div>
+            <div class="om-feat-card">
+              <div class="om-feat-icon om-feat-icon--blue"><i class="bi bi-people"></i></div>
+              <h4>Multi-rostro</h4>
+              <p>Detección simultánea de hasta 50 rostros por cuadro con identificación individual precisa.</p>
+            </div>
+            <div class="om-feat-card">
+              <div class="om-feat-icon om-feat-icon--green"><i class="bi bi-bell"></i></div>
+              <h4>Alertas Inteligentes</h4>
+              <p>Notificaciones automáticas por acceso no autorizado, listas de vigilancia y patrones inusuales.</p>
+            </div>
+            <div class="om-feat-card">
+              <div class="om-feat-icon om-feat-icon--orange"><i class="bi bi-clipboard-data"></i></div>
+              <h4>Reportes Avanzados</h4>
+              <p>Historial completo de accesos, estadísticas de afluencia y exportación en múltiples formatos.</p>
+            </div>
+          </div>
+        </section>
+      }
+
+      <!-- Tab: Specs -->
+      @if (sophiaActiveTab === 'specs') {
+        <section class="om-section">
+          <div class="om-grid-2">
+            <div class="om-feat-card">
+              <div class="om-feat-icon om-feat-icon--purple"><i class="bi bi-speedometer2"></i></div>
+              <h4>Precisión</h4>
+              <p>Tasa de verificación facial superior al 99.5% con modelos deep learning optimizados.</p>
+            </div>
+            <div class="om-feat-card">
+              <div class="om-feat-icon om-feat-icon--blue"><i class="bi bi-hdd-rack"></i></div>
+              <h4>Infraestructura</h4>
+              <p>Despliegue on-premise o cloud. Compatible con GPU NVIDIA y procesadores ARM.</p>
+            </div>
+            <div class="om-feat-card">
+              <div class="om-feat-icon om-feat-icon--green"><i class="bi bi-lock"></i></div>
+              <h4>Privacidad</h4>
+              <p>Datos biométricos encriptados AES-256. Cumplimiento GDPR y ley de protección de datos personales.</p>
+            </div>
+            <div class="om-feat-card">
+              <div class="om-feat-icon om-feat-icon--orange"><i class="bi bi-diagram-3"></i></div>
+              <h4>Integraciones</h4>
+              <p>API REST, SDK para Python/Java, webhooks y compatibilidad con ONVIF para cámaras IP.</p>
+            </div>
+          </div>
+        </section>
+      }
+
+      <!-- Footer CTA -->
+      <div class="om-footer">
+        <a (click)="nav.scrollTo('contact'); closeSophiaModal()" class="om-cta-btn" style="cursor:pointer">
+          {{ 'application.products.sophia.cta' | translate }} <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+    </dialog>
+  </div>
+}
+
+<!-- ═══════ sophIA Modal ═══════ -->
+@if (showSophiaIAModal) {
+  <div class="om-backdrop" (click)="closeSophiaIAModal()" (keydown.escape)="closeSophiaIAModal()"></div>
+  <div class="om-wrapper">
+    <dialog class="om-dialog" open>
+      <!-- Close -->
+      <button class="om-close" (click)="closeSophiaIAModal()" aria-label="Cerrar">
+        <i class="bi bi-x-lg"></i>
+      </button>
+
+      <!-- Header -->
+      <header class="om-hero">
+        <div class="om-hero-badge om-hero-badge--building">
+          <i class="bi bi-cone-striped"></i> {{ 'application.products.sophia_ia.status' | translate }}
+        </div>
+        <h2 class="om-hero-title">sophIA</h2>
+        <p class="om-hero-sub">{{ 'application.products.sophia_ia.description' | translate }}</p>
+      </header>
+
+      <!-- Tabs -->
+      <nav class="om-tabs" aria-label="sophIA tabs">
+        <button class="om-tab" [class.om-tab--active]="sophiaIAActiveTab==='overview'" (click)="setSophiaIATab('overview')">
+          <i class="bi bi-eye"></i> Overview
+        </button>
+        <button class="om-tab" [class.om-tab--active]="sophiaIAActiveTab==='features'" (click)="setSophiaIATab('features')">
+          <i class="bi bi-cpu"></i> Funcionalidades
+        </button>
+        <button class="om-tab" [class.om-tab--active]="sophiaIAActiveTab==='specs'" (click)="setSophiaIATab('specs')">
+          <i class="bi bi-gear"></i> Arquitectura
+        </button>
+      </nav>
+
+      <!-- Tab: Overview -->
+      @if (sophiaIAActiveTab === 'overview') {
+        <section class="om-section">
+          <div class="om-grid-2">
+            <div class="om-feat-card">
+              <div class="om-feat-icon om-feat-icon--purple"><i class="bi bi-diagram-3"></i></div>
+              <h4>{{ 'application.products.sophia_ia.f1.title' | translate }}</h4>
+              <p>{{ 'application.products.sophia_ia.f1.desc' | translate }}</p>
+            </div>
+            <div class="om-feat-card">
+              <div class="om-feat-icon om-feat-icon--blue"><i class="bi bi-terminal"></i></div>
+              <h4>{{ 'application.products.sophia_ia.f2.title' | translate }}</h4>
+              <p>{{ 'application.products.sophia_ia.f2.desc' | translate }}</p>
+            </div>
+            <div class="om-feat-card">
+              <div class="om-feat-icon om-feat-icon--green"><i class="bi bi-layers"></i></div>
+              <h4>{{ 'application.products.sophia_ia.f3.title' | translate }}</h4>
+              <p>{{ 'application.products.sophia_ia.f3.desc' | translate }}</p>
+            </div>
+            <div class="om-feat-card">
+              <div class="om-feat-icon om-feat-icon--orange"><i class="bi bi-robot"></i></div>
+              <h4>{{ 'application.products.sophia_ia.f4.title' | translate }}</h4>
+              <p>{{ 'application.products.sophia_ia.f4.desc' | translate }}</p>
+            </div>
+          </div>
+        </section>
+      }
+
+      <!-- Tab: Features -->
+      @if (sophiaIAActiveTab === 'features') {
+        <section class="om-section">
+          <div class="om-grid-2">
+            <div class="om-feat-card">
+              <div class="om-feat-icon om-feat-icon--purple"><i class="bi bi-code-slash"></i></div>
+              <h4>Generación Multi-lenguaje</h4>
+              <p>Genera código en TypeScript, Java, Python y más. Adapta patrones y convenciones al stack tecnológico del proyecto.</p>
+            </div>
+            <div class="om-feat-card">
+              <div class="om-feat-icon om-feat-icon--blue"><i class="bi bi-arrow-repeat"></i></div>
+              <h4>Pipeline Iterativo</h4>
+              <p>Ciclo de generación → validación → corrección automática hasta alcanzar código funcional y libre de errores.</p>
+            </div>
+            <div class="om-feat-card">
+              <div class="om-feat-icon om-feat-icon--green"><i class="bi bi-shield-check"></i></div>
+              <h4>Validación Continua</h4>
+              <p>Tests unitarios, análisis estático y verificación de tipos generados automáticamente en cada iteración.</p>
+            </div>
+            <div class="om-feat-card">
+              <div class="om-feat-icon om-feat-icon--orange"><i class="bi bi-git"></i></div>
+              <h4>Control de Versiones</h4>
+              <p>Commits atómicos por capa con mensajes descriptivos. Historial limpio y trazable de cada decisión.</p>
+            </div>
+          </div>
+        </section>
+      }
+
+      <!-- Tab: Specs / Architecture -->
+      @if (sophiaIAActiveTab === 'specs') {
+        <section class="om-section">
+          <div class="om-grid-2">
+            <div class="om-feat-card">
+              <div class="om-feat-icon om-feat-icon--purple"><i class="bi bi-cpu"></i></div>
+              <h4>Motor: Claude Code</h4>
+              <p>Modelo Claude con Tool Use para ejecución de herramientas, lectura de archivos y manipulación de código en contexto.</p>
+            </div>
+            <div class="om-feat-card">
+              <div class="om-feat-icon om-feat-icon--blue"><i class="bi bi-people"></i></div>
+              <h4>Agentes Especializados</h4>
+              <p>Architect Agent, Model Agent, Service Agent, Controller Agent y UI Agent — cada uno experto en su capa.</p>
+            </div>
+            <div class="om-feat-card">
+              <div class="om-feat-icon om-feat-icon--green"><i class="bi bi-stack"></i></div>
+              <h4>Capas de Generación</h4>
+              <p>Domain → Repository → Service → Controller → UI. Cada capa se construye sobre la anterior con contratos claros.</p>
+            </div>
+            <div class="om-feat-card">
+              <div class="om-feat-icon om-feat-icon--orange"><i class="bi bi-person-check"></i></div>
+              <h4>Human-in-the-Loop</h4>
+              <p>Checkpoints de aprobación humana en diseño de arquitectura, contratos de API y antes de merge final.</p>
+            </div>
+          </div>
+        </section>
+      }
+
+      <!-- Footer CTA -->
+      <div class="om-footer">
+        <a (click)="nav.scrollTo('contact'); closeSophiaIAModal()" class="om-cta-btn" style="cursor:pointer">
+          {{ 'application.products.sophia_ia.cta' | translate }} <i class="bi bi-arrow-right"></i>
+        </a>
       </div>
     </dialog>
   </div>

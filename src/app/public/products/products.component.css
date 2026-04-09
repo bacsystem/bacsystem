@@ -174,7 +174,17 @@
 }
 .pd-featured-badge i { font-size: 10px; }
 
-/* Card top */
+.pd-featured-badge--building {
+  background: rgba(245, 158, 11, 0.15);
+  border-color: rgba(245, 158, 11, 0.35);
+  color: #f59e0b;
+  animation: pulse-building 2s ease-in-out infinite;
+}
+
+@keyframes pulse-building {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
 .pd-card-top { margin-bottom: 20px; }
 
 /* Icon */
@@ -439,6 +449,32 @@ button.pd-card {
   border: 1px solid rgba(65,183,168,0.18);
   border-radius: 14px;
   padding: 24px;
+}
+
+.om-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: rgba(167,139,250,0.15);
+  color: #C4ADFD;
+  margin-bottom: 12px;
+}
+
+.om-hero-badge--building {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  animation: pulse-building 2s ease-in-out infinite;
+}
+
+.om-hero-title {
+  font-size: clamp(18px, 3vw, 24px);
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 8px;
 }
 
 .om-hero-headline {

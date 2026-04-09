@@ -1832,7 +1832,7 @@ body.dark-mode .cl-title { color: #E6EDF3; }
 body.dark-mode .cl-subtitle { color: #8B949E; }
 body.dark-mode .cl-card { background: #161B22; border-color: rgba(255,255,255,0.07); }
 body.dark-mode .cl-card:hover { border-color: rgba(65,183,168,0.3); box-shadow: 0 8px 28px rgba(0,0,0,0.4); }
-body.dark-mode .cl-img { filter: brightness(0.85) contrast(1.05); }
+body.dark-mode .cl-img { filter: invert(1) hue-rotate(180deg) brightness(1.05); }
 body.dark-mode .cl-stats { background: #161B22; border-color: rgba(255,255,255,0.07); }
 body.dark-mode .cl-sn { color: #E6EDF3; }
 body.dark-mode .cl-sp { color: #41B7A8; }
