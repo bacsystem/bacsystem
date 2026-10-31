@@ -10,13 +10,32 @@
           {{ 'application.home.hero.cta' | translate }}
           <ui-icon name="arrow-right" size="sm" />
         </a>
-        <a ui-button variant="text" size="lg" class="hero__secondary" routerLink="/productos">
+        <a ui-button variant="text" size="lg" class="hero__secondary" routerLink="/servicios">
           {{ 'application.home.hero.secondary' | translate }}
         </a>
       </div>
     </div>
     <div class="hero__visual">
-      <app-product-preview />
+      <figure class="process">
+        <figcaption class="process__label">{{ 'application.home.process.label' | translate }}</figcaption>
+        <ol class="process__steps" role="list">
+          @for (step of process; track step.id; let i = $index, first = $first) {
+            <li class="process__step" [class.is-current]="first" [attr.aria-current]="first ? 'step' : null">
+              <span class="process__marker" aria-hidden="true">{{ index(i) }}</span>
+              <div class="process__body">
+                <p class="process__head">
+                  <span class="process__title">{{ step.titleKey | translate }}</span>
+                  @if (first) {
+                    <ui-tag tone="accent">{{ 'application.home.process.start' | translate }}</ui-tag>
+                  }
+                </p>
+                <p class="process__text">{{ step.textKey | translate }}</p>
+              </div>
+            </li>
+          }
+        </ol>
+        <p class="process__note">{{ 'application.home.process.note' | translate }}</p>
+      </figure>
     </div>
   </div>
 </ui-section>
@@ -94,34 +113,30 @@
   </ui-section>
 }
 
-@if (featured; as product) {
-  <ui-section sectionId="producto" tone="alt">
-    <div class="featured">
-      <div class="featured__visual" appReveal>
-        <app-product-preview variant="invoice" />
-      </div>
-      <div class="featured__copy" appReveal>
-        <img class="featured__logo" [src]="product.logo" alt="" width="32" height="32" />
+@if (products.length > 0) {
+  <ui-section sectionId="productos" tone="alt" spacing="compact">
+    <div class="products">
+      <div class="products__intro" appReveal>
         <ui-section-heading
-          [eyebrow]="'application.home.featured.eyebrow' | translate"
-          [title]="product.nameKey | translate"
-          [subtitle]="product.taglineKey | translate"
+          [title]="'application.home.products.title' | translate"
+          [subtitle]="'application.home.products.subtitle' | translate"
         />
-        @if (product.highlightKeys?.length) {
-          <ul class="featured__points" role="list">
-            @for (point of product.highlightKeys; track point) {
-              <li>
-                <ui-icon name="check2-circle" size="sm" />
-                <span>{{ point | translate }}</span>
-              </li>
-            }
-          </ul>
-        }
-        <a ui-button variant="secondary" class="featured__cta" [routerLink]="product.route">
-          {{ 'application.home.featured.cta' | translate }}
-          <ui-icon name="arrow-right" size="sm" />
-        </a>
       </div>
+      <ul class="products__list" role="list" appReveal>
+        @for (product of products; track product.id) {
+          <li class="products__item">
+            <img class="products__logo" [src]="product.logo" alt="" width="32" height="32" loading="lazy" />
+            <div class="products__body">
+              <h3 class="products__name">{{ product.nameKey | translate }}</h3>
+              <p class="products__tagline">{{ product.taglineKey | translate }}</p>
+              <a ui-button variant="text" class="products__link" [routerLink]="product.route">
+                {{ 'application.home.products.cta' | translate }}
+                <ui-icon name="arrow-right" size="sm" />
+              </a>
+            </div>
+          </li>
+        }
+      </ul>
     </div>
   </ui-section>
 }

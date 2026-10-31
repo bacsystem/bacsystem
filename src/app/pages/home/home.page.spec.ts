@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import es from '../../../../public/i18n/es.json';
-import { CLIENTS, ClientLogo, PRODUCTS, STATS } from '../../data/site.data';
+import { ClientLogo, PRODUCTS, STATS } from '../../data/site.data';
 import { HomePageComponent } from './home.page';
 
 describe('HomePageComponent', () => {
@@ -34,25 +34,49 @@ describe('HomePageComponent', () => {
     expect(h1s[0].textContent?.replace(/\s+/g, ' ').trim()).toBe(es.application.home.hero.title);
   });
 
-  it('links the hero CTA to /contacto and the secondary action to /productos', () => {
+  it('links the hero CTA to /contacto and the secondary action to /servicios', () => {
     setup();
     const el = render();
     expect(el.querySelector('.hero__cta')?.getAttribute('href')).toBe('/contacto');
-    expect(el.querySelector('.hero__secondary')?.getAttribute('href')).toBe('/productos');
+    expect(el.querySelector('.hero__secondary')?.getAttribute('href')).toBe('/servicios');
+  });
+
+  it('shows the work process in the hero instead of a product screen', () => {
+    setup();
+    const el = render();
+    const hero = el.querySelector('#inicio') as HTMLElement;
+    expect(hero.querySelector('app-product-preview')).toBeNull();
+    const steps = Array.from(hero.querySelectorAll('.process__step'));
+    expect(steps.length).toBe(4);
+    const titles = steps.map(s => s.querySelector('.process__title')?.textContent?.trim());
+    expect(titles).toEqual(['Entender', 'Diseñar', 'Construir', 'Mantener']);
+    expect(hero.textContent).not.toContain('OperaAI');
+  });
+
+  it('marks only the first process step as the starting point', () => {
+    setup();
+    const el = render();
+    const steps = Array.from(el.querySelectorAll('#inicio .process__step'));
+    expect(steps.map(s => s.classList.contains('is-current'))).toEqual([true, false, false, false]);
+    expect(steps[0].getAttribute('aria-current')).toBe('step');
   });
 
   it('renders the sections in order', () => {
     setup();
     const el = render();
     const ids = Array.from(el.querySelectorAll('section')).map(s => s.id);
-    expect(ids).toEqual(['inicio', 'clientes', 'servicios', 'producto', 'cifras', 'contacto']);
+    expect(ids).toEqual(['inicio', 'servicios', 'productos', 'cifras', 'contacto']);
   });
 
-  it('shows one visible logo per client', () => {
-    setup();
+  it('shows one visible logo per client when clients are added', () => {
+    const page = setup();
+    page.clients = [
+      { id: 'a', name: 'A', logo: '/a.png' },
+      { id: 'b', name: 'B', logo: '/b.png' },
+    ];
     const el = render();
     const imgs = el.querySelectorAll('#clientes img:not([aria-hidden="true"])');
-    expect(imgs.length).toBe(CLIENTS.length);
+    expect(imgs.length).toBe(2);
   });
 
   it('duplicates the logo track as decorative only when it scrolls', () => {
@@ -72,20 +96,32 @@ describe('HomePageComponent', () => {
     expect(el.querySelector('#clientes')).toBeNull();
   });
 
-  it('features the product marked as featured and links to its page', () => {
+  it('lists every product with its name and a link to its page', () => {
     setup();
     const el = render();
-    const featured = PRODUCTS.find(p => p.featured)!;
-    const section = el.querySelector('#producto') as HTMLElement;
+    const section = el.querySelector('#productos') as HTMLElement;
+    const items = section.querySelectorAll('.products__item');
+    expect(items.length).toBe(PRODUCTS.length);
     expect(section.textContent).toContain('OperaAI');
-    expect(section.querySelector(`a[href="${featured.route}"]`)).toBeTruthy();
+    expect(section.textContent).toContain('sophIA');
+    for (const product of PRODUCTS) {
+      expect(section.querySelector(`a[href="${product.route}"]`)).toBeTruthy();
+    }
   });
 
-  it('removes the product section when no product is featured', () => {
-    const page = setup();
-    page.featured = undefined;
+  it('keeps product detail out of the home page', () => {
+    setup();
     const el = render();
-    expect(el.querySelector('#producto')).toBeNull();
+    expect(el.querySelector('app-product-preview')).toBeNull();
+    expect(el.textContent).not.toContain('Facturas, boletas y notas de crédito');
+    expect(el.textContent).not.toContain('Factura electrónica');
+  });
+
+  it('removes the products section when there are no products', () => {
+    const page = setup();
+    page.products = [];
+    const el = render();
+    expect(el.querySelector('#productos')).toBeNull();
   });
 
   it('lays out services as one lead item and a numbered list of the rest', () => {

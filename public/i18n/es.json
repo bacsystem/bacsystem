@@ -90,23 +90,28 @@
         "title": "Software que tu equipo sí usa.",
         "subtitle": "Desarrollamos sistemas web, móviles y de IA a medida para empresas que quieren crecer sin complicarse.",
         "cta": "Cotizar proyecto",
-        "secondary": "Ver productos"
+        "secondary": "Ver servicios"
       },
-      "preview": {
-        "label": "Ejemplo de interfaz: panel de facturación electrónica",
-        "app": "Facturación",
-        "title": "Comprobantes de octubre",
-        "total": "Emitido este mes",
-        "trend": "+12% vs. septiembre",
-        "accepted": "Aceptado",
-        "pending": "En envío",
-        "toast": "F001-000219 aceptado por SUNAT",
-        "toastTime": "hace 2 min",
-        "invoice": "Factura electrónica",
-        "subtotal": "Subtotal",
-        "tax": "IGV (18%)",
-        "totalDue": "Total",
-        "invoiceStatus": "Aceptada por SUNAT"
+      "process": {
+        "label": "Cómo trabajamos",
+        "start": "Empezamos aquí",
+        "understand": {
+          "title": "Entender",
+          "text": "Conversamos con tu equipo y vemos cómo trabaja hoy antes de proponer nada."
+        },
+        "design": {
+          "title": "Diseñar",
+          "text": "Definimos contigo pantallas y flujos, y los validamos antes de programar."
+        },
+        "build": {
+          "title": "Construir",
+          "text": "Programamos por entregas cortas que puedes probar desde el inicio."
+        },
+        "maintain": {
+          "title": "Mantener",
+          "text": "Después de la entrega seguimos contigo con soporte y mejoras."
+        },
+        "note": "El mismo equipo te acompaña en las cuatro etapas."
       },
       "clients": {
         "label": "Confían en nosotros"
@@ -139,19 +144,13 @@
           "description": "Migramos tus sistemas a la nube para que crezcan sin cambiar de servidor."
         }
       },
-      "featured": {
-        "eyebrow": "Producto propio",
-        "cta": "Conocer más"
-      },
       "products": {
+        "title": "Productos propios",
+        "subtitle": "Además de los proyectos a medida, creamos y mantenemos nuestro propio software.",
+        "cta": "Ver producto",
         "operaai": {
           "name": "OperaAI",
-          "tagline": "Automatización y facturación electrónica para pymes, conectada a SUNAT mediante un OSE autorizado.",
-          "highlights": {
-            "p1": "Facturas, boletas y notas de crédito desde el navegador.",
-            "p2": "Envío a SUNAT mediante un OSE autorizado.",
-            "p3": "Ventas y cobranzas del mes en un solo panel."
-          }
+          "tagline": "Automatización y facturación electrónica para pymes, conectada a SUNAT mediante un OSE autorizado."
         },
         "sophia": {
           "name": "sophIA",

@@ -1,4 +1,4 @@
-import { CLIENTS, PRODUCTS, SERVICES, STATS } from './site.data';
+import { CLIENTS, PROCESS, PRODUCTS, SERVICES, STATS } from './site.data';
 
 const unique = (ids: string[]) => new Set(ids).size === ids.length;
 
@@ -8,6 +8,7 @@ describe('site.data', () => {
     expect(unique(PRODUCTS.map((s) => s.id))).toBeTrue();
     expect(unique(CLIENTS.map((s) => s.id))).toBeTrue();
     expect(unique(STATS.map((s) => s.id))).toBeTrue();
+    expect(unique(PROCESS.map((s) => s.id))).toBeTrue();
   });
 
   it('routes every product under /productos/', () => {
@@ -27,7 +28,15 @@ describe('site.data', () => {
     }
   });
 
-  it('features OperaAI', () => {
-    expect(PRODUCTS.find((p) => p.featured)?.id).toBe('operaai');
+  it('lists OperaAI and sophIA as products', () => {
+    expect(PRODUCTS.map((p) => p.id)).toEqual(['operaai', 'sophia']);
+  });
+
+  it('shows no client logos until real ones are confirmed', () => {
+    expect(CLIENTS).toEqual([]);
+  });
+
+  it('describes the work process in four steps, in order', () => {
+    expect(PROCESS.map((s) => s.id)).toEqual(['understand', 'design', 'build', 'maintain']);
   });
 });

@@ -23,9 +23,13 @@ export interface ProductItem {
   logo: string;
   nameKey: string;
   taglineKey: string;
-  /** Short capability lines shown when the product is featured on the home page. */
-  highlightKeys?: string[];
-  featured?: boolean;
+}
+
+/** One stage of how we work, shown in the home hero. */
+export interface ProcessStep {
+  id: 'understand' | 'design' | 'build' | 'maintain';
+  titleKey: string;
+  textKey: string;
 }
 
 export interface ClientLogo {
@@ -69,12 +73,6 @@ export const PRODUCTS: ProductItem[] = [
     logo: '/assets/img/clients/operaai-favicon.svg',
     nameKey: 'application.home.products.operaai.name',
     taglineKey: 'application.home.products.operaai.tagline',
-    highlightKeys: [
-      'application.home.products.operaai.highlights.p1',
-      'application.home.products.operaai.highlights.p2',
-      'application.home.products.operaai.highlights.p3',
-    ],
-    featured: true,
   },
   {
     id: 'sophia',
@@ -85,11 +83,16 @@ export const PRODUCTS: ProductItem[] = [
   },
 ];
 
-// Solo los logos que hoy muestra el sitio; agregar los demás cuando el dueño confirme.
-export const CLIENTS: ClientLogo[] = [
-  { id: 'client-7', name: 'Cliente 7', logo: '/assets/img/clients/client-7.png' },
-  { id: 'client-8', name: 'Cliente 8', logo: '/assets/img/clients/client-8.png' },
+export const PROCESS: ProcessStep[] = [
+  { id: 'understand', titleKey: 'application.home.process.understand.title', textKey: 'application.home.process.understand.text' },
+  { id: 'design', titleKey: 'application.home.process.design.title', textKey: 'application.home.process.design.text' },
+  { id: 'build', titleKey: 'application.home.process.build.title', textKey: 'application.home.process.build.text' },
+  { id: 'maintain', titleKey: 'application.home.process.maintain.title', textKey: 'application.home.process.maintain.text' },
 ];
+
+// Vacío a propósito: la franja "Confían en nosotros" vuelve sola al agregar logos reales.
+// client-7.png y client-8.png eran los logos de OperaAI y sophIA (productos propios), no de clientes.
+export const CLIENTS: ClientLogo[] = [];
 
 // EJEMPLO: cifras de muestra, reemplazar por reales
 export const STATS: StatItem[] = [
