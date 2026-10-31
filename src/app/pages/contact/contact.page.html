@@ -1,0 +1,42 @@
+<ui-section sectionId="contacto">
+  <div class="contact">
+    <ui-section-heading
+      level="h1"
+      [eyebrow]="'application.site.contactPage.eyebrow' | translate"
+      [title]="'application.site.contactPage.title' | translate"
+      [subtitle]="'application.site.contactPage.subtitle' | translate"
+    />
+
+    <ul class="contact__list" role="list" [attr.aria-label]="'application.site.contactPage.listLabel' | translate">
+      <li>
+        <a class="contact__row" [href]="mailHref">
+          <span class="contact__icon"><ui-icon name="envelope" /></span>
+          <span class="contact__text">
+            <span class="contact__label">{{ 'application.site.contactPage.email' | translate }}</span>
+            <span class="contact__value">{{ site.email }}</span>
+          </span>
+          <ui-icon class="contact__arrow" name="arrow-right" size="sm" />
+        </a>
+      </li>
+      <li>
+        <a class="contact__row" [href]="telHref">
+          <span class="contact__icon"><ui-icon name="telephone" /></span>
+          <span class="contact__text">
+            <span class="contact__label">{{ 'application.site.contactPage.phone' | translate }}</span>
+            <span class="contact__value">{{ site.phone }}</span>
+          </span>
+          <ui-icon class="contact__arrow" name="arrow-right" size="sm" />
+        </a>
+      </li>
+      <li>
+        <div class="contact__row contact__row--static">
+          <span class="contact__icon"><ui-icon name="geo-alt" /></span>
+          <span class="contact__text">
+            <span class="contact__label">{{ 'application.site.contactPage.address' | translate }}</span>
+            <span class="contact__value">{{ site.address }}</span>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</ui-section>

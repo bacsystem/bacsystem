@@ -27,4 +27,16 @@ describe('SectionHeadingComponent', () => {
     expect(el.querySelector('.ui-section-heading__eyebrow')?.textContent?.trim()).toBe('E');
     expect(el.querySelector('.ui-section-heading__subtitle')?.textContent?.trim()).toBe('S');
   });
+
+  it('renders an h2 by default and no h1', () => {
+    const el = create({ title: 'X' });
+    expect(el.querySelector('h2.ui-section-heading__title')).not.toBeNull();
+    expect(el.querySelector('h1')).toBeNull();
+  });
+
+  it('renders an h1 with the same title class when level is h1', () => {
+    const el = create({ title: 'X', level: 'h1' });
+    expect(el.querySelector('h1.ui-section-heading__title')?.textContent?.trim()).toBe('X');
+    expect(el.querySelector('h2')).toBeNull();
+  });
 });

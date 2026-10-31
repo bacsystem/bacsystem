@@ -11,5 +11,6 @@ export class SectionHeadingComponent {
   readonly eyebrow = input<string>();
   readonly title = input.required<string>();
   readonly subtitle = input<string>();
+  readonly level = input<'h1' | 'h2'>('h2');
   readonly align = input<'start' | 'center'>('start');
 }

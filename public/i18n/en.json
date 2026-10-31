@@ -73,6 +73,15 @@
         "title": "Coming soon",
         "text": "We are still working on this page. In the meantime, you can go back home or reach us from the contact page.",
         "backHome": "Back to home"
+      },
+      "contactPage": {
+        "eyebrow": "Contact",
+        "title": "Let's talk about your project",
+        "subtitle": "Tell us what you need to solve. We reply by email or phone, usually within the same business day.",
+        "listLabel": "Contact details",
+        "email": "Email",
+        "phone": "Phone",
+        "address": "Address"
       }
     },
     "title": "hello demo",

@@ -73,6 +73,15 @@
         "title": "En preparación",
         "text": "Estamos terminando esta página. Mientras tanto, puedes volver al inicio o escribirnos desde la página de contacto.",
         "backHome": "Volver al inicio"
+      },
+      "contactPage": {
+        "eyebrow": "Contacto",
+        "title": "Hablemos de tu proyecto",
+        "subtitle": "Cuéntanos qué necesitas resolver. Respondemos por correo o teléfono, normalmente dentro del mismo día hábil.",
+        "listLabel": "Datos de contacto",
+        "email": "Correo",
+        "phone": "Teléfono",
+        "address": "Dirección"
       }
     },
     "title": "hello demo",

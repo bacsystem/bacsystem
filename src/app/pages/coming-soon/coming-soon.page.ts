@@ -11,6 +11,7 @@ import { ButtonComponent, SectionComponent, SectionHeadingComponent } from '../.
   template: `
     <ui-section>
       <ui-section-heading
+        level="h1"
         [title]="titleKey | translate"
         [subtitle]="'application.site.comingSoon.text' | translate"
       />
