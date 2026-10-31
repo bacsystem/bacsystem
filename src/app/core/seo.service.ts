@@ -47,11 +47,6 @@ export class SeoService {
     });
   }
 
-  /** @deprecated Legacy callers (src/app/public, removed in Task 11); SEO is now route-driven. */
-  update(): void {
-    if (this.current) this.apply(this.current.seo, this.current.path);
-  }
-
   apply(seo: SeoRouteData, path: string): void {
     const lang   = this.translate.currentLang || this.translate.defaultLang || 'es';
     const locale = lang === 'es' ? 'es_PE' : 'en_US';

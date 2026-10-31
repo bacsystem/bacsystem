@@ -84,18 +84,6 @@
         "address": "Address"
       }
     },
-    "title": "hello demo",
-    "start": "Get Started",
-    "menu": {
-      "home": "Home",
-      "about": "About",
-      "services": "Solutions",
-      "portfolio": "Portfolio",
-      "products": "Products",
-      "team": "Team",
-      "contact": "Contact",
-      "language": "Language"
-    },
     "home": {
       "hero": {
         "eyebrow": "Custom software · Lima, Peru",
@@ -185,32 +173,6 @@
         "or": "or email us at"
       }
     },
-    "contact": {
-      "title": "Contact",
-      "description": "Have a question or project in mind? We are here to help you.",
-      "address": "Address",
-      "email": "Email",
-      "number": "Phone",
-      "button": "Send Message",
-      "sent": "Message sent successfully! We will get back to you soon.",
-      "send_another": "Send another message",
-      "form": {
-        "name": "Your Name",
-        "name_error": "Name is required.",
-        "email": "Email Address",
-        "email_error": "Please enter a valid email.",
-        "subject": "Subject",
-        "subject_error": "Subject is required.",
-        "message": "Message",
-        "message_error": "Message is required."
-      }
-    },
-    "clients": {
-      "pill": "Companies that trust us",
-      "title": "150+ companies choose us",
-      "subtitle": "We accompany companies of all sizes in their digital transformation, from startups to large corporations.",
-      "uptime": "Guaranteed uptime"
-    },
     "about": {
       "title": "About Us",
       "description": "Explore our innovative journey, disruptive vision, and how we co-create technology solutions that redefine industries.",
@@ -265,51 +227,6 @@
           "tag": "Cloud",
           "title": "Cloud Solutions",
           "description": "Migration and implementation of cloud solutions for greater scalability."
-        }
-      }
-    },
-    "portfolio": {
-      "title": "Our Portfolio",
-      "description": "Discover our featured projects and success stories",
-      "filters": {
-        "all": "All",
-        "web": "Web",
-        "mobile": "Mobile",
-        "cloud": "Cloud",
-        "security": "Security"
-      },
-      "projects": {
-        "web1": {
-          "title": "E-commerce Platform",
-          "description": "Complete online store development with payment integration"
-        },
-        "mobile1": {
-          "title": "Delivery App",
-          "description": "Mobile application for delivery management and real-time tracking"
-        },
-        "cloud1": {
-          "title": "Cloud Migration",
-          "description": "Complete migration of local infrastructure to cloud solutions"
-        },
-        "web2": {
-          "title": "Management System",
-          "description": "Web platform for business management with analytical dashboard"
-        },
-        "mobile2": {
-          "title": "Health App",
-          "description": "Mobile application for medical tracking and reminders"
-        },
-        "web3": {
-          "title": "Corporate Portal",
-          "description": "Responsive corporate website with integrated CMS"
-        },
-        "security1": {
-          "title": "Cybersecurity System",
-          "description": "Implementation of advanced security solutions with encryption and continuous monitoring"
-        },
-        "sophia": {
-          "title": "Sophia Smart - Facial Recognition",
-          "description": "Advanced facial recognition system with AI for access control, identity verification and real-time biometric analysis"
         }
       }
     },
@@ -461,12 +378,6 @@
         }
       }
     },
-    "stats": {
-      "clients": "Satisfied Clients",
-      "projects": "Completed Projects",
-      "support": "Support Hours",
-      "workers": "Professionals"
-    },
     "team": {
       "title": "Our Team",
       "description": "Meet the passionate professionals who make our clients' digital transformation possible.",
@@ -487,28 +398,6 @@
           "bio": "Marketing strategist specialized in digital growth, brand positioning and client acquisition."
         }
       }
-    },
-    "footer": {
-      "svc1": "Software Development",
-      "svc2": "Mobile Apps",
-      "svc3": "Cloud & DevOps",
-      "svc4": "AI & Machine Learning",
-      "svc5": "IT Consulting",
-      "svc6": "Digital Transformation",
-      "rights": "All Rights Reserved",
-      "designed_by": "Designed by",
-      "nav_title": "Navigation",
-      "contact_title": "Contact",
-      "services_title": "Services",
-      "cta_title": "Ready to transform your business?",
-      "schedule": "Mon–Fri: 9:00 AM – 6:00 PM",
-      "support": "Tech Support",
-      "description": "We transform ideas into innovative digital solutions that drive your business growth."
-    },
-    "seo": {
-      "title": "Bacsystem Solutions | Software Development & Digital Transformation",
-      "description": "Bacsystem Solutions: specialists in custom software development, technology consulting and digital transformation. 150+ clients, 320+ projects delivered across Latin America.",
-      "keywords": "software development, technology consulting, digital transformation, web applications, mobile apps, cloud solutions, Angular, Bacsystem"
     }
   }
 }

@@ -84,18 +84,6 @@
         "address": "Dirección"
       }
     },
-    "title": "hello demo",
-    "start": "Empezar",
-    "menu": {
-      "home": "Inicio",
-      "about": "Acerca de",
-      "services": "Soluciones",
-      "portfolio": "Portafolio",
-      "products": "Productos",
-      "team": "Equipo",
-      "contact": "Contacto",
-      "language": "Idioma"
-    },
     "home": {
       "hero": {
         "eyebrow": "Software a medida · Lima, Perú",
@@ -185,32 +173,6 @@
         "or": "o escríbenos a"
       }
     },
-    "contact": {
-      "title": "Contacto",
-      "description": "¿Tienes alguna pregunta o proyecto en mente? Estamos aquí para ayudarte.",
-      "address": "Dirección",
-      "email": "Correo Electrónico",
-      "number": "Teléfono",
-      "button": "Enviar Mensaje",
-      "sent": "¡Mensaje enviado con éxito! Te responderemos pronto.",
-      "send_another": "Enviar otro mensaje",
-      "form": {
-        "name": "Tu Nombre",
-        "name_error": "El nombre es obligatorio.",
-        "email": "Correo Electrónico",
-        "email_error": "Ingresa un correo válido.",
-        "subject": "Asunto",
-        "subject_error": "El asunto es obligatorio.",
-        "message": "Mensaje",
-        "message_error": "El mensaje es obligatorio."
-      }
-    },
-    "clients": {
-      "pill": "Empresas que confían en nosotros",
-      "title": "Más de 150 empresas nos eligen",
-      "subtitle": "Acompañamos a empresas de todos los sectores en su transformación digital, desde startups hasta grandes corporaciones.",
-      "uptime": "Uptime garantizado"
-    },
     "about": {
       "title": "Sobre nosotros",
       "description": "Explore nuestra trayectoria innovadora, nuestra visión disruptiva y cómo co-creamos soluciones tecnológicas que redefinen industrias.",
@@ -265,51 +227,6 @@
           "tag": "Cloud",
           "title": "Soluciones Cloud",
           "description": "Migración e implementación de soluciones en la nube para mayor escalabilidad."
-        }
-      }
-    },
-    "portfolio": {
-      "title": "Nuestro Portafolio",
-      "description": "Descubre nuestros proyectos destacados y casos de éxito",
-      "filters": {
-        "all": "Todos",
-        "web": "Web",
-        "mobile": "Móvil",
-        "cloud": "Cloud",
-        "security": "Seguridad"
-      },
-      "projects": {
-        "web1": {
-          "title": "Plataforma E-commerce",
-          "description": "Desarrollo de tienda online completa con integración de pagos"
-        },
-        "mobile1": {
-          "title": "App de Delivery",
-          "description": "Aplicación móvil para gestión de entregas y seguimiento en tiempo real"
-        },
-        "cloud1": {
-          "title": "Migración Cloud",
-          "description": "Migración completa de infraestructura local a soluciones cloud"
-        },
-        "web2": {
-          "title": "Sistema de Gestión",
-          "description": "Plataforma web para gestión empresarial con dashboard analítico"
-        },
-        "mobile2": {
-          "title": "App de Salud",
-          "description": "Aplicación móvil para seguimiento médico y recordatorios"
-        },
-        "web3": {
-          "title": "Portal Corporativo",
-          "description": "Sitio web corporativo responsive con CMS integrado"
-        },
-        "security1": {
-          "title": "Sistema de Ciberseguridad",
-          "description": "Implementación de soluciones de seguridad avanzadas con encriptación y monitoreo continuo"
-        },
-        "sophia": {
-          "title": "Sophia Smart - Reconocimiento Facial",
-          "description": "Sistema avanzado de reconocimiento facial con IA para control de acceso, verificación de identidad y análisis biométrico en tiempo real"
         }
       }
     },
@@ -461,12 +378,6 @@
         }
       }
     },
-    "stats": {
-      "clients": "Clientes Satisfechos",
-      "projects": "Proyectos Completados",
-      "support": "Horas de Soporte",
-      "workers": "Profesionales"
-    },
     "team": {
       "title": "Nuestro Equipo",
       "description": "Conoce a los profesionales apasionados que hacen posible la transformación digital de nuestros clientes.",
@@ -487,28 +398,6 @@
           "bio": "Estratega de marketing especializado en crecimiento digital, posicionamiento de marca y captación de clientes."
         }
       }
-    },
-    "footer": {
-      "svc1": "Desarrollo de Software",
-      "svc2": "Apps Móviles",
-      "svc3": "Cloud & DevOps",
-      "svc4": "IA & Machine Learning",
-      "svc5": "Consultoría IT",
-      "svc6": "Transformación Digital",
-      "rights": "Todos los derechos reservados",
-      "designed_by": "Diseñado por",
-      "nav_title": "Navegación",
-      "contact_title": "Contacto",
-      "services_title": "Servicios",
-      "cta_title": "¿Listo para transformar tu negocio?",
-      "schedule": "Lun–Vie: 9:00 – 18:00",
-      "support": "Soporte técnico",
-      "description": "Transformamos ideas en soluciones digitales innovadoras que impulsan el crecimiento de tu negocio."
-    },
-    "seo": {
-      "title": "Bacsystem Solutions | Desarrollo de Software y Transformación Digital",
-      "description": "Bacsystem Solutions: especialistas en desarrollo de software a medida, consultoría tecnológica y transformación digital. Más de 150 clientes y 320 proyectos entregados en Latinoamérica.",
-      "keywords": "desarrollo de software, consultoría tecnológica, transformación digital, aplicaciones web, apps móviles, cloud, Angular, Bacsystem"
     }
   }
 }

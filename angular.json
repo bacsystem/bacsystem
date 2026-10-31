@@ -51,8 +51,7 @@
                   "maximumError": "24KB"
                 }
               ],
-              "outputHashing": "all",
-              "allowedCommonJsDependencies": ["aos"]
+              "outputHashing": "all"
             },
             "development": {
               "optimization": false,

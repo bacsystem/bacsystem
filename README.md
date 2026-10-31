@@ -6,160 +6,56 @@
 ![Version](https://img.shields.io/badge/Version-1.2.2-blue)
 ![License](https://img.shields.io/badge/License-Private-lightgrey)
 
-Corporate website for **Bacsystem Solutions**, a company specialized in software development, technology consulting, and digital transformation. Built with Angular 18 with SSR support and deployed on Cloudflare Pages.
+Sitio corporativo de **Bacsystem Solutions** (Angular 18, componentes standalone, prerender estático). Se despliega en Cloudflare Pages.
 
 ---
 
-## Features
+## Comandos
 
-| Section | Description |
+Requiere Node 18+ y yarn 1.x. Instalar con `yarn install`.
+
+| Comando | Qué hace |
 |---|---|
-| **Home** | Hero section with company tagline and key value cards (Development, Innovation, Growth, Team) |
-| **About** | Company mission, vision, and strategic positioning |
-| **Services** | Technology solutions and consulting offerings |
-| **Products** | Product catalog |
-| **Team** | Team member profiles |
-| **Clients** | Client showcase / logos |
-| **Contact** | Contact form with address, email and phone info |
+| `yarn start` | Servidor de desarrollo en `http://localhost:4200` |
+| `yarn build:prod` | Build de producción con prerender (salida en `dist/browser`) |
+| `yarn test:ci` | Specs de Karma/Jasmine en ChromeHeadless, sin watch |
+| `yarn test:ui` | Pruebas del verificador de UI (`scripts/check-ui.test.mjs`) |
+| `yarn lint:ui` | `stylelint` sobre todo `src/**/*.css` + `scripts/check-ui.mjs` |
 
-### Technical highlights
+## Estructura de carpetas
 
-- **Angular 18** with standalone components, lazy-loaded routes, and built-in `@for`/`@if` control flow
-- **Server-Side Rendering (SSR)** via `@angular/ssr` + Express
-- **SEO-ready** — `SeoService` updates `<title>`, Open Graph, Twitter Card, `html[lang]`, and canonical `<link>` dynamically on language change; static JSON-LD Organization schema; `robots.txt` and `sitemap.xml` with `hreflang` alternates
-- **Internationalization (i18n)** with `@ngx-translate` — supports English (`en`) and Spanish (`es`), all visible text served via i18n keys
-- **Data-driven templates** — all repeating UI blocks (dashboard stats, chart bars, donut segments, task rows, footer services, metrics strip) rendered from typed component arrays via `@for` loops
-- **AOS** (Animate On Scroll) for scroll-driven animations
-- **Bootstrap 5** + Bootstrap Icons for UI components and iconography
-- **Swiper** for image/content carousels
-- **GLightbox** for image lightbox gallery
-- **PureCounter** for animated statistics counters
-- Deployed to **Cloudflare Pages** with observability enabled
-
----
-
-## Project Structure
-
-```text
+```
 src/
-├── app/
-│   ├── core/            # Shared services (LanguageService, MenuService, SeoService) and models
-│   ├── public/          # Public-facing pages (lazy-loaded)
-│   │   ├── home/
-│   │   ├── about/
-│   │   ├── services/
-│   │   ├── products/
-│   │   ├── team/
-│   │   ├── clients/
-│   │   ├── contact/
-│   │   ├── header/
-│   │   └── footer/
-│   └── shared/          # Shared components and utilities
-├── styles.css
-└── index.html
+  app/
+    core/       servicios (idioma, tema, SEO por ruta)
+    data/       site.data.ts: contenido de la web (servicios, productos, clientes, cifras)
+    layout/     header, footer y layout general
+    pages/      páginas: home, contact, coming-soon, ui-guide
+    shared/
+      ui/       componentes de UI compartidos (button, card, icon, field, section, tag...)
+      directives/  reveal y count-up
+  styles/       tokens.css, base.css, fonts.css
 public/
-├── assets/              # Fonts, images, vendor libraries
-├── i18n/                # Translation files (en.json, es.json)
-├── robots.txt           # Crawl rules
-└── sitemap.xml          # URL map with hreflang alternates
+  assets/       imágenes y Bootstrap Icons (solo .min.css + fuentes)
+  i18n/         es.json y en.json
+  _redirects, robots.txt, sitemap.xml
+scripts/        check-ui.mjs y sus tests
 ```
 
----
+## Convención de UI
 
-## Prerequisites
+- **Tokens**: `src/styles/tokens.css` es el único lugar con valores literales (colores, tamaños, espaciados, radios, sombras). El resto del CSS usa `var(--...)`. Cada token `--color-*` de `:root` debe existir también en `[data-theme='dark']`.
+- **Componentes**: se construyen con los componentes compartidos de `src/app/shared/ui` (importables desde `shared/ui/index.ts`); no se duplican estilos de botones, tarjetas o campos en las páginas.
+- **Iconos**: un solo set (Bootstrap Icons) a través de `<ui-icon>`. Las clases `bi bi-*` solo se permiten dentro de `icon.component.html`. Sin emojis ni SVG sueltos.
+- **Qué rechaza `yarn lint:ui`**: colores literales (`#`, `rgb()`, `hsl()`, nombres), `px` en `font-size`, márgenes, paddings, gaps y `border-radius` fuera de tokens, `!important`, breakpoints distintos de `48em` y `64em`, estilos en línea o `[style.x]` con valores de diseño (solo se admiten custom properties `--x`), clases `bi bi-*` fuera de `ui-icon` y tokens de color sin equivalente en el tema oscuro.
 
-- **Node.js** >= 18
-- **Yarn** 1.22.22 (pinned)
-- **Angular CLI** 18
+## Contenido y datos
 
-```bash
-npm install -g yarn@1.22.22
-npm install -g @angular/cli@18
-```
+El contenido de la web (servicios, productos, clientes, cifras) vive en `src/app/data/site.data.ts`. Las cifras, fotos de equipo y casos que son de ejemplo llevan el comentario `EJEMPLO` y deben reemplazarse por datos reales antes de publicarlos. Los textos están en `public/i18n/{es,en}.json` (español por defecto, `@ngx-translate`); ambos archivos deben tener las mismas claves. Las claves `products`, `services`, `about` y `team` se conservan para las siguientes fases.
 
----
+## Prerender y despliegue
 
-## Installation
-
-```bash
-git clone https://github.com/bacsystem/bacsystem.git
-cd bacsystem
-yarn install
-```
-
----
-
-## Available Scripts
-
-| Command | Description |
-|---|---|
-| `yarn start` | Start dev server at `http://localhost:4200` (accessible on all interfaces) |
-| `yarn build` | Build for development |
-| `yarn build:prod` | Build for production |
-| `yarn watch` | Build and watch in development mode |
-| `yarn test` | Run unit tests with Karma + Jasmine |
-| `yarn serve:ssr:bacsystem` | Serve the SSR production build locally |
-
----
-
-## Configuration
-
-### Environment / Build
-
-The project uses Angular's built-in environment configuration. Production builds are triggered with:
-
-```bash
-yarn build:prod
-# equivalent to: ng build --configuration production --base-href=/
-```
-
-Build output is placed in `dist/bacsystem/`.
-
-### Internationalization
-
-Translation files are located in `public/i18n/`. The default language is English.
-
-| File | Language |
-|---|---|
-| `public/i18n/en.json` | English |
-| `public/i18n/es.json` | Spanish |
-
-To switch the default language, edit `src/app/core/language.service.ts`:
-
-```typescript
-this.translate.setDefaultLang('es'); // change to 'es' for Spanish
-```
-
-### Cloudflare Pages (`wrangler.toml`)
-
-```toml
-name = "bacsystem-solutions"
-pages_build_output_dir = "./dist/browser"
-compatibility_date = "2025-09-27"
-
-[observability]
-enabled = true
-```
-
-Deploy to Cloudflare Pages by pushing to the configured branch or running:
-
-```bash
-npx wrangler pages deploy dist/browser
-```
-
-### SSR (Server-Side Rendering)
-
-SSR is configured via `@angular/ssr` with an Express server (`server.ts`). The server entry point is compiled to `dist/bacsystem/server/server.mjs`.
-
----
-
-## Running Tests
-
-```bash
-yarn test
-```
-
-Unit tests use **Karma** with the **Chrome** launcher and **Jasmine**. Coverage reports are generated in `coverage/`.
+`yarn build:prod` prerenderiza las rutas estáticas con `@angular/ssr` y genera `dist/browser` (incluye `_redirects`, `robots.txt` y `sitemap.xml`). Se despliega en **Cloudflare Pages** publicando `dist/browser` (ver `wrangler.toml`). Las páginas aún no construidas (`/servicios`, `/productos*`, `/nosotros`) son `noindex` y no están en el sitemap.
 
 ---
 
