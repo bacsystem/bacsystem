@@ -177,22 +177,10 @@ ol[role='list'] {
 }
 
 /*
- * Hero intro. The head script in index.html flags <html class="motion-intro"> only when JS runs
- * and motion is welcome; the hero parts marked data-intro="pending" then wait hidden until the
- * page code takes over (it sets data-intro="on" after writing its own inline pre-state).
- * No JS, prerender or reduced motion: no flag, so everything is visible. If the app never
- * starts, the failsafe animation reveals the hero anyway.
+ * Hero intro hold: lives inline in index.html (next to the head script that sets the flag) so it
+ * applies from the very first paint; critical-CSS inlining would otherwise drop it, since the
+ * prerendered markup never carries the html.motion-intro class.
  */
-.motion-intro [data-intro='pending'] {
-  opacity: 0;
-  animation: intro-failsafe var(--duration-slow) var(--ease-out) var(--duration-failsafe) forwards;
-}
-
-@keyframes intro-failsafe {
-  to {
-    opacity: 1;
-  }
-}
 
 /*
  * Arrows on buttons and text links nudge forward on hover/focus (spring easing).
@@ -208,8 +196,7 @@ a:focus-visible ui-icon[name='arrow-right'] {
 }
 
 @media print {
-  .is-reveal-pending,
-  .motion-intro [data-intro='pending'] {
+  .is-reveal-pending {
     opacity: 1;
     transform: none;
   }

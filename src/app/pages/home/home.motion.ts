@@ -11,6 +11,9 @@ import { all, hideFade, hideHeading, hideWords, lines, revealFade, revealHeading
 
 const DESKTOP = '(min-width: 64em)';
 
+/** The process line runs across on desktop and down on mobile: one source for hide, play and draw. */
+const axisOf = (motion: MotionService) => (motion.matches(DESKTOP) ? 'scaleX' : 'scaleY');
+
 function clear(els: HTMLElement[], props: string[]): void {
   for (const el of els) for (const p of props) el.style.removeProperty(p);
 }
@@ -100,21 +103,19 @@ export const SERVICES_REVEAL: Choreography = {
  * and each marker pops (spring, 0.8 → 1) when the line reaches it, its title and text fading up.
  */
 export const PROCESS_REVEAL: Choreography = {
-  hide: el => {
+  hide: (el, motion) => {
     hideHeading(el);
     all(el, '.process__marker').forEach(m => {
       m.style.opacity = '0';
       m.style.transform = 'scale(0.8)';
     });
     hideFade(all(el, '.process__body'));
-    const axis = matchMedia(DESKTOP).matches ? 'scaleX' : 'scaleY';
-    all(el, '.process__link').forEach(l => (l.style.transform = `${axis}(0)`));
+    all(el, '.process__link').forEach(l => (l.style.transform = `${axisOf(motion)}(0)`));
   },
   play: (el, motion) => {
     const { stops, next } = revealHeading(motion, el);
     const steps = all(el, '.process__step');
     const links = all(el, '.process__link');
-    const axis = motion.matches(DESKTOP) ? 'scaleX' : 'scaleY';
     const popped = new Set<number>();
     let reached = 0;
     let cancelScroll: (() => void) | undefined;
@@ -128,6 +129,7 @@ export const PROCESS_REVEAL: Choreography = {
     const draw = (progress: number) => {
       reached = Math.max(reached, progress);
       const along = reached * (steps.length - 1); // 0 at marker 01 … n-1 at the last marker
+      const axis = axisOf(motion); // re-read: the layout may have crossed the breakpoint
       links.forEach((link, i) => (link.style.transform = `${axis}(${Math.min(Math.max(along - i, 0), 1)})`));
       steps.forEach((_, i) => along >= i - 0.02 && !popped.has(i) && pop(i));
       if (reached >= 1) {

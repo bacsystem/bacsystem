@@ -1,6 +1,7 @@
 import { PLATFORM_ID } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MotionService } from '../../../shared/motion/motion.service';
+import { MARK } from '../../../shared/motion/motion.tokens';
 import { BrandMarkComponent } from './brand-mark.component';
 
 /** Records animate calls instead of running them; `finished` never settles, so nothing chains. */
@@ -12,7 +13,21 @@ class FakeMotion {
     this.calls++;
     return { stop: () => this.stopped++, finished: new Promise(() => undefined) };
   };
+  run = <T>(fn: () => T): T => fn();
 }
+
+/** What the head script in index.html does before first paint. */
+const html = document.documentElement;
+function flagIntro(at = performance.now()): void {
+  html.classList.add('motion-intro');
+  html.dataset['introAt'] = String(at);
+  holdStyle.textContent = HOLD_CSS; // the inline <style> of index.html
+  document.head.appendChild(holdStyle);
+}
+
+/** The intro hold from index.html (inline there, so not part of the test styles). */
+const HOLD_CSS = ".motion-intro [data-intro='pending'] { opacity: 0; animation: intro-failsafe 500ms ease-out 2500ms forwards; } @keyframes intro-failsafe { to { opacity: 1; } }";
+const holdStyle = document.createElement('style');
 
 describe('BrandMarkComponent', () => {
   function render(platform: 'browser' | 'server' = 'browser'): HTMLElement {
@@ -68,6 +83,12 @@ describe('BrandMarkComponent', () => {
   });
 
   describe('docking motion (Motion library)', () => {
+    afterEach(() => {
+      html.classList.remove('motion-intro');
+      delete html.dataset['introAt'];
+      holdStyle.remove();
+    });
+
     function create(platform: 'browser' | 'server', enabled: boolean): { fixture: ComponentFixture<BrandMarkComponent>; motion: FakeMotion } {
       const motion = new FakeMotion();
       motion.enabled = enabled;
@@ -84,6 +105,7 @@ describe('BrandMarkComponent', () => {
     }
 
     it('plays the intro in the browser when motion is welcome', () => {
+      flagIntro();
       const { fixture, motion } = create('browser', true);
       const el = fixture.nativeElement as HTMLElement;
       expect(motion.calls).toBeGreaterThan(0);
@@ -104,10 +126,31 @@ describe('BrandMarkComponent', () => {
     });
 
     it('stops every running animation on destroy', () => {
+      flagIntro();
       const { fixture, motion } = create('browser', true);
       const started = motion.calls;
       fixture.destroy();
       expect(motion.stopped).toBe(started);
+    });
+
+    it('skips the intro when hydration comes after the failsafe, and still starts the loop later', () => {
+      jasmine.clock().install();
+      try {
+        flagIntro(performance.now() - 5000);
+        const { fixture, motion } = create('browser', true);
+        const el = fixture.nativeElement as HTMLElement;
+        expect(el.querySelector('svg')?.getAttribute('data-intro')).toBe('off');
+        expect(el.querySelector<SVGElement>('.mark__c')?.style.opacity).toBe(''); // never re-hidden
+        expect(el.querySelector('.mark__line')?.getAttribute('stroke-dashoffset')).toBeNull();
+        const afterStart = motion.calls; // the echo's breath only
+        expect(afterStart).toBe(1);
+        spyOn(fixture.nativeElement, 'getBoundingClientRect').and.returnValue({ top: 10, bottom: 300 } as DOMRect);
+        jasmine.clock().tick(MARK.cycle.rest * 1000 + 10);
+        expect(motion.calls).toBeGreaterThan(afterStart); // a docking cycle started
+        fixture.destroy();
+      } finally {
+        jasmine.clock().uninstall();
+      }
     });
   });
 

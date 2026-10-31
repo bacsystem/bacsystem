@@ -2,8 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 /**
  * Splits a heading into words so motion can reveal it line by line. Templates render each
- * word in a `.ui-word` span followed by `&ngsp;`, so the text, wrapping and accessible name
- * stay the same as the plain string.
+ * word in an aria-hidden `.ui-word` span followed by `&ngsp;` (same visible text and wrapping)
+ * and put the full string on the heading's aria-label, so it is announced as one title.
  */
 @Pipe({ name: 'words', standalone: true })
 export class WordsPipe implements PipeTransform {

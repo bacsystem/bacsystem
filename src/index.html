@@ -22,11 +22,32 @@
     })();
   </script>
 
-  <!-- Flag the hero intro before first paint: only with JS and motion welcome (see base.css). -->
+  <!--
+    Hero intro hold. Only with JS and motion welcome, the script flags <html class="motion-intro">
+    (with the time it did so); the hero parts marked data-intro="pending" then wait hidden until
+    the page code takes over and sets data-intro="on" (or "off" if it comes too late). No JS,
+    prerender or reduced motion: no flag, all visible. If the app never starts, the failsafe
+    reveals the hero after 2.5s. Inline (not in styles.css) so it holds from the first paint,
+    before the async stylesheet loads. Values mirror --duration-failsafe (2500ms) and
+    --duration-slow (500ms); keep in sync with INTRO_FAILSAFE in shared/motion/motion.tokens.ts.
+  -->
+  <style>
+    .motion-intro [data-intro='pending'] {
+      opacity: 0;
+      animation: intro-failsafe 500ms ease-out 2500ms forwards;
+    }
+    @keyframes intro-failsafe {
+      to { opacity: 1; }
+    }
+    @media print {
+      .motion-intro [data-intro='pending'] { opacity: 1; animation: none; }
+    }
+  </style>
   <script>
     try {
       if (!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         document.documentElement.classList.add('motion-intro');
+        document.documentElement.dataset.introAt = String(performance.now());
       }
     } catch (e) {}
   </script>

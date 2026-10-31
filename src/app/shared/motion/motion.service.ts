@@ -1,6 +1,6 @@
 import { isPlatformBrowser } from '@angular/common';
 import { Injectable, NgZone, PLATFORM_ID, inject } from '@angular/core';
-import { animate, hover, inView, scroll, stagger } from 'motion';
+import { animate, inView, scroll, stagger } from 'motion';
 
 /** What callers keep to stop a running animation, observer or scroll binding. */
 export interface Stoppable {
@@ -31,12 +31,16 @@ export class MotionService {
     return isPlatformBrowser(this.platformId) && typeof window.matchMedia === 'function' && window.matchMedia(query).matches;
   }
 
-  readonly animate = ((...args: unknown[]) =>
-    this.zone.runOutsideAngular(() => (animate as (...a: unknown[]) => unknown)(...args))) as typeof animate;
+  /** Runs `fn` outside Angular's zone: timers, promise callbacks and frames it starts never trigger change detection. */
+  run<T>(fn: () => T): T {
+    return this.zone.runOutsideAngular(fn);
+  }
+
+  readonly animate = ((...args: unknown[]) => this.run(() => (animate as (...a: unknown[]) => unknown)(...args))) as typeof animate;
 
   /** Runs `onEnter` the first time the element is in view, then stops watching it. */
   inViewOnce(element: Element, onEnter: () => void, amount = 0.2): Stoppable {
-    const cancel = this.zone.runOutsideAngular(() =>
+    const cancel = this.run(() =>
       inView(
         element,
         () => {
@@ -49,11 +53,7 @@ export class MotionService {
     return { stop: cancel };
   }
 
-  readonly scroll = ((...args: unknown[]) =>
-    this.zone.runOutsideAngular(() => (scroll as (...a: unknown[]) => unknown)(...args))) as typeof scroll;
-
-  readonly hover = ((...args: unknown[]) =>
-    this.zone.runOutsideAngular(() => (hover as (...a: unknown[]) => unknown)(...args))) as typeof hover;
+  readonly scroll = ((...args: unknown[]) => this.run(() => (scroll as (...a: unknown[]) => unknown)(...args))) as typeof scroll;
 
   readonly stagger = stagger;
 }

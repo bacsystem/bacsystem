@@ -39,4 +39,14 @@ describe('SectionHeadingComponent', () => {
     expect(el.querySelector('h1.ui-section-heading__title')?.textContent?.trim()).toBe('X');
     expect(el.querySelector('h2')).toBeNull();
   });
+
+  it('splits the title into aria-hidden words and keeps the full title as the accessible name', () => {
+    const el = create({ title: 'Lo que hacemos por tu empresa' });
+    const h2 = el.querySelector('h2') as HTMLElement;
+    expect(h2.getAttribute('aria-label')).toBe('Lo que hacemos por tu empresa');
+    const words = Array.from(h2.querySelectorAll('.ui-word'));
+    expect(words.map(w => w.textContent)).toEqual(['Lo', 'que', 'hacemos', 'por', 'tu', 'empresa']);
+    expect(words.every(w => w.getAttribute('aria-hidden') === 'true')).toBeTrue();
+    expect(h2.textContent?.replace(/\s+/g, ' ').trim()).toBe('Lo que hacemos por tu empresa');
+  });
 });

@@ -26,6 +26,7 @@ class FakeMotion {
   enabled = true;
   onEnter?: () => void;
   viewStopped = 0;
+  run = <T>(fn: () => T): T => fn();
   inViewOnce(_el: Element, onEnter: () => void) {
     this.onEnter = onEnter;
     return { stop: () => this.viewStopped++ };
@@ -56,11 +57,6 @@ describe('RevealGroupDirective', () => {
     fixture.detectChanges();
     return { fixture, el: fixture.nativeElement.querySelector('#t') as HTMLElement };
   }
-
-  it('sets --i on each child, in order', () => {
-    const { el } = mount();
-    expect(Array.from(el.children).map(c => (c as HTMLElement).style.getPropertyValue('--i'))).toEqual(['0', '1', '2']);
-  });
 
   it('hides an off-screen group and plays it once when it comes into view', () => {
     const { el } = mount();
@@ -100,7 +96,6 @@ describe('RevealGroupDirective', () => {
     const { el } = mount({ platform: 'server' });
     expect(calls.hide).toBe(0);
     expect(el.classList).not.toContain('is-motion-pending');
-    expect(el.querySelector('li')?.style.getPropertyValue('--i')).toBe('');
   });
 
   it('stays visible without IntersectionObserver', () => {

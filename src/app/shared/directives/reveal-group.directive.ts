@@ -9,7 +9,7 @@ import { RISE } from '../motion/motion.tokens';
  * `hide` sets the pre-state inline; `play` runs the entrance and returns what to stop on destroy.
  */
 export interface Choreography {
-  hide(el: HTMLElement): void;
+  hide(el: HTMLElement, motion: MotionService): void;
   play(el: HTMLElement, motion: MotionService): Stoppable[];
 }
 
@@ -26,7 +26,7 @@ export const RISE_CHILDREN: Choreography = {
  *   comes into view. Never re-triggers.
  * - Server, prefers-reduced-motion, no IntersectionObserver, or already on screen: nothing is
  *   touched, so the final state shows immediately.
- * - Sets `--i` on each direct child (its position), for CSS that wants it.
+ * - Everything (pre-state, observer, entrance and its cleanup callbacks) runs outside Angular's zone.
  */
 @Directive({ selector: '[appRevealGroup]', standalone: true })
 export class RevealGroupDirective implements AfterViewInit, OnDestroy {
@@ -41,20 +41,21 @@ export class RevealGroupDirective implements AfterViewInit, OnDestroy {
   /** After view init: the group's children (often an @for) exist by now. */
   ngAfterViewInit(): void {
     if (!isPlatformBrowser(this.platformId)) return;
-    Array.from(this.el.children).forEach((child, i) => (child as HTMLElement).style?.setProperty('--i', String(i)));
     if (!this.motion.enabled || typeof IntersectionObserver === 'undefined') return;
     const rect = this.el.getBoundingClientRect();
     if (rect.top < window.innerHeight && rect.bottom > 0) return; // already visible: never hide it
 
     const choreography = this.appRevealGroup() || RISE_CHILDREN;
-    choreography.hide(this.el);
-    this.el.classList.add('is-motion-pending');
-    this.stops.push(
-      this.motion.inViewOnce(this.el, () => {
-        this.el.classList.remove('is-motion-pending');
-        this.stops.push(...choreography.play(this.el, this.motion));
-      }),
-    );
+    this.motion.run(() => {
+      choreography.hide(this.el, this.motion);
+      this.el.classList.add('is-motion-pending');
+      this.stops.push(
+        this.motion.inViewOnce(this.el, () => {
+          this.el.classList.remove('is-motion-pending');
+          this.stops.push(...choreography.play(this.el, this.motion));
+        }),
+      );
+    });
   }
 
   ngOnDestroy(): void {

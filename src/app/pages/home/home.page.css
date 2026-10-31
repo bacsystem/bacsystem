@@ -396,11 +396,17 @@ p {
 
 /*
  * Hover (fine pointers, motion welcome): the card lifts on a spring, its shadow steps up and the
- * logo tile tilts a touch; reversed on leave. The pointer tilt itself is Motion (HomePageComponent).
- * Lift and tilt use the individual translate/rotate properties, so they never fight Motion's transform.
+ * logo tile tilts a touch; reversed on leave. The pointer tilt comes from --tilt-x/--tilt-y, sprung by
+ * Motion (HomePageComponent). The entrance's inline transform wins while it plays and is cleared when it
+ * ends, so the tilt is never lost; the lift uses the individual translate property.
  */
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
   .products__item {
+    /* Pointer tilt: Motion springs --tilt-x/--tilt-y (degrees, unitless) toward the pointer. */
+    --tilt-x: 0;
+    --tilt-y: 0;
+
+    transform: perspective(var(--tilt-perspective)) rotateX(calc(var(--tilt-x) * 1deg)) rotateY(calc(var(--tilt-y) * 1deg));
     transition:
       translate var(--duration-spring) var(--ease-spring),
       box-shadow var(--duration-base) var(--ease-out),
@@ -418,7 +424,7 @@ p {
   }
 
   .products__item:hover .products__logo {
-    rotate: -3deg;
+    rotate: var(--tilt-logo);
   }
 }
 

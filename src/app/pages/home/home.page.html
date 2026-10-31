@@ -9,7 +9,7 @@
         <span class="eyebrow__rule" aria-hidden="true"></span>
         <span class="eyebrow__text">{{ 'application.home.hero.eyebrow' | translate }}</span>
       </p>
-      <h1 class="hero__title" data-intro="pending">@for (word of 'application.home.hero.title' | translate | words; track $index) {<span class="ui-word">{{ word }}</span>&ngsp;}</h1>
+      <h1 class="hero__title" data-intro="pending" [attr.aria-label]="'application.home.hero.title' | translate">@for (word of 'application.home.hero.title' | translate | words; track $index) {<span class="ui-word" aria-hidden="true">{{ word }}</span>&ngsp;}</h1>
       <p class="hero__subtitle" data-intro="pending">{{ 'application.home.hero.subtitle' | translate }}</p>
       <div class="hero__actions" data-intro="pending">
         <a ui-button size="lg" class="hero__cta" routerLink="/contacto">
@@ -173,7 +173,7 @@
               @if (stat.animate === false) {
                 <span class="stats__value">{{ stat.value }}</span>
               } @else {
-                <span class="stats__value" [appCountUp]="stat.value" [delay]="countDelay"></span>
+                <span class="stats__value" [appCountUp]="stat.value" [delay]="countDelay($index)"></span>
               }<span class="stats__suffix">{{ stat.suffix }}</span>
             </dd>
           </div>
@@ -186,7 +186,7 @@
 <ui-section sectionId="contacto" tone="primary">
   <div class="contact" [appRevealGroup]="choreo.contact">
     <div class="contact__copy">
-      <h2 class="contact__title">@for (word of 'application.home.contact.title' | translate | words; track $index) {<span class="ui-word">{{ word }}</span>&ngsp;}</h2>
+      <h2 class="contact__title" [attr.aria-label]="'application.home.contact.title' | translate">@for (word of 'application.home.contact.title' | translate | words; track $index) {<span class="ui-word" aria-hidden="true">{{ word }}</span>&ngsp;}</h2>
       <p class="contact__subtitle">{{ 'application.home.contact.subtitle' | translate }}</p>
     </div>
     <div class="contact__actions">

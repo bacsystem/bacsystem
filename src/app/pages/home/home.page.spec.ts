@@ -7,6 +7,10 @@ import { ClientLogo, PROCESS, PRODUCTS, STATS } from '../../data/site.data';
 import { MotionService } from '../../shared/motion/motion.service';
 import { HomePageComponent } from './home.page';
 
+/** The intro hold from index.html (inline there, so not part of the test styles). */
+const HOLD_CSS = ".motion-intro [data-intro='pending'] { opacity: 0; animation: intro-failsafe 500ms ease-out 2500ms forwards; } @keyframes intro-failsafe { to { opacity: 1; } }";
+const holdStyle = document.createElement('style');
+
 describe('HomePageComponent', () => {
   let fixture: ComponentFixture<HomePageComponent>;
 
@@ -203,7 +207,22 @@ describe('HomePageComponent', () => {
       scroll = () => () => undefined;
       inViewOnce = () => ({ stop: () => undefined });
       stagger = () => 0;
+      run = <T>(fn: () => T): T => fn();
     }
+
+    /** What the head script in index.html does before first paint. */
+    const html = document.documentElement;
+    function flagIntro(at = performance.now()): void {
+      html.classList.add('motion-intro');
+      html.dataset['introAt'] = String(at);
+      holdStyle.textContent = HOLD_CSS; // the inline <style> of index.html
+      document.head.appendChild(holdStyle);
+    }
+    afterEach(() => {
+      html.classList.remove('motion-intro');
+      delete html.dataset['introAt'];
+      holdStyle.remove();
+    });
 
     function setupWith(motion: FakeMotion, platform: 'browser' | 'server' = 'browser'): HTMLElement {
       TestBed.configureTestingModule({
@@ -229,18 +248,36 @@ describe('HomePageComponent', () => {
       expect(motion.calls).toBe(0);
     });
 
-    it('keeps the h1 text intact when split into words', () => {
+    it('keeps the h1 text intact when split into words, announced as one title', () => {
       const el = setupWith(new FakeMotion());
       const h1 = el.querySelector('h1') as HTMLElement;
+      expect(h1.getAttribute('aria-label')).toBe(es.application.home.hero.title);
+      expect(Array.from(h1.querySelectorAll('.ui-word')).every(w => w.getAttribute('aria-hidden') === 'true')).toBeTrue();
       expect(h1.querySelectorAll('.ui-word').length).toBe(es.application.home.hero.title.split(' ').length);
       expect(h1.textContent?.replace(/\s+/g, ' ').trim()).toBe(es.application.home.hero.title);
     });
 
     it('plays the hero intro in the browser and releases the CSS hold', () => {
+      flagIntro();
       const motion = new FakeMotion();
       const el = setupWith(motion);
       expect(motion.calls).toBeGreaterThan(0);
       expect(introParts(el).every(p => p.dataset['intro'] === 'on')).toBeTrue();
+      expect((el.querySelector('.hero__title .ui-word') as HTMLElement).style.opacity).toBe('0');
+    });
+
+    it('skips the intro when hydration comes after the failsafe already showed the hero', () => {
+      flagIntro(performance.now() - 5000);
+      const motion = new FakeMotion();
+      const el = setupWith(motion);
+      expect(introParts(el).every(p => p.dataset['intro'] === 'off')).toBeTrue();
+      expect(el.querySelector('.hero__copy [style]')).toBeNull(); // never hidden again, no replay
+    });
+
+    it('skips the intro without the head-script flag (e.g. a later visit within the app)', () => {
+      const el = setupWith(new FakeMotion());
+      expect(introParts(el).every(p => p.dataset['intro'] === 'off')).toBeTrue();
+      expect(el.querySelector('.hero__copy [style]')).toBeNull();
     });
 
     it('shows the hero at once with reduced motion, without animating', () => {
@@ -253,6 +290,7 @@ describe('HomePageComponent', () => {
     });
 
     it('stops its animations on destroy', () => {
+      flagIntro();
       const motion = new FakeMotion();
       setupWith(motion);
       fixture.destroy();

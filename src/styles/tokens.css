@@ -134,7 +134,6 @@ html {
   --duration-enter: 700ms; /* entradas (texto, tarjetas); espejo en shared/motion/motion.tokens.ts */
   --duration-spring: 450ms; /* duración de --ease-spring */
   --duration-failsafe: 2500ms; /* si la app no arranca, la intro del hero aparece igual */
-  --stagger-step: 70ms; /* paso único de escalonado */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);
   /* Resorte (rigidez 500, amortiguación 30, masa 1) muestreado a linear(): ~6% de rebote, se asienta en ~450ms. */
@@ -142,6 +141,8 @@ html {
   --press-scale: 0.97;
   --nudge: calc(var(--space-1) * 0.75); /* 3px: flecha de botones y enlaces */
   --lift: calc(var(--space-1) * -1); /* -4px: tarjetas al pasar el puntero */
+  --tilt-perspective: 900px; /* profundidad de la inclinación de tarjetas hacia el puntero */
+  --tilt-logo: -3deg; /* el logo de la tarjeta se inclina al pasar el puntero */
 
   /* Capas */
   --z-header: 100;
@@ -202,6 +203,5 @@ html {
     --duration-slower: 0.01ms;
     --duration-enter: 0.01ms;
     --duration-spring: 0.01ms;
-    --stagger-step: 0ms;
   }
 }
