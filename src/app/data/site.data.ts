@@ -1,3 +1,5 @@
+import type { IconName } from '../shared/ui/icon/icon.component';
+
 export const SITE = {
   url: 'https://bacsystemsolutions.com',
   name: 'Bacsystem Solutions',
@@ -174,6 +176,8 @@ export const STATS: StatItem[] = [
 /** Mission or vision: a label and one statement. */
 export interface PurposeItem {
   id: 'mission' | 'vision';
+  /** Same icons as the original site: a target for the mission, a rocket for the vision. */
+  icon: IconName;
   labelKey: string;
   textKey: string;
 }
@@ -200,8 +204,8 @@ export interface TeamMember {
 const ABOUT = 'application.aboutPage';
 
 export const PURPOSE: PurposeItem[] = [
-  { id: 'mission', labelKey: `${ABOUT}.mission.label`, textKey: `${ABOUT}.mission.text` },
-  { id: 'vision', labelKey: `${ABOUT}.vision.label`, textKey: `${ABOUT}.vision.text` },
+  { id: 'mission', icon: 'bullseye', labelKey: `${ABOUT}.mission.label`, textKey: `${ABOUT}.mission.text` },
+  { id: 'vision', icon: 'rocket-takeoff', labelKey: `${ABOUT}.vision.label`, textKey: `${ABOUT}.vision.text` },
 ];
 
 const value = (id: ValueItem['id']): ValueItem => ({

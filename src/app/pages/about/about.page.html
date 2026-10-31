@@ -23,6 +23,7 @@
   <div class="purpose" appRevealGroup>
     @for (item of purpose; track item.id) {
       <article class="purpose__block">
+        <span class="purpose__icon"><ui-icon [name]="item.icon" size="lg" /></span>
         <h2 class="purpose__label">{{ item.labelKey | translate }}</h2>
         <p class="purpose__text">{{ item.textKey | translate }}</p>
       </article>

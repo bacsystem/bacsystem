@@ -5,7 +5,7 @@ import { RevealGroupDirective } from '../../shared/directives/reveal-group.direc
 import { PositionPipe } from '../../shared/pipes/position.pipe';
 import { WordsPipe } from '../../shared/pipes/words.pipe';
 import { ContactBandComponent } from '../../shared/sections';
-import { MonogramComponent, SectionComponent, SectionHeadingComponent } from '../../shared/ui';
+import { IconComponent, MonogramComponent, SectionComponent, SectionHeadingComponent } from '../../shared/ui';
 import { ABOUT_CHOREO } from './about.motion';
 
 const FACTS = ['place', 'people'] as const;
@@ -23,6 +23,7 @@ const FACTS = ['place', 'people'] as const;
     SectionComponent,
     SectionHeadingComponent,
     MonogramComponent,
+    IconComponent,
     RevealGroupDirective,
     ContactBandComponent,
     PositionPipe,

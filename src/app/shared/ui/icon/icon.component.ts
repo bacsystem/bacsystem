@@ -20,6 +20,8 @@ export const ICON_NAMES = [
   'cloud',
   'box',
   'chevron-right',
+  'bullseye',
+  'rocket-takeoff',
 ] as const;
 
 export type IconName = (typeof ICON_NAMES)[number];

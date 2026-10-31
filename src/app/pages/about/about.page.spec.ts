@@ -54,6 +54,10 @@ describe('AboutPageComponent', () => {
     expect(text(blocks[0].querySelector('.purpose__text'))).toBe(t.mission.text);
     expect(text(blocks[1].querySelector('h2'))).toBe(t.vision.label);
     expect(text(blocks[1].querySelector('.purpose__text'))).toBe(t.vision.text);
+    expect(blocks.map(b => b.querySelector('.purpose__icon i')?.className)).withContext('icons of the original site').toEqual([
+      jasmine.stringContaining('bi-bullseye'),
+      jasmine.stringContaining('bi-rocket-takeoff'),
+    ]);
   });
 
   it('lists the six values, numbered, each with its name and what it means in practice', () => {
