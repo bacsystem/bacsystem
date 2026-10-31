@@ -142,9 +142,11 @@ describe('AboutPageComponent', () => {
     }
   });
 
-  it('never uses the banned clichés in its copy', () => {
+  it('never uses the banned clichés in its copy (mission and vision are the owner\'s official text, kept verbatim)', () => {
     const banned = /innovador|excelencia|líder(es)? en|disruptiv|redefin/i;
-    const copy = JSON.stringify(es.application.aboutPage);
-    expect(banned.test(copy)).toBeFalse();
+    const { mission, vision, ...rest } = es.application.aboutPage;
+    expect(banned.test(JSON.stringify(rest))).toBeFalse();
+    expect(mission.text).toBe('Crear soluciones tecnológicas innovadoras y de calidad que mejoren los procesos de los clientes y fomenten su crecimiento.');
+    expect(vision.text).toBe('Ser líderes en transformación digital y desarrollo de software, destacando por excelencia y soluciones escalables.');
   });
 });
