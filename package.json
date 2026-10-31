@@ -12,8 +12,7 @@
     "test:ci": "ng test --watch=false --browsers=ChromeHeadless",
     "test:ui": "node --test scripts/check-ui.test.mjs",
     "lint:css": "stylelint \"src/**/*.css\"",
-    "lint:ui": "yarn lint:css && node scripts/check-ui.mjs",
-    "serve:ssr:bacsystem": "node dist/bacsystem/server/server.mjs"
+    "lint:ui": "yarn lint:css && node scripts/check-ui.mjs"
   },
   "private": true,
   "dependencies": {

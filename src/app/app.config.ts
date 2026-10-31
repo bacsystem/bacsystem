@@ -3,6 +3,7 @@ import { provideRouter, withInMemoryScrolling } from '@angular/router';
 import { HttpClient, provideHttpClient, withFetch } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { provideClientHydration } from '@angular/platform-browser';
 import { LanguageService } from './core/language.service';
 import { routes } from './app.routes';
 
@@ -12,6 +13,7 @@ const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader =>
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
+    provideClientHydration(),
     provideHttpClient(withFetch()),
     importProvidersFrom([
       TranslateModule.forRoot({

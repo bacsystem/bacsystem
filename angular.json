@@ -16,6 +16,9 @@
             "outputPath": "dist",
             "index": "src/index.html",
             "browser": "src/main.ts",
+            "server": "src/main.server.ts",
+            "prerender": true,
+            "ssr": false,
             "polyfills": [
               "zone.js"
             ],
@@ -102,9 +105,5 @@
   },
   "cli": {
     "analytics": false
-  }
-  },
-  "cli": {
-    "analytics": "eadb6e96-3940-4d11-b394-7d5bfe57570a"
   }
 }

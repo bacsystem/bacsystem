@@ -8,7 +8,7 @@ import { filter } from 'rxjs/operators';
 /** Canonical base URL */
 const SITE_URL = 'https://bacsystemsolutions.com';
 // EJEMPLO: reemplazar por og-cover.png real
-const OG_IMAGE = `${SITE_URL}/assets/img/bacsystem/Logo_BACSYSTEM-[Color-Horizontal].png`;
+const OG_IMAGE = `${SITE_URL}/assets/img/bacsystem/Logo_BACSYSTEM-%5BColor-Horizontal%5D.png`;
 
 export interface SeoRouteData {
   titleKey: string;

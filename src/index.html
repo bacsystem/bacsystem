@@ -6,30 +6,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <base href="/">
 
-  <!-- Primary meta — updated dynamically by SeoService -->
-  <title>Bacsystem Solutions | Software Development &amp; Digital Transformation</title>
-  <meta name="description" content="Bacsystem Solutions: specialists in custom software development, technology consulting and digital transformation. 150+ clients, 320+ projects delivered.">
-  <meta name="keywords"    content="software development, technology consulting, digital transformation, web applications, cloud solutions, Bacsystem">
+  <!-- Apply the saved theme before first paint (same key/values as ThemeService). -->
+  <script>
+    (function () {
+      try {
+        var mode = localStorage.getItem('theme-mode');
+        if (mode !== 'dark' && mode !== 'system') mode = 'light';
+        if (mode === 'system') {
+          mode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.dataset.theme = mode;
+      } catch (e) {
+        // Storage unavailable: ThemeService falls back to light.
+      }
+    })();
+  </script>
+
+  <!-- Primary meta — updated per route by SeoService -->
+  <title>Bacsystem Solutions | Software a medida, IA y nube en Lima</title>
+  <meta name="description" content="Desarrollamos software a medida para empresas: web, móvil e inteligencia artificial. También consultoría, optimización y nube. Desde Lima, Perú.">
   <meta name="robots"      content="index, follow">
   <meta name="author"      content="Bacsystem Solutions">
 
   <!-- Open Graph -->
+  <!-- EJEMPLO: reemplazar por og-cover.png real (og:image, twitter:image y logo del JSON-LD) -->
   <meta property="og:type"        content="website">
   <meta property="og:site_name"   content="Bacsystem Solutions">
-  <meta property="og:url"         content="https://bacsystemsolutions.com">
-  <meta property="og:title"       content="Bacsystem Solutions | Software Development &amp; Digital Transformation">
-  <meta property="og:description" content="Bacsystem Solutions: specialists in custom software development, technology consulting and digital transformation.">
-  <meta property="og:image"       content="https://bacsystemsolutions.com/assets/img/bacsystem/og-cover.png">
-  <meta property="og:locale"      content="en_US">
+  <meta property="og:url"         content="https://bacsystemsolutions.com/">
+  <meta property="og:title"       content="Bacsystem Solutions | Software a medida, IA y nube en Lima">
+  <meta property="og:description" content="Desarrollamos software a medida para empresas: web, móvil e inteligencia artificial. También consultoría, optimización y nube. Desde Lima, Perú.">
+  <meta property="og:image"       content="https://bacsystemsolutions.com/assets/img/bacsystem/Logo_BACSYSTEM-%5BColor-Horizontal%5D.png">
+  <meta property="og:locale"      content="es_PE">
 
   <!-- Twitter Card -->
   <meta name="twitter:card"        content="summary_large_image">
-  <meta name="twitter:title"       content="Bacsystem Solutions | Software Development &amp; Digital Transformation">
-  <meta name="twitter:description" content="Bacsystem Solutions: specialists in custom software development, technology consulting and digital transformation.">
-  <meta name="twitter:image"       content="https://bacsystemsolutions.com/assets/img/bacsystem/og-cover.png">
+  <meta name="twitter:title"       content="Bacsystem Solutions | Software a medida, IA y nube en Lima">
+  <meta name="twitter:description" content="Desarrollamos software a medida para empresas: web, móvil e inteligencia artificial. También consultoría, optimización y nube. Desde Lima, Perú.">
+  <meta name="twitter:image"       content="https://bacsystemsolutions.com/assets/img/bacsystem/Logo_BACSYSTEM-%5BColor-Horizontal%5D.png">
 
-  <!-- Canonical — updated dynamically by SeoService -->
-  <link rel="canonical" href="https://bacsystemsolutions.com">
+  <!-- Canonical — updated per route by SeoService -->
+  <link rel="canonical" href="https://bacsystemsolutions.com/">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png">
@@ -41,11 +57,13 @@
     "@type": "Organization",
     "name": "Bacsystem Solutions",
     "url": "https://bacsystemsolutions.com",
-    "logo": "https://bacsystemsolutions.com/assets/img/bacsystem/og-cover.png",
-    "description": "Specialists in custom software development, technology consulting and digital transformation.",
+    "logo": "https://bacsystemsolutions.com/assets/img/bacsystem/Logo_BACSYSTEM-%5BColor-Horizontal%5D.png",
+    "description": "Software a medida para empresas: web, móvil e inteligencia artificial, además de consultoría, optimización y nube. Desde Lima, Perú.",
     "contactPoint": {
       "@type": "ContactPoint",
-      "contactType": "Customer Service",
+      "contactType": "customer service",
+      "telephone": "+51 907 892 868",
+      "email": "bacsystem.sac@gmail.com",
       "availableLanguage": ["Spanish", "English"]
     },
     "sameAs": []
@@ -53,7 +71,7 @@
   </script>
 </head>
 
-<body class="index-page">
+<body>
 <app-root></app-root>
 </body>
 
