@@ -81,13 +81,16 @@ Base común:
 - Tipografía con carácter: se evalúa usar las fuentes ya incluidas en el repo (Caviar Dreams, Elemental End) para títulos y una sans sobria para lectura. Se evita Poppins/Raleway/Roboto por defecto. Elección final queda al builder, validada contra el logo (tipografía cuadrada y ancha).
 - Se eliminan los menús y servicios de la versión anterior que ya no se usen, y los vendors no utilizados.
 
-Inicio (secciones, de arriba hacia abajo):
-1. Hero: titular concreto en español peruano, subtítulo, botón "Cotizar proyecto" y enlace a productos; a la derecha una vista previa de producto (marcador de posición hasta tener captura real).
-2. Franja de clientes con logos reales (`public/assets/img/clients`, 8 archivos; hay un `client-6 copy.png` duplicado que se elimina).
-3. Qué hacemos: resumen de servicios con layout no repetitivo (no una fila de cuatro tarjetas iguales).
-4. Producto destacado (OperaAI) con enlace a su página.
-5. Cifras: contadores animados con datos de ejemplo claramente marcados.
-6. Banda final de contacto.
+Inicio (secciones, de arriba hacia abajo). **Revisado 2026-10-30 por el dueño:** la portada habla de Bacsystem como empresa de software a medida; el detalle de los productos va en Productos.
+1. Hero: titular concreto en español peruano, subtítulo, botón "Cotizar proyecto" y enlace a servicios; a la derecha un visual propio sobre cómo trabaja la empresa (proceso: entender → diseñar → construir → mantener), sin datos inventados ni pantallas de producto.
+2. Qué hacemos: resumen de servicios con layout no repetitivo (no una fila de cuatro tarjetas iguales).
+3. Productos propios: franja corta con todos los productos de `PRODUCTS` (hoy OperaAI y sophIA) lado a lado: logo, nombre, una línea y enlace "Ver producto" a su página. Sin factura ni detalle.
+4. Cifras: contadores animados con datos de ejemplo claramente marcados.
+5. Banda final de contacto.
+
+Sin franja "Confían en nosotros" hasta tener logos reales de clientes (`client-7.png`/`client-8.png` eran los logos de OperaAI y sophIA, no clientes). La sección sigue soportada por datos: reaparece al agregar entradas a `CLIENTS`.
+
+Para la fase de Productos: la ilustración de facturación de OperaAI (panel de comprobantes y factura de ejemplo) y el bloque de producto destacado se retiran de Inicio y se recuperan desde el commit `cfe0f88` (`src/app/pages/home/product-preview/` y la sección `featured` de `home.page.*`) para `/productos/operaai`.
 
 Contenido de ejemplo (cifras, textos de casos, fotos de equipo) se identifica con un comentario `EJEMPLO` y vive en el archivo de datos para sustituirlo fácil. Las cifras de ejemplo no deben contradecirse entre sí ni con el SEO.
 
