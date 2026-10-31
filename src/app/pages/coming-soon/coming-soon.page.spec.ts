@@ -20,6 +20,6 @@ describe('ComingSoonPageComponent', () => {
     f.detectChanges();
     const el = f.nativeElement as HTMLElement;
     expect(el.querySelectorAll('h1').length).toBe(1);
-    expect(el.querySelector('h1')?.textContent?.trim()).toBe('Servicios');
+    expect(el.querySelector('h1')?.textContent?.trim()).toBe(es.application.site.comingSoon.headings.services);
   });
 });

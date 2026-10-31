@@ -23,7 +23,7 @@
         }
       },
       "footer": {
-        "description": "Software a medida, inteligencia artificial y nube para empresas. Un equipo de ingenieros en Lima.",
+        "description": "Software a medida para empresas que quieren dejar atrás el Excel y el trabajo manual. Lo diseña, construye y mantiene un mismo equipo en Lima.",
         "navTitle": "Navegación",
         "contactTitle": "Contacto",
         "rights": "Todos los derechos reservados."
@@ -34,32 +34,32 @@
           "description": "Referencia interna de tokens y componentes."
         },
         "home": {
-          "title": "Bacsystem Solutions | Software a medida, IA y nube en Lima",
-          "description": "Desarrollamos software a medida para empresas: web, móvil e inteligencia artificial. También consultoría, optimización y nube. Desde Lima, Perú."
+          "title": "Software a medida en Lima, Perú | Bacsystem Solutions",
+          "description": "Software a medida para empresas en Perú: sistemas web, apps móviles e IA que reemplazan el Excel y el trabajo manual. Un solo equipo en Lima, de inicio a fin."
         },
         "contact": {
-          "title": "Contacto | Bacsystem Solutions",
-          "description": "Escríbenos o llámanos para hablar de tu proyecto de software con el equipo de Bacsystem Solutions en Lima."
+          "title": "Cotiza tu software a medida | Bacsystem Solutions",
+          "description": "Cuéntanos qué necesitas resolver. Habla directo con el equipo que diseña y construye tu software a medida en Lima, por correo o por teléfono."
         },
         "services": {
-          "title": "Servicios | Bacsystem Solutions",
-          "description": "Desarrollo de software a medida, aplicaciones móviles, inteligencia artificial, consultoría, optimización de sistemas y nube."
+          "title": "Servicios de software a medida | Bacsystem Solutions",
+          "description": "Desarrollo web y móvil a medida, consultoría, optimización de sistemas y migración a la nube para empresas en Perú. Un solo equipo, de principio a fin."
         },
         "products": {
-          "title": "Productos | Bacsystem Solutions",
-          "description": "Conoce OperaAI y sophIA, los productos de Bacsystem para automatizar la facturación y la operación de tu empresa."
+          "title": "Productos: OperaAI y sophIA | Bacsystem Solutions",
+          "description": "OperaAI automatiza tareas y tu facturación electrónica conectada a SUNAT. sophIA te ayuda a consultar la información de tu empresa. Software de Bacsystem."
         },
         "operaai": {
-          "title": "OperaAI | Automatización y facturación para pymes",
-          "description": "OperaAI automatiza la facturación y las tareas repetitivas de tu pyme para que tu equipo dedique su tiempo a vender y atender."
+          "title": "OperaAI | Automatización y facturación electrónica",
+          "description": "OperaAI automatiza tareas repetitivas y emite tu facturación electrónica conectada a SUNAT mediante un OSE autorizado. Menos trabajo manual para tu equipo."
         },
         "sophia": {
-          "title": "sophIA | Asistente de IA de Bacsystem",
-          "description": "sophIA es el asistente de inteligencia artificial de Bacsystem que responde a tus clientes y apoya a tu equipo."
+          "title": "sophIA | Asistente de IA para tu empresa",
+          "description": "sophIA es el asistente de inteligencia artificial de Bacsystem: pregunta en tus palabras y obtén la información de tu empresa sin buscar archivo por archivo."
         },
         "about": {
-          "title": "Nosotros | Bacsystem Solutions",
-          "description": "Somos un equipo de ingenieros en Lima que construye software a medida y acompaña a las empresas después de entregarlo."
+          "title": "Nosotros | Equipo de software a medida en Lima",
+          "description": "Somos el equipo en Lima que diseña, construye y mantiene software a medida. Hablas directo con quienes programan tu sistema, antes y después de la entrega."
         }
       },
       "comingSoon": {
@@ -70,14 +70,14 @@
           "sophia": "sophIA",
           "about": "Nosotros"
         },
-        "title": "En preparación",
-        "text": "Estamos terminando esta página. Mientras tanto, puedes volver al inicio o escribirnos desde la página de contacto.",
+        "title": "Muy pronto",
+        "text": "Estamos terminando esta sección. Mientras tanto, escríbenos desde Contacto y cuéntanos qué necesitas resolver.",
         "backHome": "Volver al inicio"
       },
       "contactPage": {
         "eyebrow": "Contacto",
-        "title": "Hablemos de tu proyecto",
-        "subtitle": "Cuéntanos qué necesitas resolver. Puedes escribirnos por correo o llamarnos por teléfono.",
+        "title": "Cuéntanos qué quieres resolver",
+        "subtitle": "Escríbenos o llámanos. Te atiende alguien del equipo que construye el software, no un vendedor.",
         "listLabel": "Datos de contacto",
         "email": "Correo",
         "phone": "Teléfono",
@@ -86,44 +86,44 @@
     },
     "home": {
       "hero": {
-        "eyebrow": "Software a medida · Lima, Perú",
-        "title": "Software que tu equipo sí usa.",
-        "subtitle": "Desarrollamos sistemas web, móviles y de IA a medida para empresas que quieren crecer sin complicarse.",
-        "cta": "Cotizar proyecto",
-        "secondary": "Ver servicios"
+        "eyebrow": "Web, móvil e IA · Lima, Perú",
+        "title": "Software a medida para empresas",
+        "subtitle": "Reemplazamos hojas de cálculo, chats y sistemas sueltos por una sola herramienta, hecha sobre tu proceso, que tu equipo sí quiere usar.",
+        "cta": "Cotizar mi proyecto",
+        "secondary": "Ver qué hacemos"
       },
       "process": {
-        "label": "Cómo trabajamos",
+        "label": "Así trabajamos contigo",
         "start": "Empezamos aquí",
         "understand": {
           "title": "Entender",
-          "text": "Conversamos con tu equipo y vemos cómo trabaja hoy antes de proponer nada."
+          "text": "Vemos cómo trabaja tu equipo hoy, dónde se pierde tiempo y dónde aparecen los errores. Recién ahí proponemos."
         },
         "design": {
           "title": "Diseñar",
-          "text": "Definimos contigo pantallas y flujos, y los validamos antes de programar."
+          "text": "Revisas y corriges las pantallas con nosotros antes de que se programe una sola línea."
         },
         "build": {
           "title": "Construir",
-          "text": "Programamos por entregas cortas que puedes probar desde el inicio."
+          "text": "Entregamos por partes: pruebas el sistema mientras se construye, no recién al final."
         },
         "maintain": {
           "title": "Mantener",
-          "text": "Después de la entrega seguimos contigo con soporte y mejoras."
+          "text": "Después de la entrega seguimos ahí: ajustamos y agregamos lo que tu operación vaya pidiendo."
         },
-        "note": "El mismo equipo te acompaña en las cuatro etapas."
+        "note": "Un solo equipo en las cuatro etapas. Nada se pierde entre proveedores."
       },
       "clients": {
         "label": "Confían en nosotros"
       },
       "services": {
-        "title": "Qué hacemos",
-        "subtitle": "Un mismo equipo diseña, programa y mantiene tu sistema. Empezamos por entender cómo trabajas hoy.",
-        "lead": "Lo que más hacemos",
+        "title": "Lo que hacemos por tu empresa",
+        "subtitle": "Diseñamos, programamos y mantenemos. Hablas directo con quienes construyen tu sistema, sin intermediarios.",
+        "lead": "Nuestro fuerte",
         "more": "Ver todos los servicios",
         "web": {
-          "title": "Desarrollo web",
-          "description": "Aplicaciones web a medida, rápidas y que se ven bien en el celular.",
+          "title": "Desarrollo web y móvil",
+          "description": "Sistemas web y apps móviles construidos sobre tu forma de trabajar, no sobre una plantilla genérica.",
           "tags": {
             "internal": "Sistemas internos",
             "portals": "Portales de clientes",
@@ -133,42 +133,42 @@
         },
         "consulting": {
           "title": "Consultoría",
-          "description": "Te ayudamos a elegir tecnología y ordenar tus procesos antes de invertir."
+          "description": "Antes de invertir, te ayudamos a decidir qué construir, qué comprar y qué dejar como está."
         },
         "optimization": {
           "title": "Optimización",
-          "description": "Mejoramos la velocidad y la estabilidad de los sistemas que ya usas."
+          "description": "¿Tienes un sistema lento o que nadie quiere usar? Lo revisamos y lo mejoramos sin tirar lo que ya funciona."
         },
         "cloud": {
-          "title": "Soluciones cloud",
-          "description": "Migramos tus sistemas a la nube para que crezcan sin cambiar de servidor."
+          "title": "Migración a la nube",
+          "description": "Llevamos tus sistemas a la nube: entras desde donde estés y dejas de depender de un servidor en la oficina."
         }
       },
       "products": {
         "title": "Productos propios",
-        "subtitle": "Además de los proyectos a medida, creamos y mantenemos nuestro propio software.",
-        "cta": "Ver producto",
+        "subtitle": "Además de proyectos a medida, convertimos lo que aprendemos en herramientas para problemas que muchas empresas comparten.",
+        "cta": "Conocer el producto",
         "operaai": {
           "name": "OperaAI",
-          "tagline": "Automatización y facturación electrónica para pymes, conectada a SUNAT mediante un OSE autorizado."
+          "tagline": "Automatiza tareas repetitivas y emite tu facturación electrónica conectada a SUNAT mediante un OSE autorizado."
         },
         "sophia": {
           "name": "sophIA",
-          "tagline": "Asistente de inteligencia artificial para consultar y trabajar con la información de tu empresa."
+          "tagline": "Pregunta en tus palabras y obtén la información de tu empresa, sin abrir archivo por archivo."
         }
       },
       "stats": {
-        "title": "Un equipo cercano, de principio a fin.",
-        "subtitle": "Hablas directo con quienes diseñan y programan tu sistema, también después de la entrega.",
-        "years": "años de experiencia",
+        "title": "Hablas con quienes programan",
+        "subtitle": "Te atienden las mismas personas que diseñan y construyen tu sistema, antes, durante y después de la entrega.",
+        "years": "años construyendo software",
         "projects": "proyectos entregados",
-        "clients": "clientes activos",
+        "clients": "empresas que trabajan con nosotros",
         "support": "soporte"
       },
       "contact": {
-        "title": "¿Tienes un proyecto en mente?",
-        "subtitle": "Cuéntanos qué necesitas. Te respondemos con preguntas concretas y una propuesta sin compromiso.",
-        "cta": "Hablemos",
+        "title": "Cuéntanos qué te quita tiempo",
+        "subtitle": "En una primera conversación entendemos tu caso y te decimos con franqueza si te conviene un sistema a medida. Sin compromiso.",
+        "cta": "Hablemos de tu caso",
         "or": "o escríbenos a"
       }
     },

@@ -49,7 +49,8 @@ describe('HomePageComponent', () => {
     const steps = Array.from(hero.querySelectorAll('.process__step'));
     expect(steps.length).toBe(4);
     const titles = steps.map(s => s.querySelector('.process__title')?.textContent?.trim());
-    expect(titles).toEqual(['Entender', 'Diseñar', 'Construir', 'Mantener']);
+    const p = es.application.home.process;
+    expect(titles).toEqual([p.understand.title, p.design.title, p.build.title, p.maintain.title]);
     expect(hero.textContent).not.toContain('OperaAI');
   });
 
@@ -59,7 +60,7 @@ describe('HomePageComponent', () => {
     const steps = Array.from(el.querySelectorAll('#inicio .process__step'));
     expect(steps.map(s => s.classList.contains('is-current'))).toEqual([true, false, false, false]);
     expect(steps.some(s => s.hasAttribute('aria-current'))).toBeFalse();
-    expect(steps[0].querySelector('ui-tag')?.textContent?.trim()).toBe('Empezamos aquí');
+    expect(steps[0].querySelector('ui-tag')?.textContent?.trim()).toBe(es.application.home.process.start);
   });
 
   it('renders the sections in order', () => {
@@ -128,7 +129,7 @@ describe('HomePageComponent', () => {
   it('lays out services as one lead item and a numbered list of the rest', () => {
     setup();
     const el = render();
-    expect(el.querySelector('#servicios .services__lead h3')?.textContent).toContain('Desarrollo web');
+    expect(el.querySelector('#servicios .services__lead h3')?.textContent).toContain(es.application.home.services.web.title);
     expect(el.querySelectorAll('#servicios .services__list li').length).toBe(3);
   });
 

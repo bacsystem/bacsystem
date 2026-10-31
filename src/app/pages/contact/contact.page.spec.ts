@@ -22,6 +22,7 @@ describe('ContactPageComponent', () => {
 
   it('renders exactly one h1', () => {
     expect(el.querySelectorAll('h1').length).toBe(1);
+    expect(el.querySelector('h1')?.textContent?.trim()).toBe(es.application.site.contactPage.title);
   });
 
   it('links the email with mailto', () => {
