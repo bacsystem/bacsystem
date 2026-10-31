@@ -9,6 +9,10 @@
     "build:prod": "ng build --configuration production --base-href=/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "test:ci": "ng test --watch=false --browsers=ChromeHeadless",
+    "test:ui": "node --test scripts/check-ui.test.mjs",
+    "lint:css": "stylelint \"src/**/*.css\"",
+    "lint:ui": "yarn lint:css && node scripts/check-ui.mjs",
     "serve:ssr:bacsystem": "node dist/bacsystem/server/server.mjs"
   },
   "private": true,
@@ -45,6 +49,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "stylelint": "^17.16.0",
     "typescript": "~5.5.2"
   }
 }
