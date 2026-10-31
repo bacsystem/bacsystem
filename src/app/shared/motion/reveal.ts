@@ -1,5 +1,5 @@
 import type { MotionService, Stoppable } from './motion.service';
-import { BLUR_FROM, BLUR_TO, DURATION, EASE_OUT, RISE_SM, STAGGER } from './motion.tokens';
+import { BLUR_FROM, BLUR_TO, DURATION, EASE_OUT, RISE_SM, STAGGER, cascadeStep } from './motion.tokens';
 
 /*
  * Small building blocks shared by every entrance on the page. Each pair is
@@ -70,7 +70,7 @@ export function hideFade(els: Els, rise = RISE_SM): void {
   }
 }
 
-/** Fade up, one stagger step apart. `blur` only for short text. */
+/** Fade up, one stagger step apart (shortened for long lists, see MAX_CASCADE). `blur` only for short text. */
 export function revealFade(
   motion: MotionService,
   els: Els,
@@ -84,7 +84,7 @@ export function revealFade(
       transform: [`translateY(${rise}px)`, 'translateY(0px)'],
       ...(blur ? { filter: [BLUR_FROM, BLUR_TO] } : {}),
     },
-    { duration: DURATION.enter, ease: EASE_OUT, delay: motion.stagger(step, { startDelay: delay }) },
+    { duration: DURATION.enter, ease: EASE_OUT, delay: motion.stagger(cascadeStep(els.length, step), { startDelay: delay }) },
   );
   controls.finished.then(() => clear(els, ['opacity', 'transform', 'filter']));
   return [controls];

@@ -18,6 +18,17 @@ export const DURATION = {
 /** One stagger step for every group on the page. */
 export const STAGGER = 0.07;
 
+/**
+ * Longest a cascade may take from its first element to its last (s). Long lists (six values, eight
+ * documents, four deliverables) shrink their step to fit, so no part of a section waits on the rest.
+ */
+export const MAX_CASCADE = 0.35;
+
+/** The stagger step for `count` elements: `step`, or less when the cascade would run past MAX_CASCADE. */
+export function cascadeStep(count: number, step = STAGGER): number {
+  return count > 1 ? Math.min(step, MAX_CASCADE / (count - 1)) : step;
+}
+
 export const EASE_OUT: [number, number, number, number] = [0.22, 1, 0.36, 1];
 export const EASE_IN_OUT: [number, number, number, number] = [0.45, 0, 0.55, 1];
 
