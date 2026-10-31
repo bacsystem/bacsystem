@@ -78,20 +78,6 @@ export const SERVICES_REVEAL: Choreography = {
   },
 };
 
-/** Stats: each top rule grows left to right, then its figure and label fade up (the counter runs on its own). */
-export const STATS_REVEAL: Choreography = {
-  hide: el => {
-    all(el, '.stats__item').forEach(item => item.style.setProperty('--rule', '0'));
-    hideFade(all(el, '.stats__item > *'));
-  },
-  play: (el, motion) => {
-    const items = all(el, '.stats__item');
-    const rules = motion.animate(items, { '--rule': [0, 1] }, { duration: DURATION.enter, ease: EASE_OUT, delay: motion.stagger(STAGGER) });
-    rules.finished.then(() => clear(items, ['--rule']));
-    return [rules, ...revealFade(motion, all(el, '.stats__item > *'), { delay: STAGGER * 2 })];
-  },
-};
-
 /** Product cards rise in a stagger (springs). */
 export const PRODUCTS_REVEAL: Choreography = {
   hide: el => hideFade(all(el, ':scope > *'), RISE),
@@ -102,5 +88,4 @@ export const HOME_CHOREO = {
   heading: HEADING_REVEAL,
   services: SERVICES_REVEAL,
   products: PRODUCTS_REVEAL,
-  stats: STATS_REVEAL,
 };

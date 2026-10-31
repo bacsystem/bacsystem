@@ -8,16 +8,13 @@ import {
   PRODUCTS,
   ProductItem,
   SERVICES,
-  STATS,
   ServiceItem,
-  StatItem,
 } from '../../data/site.data';
-import { CountUpDirective } from '../../shared/directives/count-up.directive';
 import { RevealDirective } from '../../shared/directives/reveal.directive';
 import { RevealGroupDirective } from '../../shared/directives/reveal-group.directive';
 import { MotionService, Stoppable } from '../../shared/motion/motion.service';
 import { introHeld } from '../../shared/motion/intro';
-import { SCROLL_AWAY, SPRING, TILT, countDelay } from '../../shared/motion/motion.tokens';
+import { SCROLL_AWAY, SPRING, TILT } from '../../shared/motion/motion.tokens';
 import { PositionPipe } from '../../shared/pipes/position.pipe';
 import { WordsPipe } from '../../shared/pipes/words.pipe';
 import { ContactBandComponent, ProcessStepsComponent } from '../../shared/sections';
@@ -44,7 +41,6 @@ const FINE_POINTER = '(hover: hover) and (pointer: fine)';
     MonogramComponent,
     RevealDirective,
     RevealGroupDirective,
-    CountUpDirective,
     BrandMarkComponent,
     ProcessStepsComponent,
     ContactBandComponent,
@@ -59,11 +55,9 @@ export class HomePageComponent implements AfterViewInit, OnDestroy {
   clients: ClientLogo[] = CLIENTS;
   services: ServiceItem[] = SERVICES;
   products: ProductItem[] = PRODUCTS;
-  stats: StatItem[] = STATS;
 
   protected readonly choreo = HOME_CHOREO;
   /** Each counter starts as its rule finishes growing (ms). */
-  protected readonly countDelay = countDelay;
 
   private readonly host = inject<ElementRef<HTMLElement>>(ElementRef).nativeElement;
   private readonly platformId = inject(PLATFORM_ID);

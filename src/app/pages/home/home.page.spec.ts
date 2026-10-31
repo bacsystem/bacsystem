@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import es from '../../../../public/i18n/es.json';
-import { ClientLogo, PROCESS, PRODUCTS, SERVICES, STATS } from '../../data/site.data';
+import { ClientLogo, PROCESS, PRODUCTS, SERVICES } from '../../data/site.data';
 import { MotionService } from '../../shared/motion/motion.service';
 import { HomePageComponent } from './home.page';
 
@@ -91,7 +91,7 @@ describe('HomePageComponent', () => {
     setup();
     const el = render();
     const ids = Array.from(el.querySelectorAll('section')).map(s => s.id);
-    expect(ids).toEqual(['inicio', 'servicios', 'proceso', 'productos', 'cifras', 'contacto']);
+    expect(ids).toEqual(['inicio', 'servicios', 'proceso', 'productos', 'contacto']);
   });
 
   it('shows one visible logo per client when clients are added', () => {
@@ -169,34 +169,11 @@ describe('HomePageComponent', () => {
     expect(el.querySelector('#servicios .services__more')?.getAttribute('href')).toBe('/servicios');
   });
 
-  it('renders the final counter values on the server', () => {
-    setup('server');
-    const el = render();
-    const values = Array.from(el.querySelectorAll('#cifras .stats__value')).map(v => v.textContent?.trim());
-    expect(values).toEqual(STATS.map(s => String(s.value)));
-  });
-
-  it('renders the final counter values with reduced motion', () => {
+  it('shows no figures while the company is starting', () => {
     setup();
-    spyOn(window, 'matchMedia').and.returnValue({ matches: true } as MediaQueryList);
     const el = render();
-    const values = Array.from(el.querySelectorAll('#cifras .stats__value')).map(v => v.textContent?.trim());
-    expect(values).toEqual(STATS.map(s => String(s.value)));
-  });
-
-  it('renders the 24/7 stat statically, without count-up', () => {
-    setup();
-    spyOn(window, 'matchMedia').and.returnValue({ matches: false } as MediaQueryList);
-    const el = render();
-    const items = Array.from(el.querySelectorAll('#cifras .stats__figure'));
-    expect(items[items.length - 1].textContent?.replace(/\s+/g, '')).toBe('24/7');
-  });
-
-  it('never shows the retired figures', () => {
-    setup();
-    const text = render().textContent ?? '';
-    expect(text).not.toContain('150+');
-    expect(text).not.toContain('320+');
+    expect(el.querySelector('#cifras')).toBeNull();
+    expect(el.textContent).not.toMatch(/\d+\+|24\/7/);
   });
 
   it('links the contact band to /contacto', () => {

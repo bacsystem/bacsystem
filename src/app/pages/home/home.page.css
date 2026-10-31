@@ -339,58 +339,6 @@ p {
   }
 }
 
-/* ---------- Stats ---------- */
-.stats {
-  display: grid;
-  gap: var(--space-6);
-}
-
-.stats__grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-6) var(--space-5);
-  margin: 0;
-}
-
-.stats__item {
-  position: relative;
-  display: flex;
-  flex-direction: column-reverse;
-  justify-content: flex-end;
-  gap: var(--space-2);
-  padding-block-start: var(--space-4);
-}
-
-/* The top rule; Motion grows it left to right through --rule (0 → 1). Static: full width. */
-.stats__item::before {
-  content: '';
-  position: absolute;
-  inset-block-start: 0;
-  inset-inline: 0;
-  block-size: var(--border-width);
-  background-color: var(--color-border);
-  transform: scaleX(var(--rule, 1));
-  transform-origin: left;
-}
-
-.stats__figure {
-  margin: 0;
-  color: var(--color-heading);
-  font-family: var(--font-display);
-  font-size: var(--text-3xl);
-  font-variant-numeric: tabular-nums;
-  line-height: 1;
-}
-
-.stats__suffix {
-  color: var(--color-accent-text);
-}
-
-.stats__label {
-  color: var(--color-text-muted);
-  font-size: var(--text-sm);
-}
-
 /* ---------- Tablet ---------- */
 @media (min-width: 48em) {
   .hero__title {
@@ -416,9 +364,6 @@ p {
     block-size: var(--space-7);
   }
 
-  .stats__grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
 
   .products__list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -466,16 +411,7 @@ p {
     align-items: start;
   }
 
-  .stats {
-    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-    gap: var(--space-8);
-    align-items: end;
-  }
 
-  .stats__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--space-7) var(--space-6);
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

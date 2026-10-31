@@ -61,11 +61,6 @@ export const SCROLL_AWAY = { scale: 0.94, y: -24, opacity: 0.6 } as const;
 /** Product cards lean toward a fine pointer at most `max` degrees (CSS --tilt-perspective gives the depth). */
 export const TILT = { max: 4 } as const;
 
-/** A stat's counter starts when its rule has finished growing (ms after its group enters). */
-export function countDelay(index: number): number {
-  return Math.round((DURATION.enter + index * STAGGER) * 1000);
-}
-
 /**
  * Brand mark choreography (seconds; distances in SVG user units inside the 0.86-scaled group:
  * 1 unit is about 0.48px on screen at 1280, 0.25px at 360).

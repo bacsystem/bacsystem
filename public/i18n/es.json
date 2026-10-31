@@ -164,14 +164,6 @@
         },
         "building": "En construcción"
       },
-      "stats": {
-        "title": "Bacsystem en cifras",
-        "subtitle": "Lo que hemos construido hasta hoy.",
-        "years": "años construyendo software",
-        "projects": "proyectos entregados",
-        "clients": "empresas que trabajan con nosotros",
-        "support": "soporte"
-      },
       "contact": {
         "title": "Cuéntanos qué te quita tiempo",
         "subtitle": "En una primera conversación entendemos tu caso y te decimos con franqueza si te conviene un sistema a medida. Sin compromiso.",

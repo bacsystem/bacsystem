@@ -75,16 +75,6 @@ export interface ClientLogo {
   logo: string;
 }
 
-export interface StatItem {
-  id: string;
-  value: number;
-  suffix: string;
-  labelKey: string;
-  example: true;
-  /** false: render the value as static text (e.g. 24/7), no count-up. */
-  animate?: boolean;
-}
-
 const HOME_SERVICES = 'application.home.services';
 
 const service = (id: ServiceId, tags?: string[]): ServiceItem => ({
@@ -168,14 +158,6 @@ export const PROCESS: ProcessStep[] = [
 // Vacío a propósito: la franja "Confían en nosotros" vuelve sola al agregar logos reales.
 // client-7.png y client-8.png (ya eliminados) eran logos de productos propios, no de clientes.
 export const CLIENTS: ClientLogo[] = [];
-
-// EJEMPLO: cifras de muestra, reemplazar por reales
-export const STATS: StatItem[] = [
-  { id: 'years', value: 8, suffix: '+', labelKey: 'application.home.stats.years', example: true },
-  { id: 'projects', value: 45, suffix: '+', labelKey: 'application.home.stats.projects', example: true },
-  { id: 'clients', value: 20, suffix: '+', labelKey: 'application.home.stats.clients', example: true },
-  { id: 'support', value: 24, suffix: '/7', labelKey: 'application.home.stats.support', example: true, animate: false },
-];
 
 /* ---------- Nosotros (/nosotros) ---------- */
 

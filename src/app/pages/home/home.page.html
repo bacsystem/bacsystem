@@ -143,31 +143,4 @@
   </ui-section>
 }
 
-@if (stats.length > 0) {
-  <ui-section sectionId="cifras">
-    <div class="stats">
-      <div class="stats__intro" [appRevealGroup]="choreo.heading">
-        <ui-section-heading
-          [title]="'application.home.stats.title' | translate"
-          [subtitle]="'application.home.stats.subtitle' | translate"
-        />
-      </div>
-      <dl class="stats__grid" [appRevealGroup]="choreo.stats">
-        @for (stat of stats; track stat.id) {
-          <div class="stats__item">
-            <dt class="stats__label">{{ stat.labelKey | translate }}</dt>
-            <dd class="stats__figure">
-              @if (stat.animate === false) {
-                <span class="stats__value">{{ stat.value }}</span>
-              } @else {
-                <span class="stats__value" [appCountUp]="stat.value" [delay]="countDelay($index)"></span>
-              }<span class="stats__suffix">{{ stat.suffix }}</span>
-            </dd>
-          </div>
-        }
-      </dl>
-    </div>
-  </ui-section>
-}
-
 <app-contact-band />

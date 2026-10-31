@@ -1,6 +1,7 @@
 import es from '../../../public/i18n/es.json';
 import en from '../../../public/i18n/en.json';
-import { CLIENTS, PROCESS, PRODUCTS, SERVICE_DETAILS, SERVICES, STATS } from './site.data';
+import * as data from './site.data';
+import { CLIENTS, PROCESS, PRODUCTS, SERVICE_DETAILS, SERVICES } from './site.data';
 
 /** Resolves an `application.x.y` key in a translation file (undefined when missing). */
 const lookup = (lang: object, key: string): unknown =>
@@ -13,7 +14,6 @@ describe('site.data', () => {
     expect(unique(SERVICES.map((s) => s.id))).toBeTrue();
     expect(unique(PRODUCTS.map((s) => s.id))).toBeTrue();
     expect(unique(CLIENTS.map((s) => s.id))).toBeTrue();
-    expect(unique(STATS.map((s) => s.id))).toBeTrue();
     expect(unique(PROCESS.map((s) => s.id))).toBeTrue();
   });
 
@@ -21,17 +21,8 @@ describe('site.data', () => {
     expect(PRODUCTS.every((p) => p.route.startsWith('/productos/'))).toBeTrue();
   });
 
-  it('marks all stats as examples', () => {
-    expect(STATS.every((s) => s.example === true)).toBeTrue();
-  });
-
-  it('does not use the retired figures 150 or 320', () => {
-    for (const s of STATS) {
-      expect(s.labelKey).not.toContain('150');
-      expect(s.labelKey).not.toContain('320');
-      expect(String(s.value)).not.toContain('150');
-      expect(String(s.value)).not.toContain('320');
-    }
+  it('shows no figures while the company is starting (no stats data at all)', () => {
+    expect('STATS' in data).toBeFalse();
   });
 
   it('lists khipu (available) and Wanka (in construction) as products', () => {

@@ -164,14 +164,6 @@
         },
         "building": "In progress"
       },
-      "stats": {
-        "title": "Bacsystem in numbers",
-        "subtitle": "What we have built so far.",
-        "years": "years building software",
-        "projects": "projects delivered",
-        "clients": "companies working with us",
-        "support": "support"
-      },
       "contact": {
         "title": "Tell us what's slowing you down",
         "subtitle": "In a first conversation we get to know your case and tell you honestly whether custom software makes sense for you. No strings attached.",
