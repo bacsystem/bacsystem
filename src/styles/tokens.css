@@ -133,7 +133,7 @@ html {
   --duration-slower: 1600ms; /* intros contadas en una sola línea de tiempo (gráfico de marca del hero) */
   --duration-enter: 700ms; /* entradas (texto, tarjetas); espejo en shared/motion/motion.tokens.ts */
   --duration-spring: 450ms; /* duración de --ease-spring */
-  --duration-failsafe: 2500ms; /* si la app no arranca, la intro del hero aparece igual */
+  --duration-failsafe: 2500ms; /* si la app no arranca, la intro del hero aparece igual; espejo en src/index.html (estilo inline) y INTRO_FAILSAFE en motion.tokens.ts: cambiar los tres juntos */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);
   /* Resorte (rigidez 500, amortiguación 30, masa 1) muestreado a linear(): ~6% de rebote, se asienta en ~450ms. */

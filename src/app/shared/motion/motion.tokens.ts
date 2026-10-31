@@ -41,7 +41,7 @@ export const BLUR_TO = 'blur(0px)';
 export const RISE = 24;
 export const RISE_SM = 12;
 
-/** Hero intro failsafe (s), mirrors --duration-failsafe: after this the CSS hold has revealed the hero itself. */
+/** Hero intro failsafe (s), mirrors --duration-failsafe and the inline hold in src/index.html (2500ms): after this the CSS hold has revealed the hero itself. Change all three together. */
 export const INTRO_FAILSAFE = 2.5;
 
 /** As the hero scrolls away the brand mark recedes this far (never the text). */
