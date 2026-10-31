@@ -84,13 +84,13 @@ button {
 }
 
 a {
-  color: var(--color-primary);
+  color: var(--color-link);
   text-underline-offset: 0.15em;
   transition: color var(--duration-fast) var(--ease-out);
 }
 
 a:hover {
-  color: var(--color-primary-hover);
+  color: var(--color-link-hover);
 }
 
 ul[role='list'],

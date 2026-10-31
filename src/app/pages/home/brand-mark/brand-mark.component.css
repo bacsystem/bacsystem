@@ -21,7 +21,7 @@
 }
 
 .mark__c {
-  fill: var(--color-primary);
+  fill: var(--color-mark);
 }
 
 .mark__l {
@@ -44,7 +44,7 @@
 
 /* The C's outline, drawn in during the intro (the defs path has pathLength 1); hidden at rest. */
 .mark__line {
-  stroke: var(--color-primary);
+  stroke: var(--color-mark);
   stroke-dasharray: 1;
   opacity: 0;
 }

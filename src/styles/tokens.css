@@ -71,6 +71,10 @@ html {
   --color-primary: var(--navy-700);
   --color-primary-hover: var(--navy-800);
   --color-on-primary: var(--gray-0);
+  /* Enlaces de texto y la "C" del logo (en oscuro se separan del botón primario) */
+  --color-link: var(--navy-700);
+  --color-link-hover: var(--navy-800);
+  --color-mark: var(--navy-700);
   --color-accent: var(--teal-500);
   --color-accent-text: var(--teal-700);
   --color-accent-soft: var(--teal-50);
@@ -179,9 +183,14 @@ html {
   --color-text: var(--gray-100);
   --color-text-muted: var(--gray-300);
   --color-heading: var(--gray-0);
-  --color-primary: var(--navy-200);
-  --color-primary-hover: var(--navy-100);
-  --color-on-primary: var(--navy-950);
+  /* Botones y banda de contacto en navy de marca: blanco sobre #3550A6 = 7.37:1, sobre #1B3080 = 11.79:1 */
+  --color-primary: var(--navy-500);
+  --color-primary-hover: var(--navy-700);
+  --color-on-primary: var(--gray-0);
+  /* Enlaces en teal claro: #6FCDC0 / bg = 9.87:1; logo en blanco, como la versión oficial "Blanco" */
+  --color-link: var(--teal-300);
+  --color-link-hover: var(--teal-50);
+  --color-mark: var(--gray-0);
   --color-accent: var(--teal-400);
   --color-accent-text: var(--teal-300);
   --color-accent-soft: var(--teal-900);

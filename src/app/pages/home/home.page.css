@@ -520,8 +520,8 @@ p {
 }
 
 .contact .contact__cta.ui-btn--primary:hover {
-  background-color: var(--color-accent-soft);
-  color: var(--color-primary);
+  background-color: var(--color-on-primary);
+  color: var(--color-primary-hover);
 }
 
 .contact .contact__cta.ui-btn--primary:focus-visible {

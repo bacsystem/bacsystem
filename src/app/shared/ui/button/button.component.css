@@ -62,7 +62,7 @@
 :host(.ui-btn--text) {
   padding-inline: var(--space-1);
   background-color: transparent;
-  color: var(--color-primary);
+  color: var(--color-link);
 }
 
 :host(.ui-btn--text:hover) {
