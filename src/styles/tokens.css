@@ -131,7 +131,10 @@ html {
   --duration-base: 250ms;
   --duration-slow: 500ms;
   --duration-slower: 1600ms; /* intros contadas en una sola línea de tiempo (gráfico de marca del hero) */
+  --duration-loop: 7500ms; /* ciclo del gráfico de marca: ~2.4s de movimiento + ~5s en reposo */
+  --duration-drift: 12000ms; /* deriva ambiental lenta (ida y vuelta) */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);
 
   /* Capas */
   --z-header: 100;
@@ -190,5 +193,7 @@ html {
     --duration-base: 0.01ms;
     --duration-slow: 0.01ms;
     --duration-slower: 0.01ms;
+    --duration-loop: 0.01ms;
+    --duration-drift: 0.01ms;
   }
 }

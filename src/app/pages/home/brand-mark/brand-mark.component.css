@@ -63,42 +63,80 @@
 
 /*
  * ---------- Motion: only when it is welcome ----------
- * One shared timeline of --duration-slower (~1.6s). Percentages below are moments on it:
+ * Intro, one timeline of --duration-slower (~1.6s):
  *   0–12%  the company (C), its empty slot and the echoes appear
  *   18%    the complement enters from outside the composition
  *   66%    it overshoots the slot a touch…
  *   70%    …and clicks in: the slot pulses and fades, the C and the echoes give a small nudge
- *   100%   at rest; then only the teal echo keeps drifting, very slowly
+ * Then the story repeats, one cycle of --duration-loop (~7.5s), starting docked:
+ *   0–68%  at rest (only the ambient drift of the echoes and guides)
+ *   68–84% the complement lifts out (slot reappears), arcs out and around
+ *   84–94% it flies back, overshoots and clicks in again: same slot pulse and nudges
+ * Ambient: the layer groups drift slowly (--duration-drift, alternate) and follow the
+ * pointer a few px (parallax via the individual `translate` property, fed by the component).
  */
 @media (prefers-reduced-motion: no-preference) {
+  .mark__layer {
+    transform-box: fill-box;
+    transform-origin: center;
+    transition: translate var(--duration-slow) var(--ease-out);
+  }
+
+  .mark__layer--front {
+    translate: calc(var(--mark-px, 0) * var(--space-2)) calc(var(--mark-py, 0) * var(--space-2));
+  }
+
+  .mark__layer--echo-c,
+  .mark__layer--echo-l {
+    translate: calc(var(--mark-px, 0) * var(--space-4) * -1) calc(var(--mark-py, 0) * var(--space-4) * -1);
+  }
+
+  .mark__layer--guides {
+    translate: calc(var(--mark-px, 0) * var(--space-3) * -1) calc(var(--mark-py, 0) * var(--space-3) * -1);
+    animation: mark-drift-guides calc(var(--duration-drift) * 1.15) var(--ease-in-out) infinite alternate;
+  }
+
+  .mark__layer--echo-c {
+    animation: mark-drift-c var(--duration-drift) var(--ease-in-out) infinite alternate;
+  }
+
+  .mark__layer--echo-l {
+    animation: mark-drift-l calc(var(--duration-drift) * 0.8) var(--ease-in-out) infinite alternate;
+  }
+
   .mark__c {
     animation:
       mark-appear var(--duration-slow) var(--ease-out) both,
-      mark-c-react var(--duration-slower) linear both;
+      mark-c-react var(--duration-slower) linear both,
+      mark-c-cycle var(--duration-loop) linear var(--duration-slower) infinite;
   }
 
   .mark__slot {
-    animation: mark-slot var(--duration-slower) linear both;
+    animation:
+      mark-slot var(--duration-slower) linear both,
+      mark-slot-cycle var(--duration-loop) linear var(--duration-slower) infinite;
   }
 
   .mark__l {
     animation:
       mark-appear calc(var(--duration-fast) * 2) var(--ease-out) calc(var(--duration-slower) * 0.18) both,
-      mark-l-dock var(--duration-slower) linear both;
+      mark-l-dock var(--duration-slower) linear both,
+      mark-l-cycle var(--duration-loop) linear var(--duration-slower) infinite;
   }
 
   .mark__guides,
   .mark__echo--c {
     animation:
       mark-appear var(--duration-slow) var(--ease-out) var(--duration-fast) both,
-      mark-echo-react var(--duration-slower) linear both;
+      mark-echo-react var(--duration-slower) linear both,
+      mark-echo-cycle var(--duration-loop) linear var(--duration-slower) infinite;
   }
 
   .mark__echo--l {
     animation:
       mark-appear var(--duration-slow) var(--ease-out) var(--duration-fast) both,
       mark-echo-l-react var(--duration-slower) linear both,
-      mark-float calc(var(--duration-slower) * 4) var(--ease-out) var(--duration-slower) infinite alternate;
+      mark-echo-l-cycle var(--duration-loop) linear var(--duration-slower) infinite;
   }
 }
 
@@ -213,12 +251,163 @@
   }
 }
 
-@keyframes mark-float {
+/* ---------- The repeating docking cycle (starts and ends docked) ---------- */
+@keyframes mark-l-cycle {
+  0%,
+  68% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    animation-timing-function: var(--ease-in-out);
+  }
+
+  71% {
+    transform: translate(-4%, -14%) rotate(-4deg) scale(1);
+    animation-timing-function: var(--ease-in-out);
+  }
+
+  78% {
+    transform: translate(38%, -34%) rotate(14deg) scale(1);
+    animation-timing-function: var(--ease-in-out);
+  }
+
+  84% {
+    transform: translate(52%, 6%) rotate(24deg) scale(1);
+    animation-timing-function: var(--ease-out);
+  }
+
+  91% {
+    transform: translate(-2.5%, 2.5%) rotate(-2deg) scale(1);
+    animation-timing-function: var(--ease-out);
+  }
+
+  94% {
+    transform: translate(0, 0) rotate(0deg) scale(1.05);
+    animation-timing-function: var(--ease-out);
+  }
+
+  99%,
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+}
+
+@keyframes mark-slot-cycle {
+  0%,
+  68% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    stroke: var(--color-border-strong);
+    animation-timing-function: var(--ease-out);
+  }
+
+  72%,
+  90% {
+    opacity: var(--opacity-subtle);
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    stroke: var(--color-border-strong);
+    animation-timing-function: var(--ease-out);
+  }
+
+  93% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0deg) scale(1.08);
+    stroke: var(--color-accent);
+    animation-timing-function: var(--ease-out);
+  }
+
+  99% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(0deg) scale(1.14);
+    stroke: var(--color-accent);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    stroke: var(--color-border-strong);
+  }
+}
+
+@keyframes mark-c-cycle {
+  0%,
+  91% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    animation-timing-function: var(--ease-out);
+  }
+
+  94% {
+    transform: translate(-1%, 1%) rotate(0deg) scale(1);
+    animation-timing-function: var(--ease-out);
+  }
+
+  99%,
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+}
+
+@keyframes mark-echo-cycle {
+  0%,
+  91% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    animation-timing-function: var(--ease-out);
+  }
+
+  96% {
+    transform: translate(0.6%, 0.6%) rotate(0deg) scale(1);
+    animation-timing-function: var(--ease-out);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+}
+
+@keyframes mark-echo-l-cycle {
+  0%,
+  91% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    animation-timing-function: var(--ease-out);
+  }
+
+  96% {
+    transform: translate(3%, -4%) rotate(0deg) scale(1);
+    animation-timing-function: var(--ease-out);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+}
+
+/* ---------- Ambient drift of the background layers ---------- */
+@keyframes mark-drift-c {
   from {
     transform: translate(0, 0) rotate(0deg) scale(1);
   }
 
   to {
-    transform: translate(3%, -4%) rotate(0deg) scale(1);
+    transform: translate(1.2%, -1.6%) rotate(-1.2deg) scale(1);
+  }
+}
+
+@keyframes mark-drift-l {
+  from {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+
+  to {
+    transform: translate(5%, -6%) rotate(4deg) scale(1);
+  }
+}
+
+@keyframes mark-drift-guides {
+  from {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+
+  to {
+    opacity: var(--opacity-subtle);
+    transform: translate(-1.5%, 1.5%) rotate(0deg) scale(1);
   }
 }

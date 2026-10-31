@@ -1,11 +1,15 @@
 <!--
   The story: the navy "C" is the client company, incomplete; the teal corner is Bacsystem,
-  the complement it was missing. On load the teal piece flies in and docks into the empty slot.
+  the complement it was missing. On load the teal piece flies in and docks into the empty slot,
+  and every few seconds it lifts out, circles and clicks back in.
 
   Geometry traced from public/assets/img/bacsystem/Logo_BACSYSTEM-[Color-Isotipo].png (843 x 622),
   drawn in that coordinate space and placed on the canvas by the wrapping group.
   Colors come from CSS (semantic tokens), never from attributes. The markup is the docked,
   finished logo: that is what prerender, no-JS and reduced motion show.
+
+  Layering: outer "layer" groups carry the ambient drift (transform) and the pointer parallax
+  (the individual `translate` property); the shapes inside carry the docking reactions.
 -->
 <svg class="mark" viewBox="0 0 1000 760" aria-hidden="true" focusable="false">
   <defs>
@@ -17,19 +21,27 @@
   </defs>
 
   <!-- Construction guides: the inner top edge of the C and the inner edge of the teal corner. -->
-  <g class="mark__echo mark__guides">
-    <line x1="40" y1="218" x2="960" y2="218" />
-    <line x1="706" y1="30" x2="706" y2="730" />
+  <g class="mark__layer mark__layer--guides">
+    <g class="mark__echo mark__guides">
+      <line x1="40" y1="218" x2="960" y2="218" />
+      <line x1="706" y1="30" x2="706" y2="730" />
+    </g>
   </g>
 
   <g transform="translate(100 100) scale(0.86)">
     <!-- Outlined echoes, behind the solid pieces. -->
-    <use class="mark__echo mark__echo--c" href="#brand-mark-c" x="48" y="48" />
-    <use class="mark__echo mark__echo--l" href="#brand-mark-l" x="64" y="-64" />
+    <g class="mark__layer mark__layer--echo-c">
+      <use class="mark__echo mark__echo--c" href="#brand-mark-c" x="48" y="48" />
+    </g>
+    <g class="mark__layer mark__layer--echo-l">
+      <use class="mark__echo mark__echo--l" href="#brand-mark-l" x="64" y="-64" />
+    </g>
 
     <!-- The isotype: the company (C), the empty slot it shows while incomplete, and the complement. -->
-    <use class="mark__piece mark__c" href="#brand-mark-c" />
-    <use class="mark__slot" href="#brand-mark-l" />
-    <use class="mark__piece mark__l" href="#brand-mark-l" />
+    <g class="mark__layer mark__layer--front">
+      <use class="mark__piece mark__c" href="#brand-mark-c" />
+      <use class="mark__slot" href="#brand-mark-l" />
+      <use class="mark__piece mark__l" href="#brand-mark-l" />
+    </g>
   </g>
 </svg>
