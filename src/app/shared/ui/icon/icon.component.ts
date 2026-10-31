@@ -1,24 +1,28 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
-export type IconName =
-  | 'arrow-right'
-  | 'arrow-up-right'
-  | 'list'
-  | 'x-lg'
-  | 'globe2'
-  | 'sun-fill'
-  | 'moon-fill'
-  | 'circle-half'
-  | 'envelope'
-  | 'telephone'
-  | 'geo-alt'
-  | 'check2-circle'
-  | 'code-slash'
-  | 'gear'
-  | 'graph-up-arrow'
-  | 'cloud'
-  | 'box'
-  | 'chevron-right';
+/** Every icon the site may use (Bootstrap Icons names, without the `bi-` prefix). */
+export const ICON_NAMES = [
+  'arrow-right',
+  'arrow-up-right',
+  'list',
+  'x-lg',
+  'globe2',
+  'sun-fill',
+  'moon-fill',
+  'circle-half',
+  'envelope',
+  'telephone',
+  'geo-alt',
+  'check2-circle',
+  'code-slash',
+  'gear',
+  'graph-up-arrow',
+  'cloud',
+  'box',
+  'chevron-right',
+] as const;
+
+export type IconName = (typeof ICON_NAMES)[number];
 
 @Component({
   selector: 'ui-icon',

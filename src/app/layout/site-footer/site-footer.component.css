@@ -1,0 +1,104 @@
+:host {
+  display: block;
+}
+
+.site-footer {
+  background-color: var(--color-bg-alt);
+  border-block-start: var(--border-width) solid var(--color-border);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.site-footer__inner,
+.site-footer__bottom p {
+  inline-size: 100%;
+  max-inline-size: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--space-5); /* same gutter as ui-section */
+}
+
+.site-footer__inner {
+  display: grid;
+  gap: var(--space-7);
+  padding-block: var(--space-8) var(--space-7);
+}
+
+.site-footer__logo-link {
+  display: inline-flex;
+  border-radius: var(--radius-sm);
+}
+
+.site-footer__logo {
+  inline-size: auto;
+  block-size: var(--space-5);
+}
+
+.site-footer__logo--dark {
+  display: none;
+}
+
+:host-context([data-theme='dark']) .site-footer__logo--light {
+  display: none;
+}
+
+:host-context([data-theme='dark']) .site-footer__logo--dark {
+  display: block;
+}
+
+.site-footer__description {
+  max-inline-size: calc(var(--container-max) / 3);
+  margin-block-start: var(--space-4);
+  font-size: var(--text-md);
+}
+
+.site-footer__title {
+  margin-block-end: var(--space-4);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+  color: var(--color-heading);
+}
+
+.site-footer__list {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-footer__list li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.site-footer__list a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.site-footer__list a:hover {
+  color: var(--color-heading);
+  text-decoration: underline;
+}
+
+.site-footer__contact ui-icon {
+  color: var(--color-accent-text);
+}
+
+.site-footer__bottom {
+  border-block-start: var(--border-width) solid var(--color-border);
+}
+
+.site-footer__bottom p {
+  padding-block: var(--space-5);
+  font-size: var(--text-xs);
+}
+
+@media (min-width: 48em) {
+  .site-footer__inner {
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: var(--space-6);
+  }
+}

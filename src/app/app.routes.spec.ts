@@ -27,6 +27,13 @@ describe('routes', () => {
     }
   });
 
+  it('guia-ui exists in dev mode, is noindex and precedes the wildcard', () => {
+    // Tests run in dev mode; the route is excluded from production builds.
+    expect(find('guia-ui')).toBeDefined();
+    expect(seo('guia-ui').indexable).toBeFalse();
+    expect(children.findIndex(r => r.path === 'guia-ui')).toBeLessThan(children.findIndex(r => r.path === '**'));
+  });
+
   it('wildcard redirects to root', () => {
     const w = children.find(r => r.path === '**');
     expect(w?.redirectTo).toBe('');

@@ -1,7 +1,38 @@
 {
   "application": {
     "site": {
+      "nav": {
+        "label": "Navegación principal",
+        "home": "Bacsystem Solutions, ir al inicio",
+        "skip": "Saltar al contenido",
+        "services": "Servicios",
+        "products": "Productos",
+        "about": "Nosotros",
+        "contact": "Contacto",
+        "cta": "Cotizar proyecto",
+        "menuOpen": "Abrir menú",
+        "menuClose": "Cerrar menú",
+        "languageTo": {
+          "en": "Ver el sitio en inglés",
+          "es": "Ver el sitio en español"
+        },
+        "theme": {
+          "light": "Tema claro. Cambiar a oscuro",
+          "dark": "Tema oscuro. Usar el del sistema",
+          "system": "Tema del sistema. Cambiar a claro"
+        }
+      },
+      "footer": {
+        "description": "Software a medida, inteligencia artificial y nube para empresas. Un equipo de ingenieros en Lima.",
+        "navTitle": "Navegación",
+        "contactTitle": "Contacto",
+        "rights": "Todos los derechos reservados."
+      },
       "seo": {
+        "uiGuide": {
+          "title": "Guía de UI | Bacsystem Solutions",
+          "description": "Referencia interna de tokens y componentes."
+        },
         "home": {
           "title": "Bacsystem Solutions | Software a medida, IA y nube en Lima",
           "description": "Desarrollamos software a medida para empresas: web, móvil e inteligencia artificial. También consultoría, optimización y nube. Desde Lima, Perú."
@@ -32,6 +63,13 @@
         }
       },
       "comingSoon": {
+        "headings": {
+          "services": "Servicios",
+          "products": "Productos",
+          "operaai": "OperaAI",
+          "sophia": "sophIA",
+          "about": "Nosotros"
+        },
         "title": "En preparación",
         "text": "Estamos terminando esta página. Mientras tanto, puedes volver al inicio o escribirnos desde la página de contacto.",
         "backHome": "Volver al inicio"

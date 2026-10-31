@@ -1,7 +1,38 @@
 {
   "application": {
     "site": {
+      "nav": {
+        "label": "Main navigation",
+        "home": "Bacsystem Solutions, go to home",
+        "skip": "Skip to content",
+        "services": "Services",
+        "products": "Products",
+        "about": "About us",
+        "contact": "Contact",
+        "cta": "Request a quote",
+        "menuOpen": "Open menu",
+        "menuClose": "Close menu",
+        "languageTo": {
+          "en": "View the site in English",
+          "es": "View the site in Spanish"
+        },
+        "theme": {
+          "light": "Light theme. Switch to dark",
+          "dark": "Dark theme. Use system setting",
+          "system": "System theme. Switch to light"
+        }
+      },
+      "footer": {
+        "description": "Custom software, artificial intelligence and cloud for companies. A team of engineers in Lima.",
+        "navTitle": "Navigation",
+        "contactTitle": "Contact",
+        "rights": "All rights reserved."
+      },
       "seo": {
+        "uiGuide": {
+          "title": "UI guide | Bacsystem Solutions",
+          "description": "Internal reference for tokens and components."
+        },
         "home": {
           "title": "Bacsystem Solutions | Custom software, AI and cloud from Lima",
           "description": "We build custom software for businesses: web, mobile and artificial intelligence. Also consulting, optimization and cloud. Based in Lima, Peru."
@@ -32,6 +63,13 @@
         }
       },
       "comingSoon": {
+        "headings": {
+          "services": "Services",
+          "products": "Products",
+          "operaai": "OperaAI",
+          "sophia": "sophIA",
+          "about": "About us"
+        },
         "title": "Coming soon",
         "text": "We are still working on this page. In the meantime, you can go back home or reach us from the contact page.",
         "backHome": "Back to home"

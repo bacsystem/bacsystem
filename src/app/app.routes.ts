@@ -1,9 +1,22 @@
-import { Routes } from '@angular/router';
+import { isDevMode } from '@angular/core';
+import { Route, Routes } from '@angular/router';
 import { SeoRouteData } from './core/seo.service';
 
-const soon = (key: string): { seo: SeoRouteData } => ({
+const soon = (key: string): { seo: SeoRouteData; headingKey: string } => ({
   seo: { titleKey: `application.site.seo.${key}.title`, descriptionKey: `application.site.seo.${key}.description`, indexable: false },
+  headingKey: `application.site.comingSoon.headings.${key}`,
 });
+// Internal UI reference: only registered in development builds.
+const devOnly: Route[] = isDevMode()
+  ? [
+      {
+        path: 'guia-ui',
+        loadComponent: () => import('./pages/ui-guide/ui-guide.page').then(m => m.UiGuidePageComponent),
+        data: { seo: { titleKey: 'application.site.seo.uiGuide.title', descriptionKey: 'application.site.seo.uiGuide.description', indexable: false } },
+      },
+    ]
+  : [];
+
 const comingSoon = () => import('./pages/coming-soon/coming-soon.page').then(m => m.ComingSoonPageComponent);
 
 export const routes: Routes = [
@@ -27,7 +40,7 @@ export const routes: Routes = [
       { path: 'productos/operaai', loadComponent: comingSoon, data: soon('operaai') },
       { path: 'productos/sophia', loadComponent: comingSoon, data: soon('sophia') },
       { path: 'nosotros', loadComponent: comingSoon, data: soon('about') },
-      // `guia-ui` (dev only) is added in Task 6.
+      ...devOnly,
       { path: '**', redirectTo: '' },
     ],
   },

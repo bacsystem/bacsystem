@@ -2,7 +2,6 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { ButtonComponent, SectionComponent, SectionHeadingComponent } from '../../shared/ui';
-import { SeoRouteData } from '../../core/seo.service';
 
 @Component({
   selector: 'app-coming-soon-page',
@@ -20,6 +19,8 @@ import { SeoRouteData } from '../../core/seo.service';
   `,
 })
 export class ComingSoonPageComponent {
-  private readonly seo = inject(ActivatedRoute).snapshot.data['seo'] as SeoRouteData | undefined;
-  protected readonly titleKey = this.seo?.titleKey ?? 'application.site.comingSoon.title';
+  private readonly data = inject(ActivatedRoute).snapshot.data;
+  /** Short page name (not the SEO title, which carries the "| Bacsystem Solutions" suffix). */
+  protected readonly titleKey =
+    (this.data['headingKey'] as string | undefined) ?? 'application.site.comingSoon.title';
 }
