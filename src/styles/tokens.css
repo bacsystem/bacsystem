@@ -31,6 +31,7 @@ html {
   --navy-100: #c9d2f0;
   --navy-200: #a5b4e4;
   --navy-300: #8c9fd8;
+  --navy-400: #6f7aa6;
   --navy-500: #3550a6;
   --navy-700: #1b3080; /* marca */
   --navy-800: #152663;
@@ -51,6 +52,7 @@ html {
   --gray-100: #e9eaf0;
   --gray-200: #e3e2dc;
   --gray-300: #a9aec2;
+  --gray-500: #85847e;
   --gray-600: #5b5a55;
   --gray-750: #2a3358;
 
@@ -73,6 +75,8 @@ html {
   --color-accent-text: var(--teal-700);
   --color-accent-soft: var(--teal-50);
   --color-border: var(--gray-200);
+  /* Borde de controles de formulario: #85847E / #FFFFFF = 3.75:1 (sobre bg-alt 3.47:1) */
+  --color-border-strong: var(--gray-500);
   --color-focus: var(--navy-500);
 
   color-scheme: light;
@@ -152,6 +156,8 @@ html {
   --color-accent-text: var(--teal-300);
   --color-accent-soft: var(--teal-900);
   --color-border: var(--gray-750);
+  /* #6F7AA6 / surface #1A2346 = 3.65:1 (sobre bg 4.43:1) */
+  --color-border-strong: var(--navy-400);
   --color-focus: var(--teal-300);
 
   --shadow-color: 0 0 0;

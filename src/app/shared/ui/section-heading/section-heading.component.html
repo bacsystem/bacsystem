@@ -1,0 +1,9 @@
+<div class="ui-section-heading" [class.is-center]="align() === 'center'">
+  @if (eyebrow()) {
+    <p class="ui-section-heading__eyebrow">{{ eyebrow() }}</p>
+  }
+  <h2 class="ui-section-heading__title">{{ title() }}</h2>
+  @if (subtitle()) {
+    <p class="ui-section-heading__subtitle">{{ subtitle() }}</p>
+  }
+</div>

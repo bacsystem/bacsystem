@@ -1,0 +1,28 @@
+:host {
+  display: block;
+  padding: var(--space-6);
+  border: var(--border-width) solid transparent;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  transition:
+    box-shadow var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out);
+}
+
+:host(.ui-card--plain) {
+  box-shadow: var(--shadow-sm);
+}
+
+:host(.ui-card--outlined) {
+  border-color: var(--color-border);
+}
+
+:host(.ui-card--tinted) {
+  background-color: var(--color-bg-alt);
+}
+
+:host(.ui-card--interactive:hover) {
+  box-shadow: var(--shadow-md);
+  transform: translateY(calc(var(--space-1) * -1));
+}

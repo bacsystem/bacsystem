@@ -1,0 +1,11 @@
+<section
+  class="ui-section"
+  [id]="sectionId() ?? ''"
+  [class.ui-section--default]="tone() === 'default'"
+  [class.ui-section--alt]="tone() === 'alt'"
+  [class.ui-section--primary]="tone() === 'primary'"
+>
+  <div class="container">
+    <ng-content />
+  </div>
+</section>

@@ -1,0 +1,65 @@
+ui-field {
+  display: block;
+}
+
+.ui-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.ui-field__label {
+  color: var(--color-heading);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+}
+
+.ui-field input,
+.ui-field textarea,
+.ui-field select {
+  inline-size: 100%;
+  padding: var(--space-3) var(--space-4);
+  border: var(--border-width) solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  line-height: var(--leading-normal);
+  transition:
+    border-color var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.ui-field textarea {
+  min-block-size: calc(var(--space-9) * 1.5);
+  resize: vertical;
+}
+
+.ui-field input:focus-visible,
+.ui-field textarea:focus-visible,
+.ui-field select:focus-visible {
+  outline: calc(var(--border-width) * 2) solid var(--color-focus);
+  outline-offset: var(--border-width);
+  border-color: var(--color-focus);
+}
+
+.ui-field input[aria-invalid='true'],
+.ui-field textarea[aria-invalid='true'],
+.ui-field select[aria-invalid='true'] {
+  border-color: var(--color-heading);
+  box-shadow: var(--shadow-sm);
+}
+
+.ui-field__hint {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.ui-field__error {
+  margin: 0;
+  color: var(--color-heading);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+}

@@ -1,0 +1,17 @@
+:host {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.ui-icon--sm {
+  font-size: var(--text-sm);
+}
+
+.ui-icon--md {
+  font-size: var(--text-lg);
+}
+
+.ui-icon--lg {
+  font-size: var(--text-2xl);
+}

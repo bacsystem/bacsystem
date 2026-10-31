@@ -1,10 +1,11 @@
 import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import type { IconName } from '../shared/ui/icon/icon.component';
 
 export type ThemeMode = 'light' | 'dark' | 'system';
 
 /** Bootstrap Icons name (without the `bi-` prefix) for each mode. */
-export type ThemeIcon = 'sun-fill' | 'moon-fill' | 'circle-half';
+export type ThemeIcon = Extract<IconName, 'sun-fill' | 'moon-fill' | 'circle-half'>;
 
 const STORAGE_KEY = 'theme-mode';
 const DEFAULT_MODE: ThemeMode = 'light';
@@ -40,7 +41,7 @@ export class ThemeService {
     return document.documentElement.dataset['theme'] === 'dark';
   }
 
-  get icon(): ThemeIcon {
+  get icon(): IconName {
     return ICONS[this.mode];
   }
 

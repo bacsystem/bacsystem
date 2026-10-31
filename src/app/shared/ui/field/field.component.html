@@ -1,0 +1,10 @@
+<div class="ui-field">
+  <label class="ui-field__label" [attr.for]="controlId">{{ label() }}</label>
+  <ng-content />
+  @if (hint()) {
+    <p class="ui-field__hint" [id]="hintId">{{ hint() }}</p>
+  }
+  @if (error()) {
+    <p class="ui-field__error" [id]="errorId" role="alert">{{ error() }}</p>
+  }
+</div>
