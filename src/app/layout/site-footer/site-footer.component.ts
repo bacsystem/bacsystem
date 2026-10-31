@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { IconComponent } from '../../shared/ui';
-import { SITE } from '../../data/site.data';
+import { SITE, TEL_HREF, WHATSAPP_HREF } from '../../data/site.data';
 import { NAV_LINKS } from '../nav-links';
 
 @Component({
@@ -16,6 +16,7 @@ import { NAV_LINKS } from '../nav-links';
 export class SiteFooterComponent {
   protected readonly links = NAV_LINKS;
   protected readonly contact = SITE;
-  protected readonly phoneHref = `tel:${SITE.phone.replace(/\s+/g, '')}`;
+  protected readonly phoneHref = TEL_HREF;
+  protected readonly whatsappHref = WHATSAPP_HREF;
   protected readonly year = new Date().getFullYear();
 }

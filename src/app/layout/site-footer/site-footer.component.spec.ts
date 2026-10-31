@@ -17,13 +17,14 @@ describe('SiteFooterComponent', () => {
     el = fixture.nativeElement;
   });
 
-  it('shows contact email and phone as links', () => {
-    const mail = el.querySelector<HTMLAnchorElement>('a[href^="mailto:"]');
+  it('shows WhatsApp and the phone as links, and no e-mail', () => {
+    const wa = el.querySelector<HTMLAnchorElement>('a[href^="https://wa.me/"]');
     const tel = el.querySelector<HTMLAnchorElement>('a[href^="tel:"]');
-    expect(mail?.getAttribute('href')).toBe('mailto:bacsystem.sac@gmail.com');
-    expect(mail?.textContent).toContain('bacsystem.sac@gmail.com');
-    expect(tel?.getAttribute('href')).toBe('tel:+51907892868');
-    expect(tel?.textContent).toContain('+51 907 892 868');
+    expect(wa?.getAttribute('href')).toBe('https://wa.me/51972107074');
+    expect(wa?.rel).toBe('noopener');
+    expect(tel?.getAttribute('href')).toBe('tel:+51972107074');
+    expect(tel?.textContent).toContain('+51 972 107 074');
+    expect(el.querySelector('a[href^="mailto:"]')).toBeNull();
   });
 
   it('renders one link per NAV_LINKS entry', () => {

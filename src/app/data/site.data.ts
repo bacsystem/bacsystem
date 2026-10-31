@@ -3,10 +3,16 @@ import type { IconName } from '../shared/ui/icon/icon.component';
 export const SITE = {
   url: 'https://bacsystemsolutions.com',
   name: 'Bacsystem Solutions',
-  email: 'bacsystem.sac@gmail.com',
-  phone: '+51 907 892 868',
+  /** Contact and WhatsApp number (the site shows no e-mail, owner's decision 2026-10-31). */
+  phone: '+51 972 107 074',
   address: 'Av. B 200 Lima',
 } as const;
+
+/** tel: link for SITE.phone (digits only, keeps the +). */
+export const TEL_HREF = `tel:${SITE.phone.replace(/\s+/g, '')}`;
+
+/** WhatsApp chat with SITE.phone (wa.me wants the number without + or spaces). */
+export const WHATSAPP_HREF = `https://wa.me/${SITE.phone.replace(/\D/g, '')}`;
 
 export type ServiceId = 'web' | 'consulting' | 'transformation' | 'optimization' | 'cloud';
 

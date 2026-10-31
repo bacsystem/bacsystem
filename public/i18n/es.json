@@ -39,7 +39,7 @@
         },
         "contact": {
           "title": "Cotiza tu software a medida | Bacsystem Solutions",
-          "description": "Cuéntanos qué necesitas resolver. Habla directo con el equipo que diseña y construye tu software a medida en Lima, por correo o por teléfono."
+          "description": "Cuéntanos qué necesitas resolver. Habla directo con el equipo que diseña y construye tu software a medida en Lima, por WhatsApp o por teléfono."
         },
         "services": {
           "title": "Servicios de software y consultoría | Bacsystem Solutions",
@@ -71,7 +71,7 @@
         "title": "Escríbenos o llámanos",
         "subtitle": "Cuéntanos qué necesitas resolver, aunque todavía no sepas cómo hacerlo. Con eso preparamos la primera conversación.",
         "listLabel": "Datos de contacto",
-        "email": "Correo",
+        "whatsapp": "WhatsApp",
         "phone": "Teléfono",
         "address": "Dirección"
       },

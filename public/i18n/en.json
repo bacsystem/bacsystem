@@ -39,7 +39,7 @@
         },
         "contact": {
           "title": "Get a custom software quote | Bacsystem Solutions",
-          "description": "Tell us what you need to solve. Talk directly with the team in Lima that designs, builds and maintains your custom software, by email or by phone."
+          "description": "Tell us what you need to solve. Talk directly to the team that designs and builds your custom software in Lima, on WhatsApp or by phone."
         },
         "services": {
           "title": "Software and consulting services | Bacsystem Solutions",
@@ -71,7 +71,7 @@
         "title": "Write or call us",
         "subtitle": "Tell us what you need to solve, even if you don't know how yet. We'll use it to prepare our first conversation.",
         "listLabel": "Contact details",
-        "email": "Email",
+        "whatsapp": "WhatsApp",
         "phone": "Phone",
         "address": "Address"
       },

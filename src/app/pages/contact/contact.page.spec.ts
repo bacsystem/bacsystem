@@ -25,15 +25,18 @@ describe('ContactPageComponent', () => {
     expect(el.querySelector('h1')?.textContent?.trim()).toBe(es.application.site.contactPage.title);
   });
 
-  it('links the email with mailto', () => {
-    const a = el.querySelector('a[href^="mailto:"]');
-    expect(a?.getAttribute('href')).toBe('mailto:bacsystem.sac@gmail.com');
-    expect(a?.textContent).toContain(SITE.email);
+  it('opens WhatsApp first, in a new tab, and shows no e-mail', () => {
+    const a = el.querySelector<HTMLAnchorElement>('.contact__list li:first-child a');
+    expect(a?.getAttribute('href')).toBe('https://wa.me/51972107074');
+    expect(a?.target).toBe('_blank');
+    expect(a?.rel).toBe('noopener');
+    expect(a?.textContent).toContain(SITE.phone);
+    expect(el.querySelector('a[href^="mailto:"]')).toBeNull();
   });
 
   it('links the phone with tel and no spaces', () => {
     const a = el.querySelector('a[href^="tel:"]');
-    expect(a?.getAttribute('href')).toBe('tel:+51907892868');
+    expect(a?.getAttribute('href')).toBe('tel:+51972107074');
     expect(a?.textContent).toContain(SITE.phone);
   });
 

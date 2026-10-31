@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
-import { SITE } from '../../data/site.data';
+import { SITE, TEL_HREF, WHATSAPP_HREF } from '../../data/site.data';
 import { IconComponent, SectionComponent, SectionHeadingComponent } from '../../shared/ui';
 
 @Component({
@@ -13,6 +13,6 @@ import { IconComponent, SectionComponent, SectionHeadingComponent } from '../../
 })
 export class ContactPageComponent {
   protected readonly site = SITE;
-  protected readonly mailHref = `mailto:${SITE.email}`;
-  protected readonly telHref = `tel:${SITE.phone.replace(/\s+/g, '')}`;
+  protected readonly whatsappHref = WHATSAPP_HREF;
+  protected readonly telHref = TEL_HREF;
 }
