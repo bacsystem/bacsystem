@@ -67,7 +67,7 @@
       @let lead = services[0];
       <article class="services__lead">
         <p class="services__kicker">
-          <span class="services__index">{{ index(0) }}</span>
+          <span class="services__index">{{ 0 | position }}</span>
           {{ 'application.home.services.lead' | translate }}
         </p>
         <h3 class="services__lead-title">{{ lead.titleKey | translate }}</h3>
@@ -88,7 +88,7 @@
       <ol class="services__list" role="list">
         @for (service of services.slice(1); track service.id; let i = $index) {
           <li class="services__item">
-            <span class="services__index">{{ index(i + 1) }}</span>
+            <span class="services__index">{{ i + 1 | position }}</span>
             <div>
               <h3 class="services__item-title">{{ service.titleKey | translate }}</h3>
               <p class="services__item-text">{{ service.descriptionKey | translate }}</p>
@@ -100,33 +100,7 @@
   </ui-section>
 }
 
-<ui-section sectionId="proceso" spacing="compact">
-  <div class="process" [appRevealGroup]="choreo.process">
-    <ui-section-heading
-      [title]="'application.home.process.label' | translate"
-      [subtitle]="'application.home.process.note' | translate"
-    />
-    <ol class="process__steps" role="list">
-      @for (step of process; track step.id; let i = $index, first = $first) {
-        <li class="process__step" [class.is-current]="first">
-          @if (!$last) {
-            <span class="process__link" aria-hidden="true"></span>
-          }
-          <span class="process__marker" aria-hidden="true">{{ index(i) }}</span>
-          <div class="process__body">
-            <p class="process__head">
-              <span class="process__title">{{ step.titleKey | translate }}</span>
-              @if (first) {
-                <ui-tag tone="accent">{{ 'application.home.process.start' | translate }}</ui-tag>
-              }
-            </p>
-            <p class="process__text">{{ step.textKey | translate }}</p>
-          </div>
-        </li>
-      }
-    </ol>
-  </div>
-</ui-section>
+<app-process-steps />
 
 @if (products.length > 0) {
   <ui-section sectionId="productos" tone="alt" spacing="compact">
@@ -183,21 +157,4 @@
   </ui-section>
 }
 
-<ui-section sectionId="contacto" tone="primary">
-  <div class="contact" [appRevealGroup]="choreo.contact">
-    <div class="contact__copy">
-      <h2 class="contact__title" [attr.aria-label]="'application.home.contact.title' | translate">@for (word of 'application.home.contact.title' | translate | words; track $index) {<span class="ui-word" aria-hidden="true">{{ word }}</span>&ngsp;}</h2>
-      <p class="contact__subtitle">{{ 'application.home.contact.subtitle' | translate }}</p>
-    </div>
-    <div class="contact__actions">
-      <a ui-button size="lg" class="contact__cta" routerLink="/contacto">
-        {{ 'application.home.contact.cta' | translate }}
-        <ui-icon name="arrow-right" size="sm" />
-      </a>
-      <p class="contact__mail">
-        {{ 'application.home.contact.or' | translate }}
-        <a [href]="'mailto:' + email">{{ email }}</a>
-      </p>
-    </div>
-  </div>
-</ui-section>
+<app-contact-band />

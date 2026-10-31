@@ -1,0 +1,18 @@
+<ui-section sectionId="contacto" tone="primary">
+  <div class="contact" [appRevealGroup]="reveal">
+    <div class="contact__copy">
+      <h2 class="contact__title" [attr.aria-label]="'application.home.contact.title' | translate">@for (word of 'application.home.contact.title' | translate | words; track $index) {<span class="ui-word" aria-hidden="true">{{ word }}</span>&ngsp;}</h2>
+      <p class="contact__subtitle">{{ 'application.home.contact.subtitle' | translate }}</p>
+    </div>
+    <div class="contact__actions">
+      <a ui-button size="lg" class="contact__cta" routerLink="/contacto">
+        {{ 'application.home.contact.cta' | translate }}
+        <ui-icon name="arrow-right" size="sm" />
+      </a>
+      <p class="contact__mail">
+        {{ 'application.home.contact.or' | translate }}
+        <a [href]="'mailto:' + email">{{ email }}</a>
+      </p>
+    </div>
+  </div>
+</ui-section>

@@ -169,6 +169,30 @@ ol[role='list'] {
 }
 
 /*
+ * Page eyebrow: a short teal rule and an uppercase label above a page's h1 (Home hero, Nosotros).
+ * Global so pages share it; the Home intro grows .eyebrow__rule from the left.
+ */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--color-accent-text);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+}
+
+.eyebrow__rule {
+  flex-shrink: 0;
+  inline-size: var(--space-6);
+  block-size: calc(var(--border-width) * 2);
+  border-radius: var(--radius-pill);
+  background-color: var(--color-accent);
+  transform-origin: left;
+}
+
+/*
  * Motion (Home, via the Motion library). Headings are split into words so they can be
  * revealed line by line; each word is an inline-block so it can move without reflowing.
  */

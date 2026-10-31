@@ -5,12 +5,9 @@ import { TranslateModule } from '@ngx-translate/core';
 import {
   CLIENTS,
   ClientLogo,
-  PROCESS,
   PRODUCTS,
-  ProcessStep,
   ProductItem,
   SERVICES,
-  SITE,
   STATS,
   ServiceItem,
   StatItem,
@@ -21,7 +18,9 @@ import { RevealGroupDirective } from '../../shared/directives/reveal-group.direc
 import { MotionService, Stoppable } from '../../shared/motion/motion.service';
 import { introHeld } from '../../shared/motion/intro';
 import { SCROLL_AWAY, SPRING, TILT, countDelay } from '../../shared/motion/motion.tokens';
+import { PositionPipe } from '../../shared/pipes/position.pipe';
 import { WordsPipe } from '../../shared/pipes/words.pipe';
+import { ContactBandComponent, ProcessStepsComponent } from '../../shared/sections';
 import { BrandMarkComponent } from './brand-mark/brand-mark.component';
 import { HOME_CHOREO, hideHero, playHero } from './home.motion';
 import { ButtonComponent, IconComponent, SectionComponent, SectionHeadingComponent, TagComponent } from '../../shared/ui';
@@ -46,7 +45,10 @@ const FINE_POINTER = '(hover: hover) and (pointer: fine)';
     RevealGroupDirective,
     CountUpDirective,
     BrandMarkComponent,
+    ProcessStepsComponent,
+    ContactBandComponent,
     WordsPipe,
+    PositionPipe,
   ],
   templateUrl: './home.page.html',
   styleUrl: './home.page.css',
@@ -58,8 +60,6 @@ export class HomePageComponent implements AfterViewInit, OnDestroy {
   products: ProductItem[] = PRODUCTS;
   stats: StatItem[] = STATS;
 
-  protected readonly email = SITE.email;
-  protected readonly process: ProcessStep[] = PROCESS;
   protected readonly choreo = HOME_CHOREO;
   /** Each counter starts as its rule finishes growing (ms). */
   protected readonly countDelay = countDelay;
@@ -73,11 +73,6 @@ export class HomePageComponent implements AfterViewInit, OnDestroy {
 
   protected get logosScroll(): boolean {
     return this.clients.length >= MIN_LOGOS_TO_SCROLL;
-  }
-
-  /** Two-digit position label: 01, 02… */
-  protected index(i: number): string {
-    return String(i + 1).padStart(2, '0');
   }
 
   ngAfterViewInit(): void {
