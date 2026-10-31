@@ -251,6 +251,12 @@ dd {
     align-items: start;
   }
 
+  /* Same as Servicios: the heading stays in view while its (taller) list scrolls past, then moves on. */
+  .values__heading {
+    position: sticky;
+    inset-block-start: calc(var(--header-height) + var(--space-6));
+  }
+
   .team__list {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: var(--space-6);

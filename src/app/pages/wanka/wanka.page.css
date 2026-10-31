@@ -149,4 +149,10 @@ h3 {
     gap: var(--space-8);
     align-items: start;
   }
+
+  /* Same as Servicios: the heading stays in view while its (taller) list scrolls past, then moves on. */
+  .modules__heading {
+    position: sticky;
+    inset-block-start: calc(var(--header-height) + var(--space-6));
+  }
 }

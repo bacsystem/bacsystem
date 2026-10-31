@@ -1,7 +1,7 @@
 import type { Choreography } from '../../directives/reveal-group.directive';
 import type { MotionService } from '../../motion/motion.service';
 import { clearStyles, settle } from '../../motion/choreo';
-import { STAGGER } from '../../motion/motion.tokens';
+import { STAGGER, cascadeStep } from '../../motion/motion.tokens';
 import { all, hideFade, hideHeading, revealFade, revealHeading } from '../../motion/reveal';
 
 const DESKTOP = '(min-width: 64em)';
@@ -10,8 +10,10 @@ const DESKTOP = '(min-width: 64em)';
 const axisOf = (motion: MotionService) => (motion.matches(DESKTOP) ? 'scaleX' : 'scaleY');
 
 /**
- * Process: heading first; then the connecting line is drawn by scroll progress (never backwards),
- * and each marker pops (spring, 0.8 → 1) when the line reaches it, its title and text fading up.
+ * Process: heading first; then the connecting line draws itself from marker to marker and each marker
+ * pops (spring, 0.8 → 1) as the line reaches it, its title and text fading up. Timed, not tied to
+ * scroll: driven by scroll progress, the last steps stayed invisible until the list was halfway up the
+ * screen, so a visitor who stopped earlier (above all on phones) saw empty steps.
  */
 export const PROCESS_REVEAL: Choreography = {
   hide: (el, motion) => {
@@ -27,34 +29,22 @@ export const PROCESS_REVEAL: Choreography = {
     const { stops, next } = revealHeading(motion, el);
     const steps = all(el, '.process__step');
     const links = all(el, '.process__link');
-    const popped = new Set<number>();
-    let reached = 0;
-    let cancelScroll: (() => void) | undefined;
+    const axis = axisOf(motion);
+    // The whole run (line and markers) fits in one capped cascade, starting as the heading settles.
+    const gap = cascadeStep(steps.length);
 
-    const pop = (i: number) => {
-      popped.add(i);
-      const marker = all(steps[i], '.process__marker');
-      stops.push(settle(motion, marker, { y: 0, scale: 0.8 }), ...revealFade(motion, all(steps[i], '.process__body'), { delay: STAGGER }));
-    };
-
-    const draw = (progress: number) => {
-      reached = Math.max(reached, progress);
-      const along = reached * (steps.length - 1); // 0 at marker 01 … n-1 at the last marker
-      const axis = axisOf(motion); // re-read: the layout may have crossed the breakpoint
-      links.forEach((link, i) => (link.style.transform = `${axis}(${Math.min(Math.max(along - i, 0), 1)})`));
-      steps.forEach((_, i) => along >= i - 0.02 && !popped.has(i) && pop(i));
-      if (reached >= 1) {
-        clearStyles(links, ['transform']);
-        cancelScroll?.();
-        cancelScroll = undefined;
-      }
-    };
-
-    // The line starts as the heading settles (overlapping, not after it).
-    const timer = setTimeout(() => {
-      cancelScroll = motion.scroll(draw, { target: el.querySelector('.process__steps') ?? el, offset: ['start 85%', 'end 55%'] });
-    }, next * 1000);
-    stops.push({ stop: () => (clearTimeout(timer), cancelScroll?.()) });
+    steps.forEach((step, i) => {
+      const at = next + i * gap;
+      stops.push(
+        settle(motion, all(step, '.process__marker'), { y: 0, scale: 0.8 }, at),
+        ...revealFade(motion, all(step, '.process__body'), { delay: at + STAGGER }),
+      );
+    });
+    links.forEach((link, i) => {
+      const draw = motion.animate(link, { transform: [`${axis}(0)`, `${axis}(1)`] }, { duration: gap, ease: 'linear', delay: next + i * gap });
+      draw.finished.then(() => clearStyles([link], ['transform']));
+      stops.push(draw);
+    });
     return stops;
   },
 };
