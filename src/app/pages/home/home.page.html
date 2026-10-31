@@ -70,7 +70,9 @@
           <span class="services__index">{{ 0 | position }}</span>
           {{ 'application.home.services.lead' | translate }}
         </p>
-        <h3 class="services__lead-title">{{ lead.titleKey | translate }}</h3>
+        <h3 class="services__lead-title">
+          <a class="services__title-link" routerLink="/servicios" [fragment]="lead.anchor">{{ lead.titleKey | translate }}</a>
+        </h3>
         <p class="services__lead-text">{{ lead.descriptionKey | translate }}</p>
         @if (lead.tagKeys?.length) {
           <ul class="services__tags" role="list">
@@ -90,7 +92,9 @@
           <li class="services__item">
             <span class="services__index">{{ i + 1 | position }}</span>
             <div>
-              <h3 class="services__item-title">{{ service.titleKey | translate }}</h3>
+              <h3 class="services__item-title">
+                <a class="services__title-link" routerLink="/servicios" [fragment]="service.anchor">{{ service.titleKey | translate }}</a>
+              </h3>
               <p class="services__item-text">{{ service.descriptionKey | translate }}</p>
             </div>
           </li>

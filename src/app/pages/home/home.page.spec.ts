@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import es from '../../../../public/i18n/es.json';
-import { ClientLogo, PROCESS, PRODUCTS, STATS } from '../../data/site.data';
+import { ClientLogo, PROCESS, PRODUCTS, SERVICES, STATS } from '../../data/site.data';
 import { MotionService } from '../../shared/motion/motion.service';
 import { HomePageComponent } from './home.page';
 
@@ -154,7 +154,16 @@ describe('HomePageComponent', () => {
     setup();
     const el = render();
     expect(el.querySelector('#servicios .services__lead h3')?.textContent).toContain(es.application.home.services.web.title);
-    expect(el.querySelectorAll('#servicios .services__list li').length).toBe(3);
+    expect(el.querySelectorAll('#servicios .services__list li').length).toBe(4);
+  });
+
+  it('links every service to its block on /servicios and the lead to the full page', () => {
+    setup();
+    const el = render();
+    const links = Array.from(el.querySelectorAll('#servicios h3 a')).map(a => a.getAttribute('href'));
+    expect(links).toEqual(SERVICES.map(s => `/servicios#${s.anchor}`));
+    expect(links).toContain('/servicios#transformacion');
+    expect(el.querySelector('#servicios .services__more')?.getAttribute('href')).toBe('/servicios');
   });
 
   it('renders the final counter values on the server', () => {

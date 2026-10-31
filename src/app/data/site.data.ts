@@ -1,5 +1,3 @@
-import type { IconName } from '../shared/ui';
-
 export const SITE = {
   url: 'https://bacsystemsolutions.com',
   name: 'Bacsystem Solutions',
@@ -8,9 +6,23 @@ export const SITE = {
   address: 'Av. B 200 Lima',
 } as const;
 
+export type ServiceId = 'web' | 'consulting' | 'transformation' | 'optimization' | 'cloud';
+
+/** Fragment of each service's block on /servicios (Home links to /servicios#<anchor>). */
+export const SERVICE_ANCHORS = {
+  web: 'desarrollo',
+  consulting: 'consultoria',
+  transformation: 'transformacion',
+  optimization: 'optimizacion',
+  cloud: 'nube',
+} as const satisfies Record<ServiceId, string>;
+
+export type ServiceAnchor = (typeof SERVICE_ANCHORS)[ServiceId];
+
+/** A service as Home lists it (short description). */
 export interface ServiceItem {
-  id: 'web' | 'consulting' | 'optimization' | 'cloud';
-  icon: IconName;
+  id: ServiceId;
+  anchor: ServiceAnchor;
   titleKey: string;
   descriptionKey: string;
   /** Concrete kinds of work, shown when the service leads the home page list. */
@@ -48,22 +60,22 @@ export interface StatItem {
   animate?: boolean;
 }
 
+const HOME_SERVICES = 'application.home.services';
+
+const service = (id: ServiceId, tags?: string[]): ServiceItem => ({
+  id,
+  anchor: SERVICE_ANCHORS[id],
+  titleKey: `${HOME_SERVICES}.${id}.title`,
+  descriptionKey: `${HOME_SERVICES}.${id}.description`,
+  ...(tags ? { tagKeys: tags.map(tag => `${HOME_SERVICES}.${id}.tags.${tag}`) } : {}),
+});
+
 export const SERVICES: ServiceItem[] = [
-  {
-    id: 'web',
-    icon: 'code-slash',
-    titleKey: 'application.home.services.web.title',
-    descriptionKey: 'application.home.services.web.description',
-    tagKeys: [
-      'application.home.services.web.tags.internal',
-      'application.home.services.web.tags.portals',
-      'application.home.services.web.tags.mobile',
-      'application.home.services.web.tags.integrations',
-    ],
-  },
-  { id: 'consulting', icon: 'gear', titleKey: 'application.home.services.consulting.title', descriptionKey: 'application.home.services.consulting.description' },
-  { id: 'optimization', icon: 'graph-up-arrow', titleKey: 'application.home.services.optimization.title', descriptionKey: 'application.home.services.optimization.description' },
-  { id: 'cloud', icon: 'cloud', titleKey: 'application.home.services.cloud.title', descriptionKey: 'application.home.services.cloud.description' },
+  service('web', ['internal', 'portals', 'mobile', 'integrations']),
+  service('consulting'),
+  service('transformation'),
+  service('optimization'),
+  service('cloud'),
 ];
 
 export const PRODUCTS: ProductItem[] = [
@@ -166,4 +178,37 @@ export const TEAM: TeamMember[] = [
   member('christian', 'Christian Bacilio', 'CB'),
   member('jose', 'José Bacilio', 'JB'),
   member('faustina', 'Faustina Del Rosario', 'FD'),
+];
+
+/* ---------- Servicios (/servicios) ---------- */
+
+/** A service as /servicios details it: what it is, when it fits, what the client gets. */
+export interface ServiceDetail {
+  id: ServiceId;
+  anchor: ServiceAnchor;
+  titleKey: string;
+  summaryKey: string;
+  /** "Te sirve si…": 2–3 situations the client recognizes. */
+  fitKeys: string[];
+  /** "Qué recibes": 3–4 concrete deliverables (no prices, timelines or guarantees). */
+  deliverableKeys: string[];
+}
+
+const SERVICES_PAGE = 'application.servicesPage.services';
+
+const detail = (id: ServiceId, fit: string[], deliverables: string[]): ServiceDetail => ({
+  id,
+  anchor: SERVICE_ANCHORS[id],
+  titleKey: `${SERVICES_PAGE}.${id}.title`,
+  summaryKey: `${SERVICES_PAGE}.${id}.summary`,
+  fitKeys: fit.map(k => `${SERVICES_PAGE}.${id}.fit.${k}`),
+  deliverableKeys: deliverables.map(k => `${SERVICES_PAGE}.${id}.deliverables.${k}`),
+});
+
+export const SERVICE_DETAILS: ServiceDetail[] = [
+  detail('web', ['spreadsheets', 'workaround', 'requests'], ['system', 'integrations', 'training', 'support']),
+  detail('consulting', ['quotes', 'buyOrBuild', 'noTeam'], ['diagnosis', 'recommendation', 'plan', 'review']),
+  detail('transformation', ['paper', 'retyping', 'reports'], ['map', 'digital', 'automation', 'adoption']),
+  detail('optimization', ['slow', 'avoided', 'untouchable'], ['review', 'fixes', 'screens', 'docs']),
+  detail('cloud', ['server', 'remote', 'backups'], ['plan', 'migration', 'access', 'costs']),
 ];

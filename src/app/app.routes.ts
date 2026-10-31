@@ -40,7 +40,11 @@ export const routes: Routes = [
         loadComponent: () => import('./pages/about/about.page').then(m => m.AboutPageComponent),
         data: { seo: { titleKey: 'application.site.seo.about.title', descriptionKey: 'application.site.seo.about.description', indexable: true } },
       },
-      { path: 'servicios', loadComponent: comingSoon, data: soon('services') },
+      {
+        path: 'servicios',
+        loadComponent: () => import('./pages/services/services.page').then(m => m.ServicesPageComponent),
+        data: { seo: { titleKey: 'application.site.seo.services.title', descriptionKey: 'application.site.seo.services.description', indexable: true } },
+      },
       { path: 'productos', loadComponent: comingSoon, data: soon('products') },
       { path: 'productos/operaai', loadComponent: comingSoon, data: soon('operaai') },
       { path: 'productos/sophia', loadComponent: comingSoon, data: soon('sophia') },

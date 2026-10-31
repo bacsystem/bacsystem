@@ -10,7 +10,7 @@ describe('ComingSoonPageComponent', () => {
       imports: [ComingSoonPageComponent, TranslateModule.forRoot()],
       providers: [
         provideRouter([]),
-        { provide: ActivatedRoute, useValue: { snapshot: { data: { headingKey: 'application.site.comingSoon.headings.services' } } } },
+        { provide: ActivatedRoute, useValue: { snapshot: { data: { headingKey: 'application.site.comingSoon.headings.products' } } } },
       ],
     });
     const translate = TestBed.inject(TranslateService);
@@ -20,6 +20,6 @@ describe('ComingSoonPageComponent', () => {
     f.detectChanges();
     const el = f.nativeElement as HTMLElement;
     expect(el.querySelectorAll('h1').length).toBe(1);
-    expect(el.querySelector('h1')?.textContent?.trim()).toBe(es.application.site.comingSoon.headings.services);
+    expect(el.querySelector('h1')?.textContent?.trim()).toBe(es.application.site.comingSoon.headings.products);
   });
 });

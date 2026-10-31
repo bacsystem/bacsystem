@@ -13,15 +13,15 @@ describe('routes', () => {
     expect(layout.loadComponent).toBeDefined();
   });
 
-  it('home, contact and about are indexable', () => {
-    for (const p of ['', 'contacto', 'nosotros']) {
+  it('home, contact, about and services are indexable', () => {
+    for (const p of ['', 'contacto', 'nosotros', 'servicios']) {
       expect(find(p)).withContext(p).toBeDefined();
       expect(seo(p).indexable ?? true).withContext(p).toBeTrue();
     }
   });
 
   it('unbuilt pages exist and are noindex', () => {
-    for (const p of ['servicios', 'productos', 'productos/operaai', 'productos/sophia']) {
+    for (const p of ['productos', 'productos/operaai', 'productos/sophia']) {
       expect(find(p)).withContext(p).toBeDefined();
       expect(seo(p).indexable).withContext(p).toBeFalse();
     }
@@ -33,6 +33,14 @@ describe('routes', () => {
     expect(seo('nosotros').titleKey).toBe('application.site.seo.about.title');
     const component = await (about.loadComponent as () => Promise<unknown>)();
     expect((component as { name: string }).name).toBe('AboutPageComponent');
+  });
+
+  it('servicios loads the services page, not the coming-soon placeholder', async () => {
+    const services = find('servicios')!;
+    expect((services.data as { headingKey?: string }).headingKey).toBeUndefined();
+    expect(seo('servicios').titleKey).toBe('application.site.seo.services.title');
+    const component = await (services.loadComponent as () => Promise<unknown>)();
+    expect((component as { name: string }).name).toBe('ServicesPageComponent');
   });
 
   it('guia-ui exists in dev mode, is noindex and precedes the wildcard', () => {

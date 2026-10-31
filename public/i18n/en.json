@@ -42,8 +42,8 @@
           "description": "Tell us what you need to solve. Talk directly with the team in Lima that designs, builds and maintains your custom software, by email or by phone."
         },
         "services": {
-          "title": "Custom software services | Bacsystem Solutions",
-          "description": "Custom web and mobile development, consulting, optimization of existing systems and cloud migration for companies in Peru. One team, start to finish."
+          "title": "Software and consulting services | Bacsystem Solutions",
+          "description": "Web and mobile development, technology consulting, digital transformation, systems optimization and cloud migration for companies in Lima, Peru."
         },
         "products": {
           "title": "Products: OperaAI and sophIA | Bacsystem Solutions",
@@ -64,7 +64,6 @@
       },
       "comingSoon": {
         "headings": {
-          "services": "Services",
           "products": "Products",
           "operaai": "OperaAI",
           "sophia": "sophIA"
@@ -133,6 +132,10 @@
         "consulting": {
           "title": "Consulting",
           "description": "Before you invest, we help you decide what to build, what to buy and what to leave as it is."
+        },
+        "transformation": {
+          "title": "Digital transformation",
+          "description": "We make the processes that depend on paper or manual steps digital, and automate the repetitive tasks."
         },
         "optimization": {
           "title": "Optimization",
@@ -248,33 +251,98 @@
         }
       }
     },
-    "services": {
-      "title": "Our Solutions",
-      "description": "Discover our customized technological solutions",
-      "subtitle": "Innovative Solutions",
-      "content": "At Bacsystem, we offer cutting-edge technological solutions that drive your business growth. Our focus is on innovation, quality and efficiency to meet each client's specific needs.",
-      "button": "Contact Us",
-      "cards": {
-        "webdev": {
-          "tag": "Web",
-          "title": "Web Development",
-          "description": "Creation of modern and responsive web applications using the latest technologies."
+    "servicesPage": {
+      "intro": {
+        "eyebrow": "Services",
+        "title": "What we do for your business",
+        "lead": "We work on three fronts: software development, technology consulting and digital transformation. Here you'll find each service, the situations it fits and what we deliver.",
+        "index": "On this page"
+      },
+      "labels": {
+        "fit": "It fits if…",
+        "deliverables": "What you get"
+      },
+      "services": {
+        "web": {
+          "title": "Web and mobile development",
+          "summary": "We build web systems and mobile apps around the way your team works: internal systems, portals for your customers, apps for staff out in the field, and integrations with the software you already use.",
+          "fit": {
+            "spreadsheets": "Your operation runs on spreadsheets that get copied and overwritten, and nobody knows which version is the right one.",
+            "workaround": "You tried an off-the-shelf product and ended up adapting your way of working to it, instead of the other way around.",
+            "requests": "Your customers ask by email or WhatsApp for information they could look up themselves."
+          },
+          "deliverables": {
+            "system": "The working system: web, mobile or both, as agreed.",
+            "integrations": "Connections to the systems you already use, where they're needed.",
+            "training": "Training and user guides for the people who will use it.",
+            "support": "Support after launch to adjust whatever your operation needs next."
+          }
         },
         "consulting": {
-          "tag": "Strategy",
-          "title": "Consulting",
-          "description": "Expert advice on technologies and best practices to optimize your processes."
+          "title": "Technology consulting",
+          "summary": "Before you invest, we help you decide what to build, what to buy and what to leave as it is. We review your processes and current systems and give you a clear recommendation, with its reasons, even if that recommendation is to build nothing.",
+          "fit": {
+            "quotes": "You have very different quotes for the same project and don't know how to compare them.",
+            "buyOrBuild": "You have to choose between an off-the-shelf product and custom software, and you don't want to get it wrong.",
+            "noTeam": "Your company has grown, but you don't have an IT team to help you decide."
+          },
+          "deliverables": {
+            "diagnosis": "An assessment of your processes and the systems you use today.",
+            "recommendation": "A written recommendation: what to build, what to buy and what to keep.",
+            "plan": "A plan in stages, with priorities, so you can move forward within your budget.",
+            "review": "A review of other vendors' proposals, if you already have some on the table."
+          }
+        },
+        "transformation": {
+          "title": "Digital transformation",
+          "summary": "We take the processes that still depend on paper, scattered emails or manual steps and make them digital, and we automate the repetitive tasks. We start with the process that costs your team the most time, not with all of them at once.",
+          "fit": {
+            "paper": "Approvals, orders or reports still go through paper or long email chains.",
+            "retyping": "Your team types the same data into two or three different systems.",
+            "reports": "To know how the business is doing, someone has to put a report together by hand."
+          },
+          "deliverables": {
+            "map": "A map of how the process works today and how it will work.",
+            "digital": "The process in digital form: forms, approvals and records in one place.",
+            "automation": "Automations for the repetitive tasks, such as notifications, calculations or reports.",
+            "adoption": "Support for your team while it gets used to the new way of working."
+          }
         },
         "optimization": {
-          "tag": "Performance",
-          "title": "Optimization",
-          "description": "Improvement of performance and efficiency of your existing systems."
+          "title": "Systems optimization",
+          "summary": "If you have a system that is slow, breaks often or that nobody wants to use, we review it and improve it without throwing out what already works. First we find where the problem is; then we fix it.",
+          "fit": {
+            "slow": "Your system is slow to respond and the team loses time waiting.",
+            "avoided": "People avoid the system and go back to Excel because it's hard to use.",
+            "untouchable": "Nobody dares to touch the system because whoever built it has left."
+          },
+          "deliverables": {
+            "review": "A technical review listing the problems found, ordered by impact.",
+            "fixes": "Bug and performance fixes, applied to your system.",
+            "screens": "Improvements to the screens your team uses the most.",
+            "docs": "Documentation of what we changed, so the system no longer depends on a single person."
+          }
         },
         "cloud": {
-          "tag": "Cloud",
-          "title": "Cloud Solutions",
-          "description": "Migration and implementation of cloud solutions for greater scalability."
+          "title": "Cloud migration",
+          "summary": "We move your systems and data to the cloud so your team can log in from anywhere and you stop depending on a server in the office. We plan the move in stages so day-to-day work is affected as little as possible.",
+          "fit": {
+            "server": "Your systems live on a server in the office and, if it fails, everything stops.",
+            "remote": "Your team needs to work from home, from another branch or out in the field.",
+            "backups": "You're not sure when your data was last backed up."
+          },
+          "deliverables": {
+            "plan": "A migration plan: what moves, in what order and how to roll back if something fails.",
+            "migration": "Your systems and data running in the cloud.",
+            "access": "Automatic backups and per-user access.",
+            "costs": "Recommendations to keep your monthly cloud bill under control."
+          }
         }
+      },
+      "products": {
+        "title": "Looking for something ready to use?",
+        "text": "Besides custom projects, we have our own products your company can start using without building anything from scratch.",
+        "cta": "See products"
       }
     },
     "products": {

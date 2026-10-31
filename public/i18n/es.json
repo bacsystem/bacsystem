@@ -42,8 +42,8 @@
           "description": "Cuéntanos qué necesitas resolver. Habla directo con el equipo que diseña y construye tu software a medida en Lima, por correo o por teléfono."
         },
         "services": {
-          "title": "Servicios de software a medida | Bacsystem Solutions",
-          "description": "Desarrollo web y móvil a medida, consultoría, optimización de sistemas y migración a la nube para empresas en Perú. Un solo equipo, de principio a fin."
+          "title": "Servicios de software y consultoría | Bacsystem Solutions",
+          "description": "Desarrollo web y móvil, consultoría tecnológica, transformación digital, optimización de sistemas y migración a la nube para empresas en Lima, Perú."
         },
         "products": {
           "title": "Productos: OperaAI y sophIA | Bacsystem Solutions",
@@ -64,7 +64,6 @@
       },
       "comingSoon": {
         "headings": {
-          "services": "Servicios",
           "products": "Productos",
           "operaai": "OperaAI",
           "sophia": "sophIA"
@@ -133,6 +132,10 @@
         "consulting": {
           "title": "Consultoría",
           "description": "Antes de invertir, te ayudamos a decidir qué construir, qué comprar y qué dejar como está."
+        },
+        "transformation": {
+          "title": "Transformación digital",
+          "description": "Pasamos a digital los procesos que dependen de papel o de pasos manuales, y automatizamos las tareas repetitivas."
         },
         "optimization": {
           "title": "Optimización",
@@ -248,33 +251,98 @@
         }
       }
     },
-    "services": {
-      "title": "Nuestras Soluciones",
-      "description": "Descubre nuestras soluciones tecnológicas personalizadas",
-      "subtitle": "Soluciones Innovadoras",
-      "content": "En Bacsystem, ofrecemos soluciones tecnológicas de vanguardia que impulsan el crecimiento de tu negocio. Nuestro enfoque se centra en la innovación, la calidad y la eficiencia para satisfacer las necesidades específicas de cada cliente.",
-      "button": "Contáctanos",
-      "cards": {
-        "webdev": {
-          "tag": "Web",
-          "title": "Desarrollo Web",
-          "description": "Creación de aplicaciones web modernas y responsivas utilizando las últimas tecnologías."
+    "servicesPage": {
+      "intro": {
+        "eyebrow": "Servicios",
+        "title": "Lo que hacemos por tu empresa",
+        "lead": "Trabajamos en tres frentes: desarrollo de software, consultoría tecnológica y transformación digital. Aquí verás cada servicio, en qué situaciones te sirve y qué te entregamos.",
+        "index": "En esta página"
+      },
+      "labels": {
+        "fit": "Te sirve si…",
+        "deliverables": "Qué recibes"
+      },
+      "services": {
+        "web": {
+          "title": "Desarrollo web y móvil",
+          "summary": "Construimos sistemas web y apps móviles a partir de cómo trabaja tu equipo: sistemas internos, portales para tus clientes, apps para el personal que está en la calle e integraciones con el software que ya usas.",
+          "fit": {
+            "spreadsheets": "Tu operación depende de hojas de cálculo que se copian, se pisan y nadie sabe cuál es la versión buena.",
+            "workaround": "Probaste un software comercial y terminaste adaptando tu forma de trabajar a él, en lugar de al revés.",
+            "requests": "Tus clientes te piden por correo o por WhatsApp información que podrían consultar por su cuenta."
+          },
+          "deliverables": {
+            "system": "El sistema funcionando: web, móvil o ambos, según lo que acordemos.",
+            "integrations": "La conexión con los sistemas que ya usas, cuando hace falta.",
+            "training": "Capacitación y guías de uso para las personas que lo van a usar.",
+            "support": "Acompañamiento después de la entrega para ajustar lo que tu operación vaya pidiendo."
+          }
         },
         "consulting": {
-          "tag": "Estrategia",
-          "title": "Consultoría",
-          "description": "Asesoramiento experto en tecnologías y mejores prácticas para optimizar tus procesos."
+          "title": "Consultoría tecnológica",
+          "summary": "Antes de invertir, te ayudamos a decidir qué construir, qué comprar y qué dejar como está. Revisamos tus procesos y tus sistemas actuales y te damos una recomendación clara, con sus razones, aunque esa recomendación sea no construir nada.",
+          "fit": {
+            "quotes": "Tienes cotizaciones muy distintas para el mismo proyecto y no sabes cómo compararlas.",
+            "buyOrBuild": "Debes elegir entre un software comercial y uno a medida, y no quieres equivocarte.",
+            "noTeam": "Tu empresa creció, pero no tienes un área de sistemas que te ayude a decidir."
+          },
+          "deliverables": {
+            "diagnosis": "Un diagnóstico de tus procesos y de los sistemas que usas hoy.",
+            "recommendation": "Una recomendación por escrito: qué construir, qué comprar y qué mantener.",
+            "plan": "Un plan por etapas, con prioridades, para avanzar según tu presupuesto.",
+            "review": "Una revisión de las propuestas de otros proveedores, si ya tienes alguna sobre la mesa."
+          }
+        },
+        "transformation": {
+          "title": "Transformación digital",
+          "summary": "Pasamos a digital los procesos que hoy dependen de papel, correos sueltos o pasos manuales, y automatizamos las tareas repetitivas. Empezamos por el proceso que más tiempo le quita a tu equipo, no por todos a la vez.",
+          "fit": {
+            "paper": "Aprobaciones, pedidos o reportes todavía pasan por papel o por cadenas de correos.",
+            "retyping": "Tu equipo digita los mismos datos en dos o tres sistemas distintos.",
+            "reports": "Para saber cómo va el negocio, alguien tiene que armar un reporte a mano."
+          },
+          "deliverables": {
+            "map": "Un mapa de cómo funciona el proceso hoy y de cómo va a funcionar.",
+            "digital": "El proceso en digital: formularios, aprobaciones y registros en un solo lugar.",
+            "automation": "Automatizaciones para las tareas repetitivas, como avisos, cálculos o reportes.",
+            "adoption": "Acompañamiento a tu equipo mientras se acostumbra a la nueva forma de trabajar."
+          }
         },
         "optimization": {
-          "tag": "Rendimiento",
-          "title": "Optimización",
-          "description": "Mejora del rendimiento y eficiencia de tus sistemas existentes."
+          "title": "Optimización de sistemas",
+          "summary": "Si tienes un sistema lento, que falla seguido o que nadie quiere usar, lo revisamos y lo mejoramos sin tirar lo que ya funciona. Primero encontramos dónde está el problema; después lo corregimos.",
+          "fit": {
+            "slow": "Tu sistema tarda en responder y el equipo pierde tiempo esperando.",
+            "avoided": "La gente evita el sistema y vuelve a Excel porque usarlo es complicado.",
+            "untouchable": "Nadie se atreve a tocar el sistema porque quien lo hizo ya no está."
+          },
+          "deliverables": {
+            "review": "Una revisión técnica con los problemas encontrados, ordenados por impacto.",
+            "fixes": "Las correcciones de errores y de rendimiento, aplicadas en tu sistema.",
+            "screens": "Mejoras en las pantallas que más usa tu equipo.",
+            "docs": "Documentación de lo que cambiamos, para que el sistema deje de depender de una sola persona."
+          }
         },
         "cloud": {
-          "tag": "Cloud",
-          "title": "Soluciones Cloud",
-          "description": "Migración e implementación de soluciones en la nube para mayor escalabilidad."
+          "title": "Migración a la nube",
+          "summary": "Llevamos tus sistemas y tus datos a la nube para que tu equipo entre desde donde esté y dejes de depender de un servidor en la oficina. Planificamos el cambio por etapas para afectar lo menos posible el trabajo diario.",
+          "fit": {
+            "server": "Tus sistemas viven en un servidor en la oficina y, si falla, se detiene todo.",
+            "remote": "Tu equipo necesita trabajar desde casa, desde otra sede o en campo.",
+            "backups": "No tienes claro cuándo se hizo la última copia de seguridad de tus datos."
+          },
+          "deliverables": {
+            "plan": "Un plan de migración: qué se mueve, en qué orden y cómo volver atrás si algo falla.",
+            "migration": "Tus sistemas y tus datos funcionando en la nube.",
+            "access": "Copias de seguridad automáticas y accesos por usuario.",
+            "costs": "Recomendaciones para controlar lo que pagas cada mes por la nube."
+          }
         }
+      },
+      "products": {
+        "title": "¿Buscas algo listo para usar?",
+        "text": "Además de los proyectos a medida, tenemos productos propios que tu empresa puede empezar a usar sin desarrollar nada desde cero.",
+        "cta": "Ver productos"
       }
     },
     "products": {
