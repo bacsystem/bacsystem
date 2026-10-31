@@ -12,6 +12,9 @@ export class RevealDirective implements OnInit, OnDestroy {
     if (typeof IntersectionObserver === 'undefined') return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
+    const rect = this.el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) return; // ya visible: no ocultar
+
     this.observer = new IntersectionObserver((entries) => {
       if (entries.some((e) => e.isIntersecting)) {
         this.el.classList.remove('is-reveal-pending');
@@ -19,9 +22,6 @@ export class RevealDirective implements OnInit, OnDestroy {
         this.observer?.disconnect();
       }
     });
-
-    const rect = this.el.getBoundingClientRect();
-    if (rect.top < window.innerHeight && rect.bottom > 0) return; // ya visible: no ocultar
     this.el.classList.add('is-reveal-pending');
     this.observer.observe(this.el);
   }

@@ -38,4 +38,21 @@ describe('CountUpDirective', () => {
     (window as any).IntersectionObserver = undefined;
     expect(mount().textContent).toBe('42');
   });
+
+  it('destroys on the server without throwing', () => {
+    TestBed.configureTestingModule({
+      imports: [HostComponent],
+      providers: [{ provide: PLATFORM_ID, useValue: 'server' }],
+    });
+    const f = TestBed.createComponent(HostComponent);
+    f.detectChanges();
+    const g = globalThis as any;
+    const real = g.cancelAnimationFrame;
+    g.cancelAnimationFrame = undefined;
+    try {
+      expect(() => f.destroy()).not.toThrow();
+    } finally {
+      g.cancelAnimationFrame = real;
+    }
+  });
 });
