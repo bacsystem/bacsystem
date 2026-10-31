@@ -51,7 +51,7 @@
         },
         "khipu": {
           "title": "khipu: SUNAT e-invoicing | Bacsystem Solutions",
-          "description": "khipu is Bacsystem's electronic invoicing platform: issue invoices, receipts and notes from a web portal or through an API, with digital signature, sending to SUNAT and stored receipts."
+          "description": "khipu, by Bacsystem: issue electronic invoices, receipts and notes from a web portal or an API, with digital signature and SUNAT sending. Free plan."
         },
         "products": {
           "title": "Products: khipu and Wanka | Bacsystem Solutions",
@@ -59,7 +59,7 @@
         },
         "wanka": {
           "title": "Wanka: industry-specific management | Bacsystem Solutions",
-          "description": "Wanka, in progress: point of sale, inventory by warehouse, customers, purchases and electronic invoicing for restaurants, veterinary clinics, dental practices and shops."
+          "description": "Wanka, in progress: point of sale, inventory and e-invoicing for restaurants, veterinary clinics, dental practices and shops."
         },
         "notFound": {
           "title": "Page not found | Bacsystem Solutions",

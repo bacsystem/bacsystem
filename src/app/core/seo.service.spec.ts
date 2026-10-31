@@ -42,8 +42,16 @@ describe('SeoService', () => {
   });
 
   it('uses noindex when indexable is false', () => {
+    service.apply({ titleKey: 't', descriptionKey: 'd' }, '/contacto');
     service.apply({ titleKey: 't', descriptionKey: 'd', indexable: false }, '/servicios');
     expect(meta('meta[name="robots"]')).toBe('noindex, nofollow');
+    expect(canonical()).withContext('a noindex page declares no canonical').toBeUndefined();
+  });
+
+  it('shares the 1200x630 cover image, not the narrow logo', () => {
+    service.apply({ titleKey: 't', descriptionKey: 'd' }, '/');
+    expect(meta('meta[property="og:image"]')).toBe('https://bacsystemsolutions.com/assets/img/og-cover.png');
+    expect(meta('meta[name="twitter:image"]')).toBe('https://bacsystemsolutions.com/assets/img/og-cover.png');
   });
 
   it('canonical for root keeps the trailing slash', () => {

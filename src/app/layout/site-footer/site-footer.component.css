@@ -109,3 +109,15 @@
     gap: var(--space-6);
   }
 }
+
+/* Desktop (mouse): back to a compact list; the 44px rows are for touch layouts. */
+@media (min-width: 64em) {
+  .site-footer__list {
+    gap: var(--space-3);
+  }
+
+  .site-footer__list li,
+  .site-footer__list a {
+    min-block-size: auto;
+  }
+}

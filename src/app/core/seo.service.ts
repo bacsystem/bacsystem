@@ -8,7 +8,8 @@ import { filter } from 'rxjs/operators';
 /** Canonical base URL */
 const SITE_URL = 'https://bacsystemsolutions.com';
 // EJEMPLO: reemplazar por og-cover.png real
-const OG_IMAGE = `${SITE_URL}/assets/img/bacsystem/Logo_BACSYSTEM-%5BColor-Horizontal%5D.png`;
+/** Share preview (WhatsApp, LinkedIn, Facebook): 1200x630, the size those cards expect. */
+const OG_IMAGE = `${SITE_URL}/assets/img/og-cover.png`;
 
 export interface SeoRouteData {
   titleKey: string;
@@ -74,7 +75,9 @@ export class SeoService {
     this.meta.updateTag({ name: 'twitter:image',       content: OG_IMAGE              });
 
     this.document.documentElement.setAttribute('lang', lang);
-    this.setCanonical(url);
+    // A noindex page (404, internal guide) declares no canonical: "don't index" and "this is the URL to index" contradict.
+    if (seo.indexable === false) this.document.querySelector('link[rel="canonical"]')?.remove();
+    else this.setCanonical(url);
   }
 
   private deepest(route: ActivatedRouteSnapshot): ActivatedRouteSnapshot {

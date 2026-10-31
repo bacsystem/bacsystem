@@ -51,7 +51,7 @@
         },
         "khipu": {
           "title": "khipu: facturación electrónica SUNAT | Bacsystem Solutions",
-          "description": "khipu es la plataforma de facturación electrónica de Bacsystem: emite facturas, boletas y notas desde un portal web o por API, con firma digital, envío a SUNAT y constancia guardada."
+          "description": "khipu, de Bacsystem: emite facturas, boletas y notas electrónicas desde un portal web o por API, con firma digital y envío a SUNAT. Plan gratis."
         },
         "products": {
           "title": "Productos: khipu y Wanka | Bacsystem Solutions",
@@ -59,7 +59,7 @@
         },
         "wanka": {
           "title": "Wanka: sistema de gestión por rubro | Bacsystem Solutions",
-          "description": "Wanka, en construcción: punto de venta, inventario por almacén, clientes, compras y facturación electrónica para restaurantes, veterinarias, consultorios dentales y tiendas."
+          "description": "Wanka, en construcción: punto de venta, inventario y facturación electrónica para restaurantes, veterinarias, consultorios dentales y tiendas."
         },
         "notFound": {
           "title": "Página no encontrada | Bacsystem Solutions",
