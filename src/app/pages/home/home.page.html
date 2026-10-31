@@ -16,26 +16,7 @@
       </div>
     </div>
     <div class="hero__visual">
-      <figure class="process">
-        <figcaption class="process__label">{{ 'application.home.process.label' | translate }}</figcaption>
-        <ol class="process__steps" role="list">
-          @for (step of process; track step.id; let i = $index, first = $first) {
-            <li class="process__step" [class.is-current]="first">
-              <span class="process__marker" aria-hidden="true">{{ index(i) }}</span>
-              <div class="process__body">
-                <p class="process__head">
-                  <span class="process__title">{{ step.titleKey | translate }}</span>
-                  @if (first) {
-                    <ui-tag tone="accent">{{ 'application.home.process.start' | translate }}</ui-tag>
-                  }
-                </p>
-                <p class="process__text">{{ step.textKey | translate }}</p>
-              </div>
-            </li>
-          }
-        </ol>
-        <p class="process__note">{{ 'application.home.process.note' | translate }}</p>
-      </figure>
+      <app-brand-mark />
     </div>
   </div>
 </ui-section>
@@ -112,6 +93,31 @@
     </div>
   </ui-section>
 }
+
+<ui-section sectionId="proceso" spacing="compact">
+  <div class="process" appReveal>
+    <ui-section-heading
+      [title]="'application.home.process.label' | translate"
+      [subtitle]="'application.home.process.note' | translate"
+    />
+    <ol class="process__steps" role="list">
+      @for (step of process; track step.id; let i = $index, first = $first) {
+        <li class="process__step" [class.is-current]="first">
+          <span class="process__marker" aria-hidden="true">{{ index(i) }}</span>
+          <div class="process__body">
+            <p class="process__head">
+              <span class="process__title">{{ step.titleKey | translate }}</span>
+              @if (first) {
+                <ui-tag tone="accent">{{ 'application.home.process.start' | translate }}</ui-tag>
+              }
+            </p>
+            <p class="process__text">{{ step.textKey | translate }}</p>
+          </div>
+        </li>
+      }
+    </ol>
+  </div>
+</ui-section>
 
 @if (products.length > 0) {
   <ui-section sectionId="productos" tone="alt" spacing="compact">

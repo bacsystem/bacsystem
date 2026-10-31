@@ -34,6 +34,12 @@ describe('HomePageComponent', () => {
     expect(h1s[0].textContent?.replace(/\s+/g, ' ').trim()).toBe(es.application.home.hero.title);
   });
 
+  it("shows the owner's subtitle under the hero title", () => {
+    setup();
+    const el = render();
+    expect(el.querySelector('.hero__subtitle')?.textContent?.trim()).toBe(es.application.home.hero.subtitle);
+  });
+
   it('links the hero CTA to /contacto and the secondary action to /servicios', () => {
     setup();
     const el = render();
@@ -41,23 +47,36 @@ describe('HomePageComponent', () => {
     expect(el.querySelector('.hero__secondary')?.getAttribute('href')).toBe('/servicios');
   });
 
-  it('shows the work process in the hero instead of a product screen', () => {
+  it('shows the brand graphic in the hero instead of the process or a product screen', () => {
     setup();
     const el = render();
     const hero = el.querySelector('#inicio') as HTMLElement;
+    expect(hero.querySelector('app-brand-mark')).toBeTruthy();
     expect(hero.querySelector('app-product-preview')).toBeNull();
-    const steps = Array.from(hero.querySelectorAll('.process__step'));
+    expect(hero.querySelector('.process__step')).toBeNull();
+    expect(hero.querySelector('ol')).toBeNull();
+    expect(hero.textContent).not.toContain('OperaAI');
+  });
+
+  it('shows the four process steps in order in their own section', () => {
+    setup();
+    const el = render();
+    const section = el.querySelector('#proceso') as HTMLElement;
+    expect(section).toBeTruthy();
+    expect(section.querySelector('h2')?.textContent?.trim()).toBe(es.application.home.process.label);
+    const steps = Array.from(section.querySelectorAll('.process__step'));
     expect(steps.length).toBe(4);
     const titles = steps.map(s => s.querySelector('.process__title')?.textContent?.trim());
     const p = es.application.home.process;
     expect(titles).toEqual([p.understand.title, p.design.title, p.build.title, p.maintain.title]);
-    expect(hero.textContent).not.toContain('OperaAI');
+    expect(steps.map(s => s.querySelector('.process__marker')?.textContent?.trim())).toEqual(['01', '02', '03', '04']);
+    expect(steps[0].querySelector('.process__text')?.textContent?.trim()).toBe(p.understand.text);
   });
 
   it('marks only the first process step as the starting point', () => {
     setup();
     const el = render();
-    const steps = Array.from(el.querySelectorAll('#inicio .process__step'));
+    const steps = Array.from(el.querySelectorAll('#proceso .process__step'));
     expect(steps.map(s => s.classList.contains('is-current'))).toEqual([true, false, false, false]);
     expect(steps.some(s => s.hasAttribute('aria-current'))).toBeFalse();
     expect(steps[0].querySelector('ui-tag')?.textContent?.trim()).toBe(es.application.home.process.start);
@@ -67,7 +86,7 @@ describe('HomePageComponent', () => {
     setup();
     const el = render();
     const ids = Array.from(el.querySelectorAll('section')).map(s => s.id);
-    expect(ids).toEqual(['inicio', 'servicios', 'productos', 'cifras', 'contacto']);
+    expect(ids).toEqual(['inicio', 'servicios', 'proceso', 'productos', 'cifras', 'contacto']);
   });
 
   it('shows one visible logo per client when clients are added', () => {

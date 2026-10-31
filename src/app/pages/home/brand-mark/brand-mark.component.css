@@ -1,0 +1,218 @@
+:host {
+  display: block;
+}
+
+.mark {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  overflow: visible;
+}
+
+/* ---------- Static state = the finished, docked logo (prerender, no-JS, reduced motion) ---------- */
+.mark__piece,
+.mark__slot,
+.mark__echo {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.mark__c {
+  fill: var(--color-primary);
+}
+
+.mark__l {
+  fill: var(--color-accent);
+}
+
+.mark__echo,
+.mark__slot {
+  fill: none;
+  stroke-width: calc(var(--border-width) * 2);
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.mark__echo line {
+  vector-effect: non-scaling-stroke;
+}
+
+.mark__echo--c {
+  stroke: var(--color-border-strong);
+  opacity: var(--opacity-disabled);
+}
+
+.mark__echo--l {
+  stroke: var(--color-accent);
+}
+
+.mark__guides {
+  stroke: var(--color-border);
+  stroke-dasharray: var(--space-1) var(--space-2);
+  stroke-width: var(--border-width);
+}
+
+/* The empty place where the complement belongs: only seen while the company is incomplete. */
+.mark__slot {
+  stroke: var(--color-border-strong);
+  stroke-dasharray: var(--space-2) var(--space-2);
+  opacity: 0;
+}
+
+/*
+ * ---------- Motion: only when it is welcome ----------
+ * One shared timeline of --duration-slower (~1.6s). Percentages below are moments on it:
+ *   0–12%  the company (C), its empty slot and the echoes appear
+ *   18%    the complement enters from outside the composition
+ *   66%    it overshoots the slot a touch…
+ *   70%    …and clicks in: the slot pulses and fades, the C and the echoes give a small nudge
+ *   100%   at rest; then only the teal echo keeps drifting, very slowly
+ */
+@media (prefers-reduced-motion: no-preference) {
+  .mark__c {
+    animation:
+      mark-appear var(--duration-slow) var(--ease-out) both,
+      mark-c-react var(--duration-slower) linear both;
+  }
+
+  .mark__slot {
+    animation: mark-slot var(--duration-slower) linear both;
+  }
+
+  .mark__l {
+    animation:
+      mark-appear calc(var(--duration-fast) * 2) var(--ease-out) calc(var(--duration-slower) * 0.18) both,
+      mark-l-dock var(--duration-slower) linear both;
+  }
+
+  .mark__guides,
+  .mark__echo--c {
+    animation:
+      mark-appear var(--duration-slow) var(--ease-out) var(--duration-fast) both,
+      mark-echo-react var(--duration-slower) linear both;
+  }
+
+  .mark__echo--l {
+    animation:
+      mark-appear var(--duration-slow) var(--ease-out) var(--duration-fast) both,
+      mark-echo-l-react var(--duration-slower) linear both,
+      mark-float calc(var(--duration-slower) * 4) var(--ease-out) var(--duration-slower) infinite alternate;
+  }
+}
+
+@keyframes mark-appear {
+  from {
+    opacity: 0;
+  }
+}
+
+/* The complement: a short, confident path in from the top-right, a touch of overshoot, a click. */
+@keyframes mark-l-dock {
+  0%,
+  18% {
+    transform: translate(85%, -95%) rotate(22deg);
+    animation-timing-function: var(--ease-out);
+  }
+
+  66% {
+    transform: translate(-2.5%, 2.5%) rotate(-2deg);
+    animation-timing-function: var(--ease-out);
+  }
+
+  74% {
+    transform: scale(1.05);
+    animation-timing-function: var(--ease-out);
+  }
+
+  92%,
+  100% {
+    transform: none;
+  }
+}
+
+@keyframes mark-slot {
+  0% {
+    opacity: 0;
+  }
+
+  10%,
+  64% {
+    opacity: var(--opacity-subtle);
+    transform: none;
+    stroke: var(--color-border-strong);
+    animation-timing-function: var(--ease-out);
+  }
+
+  72% {
+    opacity: 1;
+    transform: scale(1.08);
+    stroke: var(--color-accent);
+    animation-timing-function: var(--ease-out);
+  }
+
+  92%,
+  100% {
+    opacity: 0;
+    transform: scale(1.14);
+    stroke: var(--color-accent);
+  }
+}
+
+/* The company takes the hit of the docking piece: a small push away, then back. */
+@keyframes mark-c-react {
+  0%,
+  68% {
+    transform: none;
+    animation-timing-function: var(--ease-out);
+  }
+
+  76% {
+    transform: translate(-1%, 1%);
+    animation-timing-function: var(--ease-out);
+  }
+
+  94%,
+  100% {
+    transform: none;
+  }
+}
+
+@keyframes mark-echo-react {
+  0%,
+  68% {
+    transform: none;
+    animation-timing-function: var(--ease-out);
+  }
+
+  80% {
+    transform: translate(0.6%, 0.6%);
+    animation-timing-function: var(--ease-out);
+  }
+
+  100% {
+    transform: none;
+  }
+}
+
+@keyframes mark-echo-l-react {
+  0%,
+  68% {
+    transform: none;
+    animation-timing-function: var(--ease-out);
+  }
+
+  80% {
+    transform: translate(3%, -4%);
+    animation-timing-function: var(--ease-out);
+  }
+
+  100% {
+    transform: none;
+  }
+}
+
+@keyframes mark-float {
+  to {
+    transform: translate(3%, -4%);
+  }
+}

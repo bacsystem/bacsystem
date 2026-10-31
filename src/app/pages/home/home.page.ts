@@ -16,6 +16,7 @@ import {
 } from '../../data/site.data';
 import { CountUpDirective } from '../../shared/directives/count-up.directive';
 import { RevealDirective } from '../../shared/directives/reveal.directive';
+import { BrandMarkComponent } from './brand-mark/brand-mark.component';
 import { ButtonComponent, IconComponent, SectionComponent, SectionHeadingComponent, TagComponent } from '../../shared/ui';
 
 /** Below this many logos the strip stays still: a loop of two logos reads as filler. */
@@ -34,6 +35,7 @@ const MIN_LOGOS_TO_SCROLL = 5;
     TagComponent,
     RevealDirective,
     CountUpDirective,
+    BrandMarkComponent,
   ],
   templateUrl: './home.page.html',
   styleUrl: './home.page.css',

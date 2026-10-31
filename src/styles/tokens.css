@@ -130,6 +130,7 @@ html {
   --duration-fast: 150ms;
   --duration-base: 250ms;
   --duration-slow: 500ms;
+  --duration-slower: 1600ms; /* intros contadas en una sola línea de tiempo (gráfico de marca del hero) */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 
   /* Capas */
@@ -188,5 +189,6 @@ html {
     --duration-fast: 0.01ms;
     --duration-base: 0.01ms;
     --duration-slow: 0.01ms;
+    --duration-slower: 0.01ms;
   }
 }
