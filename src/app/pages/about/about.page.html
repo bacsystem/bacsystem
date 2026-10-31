@@ -1,0 +1,85 @@
+<ui-section sectionId="nosotros">
+  <div class="intro">
+    <div class="intro__copy">
+      <p class="eyebrow">
+        <span class="eyebrow__rule" aria-hidden="true"></span>
+        <span class="eyebrow__text">{{ 'application.aboutPage.intro.eyebrow' | translate }}</span>
+      </p>
+      <h1 class="intro__title" [attr.aria-label]="'application.aboutPage.intro.title' | translate">@for (word of 'application.aboutPage.intro.title' | translate | words; track $index) {<span class="ui-word" aria-hidden="true">{{ word }}</span>&ngsp;}</h1>
+      <p class="intro__lead">{{ 'application.aboutPage.intro.lead' | translate }}</p>
+    </div>
+    <dl class="intro__facts">
+      @for (fact of facts; track fact) {
+        <div class="intro__fact">
+          <dt class="intro__fact-label">{{ 'application.aboutPage.intro.facts.' + fact + '.label' | translate }}</dt>
+          <dd class="intro__fact-value">{{ 'application.aboutPage.intro.facts.' + fact + '.value' | translate }}</dd>
+        </div>
+      }
+    </dl>
+  </div>
+</ui-section>
+
+<ui-section sectionId="mision" tone="alt">
+  <div class="purpose" appRevealGroup>
+    @for (item of purpose; track item.id) {
+      <article class="purpose__block">
+        <h2 class="purpose__label">{{ item.labelKey | translate }}</h2>
+        <p class="purpose__text">{{ item.textKey | translate }}</p>
+      </article>
+    }
+  </div>
+</ui-section>
+
+<ui-section sectionId="valores">
+  <div class="values">
+    <div [appRevealGroup]="choreo.heading">
+      <ui-section-heading
+        [title]="'application.aboutPage.values.title' | translate"
+        [subtitle]="'application.aboutPage.values.subtitle' | translate"
+      />
+    </div>
+    <ol class="values__list" role="list" [appRevealGroup]="choreo.values">
+      @for (item of values; track item.id; let i = $index) {
+        <li class="values__item">
+          <span class="values__index" aria-hidden="true">{{ i | position }}</span>
+          <h3 class="values__title">{{ item.titleKey | translate }}</h3>
+          <p class="values__text">{{ item.textKey | translate }}</p>
+        </li>
+      }
+    </ol>
+  </div>
+</ui-section>
+
+<app-process-steps />
+
+@if (team.length > 0) {
+  <ui-section sectionId="equipo" tone="alt">
+    <div [appRevealGroup]="choreo.heading">
+      <ui-section-heading
+        [title]="'application.aboutPage.team.title' | translate"
+        [subtitle]="'application.aboutPage.team.subtitle' | translate"
+      />
+    </div>
+    <ul class="team__list" role="list" appRevealGroup>
+      @for (member of team; track member.id) {
+        <li class="team__member">
+          <div class="team__head">
+            @if (member.photo) {
+              <img class="team__photo" [src]="member.photo" alt="" width="320" height="320" loading="lazy" />
+            } @else {
+              <!-- EJEMPLO: reemplazar por foto real (campo `photo` del integrante en site.data.ts) -->
+              <span class="team__monogram" aria-hidden="true">{{ member.initials }}</span>
+            }
+            <div class="team__id">
+              <h3 class="team__name">{{ member.name }}</h3>
+              <p class="team__role">{{ member.roleKey | translate }}</p>
+            </div>
+          </div>
+          <p class="team__bio">{{ member.bioKey | translate }}</p>
+        </li>
+      }
+    </ul>
+  </ui-section>
+}
+
+<app-contact-band />

@@ -13,18 +13,26 @@ describe('routes', () => {
     expect(layout.loadComponent).toBeDefined();
   });
 
-  it('home and contact are indexable', () => {
-    for (const p of ['', 'contacto']) {
+  it('home, contact and about are indexable', () => {
+    for (const p of ['', 'contacto', 'nosotros']) {
       expect(find(p)).withContext(p).toBeDefined();
       expect(seo(p).indexable ?? true).withContext(p).toBeTrue();
     }
   });
 
   it('unbuilt pages exist and are noindex', () => {
-    for (const p of ['servicios', 'productos', 'productos/operaai', 'productos/sophia', 'nosotros']) {
+    for (const p of ['servicios', 'productos', 'productos/operaai', 'productos/sophia']) {
       expect(find(p)).withContext(p).toBeDefined();
       expect(seo(p).indexable).withContext(p).toBeFalse();
     }
+  });
+
+  it('nosotros loads the about page, not the coming-soon placeholder', async () => {
+    const about = find('nosotros')!;
+    expect((about.data as { headingKey?: string }).headingKey).toBeUndefined();
+    expect(seo('nosotros').titleKey).toBe('application.site.seo.about.title');
+    const component = await (about.loadComponent as () => Promise<unknown>)();
+    expect((component as { name: string }).name).toBe('AboutPageComponent');
   });
 
   it('guia-ui exists in dev mode, is noindex and precedes the wildcard', () => {

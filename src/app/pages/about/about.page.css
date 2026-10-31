@@ -1,0 +1,303 @@
+:host {
+  display: block;
+}
+
+p,
+dl,
+dd {
+  margin: 0;
+}
+
+/* ---------- Intro ---------- */
+.intro {
+  display: grid;
+  gap: var(--space-7);
+}
+
+.intro__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-5);
+}
+
+.intro__title {
+  max-inline-size: 14ch;
+  font-size: var(--text-3xl);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+}
+
+.intro__lead {
+  max-inline-size: var(--measure-lg);
+  color: var(--color-text-muted);
+  font-size: var(--text-lg);
+  line-height: var(--leading-normal);
+}
+
+.intro__facts {
+  display: grid;
+  align-content: end;
+}
+
+.intro__fact {
+  display: grid;
+  gap: var(--space-1);
+  padding-block: var(--space-4);
+  border-block-start: var(--border-width) solid var(--color-border);
+}
+
+.intro__fact:last-child {
+  border-block-end: var(--border-width) solid var(--color-border);
+}
+
+.intro__fact-label {
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+}
+
+.intro__fact-value {
+  color: var(--color-heading);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-normal);
+}
+
+/* ---------- Mission and vision ---------- */
+.purpose {
+  display: grid;
+  gap: var(--space-7);
+}
+
+.purpose__block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.purpose__label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--color-accent-text);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+}
+
+/* The same short teal rule as the page eyebrow. */
+.purpose__label::before {
+  content: '';
+  flex-shrink: 0;
+  inline-size: var(--space-5);
+  block-size: calc(var(--border-width) * 2);
+  border-radius: var(--radius-pill);
+  background-color: var(--color-accent);
+}
+
+.purpose__text {
+  max-inline-size: var(--measure-md);
+  color: var(--color-heading);
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+}
+
+/* ---------- Values ---------- */
+.values {
+  display: grid;
+}
+
+.values__list {
+  display: grid;
+  gap: var(--space-6) var(--space-6);
+  margin: 0;
+  padding: 0;
+}
+
+.values__item {
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--space-7) minmax(0, 1fr);
+  grid-template-rows: auto 1fr;
+  column-gap: var(--space-4);
+  row-gap: var(--space-2);
+  padding-block-start: var(--space-5);
+}
+
+/* The top rule; Motion grows it left to right through --rule (0 → 1). Static: full width. */
+.values__item::before {
+  content: '';
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline: 0;
+  block-size: var(--border-width);
+  background-color: var(--color-border);
+  transform: scaleX(var(--rule, 1));
+  transform-origin: left;
+}
+
+.values__index {
+  grid-row: 1 / span 2;
+  padding-block-start: var(--space-1);
+  color: var(--color-accent-text);
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-variant-numeric: tabular-nums;
+}
+
+.values__title {
+  font-size: var(--text-lg);
+}
+
+.values__text {
+  max-inline-size: var(--measure-sm);
+  color: var(--color-text-muted);
+  line-height: var(--leading-normal);
+}
+
+/* ---------- Team ---------- */
+.team__list {
+  display: grid;
+  gap: var(--space-7);
+  margin: 0;
+  padding: 0;
+}
+
+.team__member {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.team__head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+/* Monogram until there is a photo: navy tile, white initials, the teal corner of the logo. */
+.team__monogram,
+.team__photo {
+  position: relative;
+  flex-shrink: 0;
+  inline-size: var(--space-8);
+  block-size: var(--space-8);
+  border-radius: var(--radius-md);
+}
+
+.team__monogram {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  letter-spacing: var(--tracking-normal);
+  user-select: none;
+}
+
+.team__monogram::after {
+  content: '';
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  inline-size: var(--space-4);
+  block-size: var(--space-4);
+  border-end-start-radius: var(--radius-sm);
+  background-color: var(--color-accent);
+}
+
+.team__photo {
+  object-fit: cover;
+  background-color: var(--color-bg);
+}
+
+.team__id {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.team__name {
+  font-size: var(--text-lg);
+}
+
+.team__role {
+  color: var(--color-accent-text);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-normal);
+}
+
+.team__bio {
+  max-inline-size: var(--measure-sm);
+  color: var(--color-text-muted);
+  line-height: var(--leading-normal);
+}
+
+/* ---------- Tablet ---------- */
+@media (min-width: 48em) {
+  .intro__title {
+    font-size: var(--text-4xl);
+  }
+
+  .purpose {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-8);
+  }
+
+  .values__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-7) var(--space-6);
+  }
+}
+
+/* ---------- Desktop ---------- */
+@media (min-width: 64em) {
+  .intro {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+    gap: var(--space-8);
+    align-items: end;
+  }
+
+  .values {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    gap: var(--space-8);
+    align-items: start;
+  }
+
+  .team__list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-6);
+  }
+
+  /* Desktop: the tile above the name, larger, ready for a portrait photo. */
+  .team__head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .team__monogram,
+  .team__photo {
+    inline-size: var(--space-9);
+    block-size: var(--space-9);
+    border-radius: var(--radius-lg);
+  }
+
+  .team__monogram {
+    font-size: var(--text-xl);
+  }
+
+  .team__monogram::after {
+    inline-size: var(--space-5);
+    block-size: var(--space-5);
+    border-end-start-radius: var(--radius-md);
+  }
+}

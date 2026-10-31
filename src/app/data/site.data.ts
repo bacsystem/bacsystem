@@ -25,7 +25,7 @@ export interface ProductItem {
   taglineKey: string;
 }
 
-/** One stage of how we work, shown in the home hero. */
+/** One stage of how we work (shared process section on Home and Nosotros). */
 export interface ProcessStep {
   id: 'understand' | 'design' | 'build' | 'maintain';
   titleKey: string;
@@ -100,4 +100,70 @@ export const STATS: StatItem[] = [
   { id: 'projects', value: 45, suffix: '+', labelKey: 'application.home.stats.projects', example: true },
   { id: 'clients', value: 20, suffix: '+', labelKey: 'application.home.stats.clients', example: true },
   { id: 'support', value: 24, suffix: '/7', labelKey: 'application.home.stats.support', example: true, animate: false },
+];
+
+/* ---------- Nosotros (/nosotros) ---------- */
+
+/** Mission or vision: a label and one statement. */
+export interface PurposeItem {
+  id: 'mission' | 'vision';
+  labelKey: string;
+  textKey: string;
+}
+
+/** One company value and what it means in practice (one sentence). */
+export interface ValueItem {
+  id: 'innovation' | 'integrity' | 'commitment' | 'client' | 'teamwork' | 'quality';
+  titleKey: string;
+  textKey: string;
+}
+
+/** A team member. Names are proper nouns (never translated); role and bio are i18n keys. */
+export interface TeamMember {
+  id: string;
+  name: string;
+  roleKey: string;
+  bioKey: string;
+  /** Shown on the monogram tile while there is no photo. */
+  initials: string;
+  /** Path under /assets; when set, the photo replaces the monogram. */
+  photo?: string;
+}
+
+const ABOUT = 'application.aboutPage';
+
+export const PURPOSE: PurposeItem[] = [
+  { id: 'mission', labelKey: `${ABOUT}.mission.label`, textKey: `${ABOUT}.mission.text` },
+  { id: 'vision', labelKey: `${ABOUT}.vision.label`, textKey: `${ABOUT}.vision.text` },
+];
+
+const value = (id: ValueItem['id']): ValueItem => ({
+  id,
+  titleKey: `${ABOUT}.values.items.${id}.title`,
+  textKey: `${ABOUT}.values.items.${id}.text`,
+});
+
+export const VALUES: ValueItem[] = [
+  value('innovation'),
+  value('integrity'),
+  value('commitment'),
+  value('client'),
+  value('teamwork'),
+  value('quality'),
+];
+
+const member = (id: string, name: string, initials: string): TeamMember => ({
+  id,
+  name,
+  initials,
+  roleKey: `${ABOUT}.team.members.${id}.role`,
+  bioKey: `${ABOUT}.team.members.${id}.bio`,
+});
+
+// EJEMPLO: sin fotos todavía; cada tarjeta muestra un monograma. Para usar una foto real,
+// agregar `photo: '/assets/img/team/<archivo>.jpg'` al integrante (reemplaza el monograma).
+export const TEAM: TeamMember[] = [
+  member('christian', 'Christian Bacilio', 'CB'),
+  member('jose', 'José Bacilio', 'JB'),
+  member('faustina', 'Faustina Del Rosario', 'FD'),
 ];

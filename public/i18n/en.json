@@ -58,8 +58,8 @@
           "description": "sophIA is the Bacsystem AI assistant: ask in your own words and get your company's information and work with it, without opening file after file."
         },
         "about": {
-          "title": "About us | Custom software team in Lima",
-          "description": "We are the Lima team that designs, builds and maintains custom software. You talk directly to the people who code your system, before and after launch."
+          "title": "About us: mission, values and team | Bacsystem Solutions",
+          "description": "Meet the Bacsystem Solutions team in Lima: our mission, vision and values, and the people who design, build and maintain your custom software."
         }
       },
       "comingSoon": {
@@ -67,8 +67,7 @@
           "services": "Services",
           "products": "Products",
           "operaai": "OperaAI",
-          "sophia": "sophIA",
-          "about": "About us"
+          "sophia": "sophIA"
         },
         "title": "Coming soon",
         "text": "We're finishing this section. In the meantime, reach us from the Contact page and tell us what you need to solve.",
@@ -172,31 +171,80 @@
         "or": "or email us at"
       }
     },
-    "about": {
-      "title": "About Us",
-      "description": "Explore our innovative journey, disruptive vision, and how we co-create technology solutions that redefine industries.",
-      "subject": "Building the Future with Our Clients",
-      "reference": "We are the strategic complement to our clients, providing technological and corporate solutions that drive their growth and strengthen their competitiveness.",
-      "button": "About Us",
-      "years": "Years of experience",
-      "stat_clients": "Active clients",
-      "stat_projects": "Projects delivered",
-      "cards": {
-        "item1": {
-          "label": "Mission",
-          "description": "Create innovative and quality technological solutions that improve client processes and foster their growth."
-        },
-        "item2": {
-          "label": "Vision",
-          "description": "To be leaders in digital transformation and software development, standing out for excellence and scalable solutions."
-        },
-        "item3": {
-          "label": "Values",
-          "description": "Innovation, Commitment, Education and Quality"
-        },
-        "item4": {
-          "label": "Teams",
-          "description": "We are a dedicated team of skilled professionals committed to delivering exceptional results."
+    "aboutPage": {
+      "intro": {
+        "eyebrow": "About us",
+        "title": "Your company’s complement",
+        "lead": "We are the strategic complement to our clients, providing technological and corporate solutions that drive their growth and strengthen their competitiveness.",
+        "facts": {
+          "place": {
+            "label": "Where we are",
+            "value": "Lima, Peru"
+          },
+          "work": {
+            "label": "What we do",
+            "value": "Custom software, technology consulting and digital transformation"
+          },
+          "people": {
+            "label": "Who you talk to",
+            "value": "The people who design and code your system"
+          }
+        }
+      },
+      "mission": {
+        "label": "Mission",
+        "text": "To build software and guide technology decisions that make our clients’ daily work simpler and more profitable."
+      },
+      "vision": {
+        "label": "Vision",
+        "text": "To be the technology team companies in Peru call first when they need to grow, without having to build an IT department of their own."
+      },
+      "values": {
+        "title": "Our values",
+        "subtitle": "What they mean when we work with you.",
+        "items": {
+          "innovation": {
+            "title": "Innovation",
+            "text": "We use new technology when it solves your problem better than the familiar option, not because it is fashionable."
+          },
+          "integrity": {
+            "title": "Integrity",
+            "text": "We tell you what is right for you, even if it means building less."
+          },
+          "commitment": {
+            "title": "Commitment",
+            "text": "When we agree on a date or a scope, we keep it; if something changes, you hear it from us first."
+          },
+          "client": {
+            "title": "Client focus",
+            "text": "We design around how your team works, not around what is convenient for us to code."
+          },
+          "teamwork": {
+            "title": "Teamwork",
+            "text": "Design, development and support work together from day one, with you at the table."
+          },
+          "quality": {
+            "title": "Quality",
+            "text": "We test every delivery before you use it, and keep looking after it afterwards."
+          }
+        }
+      },
+      "team": {
+        "title": "The team",
+        "subtitle": "You talk directly to the people who run and build your project, with no middlemen.",
+        "members": {
+          "christian": {
+            "role": "CEO and co-founder",
+            "bio": "Runs the company and works with every client from the first conversation: understands the problem, sets the scope and makes sure what we deliver solves what was agreed."
+          },
+          "jose": {
+            "role": "Lead Developer",
+            "bio": "Leads development: shapes the architecture of each system, reviews the team’s code and answers for it running well in production."
+          },
+          "faustina": {
+            "role": "CMO",
+            "bio": "Leads Bacsystem’s marketing and communication: how we present our services and products, and how they reach the companies that need them."
+          }
         }
       }
     },
@@ -374,27 +422,6 @@
               "f3": "24/7 monitoring and alerts"
             }
           }
-        }
-      }
-    },
-    "team": {
-      "title": "Our Team",
-      "description": "Meet the passionate professionals who make our clients' digital transformation possible.",
-      "members": {
-        "member1": {
-          "name": "Christian Bacilio",
-          "role": "CEO & Co-Founder",
-          "bio": "Strategic leader with vision in digital transformation and technological innovation."
-        },
-        "member2": {
-          "name": "José Bacilio",
-          "role": "Lead Developer",
-          "bio": "Full-stack developer specialized in scalable solutions and distributed systems."
-        },
-        "member3": {
-          "name": "Faustina Del Rosario",
-          "role": "CMO & Marketing",
-          "bio": "Marketing strategist specialized in digital growth, brand positioning and client acquisition."
         }
       }
     }
