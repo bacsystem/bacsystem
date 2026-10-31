@@ -1,5 +1,42 @@
 {
   "application": {
+    "site": {
+      "seo": {
+        "home": {
+          "title": "Bacsystem Solutions | Custom software, AI and cloud from Lima",
+          "description": "We build custom software for businesses: web, mobile and artificial intelligence. Also consulting, optimization and cloud. Based in Lima, Peru."
+        },
+        "contact": {
+          "title": "Contact | Bacsystem Solutions",
+          "description": "Tell us what you need and we will reply within one business day. Write to us or book a call with the Bacsystem team in Lima."
+        },
+        "services": {
+          "title": "Services | Bacsystem Solutions",
+          "description": "Custom software development, mobile apps, artificial intelligence, consulting, systems optimization and cloud."
+        },
+        "products": {
+          "title": "Products | Bacsystem Solutions",
+          "description": "Meet OperaAI and sophIA, Bacsystem products that automate invoicing and operations for your business."
+        },
+        "operaai": {
+          "title": "OperaAI | Automation and invoicing for SMEs",
+          "description": "OperaAI automates invoicing and repetitive tasks for your SME so your team can spend its time selling and serving customers."
+        },
+        "sophia": {
+          "title": "sophIA | Bacsystem AI assistant",
+          "description": "sophIA is the Bacsystem AI assistant that answers your customers and supports your team."
+        },
+        "about": {
+          "title": "About us | Bacsystem Solutions",
+          "description": "We are a team of engineers in Lima building custom software and supporting companies after delivery."
+        }
+      },
+      "comingSoon": {
+        "title": "Coming soon",
+        "text": "We are still working on this page. In the meantime, you can go back home or reach us from the contact page.",
+        "backHome": "Back to home"
+      }
+    },
     "title": "hello demo",
     "start": "Get Started",
     "menu": {

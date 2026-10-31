@@ -1,5 +1,42 @@
 {
   "application": {
+    "site": {
+      "seo": {
+        "home": {
+          "title": "Bacsystem Solutions | Software a medida, IA y nube en Lima",
+          "description": "Desarrollamos software a medida para empresas: web, móvil e inteligencia artificial. También consultoría, optimización y nube. Desde Lima, Perú."
+        },
+        "contact": {
+          "title": "Contacto | Bacsystem Solutions",
+          "description": "Cuéntanos qué necesitas y te respondemos en un día hábil. Escríbenos o agenda una llamada con el equipo de Bacsystem en Lima."
+        },
+        "services": {
+          "title": "Servicios | Bacsystem Solutions",
+          "description": "Desarrollo de software a medida, aplicaciones móviles, inteligencia artificial, consultoría, optimización de sistemas y nube."
+        },
+        "products": {
+          "title": "Productos | Bacsystem Solutions",
+          "description": "Conoce OperaAI y sophIA, los productos de Bacsystem para automatizar la facturación y la operación de tu empresa."
+        },
+        "operaai": {
+          "title": "OperaAI | Automatización y facturación para pymes",
+          "description": "OperaAI automatiza la facturación y las tareas repetitivas de tu pyme para que tu equipo dedique su tiempo a vender y atender."
+        },
+        "sophia": {
+          "title": "sophIA | Asistente de IA de Bacsystem",
+          "description": "sophIA es el asistente de inteligencia artificial de Bacsystem que responde a tus clientes y apoya a tu equipo."
+        },
+        "about": {
+          "title": "Nosotros | Bacsystem Solutions",
+          "description": "Somos un equipo de ingenieros en Lima que construye software a medida y acompaña a las empresas después de entregarlo."
+        }
+      },
+      "comingSoon": {
+        "title": "En preparación",
+        "text": "Estamos terminando esta página. Mientras tanto, puedes volver al inicio o escribirnos desde la página de contacto.",
+        "backHome": "Volver al inicio"
+      }
+    },
     "title": "hello demo",
     "start": "Empezar",
     "menu": {

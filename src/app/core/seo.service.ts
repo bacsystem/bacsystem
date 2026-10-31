@@ -1,12 +1,21 @@
 import { inject, Injectable } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { DOCUMENT } from '@angular/common';
+import { ActivatedRouteSnapshot, NavigationEnd, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { take } from 'rxjs/operators';
+import { filter } from 'rxjs/operators';
 
-/** Canonical base URL — update when custom domain is configured */
+/** Canonical base URL */
 const SITE_URL = 'https://bacsystemsolutions.com';
-const OG_IMAGE = `${SITE_URL}/assets/img/bacsystem/og-cover.png`;
+// EJEMPLO: reemplazar por og-cover.png real
+const OG_IMAGE = `${SITE_URL}/assets/img/bacsystem/Logo_BACSYSTEM-[Color-Horizontal].png`;
+
+export interface SeoRouteData {
+  titleKey: string;
+  descriptionKey: string;
+  /** Default true */
+  indexable?: boolean;
+}
 
 @Injectable({ providedIn: 'root' })
 export class SeoService {
@@ -14,48 +23,75 @@ export class SeoService {
   private readonly meta         = inject(Meta);
   private readonly document     = inject(DOCUMENT);
   private readonly translate    = inject(TranslateService);
+  private readonly router       = inject(Router);
 
-  /** Re-apply all SEO tags for the currently active language.
-   *  Call once on app init and after every language change. */
-  update(): void {
-    const lang   = this.translate.currentLang ?? 'en';
-    const locale = lang === 'es' ? 'es_PE' : 'en_US';
+  private current: { seo: SeoRouteData; path: string } | null = null;
+  private started = false;
 
-    this.translate
-      .get(['application.seo.title', 'application.seo.description', 'application.seo.keywords'])
-      .pipe(take(1))
-      .subscribe(t => {
-        const title = t['application.seo.title'];
-        const desc  = t['application.seo.description'];
-        const keys  = t['application.seo.keywords'];
+  /** Subscribes to navigation and language changes and re-applies SEO tags. */
+  init(): void {
+    if (this.started) return;
+    this.started = true;
 
-        // ── Basic ────────────────────────────────────────────
-        this.titleService.setTitle(title);
-        this.meta.updateTag({ name: 'description', content: desc });
-        this.meta.updateTag({ name: 'keywords',    content: keys });
-        this.meta.updateTag({ name: 'robots',      content: 'index, follow' });
-
-        // ── Open Graph ───────────────────────────────────────
-        this.meta.updateTag({ property: 'og:type',        content: 'website'             });
-        this.meta.updateTag({ property: 'og:site_name',   content: 'Bacsystem Solutions' });
-        this.meta.updateTag({ property: 'og:url',         content: SITE_URL              });
-        this.meta.updateTag({ property: 'og:title',       content: title                 });
-        this.meta.updateTag({ property: 'og:description', content: desc                  });
-        this.meta.updateTag({ property: 'og:image',       content: OG_IMAGE              });
-        this.meta.updateTag({ property: 'og:locale',      content: locale                });
-
-        // ── Twitter Card ─────────────────────────────────────
-        this.meta.updateTag({ name: 'twitter:card',        content: 'summary_large_image' });
-        this.meta.updateTag({ name: 'twitter:title',       content: title                 });
-        this.meta.updateTag({ name: 'twitter:description', content: desc                  });
-        this.meta.updateTag({ name: 'twitter:image',       content: OG_IMAGE              });
-
-        // ── html[lang] ───────────────────────────────────────
-        this.document.documentElement.setAttribute('lang', lang);
-
-        // ── Canonical ────────────────────────────────────────
-        this.setCanonical(SITE_URL);
+    this.router.events
+      .pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd))
+      .subscribe(e => {
+        const seo = this.deepest(this.router.routerState.snapshot.root).data['seo'] as SeoRouteData | undefined;
+        if (!seo) return;
+        this.current = { seo, path: e.urlAfterRedirects };
+        this.apply(seo, e.urlAfterRedirects);
       });
+
+    this.translate.onLangChange.subscribe(() => {
+      if (this.current) this.apply(this.current.seo, this.current.path);
+    });
+  }
+
+  /** @deprecated Legacy callers (src/app/public, removed in Task 11); SEO is now route-driven. */
+  update(): void {
+    if (this.current) this.apply(this.current.seo, this.current.path);
+  }
+
+  apply(seo: SeoRouteData, path: string): void {
+    const lang   = this.translate.currentLang || this.translate.defaultLang || 'es';
+    const locale = lang === 'es' ? 'es_PE' : 'en_US';
+    const t      = this.translate.instant([seo.titleKey, seo.descriptionKey]) as Record<string, string>;
+    const title  = t[seo.titleKey];
+    const desc   = t[seo.descriptionKey];
+    const url    = SITE_URL + this.normalize(path);
+    const robots = seo.indexable === false ? 'noindex, nofollow' : 'index, follow';
+
+    this.titleService.setTitle(title);
+    this.meta.updateTag({ name: 'description', content: desc });
+    this.meta.updateTag({ name: 'robots',      content: robots });
+
+    this.meta.updateTag({ property: 'og:type',        content: 'website'             });
+    this.meta.updateTag({ property: 'og:site_name',   content: 'Bacsystem Solutions' });
+    this.meta.updateTag({ property: 'og:url',         content: url                   });
+    this.meta.updateTag({ property: 'og:title',       content: title                 });
+    this.meta.updateTag({ property: 'og:description', content: desc                  });
+    this.meta.updateTag({ property: 'og:image',       content: OG_IMAGE              });
+    this.meta.updateTag({ property: 'og:locale',      content: locale                });
+
+    this.meta.updateTag({ name: 'twitter:card',        content: 'summary_large_image' });
+    this.meta.updateTag({ name: 'twitter:title',       content: title                 });
+    this.meta.updateTag({ name: 'twitter:description', content: desc                  });
+    this.meta.updateTag({ name: 'twitter:image',       content: OG_IMAGE              });
+
+    this.document.documentElement.setAttribute('lang', lang);
+    this.setCanonical(url);
+  }
+
+  private deepest(route: ActivatedRouteSnapshot): ActivatedRouteSnapshot {
+    let r = route;
+    while (r.firstChild) r = r.firstChild;
+    return r;
+  }
+
+  private normalize(path: string): string {
+    const clean = path.split(/[?#]/)[0].replace(/\/+$/, '');
+    if (!clean) return '/';
+    return clean.startsWith('/') ? clean : `/${clean}`;
   }
 
   private setCanonical(url: string): void {

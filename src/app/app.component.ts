@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {RouterModule} from '@angular/router';
 import {TranslateModule} from '@ngx-translate/core';
-import * as AOS from 'aos';
+import {SeoService} from './core/seo.service';
 
 @Component({
   selector: 'app-root',
@@ -15,14 +15,11 @@ import * as AOS from 'aos';
 })
 export class AppComponent implements OnInit {
 
+  private readonly seoService = inject(SeoService);
+
   title = 'bacsystem';
 
   ngOnInit(): void {
-    AOS.init({
-      duration: 800,
-      easing: 'ease-out-cubic',
-      once: true,
-      offset: 100
-    });
+    this.seoService.init();
   }
 }
