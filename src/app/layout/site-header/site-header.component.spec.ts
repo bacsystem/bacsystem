@@ -55,6 +55,21 @@ describe('SiteHeaderComponent', () => {
     expect(toggle().getAttribute('aria-expanded')).toBe('false');
   });
 
+  it('makes the page behind the open menu inert and focuses the first menu link', fakeAsync(() => {
+    const main = document.createElement('main');
+    document.body.append(main, el);
+    toggle().click();
+    fixture.detectChanges();
+    tick();
+    expect(main.hasAttribute('inert')).toBeTrue();
+    expect(document.activeElement).toBe(el.querySelector('.site-nav__link'));
+    toggle().click();
+    fixture.detectChanges();
+    expect(main.hasAttribute('inert')).toBeFalse();
+    main.remove();
+    el.remove();
+  }));
+
   it('Escape closes the open menu', () => {
     toggle().click();
     fixture.detectChanges();

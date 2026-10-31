@@ -1,3 +1,4 @@
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -5,6 +6,8 @@ import {
   ElementRef,
   HostListener,
   OnInit,
+  PLATFORM_ID,
+  effect,
   inject,
   signal,
   viewChild,
@@ -32,8 +35,25 @@ export class SiteHeaderComponent implements OnInit {
   protected readonly theme = inject(ThemeService);
   private readonly language = inject(LanguageService);
   private readonly toggleButton = viewChild<ElementRef<HTMLButtonElement>>('toggle');
+  private readonly host = inject<ElementRef<HTMLElement>>(ElementRef).nativeElement;
+  private readonly document = inject(DOCUMENT);
 
   constructor() {
+    // Open menu = the only thing on screen: the page behind it goes inert (no focus, no screen reader)
+    // and focus moves to the first link, so Tab walks the menu instead of the hidden page.
+    if (isPlatformBrowser(inject(PLATFORM_ID))) {
+      effect(() => {
+        const open = this.menuOpen();
+        this.document.querySelectorAll<HTMLElement>('main, app-site-footer').forEach(el => el.toggleAttribute('inert', open));
+        if (open) setTimeout(() => this.host.querySelector<HTMLElement>('.site-nav__link')?.focus());
+      });
+      // Growing past the menu breakpoint (desktop nav) closes it, so the page never stays inert.
+      const desktop = this.document.defaultView?.matchMedia?.('(min-width: 64em)');
+      const close = (e: MediaQueryListEvent) => e.matches && this.menuOpen.set(false);
+      desktop?.addEventListener('change', close);
+      inject(DestroyRef).onDestroy(() => desktop?.removeEventListener('change', close));
+    }
+
     inject(Router)
       .events.pipe(
         filter(e => e instanceof NavigationEnd),
