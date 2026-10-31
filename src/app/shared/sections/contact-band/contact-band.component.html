@@ -1,12 +1,12 @@
 <ui-section sectionId="contacto" tone="primary">
   <div class="contact" [appRevealGroup]="reveal">
     <div class="contact__copy">
-      <h2 class="contact__title" [attr.aria-label]="'application.home.contact.title' | translate">@for (word of 'application.home.contact.title' | translate | words; track $index) {<span class="ui-word" aria-hidden="true">{{ word }}</span>&ngsp;}</h2>
-      <p class="contact__subtitle">{{ 'application.home.contact.subtitle' | translate }}</p>
+      <h2 class="contact__title" [attr.aria-label]="titleKey() | translate">@for (word of titleKey() | translate | words; track $index) {<span class="ui-word" aria-hidden="true">{{ word }}</span>&ngsp;}</h2>
+      <p class="contact__subtitle">{{ subtitleKey() | translate }}</p>
     </div>
     <div class="contact__actions">
       <a ui-button size="lg" class="contact__cta" routerLink="/contacto">
-        {{ 'application.home.contact.cta' | translate }}
+        {{ ctaKey() | translate }}
         <ui-icon name="arrow-right" size="sm" />
       </a>
     </div>

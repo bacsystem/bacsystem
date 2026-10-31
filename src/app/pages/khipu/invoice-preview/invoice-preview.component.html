@@ -1,0 +1,53 @@
+<!-- EJEMPLO: ilustración, no captura; reemplazar por captura real del portal de khipu cuando exista -->
+<div class="preview is-accepted" role="img" [attr.aria-label]="'application.khipuPage.preview.label' | translate">
+  <div class="invoice" aria-hidden="true">
+    <div class="invoice__head">
+      <div>
+        <p class="invoice__kind">{{ 'application.khipuPage.preview.kind' | translate }}</p>
+        <p class="invoice__number">F001-000219</p>
+      </div>
+      <span class="pill">
+        <span class="pill__sent">{{ 'application.khipuPage.preview.sent' | translate }}</span>
+        <span class="pill__accepted">{{ 'application.khipuPage.preview.accepted' | translate }}</span>
+      </span>
+    </div>
+
+    <div class="invoice__party">
+      <p class="invoice__client">Cliente Ejemplo S.A.C.</p>
+      <p class="invoice__ruc">RUC 20123456786</p>
+    </div>
+
+    <ul class="invoice__lines" role="list">
+      @for (line of lines; track line.description) {
+        <li class="invoice__line">
+          <span>{{ line.description }}</span>
+          <span class="invoice__num">{{ line.amount }}</span>
+        </li>
+      }
+    </ul>
+
+    <dl class="invoice__totals">
+      <div class="invoice__line">
+        <dt>{{ 'application.khipuPage.preview.subtotal' | translate }}</dt>
+        <dd class="invoice__num">S/ 2,000.00</dd>
+      </div>
+      <div class="invoice__line">
+        <dt>{{ 'application.khipuPage.preview.tax' | translate }}</dt>
+        <dd class="invoice__num">S/ 360.00</dd>
+      </div>
+      <div class="invoice__line invoice__line--total">
+        <dt>{{ 'application.khipuPage.preview.total' | translate }}</dt>
+        <dd class="invoice__num">S/ 2,360.00</dd>
+      </div>
+    </dl>
+  </div>
+
+  <ol class="flow" role="list" aria-hidden="true">
+    @for (step of steps; track step) {
+      <li class="flow__step is-done">
+        <span class="flow__dot"><ui-icon name="check2-circle" size="sm" /></span>
+        <span class="flow__label">{{ 'application.khipuPage.preview.steps.' + step | translate }}</span>
+      </li>
+    }
+  </ol>
+</div>

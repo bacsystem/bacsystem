@@ -1,11 +1,6 @@
 import { isDevMode } from '@angular/core';
 import { Route, Routes } from '@angular/router';
-import { SeoRouteData } from './core/seo.service';
 
-const soon = (key: string): { seo: SeoRouteData; headingKey: string } => ({
-  seo: { titleKey: `application.site.seo.${key}.title`, descriptionKey: `application.site.seo.${key}.description`, indexable: false },
-  headingKey: `application.site.comingSoon.headings.${key}`,
-});
 // Internal UI reference: only registered in development builds.
 const devOnly: Route[] = isDevMode()
   ? [
@@ -16,8 +11,6 @@ const devOnly: Route[] = isDevMode()
       },
     ]
   : [];
-
-const comingSoon = () => import('./pages/coming-soon/coming-soon.page').then(m => m.ComingSoonPageComponent);
 
 export const routes: Routes = [
   {
@@ -45,9 +38,13 @@ export const routes: Routes = [
         loadComponent: () => import('./pages/services/services.page').then(m => m.ServicesPageComponent),
         data: { seo: { titleKey: 'application.site.seo.services.title', descriptionKey: 'application.site.seo.services.description', indexable: true } },
       },
-      { path: 'productos', loadComponent: comingSoon, data: soon('products') },
-      { path: 'productos/operaai', loadComponent: comingSoon, data: soon('operaai') },
-      { path: 'productos/sophia', loadComponent: comingSoon, data: soon('sophia') },
+      // khipu is the only product for now: /productos goes straight to it (public/_redirects does the same for direct hits).
+      { path: 'productos', pathMatch: 'full', redirectTo: 'productos/khipu' },
+      {
+        path: 'productos/khipu',
+        loadComponent: () => import('./pages/khipu/khipu.page').then(m => m.KhipuPageComponent),
+        data: { seo: { titleKey: 'application.site.seo.khipu.title', descriptionKey: 'application.site.seo.khipu.description', indexable: true } },
+      },
       ...devOnly,
       { path: '**', redirectTo: '' },
     ],

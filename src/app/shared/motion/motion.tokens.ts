@@ -82,3 +82,9 @@ export const MARK = {
     times: [0, 0.14, 0.45, 0.72, 1],
   },
 } as const;
+
+/**
+ * khipu invoice illustration (seconds): the send steps light up one by one, then the status turns
+ * to accepted; after a rest the cycle starts again with a new send.
+ */
+export const INVOICE = { start: 0.6, step: 0.6, accept: 0.35, rest: 4.5, reset: 0.6 } as const;

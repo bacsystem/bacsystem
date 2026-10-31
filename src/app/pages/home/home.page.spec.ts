@@ -128,8 +128,9 @@ describe('HomePageComponent', () => {
     const section = el.querySelector('#productos') as HTMLElement;
     const items = section.querySelectorAll('.products__item');
     expect(items.length).toBe(PRODUCTS.length);
-    expect(section.textContent).toContain('OperaAI');
-    expect(section.textContent).toContain('sophIA');
+    expect(section.textContent).toContain('khipu');
+    expect(section.textContent).not.toMatch(/OperaAI|sophIA/);
+    expect(section.querySelector('.products__logo--monogram')?.textContent?.trim()).toBe('k');
     for (const product of PRODUCTS) {
       expect(section.querySelector(`a[href="${product.route}"]`)).toBeTruthy();
     }

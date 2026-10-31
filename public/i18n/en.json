@@ -45,32 +45,14 @@
           "title": "Software and consulting services | Bacsystem Solutions",
           "description": "Web and mobile development, technology consulting, digital transformation, systems optimization and cloud migration for companies in Lima, Peru."
         },
-        "products": {
-          "title": "Products: OperaAI and sophIA | Bacsystem Solutions",
-          "description": "OperaAI automates tasks and electronic invoicing connected to SUNAT. sophIA helps you query and work with your company's information. Built by Bacsystem."
-        },
-        "operaai": {
-          "title": "OperaAI | Automation and electronic invoicing",
-          "description": "OperaAI automates repetitive tasks and handles electronic invoicing connected to SUNAT through an authorized OSE. Less manual work for your whole team."
-        },
-        "sophia": {
-          "title": "sophIA | AI assistant for your company",
-          "description": "sophIA is the Bacsystem AI assistant: ask in your own words and get your company's information and work with it, without opening file after file."
-        },
         "about": {
           "title": "About us: mission, values and team | Bacsystem Solutions",
           "description": "Meet the Bacsystem Solutions team in Lima: our mission, vision and values, and the people who design, build and maintain your custom software."
-        }
-      },
-      "comingSoon": {
-        "headings": {
-          "products": "Products",
-          "operaai": "OperaAI",
-          "sophia": "sophIA"
         },
-        "title": "Coming soon",
-        "text": "We're finishing this section. In the meantime, reach us from the Contact page and tell us what you need to solve.",
-        "backHome": "Back to home"
+        "khipu": {
+          "title": "khipu: SUNAT e-invoicing | Bacsystem Solutions",
+          "description": "khipu is Bacsystem's electronic invoicing platform: issue invoices, receipts and notes from a web portal or through an API, with digital signature, sending to SUNAT and stored receipts."
+        }
       },
       "contactPage": {
         "eyebrow": "Contact",
@@ -150,13 +132,9 @@
         "title": "Our own products",
         "subtitle": "Besides custom projects, we turn what we learn into tools for problems many companies share.",
         "cta": "Explore the product",
-        "operaai": {
-          "name": "OperaAI",
-          "tagline": "Automates repetitive tasks and handles your electronic invoicing, connected to SUNAT through an authorized OSE."
-        },
-        "sophia": {
-          "name": "sophIA",
-          "tagline": "Ask in your own words and get your company's information, without opening file after file."
+        "khipu": {
+          "name": "khipu",
+          "tagline": "Issue electronic invoices and receipts from a web portal or from your own system, with SUNAT's receipt stored for each one."
         }
       },
       "stats": {
@@ -335,152 +313,120 @@
         }
       }
     },
-    "products": {
-      "title": "Products",
-      "description": "Discover our technology products organized by solution area",
-      "flowsync": {
-        "title": "FlowSync",
-        "description": "Cloud workflow automation platform that connects your team, tasks and tools in a single collaborative space.",
-        "f1": "Visual drag-and-drop workflow builder",
-        "f2": "Real-time team collaboration",
-        "f3": "Integration with 200+ business tools"
+    "khipuPage": {
+      "intro": {
+        "eyebrow": "Product · E-invoicing",
+        "title": "khipu",
+        "tagline": "Electronic invoicing for SUNAT, from a web portal or connected to your system.",
+        "lead": "You record the sale; khipu calculates the totals, builds the XML in SUNAT's format, signs it with your digital certificate and sends it. You get the acceptance receipt and the PDF for your customer.",
+        "status": "Invitation-only beta",
+        "cta": "Request access",
+        "secondary": "See how it works"
       },
-      "operaai": {
-        "tagline": "Intelligent automation platform for modern businesses",
-        "cta": "Discover OperaAI",
-        "description": "OperaAI is an enterprise Cloud SaaS platform that combines artificial intelligence, process automation and real-time analytics to transform the way your organization operates. Designed to scale with your business, from startup to enterprise.",
-        "f1": {
-          "title": "AI-Powered Engine",
-          "desc": "Built-in machine learning models that adapt and improve with your business data automatically."
-        },
-        "f2": {
-          "title": "Real-time Analytics",
-          "desc": "Live dashboards and reports with actionable insights to drive smarter business decisions."
-        },
-        "f3": {
-          "title": "Enterprise Security",
-          "desc": "End-to-end encryption, role-based access control and full compliance with SOC 2 & GDPR."
-        },
-        "f4": {
-          "title": "API-first Integration",
-          "desc": "Seamlessly connects with your existing tools via REST API, webhooks and 100+ native integrations."
+      "preview": {
+        "label": "Example of an invoice issued with khipu, with the steps of sending it to SUNAT",
+        "kind": "Electronic invoice",
+        "sent": "Sent",
+        "accepted": "Accepted by SUNAT",
+        "subtotal": "Taxable sales",
+        "tax": "IGV 18 %",
+        "total": "Total amount",
+        "steps": {
+          "totals": "Totals calculated",
+          "signed": "XML signed",
+          "sent": "Sent to SUNAT",
+          "cdr": "Receipt received"
         }
       },
-      "sophia": {
-        "tagline": "Facial recognition and AI for enterprise security",
-        "cta": "Discover Sophia Smart",
-        "description": "Sophia Smart is an AI-powered facial recognition platform enabling biometric access control, identity verification and real-time analysis. Intelligent security for businesses that need next-generation protection.",
-        "f1": {
-          "title": "Facial Recognition",
-          "desc": "Real-time face detection and verification with 99.5%+ accuracy using deep learning models."
+      "how": {
+        "title": "How it works",
+        "subtitle": "Setup happens once. After that, issuing is a single step.",
+        "when": {
+          "once": "Just once",
+          "each": "For every document"
         },
-        "f2": {
-          "title": "Access Control",
-          "desc": "Biometric access management with automatic logging, instant alerts and detailed reports."
-        },
-        "f3": {
-          "title": "Smart Analytics",
-          "desc": "Dashboards with security metrics, access patterns and real-time anomaly detection."
-        },
-        "f4": {
-          "title": "Full Integration",
-          "desc": "Compatible with IP cameras, turnstiles, smart locks and existing security systems."
-        }
-      },
-      "sophia_ia": {
-        "tagline": "Autonomous AI-powered software generation system",
-        "cta": "Discover sophIA",
-        "status": "Under Construction",
-        "description": "sophIA is an autonomous software generation system that orchestrates specialized AI agents to generate code layer by layer. Powered by Claude Code with Tool Use, sophIA transforms requirements into functional software with minimal human intervention.",
-        "f1": {
-          "title": "Agent Orchestration",
-          "desc": "Multiple coordinated specialized agents generating code by layers: models, services, controllers and UI."
-        },
-        "f2": {
-          "title": "Claude Code + Tool Use",
-          "desc": "Generation engine powered by Claude with the ability to execute tools, validate and self-correct code in real time."
-        },
-        "f3": {
-          "title": "Layer-by-Layer Generation",
-          "desc": "Layered architecture producing clean, modular, production-ready code following best practices."
-        },
-        "f4": {
-          "title": "Intelligent Autonomy",
-          "desc": "Autonomous decision-making with human validation checkpoints at critical pipeline stages."
-        }
-      },
-      "categories": {
-        "web": {
-          "title": "Web Solutions",
-          "items": {
-            "ecommerce": {
-              "title": "E-commerce Platform",
-              "description": "Complete online store with shopping cart, payment gateways and administration panel.",
-              "f1": "Integration with multiple payment gateways",
-              "f2": "Real-time inventory management",
-              "f3": "Intuitive admin panel"
-            },
-            "erp": {
-              "title": "Enterprise ERP System",
-              "description": "Comprehensive business management platform with customizable modules.",
-              "f1": "HR, finance and sales modules",
-              "f2": "Reports and analytical dashboard",
-              "f3": "Integration with existing systems"
-            },
-            "analytics": {
-              "title": "Analytics Portal",
-              "description": "Data analysis tool with interactive real-time visualizations.",
-              "f1": "Configurable dashboards",
-              "f2": "Export in multiple formats",
-              "f3": "Automatic KPI alerts"
-            }
-          }
-        },
-        "mobile": {
-          "title": "Mobile Solutions",
-          "items": {
-            "delivery": {
-              "title": "Delivery App",
-              "description": "Mobile application for home deliveries with GPS tracking and notifications.",
-              "f1": "Real-time GPS tracking",
-              "f2": "Automatic push notifications",
-              "f3": "Delivery driver management"
-            },
-            "health": {
-              "title": "Health App",
-              "description": "Mobile application for medical tracking, appointments and medication reminders.",
-              "f1": "Digital medical history",
-              "f2": "Medication reminders",
-              "f3": "Online appointment scheduling"
-            }
-          }
-        },
-        "ai": {
-          "title": "AI & Security",
-          "items": {
-            "sophia": {
-              "title": "Sophia Smart",
-              "description": "Advanced facial recognition system with artificial intelligence for access control and identity verification.",
-              "f1": "Real-time facial recognition",
-              "f2": "Biometric access control",
-              "f3": "Access reports and analytics"
-            },
-            "cybersecurity": {
-              "title": "Advanced Cybersecurity",
-              "description": "Comprehensive security solution with continuous monitoring, encryption and threat detection.",
-              "f1": "24/7 threat monitoring",
-              "f2": "Advanced data encryption",
-              "f3": "Automatic incident response"
-            },
-            "cloud": {
-              "title": "Cloud Infrastructure",
-              "description": "Migration and implementation of scalable cloud infrastructure with automatic backup.",
-              "f1": "Automatic resource scaling",
-              "f2": "Daily automatic backup",
-              "f3": "24/7 monitoring and alerts"
-            }
+        "steps": {
+          "certificate": {
+            "title": "Upload your digital certificate and SOL credentials",
+            "text": "They are stored encrypted and khipu uses them to sign every document. You don't touch them again."
+          },
+          "series": {
+            "title": "Set up your series",
+            "text": "F001, B001…, each with its own sequence and, if you have several locations, its branch."
+          },
+          "issue": {
+            "title": "Issue from the portal or from your system",
+            "text": "khipu calculates the totals, builds the XML, signs it and sends it to SUNAT."
+          },
+          "receipt": {
+            "title": "Get the receipt",
+            "text": "The signed XML, the PDF and SUNAT's receipt are stored, and you can email them to your customer."
           }
         }
+      },
+      "benefits": {
+        "title": "What stops being your problem",
+        "subtitle": "Calculating, signing and resending are khipu's job.",
+        "items": {
+          "totals": {
+            "title": "Totals checked before signing",
+            "text": "Amounts are calculated and validated on the server, which avoids rejections for mismatched totals."
+          },
+          "retries": {
+            "title": "If SUNAT doesn't respond, khipu retries",
+            "text": "The document stays pending and is resent on its own, never lost and never numbered twice."
+          },
+          "checks": {
+            "title": "Errors caught before numbering",
+            "text": "If a field SUNAT would reject is missing, such as a mistyped RUC, you are warned before a number from your series is used."
+          },
+          "storage": {
+            "title": "Your documents, always at hand",
+            "text": "Download the XML, the PDF and the receipt of any document whenever you need them."
+          },
+          "pdf": {
+            "title": "The PDF with your brand",
+            "text": "Choose the template, the color, your logo and the texts of the printed version."
+          }
+        }
+      },
+      "channels": {
+        "title": "Who it is for",
+        "items": {
+          "portal": {
+            "title": "Companies and shops",
+            "text": "Issue from the portal, filter by series, status or date, and review each document's history, without writing code."
+          },
+          "api": {
+            "title": "Teams with their own system",
+            "text": "If you already have a sales system or an ERP, connect it to khipu through a REST API, with documentation and a test environment."
+          },
+          "accountants": {
+            "title": "Accountants and firms",
+            "text": "Manage several companies (RUC) from a single account and download their documents whenever you need them."
+          }
+        }
+      },
+      "documents": {
+        "title": "What you can issue",
+        "subtitle": "Marked exactly as it is today. Credit and debit notes are issued on invoices; notes on receipts are on the way too.",
+        "available": "Available",
+        "soon": "In progress",
+        "items": {
+          "invoice": "Electronic invoice",
+          "creditNote": "Credit note",
+          "debitNote": "Debit note",
+          "voiding": "Voiding notice",
+          "receipt": "Sales receipt (boleta)",
+          "dailySummary": "Daily summary (receipt voiding)",
+          "dispatchGuide": "Dispatch guide",
+          "withholding": "Withholding and perception"
+        }
+      },
+      "contact": {
+        "title": "Request beta access",
+        "subtitle": "We enable accounts one at a time so we can help you set up your certificate and SOL credentials.",
+        "cta": "Request access"
       }
     }
   }

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { RevealGroupDirective } from '../../directives/reveal-group.directive';
@@ -16,5 +16,10 @@ import { CONTACT_REVEAL } from './contact-band.motion';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContactBandComponent {
+  /** Copy keys; the defaults are the custom-software pitch, product pages pass their own. */
+  readonly titleKey = input('application.home.contact.title');
+  readonly subtitleKey = input('application.home.contact.subtitle');
+  readonly ctaKey = input('application.home.contact.cta');
+
   protected readonly reveal = CONTACT_REVEAL;
 }

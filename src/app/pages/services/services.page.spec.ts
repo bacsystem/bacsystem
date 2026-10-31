@@ -134,7 +134,7 @@ describe('ServicesPageComponent', () => {
     expect(keys(en.application.servicesPage)).toEqual(keys(es.application.servicesPage));
     for (const lang of [es, en]) {
       expect('services' in lang.application).withContext('legacy application.services').toBeFalse();
-      expect('services' in lang.application.site.comingSoon.headings).withContext('coming-soon heading').toBeFalse();
+      expect('comingSoon' in lang.application.site).withContext('coming-soon copy').toBeFalse();
     }
   });
 

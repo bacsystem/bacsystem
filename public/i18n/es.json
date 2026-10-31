@@ -45,32 +45,14 @@
           "title": "Servicios de software y consultoría | Bacsystem Solutions",
           "description": "Desarrollo web y móvil, consultoría tecnológica, transformación digital, optimización de sistemas y migración a la nube para empresas en Lima, Perú."
         },
-        "products": {
-          "title": "Productos: OperaAI y sophIA | Bacsystem Solutions",
-          "description": "OperaAI automatiza tareas y tu facturación electrónica conectada a SUNAT. sophIA te ayuda a consultar la información de tu empresa. Software de Bacsystem."
-        },
-        "operaai": {
-          "title": "OperaAI | Automatización y facturación electrónica",
-          "description": "OperaAI automatiza tareas repetitivas y emite tu facturación electrónica conectada a SUNAT mediante un OSE autorizado. Menos trabajo manual para tu equipo."
-        },
-        "sophia": {
-          "title": "sophIA | Asistente de IA para tu empresa",
-          "description": "sophIA es el asistente de inteligencia artificial de Bacsystem: pregunta en tus palabras y obtén la información de tu empresa sin buscar archivo por archivo."
-        },
         "about": {
           "title": "Nosotros: misión, valores y equipo | Bacsystem Solutions",
           "description": "Conoce al equipo de Bacsystem Solutions en Lima: nuestra misión, visión y valores, y las personas que diseñan, construyen y mantienen tu software a medida."
-        }
-      },
-      "comingSoon": {
-        "headings": {
-          "products": "Productos",
-          "operaai": "OperaAI",
-          "sophia": "sophIA"
         },
-        "title": "Muy pronto",
-        "text": "Estamos terminando esta sección. Mientras tanto, escríbenos desde Contacto y cuéntanos qué necesitas resolver.",
-        "backHome": "Volver al inicio"
+        "khipu": {
+          "title": "khipu: facturación electrónica SUNAT | Bacsystem Solutions",
+          "description": "khipu es la plataforma de facturación electrónica de Bacsystem: emite facturas, boletas y notas desde un portal web o por API, con firma digital, envío a SUNAT y constancia guardada."
+        }
       },
       "contactPage": {
         "eyebrow": "Contacto",
@@ -150,13 +132,9 @@
         "title": "Productos propios",
         "subtitle": "Además de proyectos a medida, convertimos lo que aprendemos en herramientas para problemas que muchas empresas comparten.",
         "cta": "Conocer el producto",
-        "operaai": {
-          "name": "OperaAI",
-          "tagline": "Automatiza tareas repetitivas y emite tu facturación electrónica conectada a SUNAT mediante un OSE autorizado."
-        },
-        "sophia": {
-          "name": "sophIA",
-          "tagline": "Pregunta en tus palabras y obtén la información de tu empresa, sin abrir archivo por archivo."
+        "khipu": {
+          "name": "khipu",
+          "tagline": "Emite facturas y boletas electrónicas desde un portal web o desde tu propio sistema, con la constancia de SUNAT guardada para cada una."
         }
       },
       "stats": {
@@ -335,152 +313,120 @@
         }
       }
     },
-    "products": {
-      "title": "Productos",
-      "description": "Descubre nuestros productos tecnológicos organizados por área de solución",
-      "flowsync": {
-        "title": "FlowSync",
-        "description": "Plataforma cloud de automatización de flujos de trabajo que conecta tu equipo, tareas y herramientas en un único espacio colaborativo.",
-        "f1": "Constructor visual de flujos drag-and-drop",
-        "f2": "Colaboración de equipo en tiempo real",
-        "f3": "Integración con más de 200 herramientas empresariales"
+    "khipuPage": {
+      "intro": {
+        "eyebrow": "Producto · Facturación electrónica",
+        "title": "khipu",
+        "tagline": "Facturación electrónica para SUNAT, desde un portal web o conectada a tu sistema.",
+        "lead": "Tú registras la venta; khipu calcula los totales, arma el XML en el formato de SUNAT, lo firma con tu certificado digital y lo envía. Recibes la constancia de aceptación y el PDF para tu cliente.",
+        "status": "Beta por invitación",
+        "cta": "Solicitar acceso",
+        "secondary": "Ver cómo funciona"
       },
-      "operaai": {
-        "tagline": "Plataforma de automatización inteligente para empresas modernas",
-        "cta": "Descubrir OperaAI",
-        "description": "OperaAI es una plataforma Cloud SaaS empresarial que combina inteligencia artificial, automatización de procesos y analítica en tiempo real para transformar la forma en que opera tu organización. Diseñada para escalar con tu negocio, desde startup hasta enterprise.",
-        "f1": {
-          "title": "Motor con IA",
-          "desc": "Modelos de machine learning integrados que se adaptan y mejoran automáticamente con los datos de tu negocio."
-        },
-        "f2": {
-          "title": "Analítica en Tiempo Real",
-          "desc": "Dashboards y reportes en vivo con insights accionables para tomar decisiones empresariales más inteligentes."
-        },
-        "f3": {
-          "title": "Seguridad Enterprise",
-          "desc": "Cifrado extremo a extremo, control de acceso por roles y cumplimiento total con SOC 2 y GDPR."
-        },
-        "f4": {
-          "title": "Integración API-first",
-          "desc": "Se conecta sin fricción con tus herramientas existentes vía REST API, webhooks y más de 100 integraciones nativas."
+      "preview": {
+        "label": "Ejemplo de una factura emitida con khipu, con los pasos del envío a SUNAT",
+        "kind": "Factura electrónica",
+        "sent": "Enviada",
+        "accepted": "Aceptada por SUNAT",
+        "subtotal": "Op. gravadas",
+        "tax": "IGV 18 %",
+        "total": "Importe total",
+        "steps": {
+          "totals": "Totales calculados",
+          "signed": "XML firmado",
+          "sent": "Enviado a SUNAT",
+          "cdr": "Constancia recibida"
         }
       },
-      "sophia": {
-        "tagline": "Reconocimiento facial e inteligencia artificial para seguridad empresarial",
-        "cta": "Descubrir Sophia Smart",
-        "description": "Sophia Smart es una plataforma de reconocimiento facial con IA que permite control de acceso biométrico, verificación de identidad y análisis en tiempo real. Seguridad inteligente para empresas que necesitan protección de próxima generación.",
-        "f1": {
-          "title": "Reconocimiento Facial",
-          "desc": "Detección y verificación facial en tiempo real con precisión superior al 99.5% usando modelos de deep learning."
+      "how": {
+        "title": "Cómo funciona",
+        "subtitle": "La configuración se hace una vez. Después, emitir es un solo paso.",
+        "when": {
+          "once": "Una sola vez",
+          "each": "En cada comprobante"
         },
-        "f2": {
-          "title": "Control de Acceso",
-          "desc": "Gestión biométrica de accesos con registro automático, alertas instantáneas y reportes detallados."
-        },
-        "f3": {
-          "title": "Análisis Inteligente",
-          "desc": "Dashboards con métricas de seguridad, patrones de acceso y detección de anomalías en tiempo real."
-        },
-        "f4": {
-          "title": "Integración Total",
-          "desc": "Compatible con cámaras IP, torniquetes, cerraduras inteligentes y sistemas de seguridad existentes."
-        }
-      },
-      "sophia_ia": {
-        "tagline": "Sistema autónomo de generación de software impulsado por IA",
-        "cta": "Conocer sophIA",
-        "status": "En construcción",
-        "description": "sophIA es un sistema autónomo de generación de software que orquesta agentes especializados de IA para generar código capa por capa. Impulsado por Claude Code con Tool Use, sophIA transforma requerimientos en software funcional con mínima intervención humana.",
-        "f1": {
-          "title": "Orquestación de Agentes",
-          "desc": "Múltiples agentes especializados coordinados que generan código por capas: modelos, servicios, controladores y UI."
-        },
-        "f2": {
-          "title": "Claude Code + Tool Use",
-          "desc": "Motor de generación basado en Claude con capacidad de ejecutar herramientas, validar y autocorregir código en tiempo real."
-        },
-        "f3": {
-          "title": "Generación Capa por Capa",
-          "desc": "Arquitectura layered que produce código limpio, modular y listo para producción siguiendo mejores prácticas."
-        },
-        "f4": {
-          "title": "Autonomía Inteligente",
-          "desc": "Toma de decisiones autónoma con checkpoints de validación humana en puntos críticos del pipeline."
-        }
-      },
-      "categories": {
-        "web": {
-          "title": "Soluciones Web",
-          "items": {
-            "ecommerce": {
-              "title": "Plataforma E-commerce",
-              "description": "Tienda online completa con carrito de compras, pasarelas de pago y panel de administración.",
-              "f1": "Integración con múltiples pasarelas de pago",
-              "f2": "Gestión de inventario en tiempo real",
-              "f3": "Panel administrativo intuitivo"
-            },
-            "erp": {
-              "title": "Sistema ERP Empresarial",
-              "description": "Plataforma integral de gestión empresarial con módulos personalizables.",
-              "f1": "Módulos de RR.HH., finanzas y ventas",
-              "f2": "Reportes y dashboard analítico",
-              "f3": "Integración con sistemas existentes"
-            },
-            "analytics": {
-              "title": "Portal de Analytics",
-              "description": "Herramienta de análisis de datos con visualizaciones interactivas en tiempo real.",
-              "f1": "Dashboards configurables",
-              "f2": "Exportación en múltiples formatos",
-              "f3": "Alertas automáticas de KPIs"
-            }
-          }
-        },
-        "mobile": {
-          "title": "Soluciones Móvil",
-          "items": {
-            "delivery": {
-              "title": "App de Delivery",
-              "description": "Aplicación móvil para entregas a domicilio con seguimiento GPS y notificaciones.",
-              "f1": "Seguimiento GPS en tiempo real",
-              "f2": "Notificaciones push automáticas",
-              "f3": "Gestión de repartidores"
-            },
-            "health": {
-              "title": "App de Salud",
-              "description": "Aplicación móvil para seguimiento médico, citas y recordatorios de medicación.",
-              "f1": "Historial clínico digital",
-              "f2": "Recordatorios de medicación",
-              "f3": "Agendamiento de citas online"
-            }
-          }
-        },
-        "ai": {
-          "title": "IA y Seguridad",
-          "items": {
-            "sophia": {
-              "title": "Sophia Smart",
-              "description": "Sistema avanzado de reconocimiento facial con inteligencia artificial para control de acceso e identidad.",
-              "f1": "Reconocimiento facial en tiempo real",
-              "f2": "Control de acceso biométrico",
-              "f3": "Análisis e informes de acceso"
-            },
-            "cybersecurity": {
-              "title": "Ciberseguridad Avanzada",
-              "description": "Solución integral de seguridad con monitoreo continuo, encriptación y detección de amenazas.",
-              "f1": "Monitoreo 24/7 de amenazas",
-              "f2": "Encriptación de datos avanzada",
-              "f3": "Respuesta automática a incidentes"
-            },
-            "cloud": {
-              "title": "Infraestructura Cloud",
-              "description": "Migración e implementación de infraestructura escalable en la nube con backup automático.",
-              "f1": "Escalado automático de recursos",
-              "f2": "Backup automático diario",
-              "f3": "Monitoreo y alertas 24/7"
-            }
+        "steps": {
+          "certificate": {
+            "title": "Subes tu certificado digital y tus credenciales SOL",
+            "text": "Se guardan cifrados y khipu los usa para firmar cada comprobante. No vuelves a tocarlos."
+          },
+          "series": {
+            "title": "Configuras tus series",
+            "text": "F001, B001…, cada una con su correlativo y, si tienes varios locales, su establecimiento."
+          },
+          "issue": {
+            "title": "Emites desde el portal o desde tu sistema",
+            "text": "khipu calcula los totales, arma el XML, lo firma y lo envía a SUNAT."
+          },
+          "receipt": {
+            "title": "Recibes la constancia",
+            "text": "El XML firmado, el PDF y la constancia de SUNAT quedan guardados, y puedes enviarlos por correo a tu cliente."
           }
         }
+      },
+      "benefits": {
+        "title": "Lo que deja de ser tu problema",
+        "subtitle": "El cálculo, la firma y los reenvíos corren por cuenta de khipu.",
+        "items": {
+          "totals": {
+            "title": "Totales revisados antes de firmar",
+            "text": "Los montos se calculan y validan en el servidor, así se evitan los rechazos por descuadre."
+          },
+          "retries": {
+            "title": "Si SUNAT no responde, khipu reintenta",
+            "text": "El comprobante queda pendiente y se reenvía solo, sin perderse ni numerarse dos veces."
+          },
+          "checks": {
+            "title": "Errores atajados antes de numerar",
+            "text": "Si falta un dato que SUNAT rechazaría, como un RUC mal escrito, te avisa antes de usar un número de tu serie."
+          },
+          "storage": {
+            "title": "Tus comprobantes, siempre a mano",
+            "text": "Descargas el XML, el PDF y la constancia de cualquier comprobante cuando los necesites."
+          },
+          "pdf": {
+            "title": "El PDF con tu marca",
+            "text": "Eliges la plantilla, el color, tu logo y los textos de la versión impresa."
+          }
+        }
+      },
+      "channels": {
+        "title": "Para quién es",
+        "items": {
+          "portal": {
+            "title": "Empresas y comercios",
+            "text": "Emites desde el portal, filtras por serie, estado o fecha, y revisas el historial de cada comprobante, sin escribir código."
+          },
+          "api": {
+            "title": "Equipos con sistema propio",
+            "text": "Si ya tienes un sistema de ventas o un ERP, lo conectas a khipu por API REST, con documentación y entorno de pruebas."
+          },
+          "accountants": {
+            "title": "Contadores y estudios",
+            "text": "Administras varias empresas (RUC) desde una sola cuenta y descargas sus comprobantes cuando los necesites."
+          }
+        }
+      },
+      "documents": {
+        "title": "Qué puedes emitir",
+        "subtitle": "Lo marcamos tal cual está hoy. Las notas de crédito y débito se emiten sobre facturas; las notas sobre boletas también están en camino.",
+        "available": "Disponible",
+        "soon": "En construcción",
+        "items": {
+          "invoice": "Factura electrónica",
+          "creditNote": "Nota de crédito",
+          "debitNote": "Nota de débito",
+          "voiding": "Comunicación de baja",
+          "receipt": "Boleta de venta",
+          "dailySummary": "Resumen diario (anulación de boletas)",
+          "dispatchGuide": "Guía de remisión",
+          "withholding": "Retención y percepción"
+        }
+      },
+      "contact": {
+        "title": "Pide acceso a la beta",
+        "subtitle": "Habilitamos las cuentas una por una para acompañarte a configurar tu certificado y tus credenciales SOL.",
+        "cta": "Solicitar acceso"
       }
     }
   }

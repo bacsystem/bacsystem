@@ -1,0 +1,278 @@
+:host {
+  display: block;
+}
+
+p,
+h3,
+h4 {
+  margin: 0;
+}
+
+/* ---------- Intro ---------- */
+.intro {
+  display: grid;
+  gap: var(--space-8);
+}
+
+.intro__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-5);
+}
+
+/* The product name, set in the display face like the brand. */
+.intro__title {
+  font-size: var(--text-4xl);
+  letter-spacing: var(--tracking-tight);
+  line-height: 1;
+}
+
+.intro__tagline {
+  max-inline-size: var(--measure-md);
+  color: var(--color-heading);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-tight);
+}
+
+.intro__lead {
+  max-inline-size: var(--measure-lg);
+  color: var(--color-text-muted);
+  font-size: var(--text-lg);
+  line-height: var(--leading-normal);
+}
+
+.intro__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3) var(--space-5);
+}
+
+.intro__visual {
+  inline-size: 100%;
+  max-inline-size: var(--measure-lg);
+  justify-self: center;
+}
+
+/* ---------- How it works ---------- */
+.how {
+  display: grid;
+  gap: var(--space-7);
+  margin-block-start: var(--space-7);
+}
+
+.how__group {
+  display: grid;
+  align-content: start;
+  gap: var(--space-5);
+}
+
+/* "Una sola vez" sits quiet; "En cada comprobante" carries the accent: that's the part that repeats. */
+.how__when {
+  justify-self: start;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-pill);
+  background-color: var(--color-surface);
+  color: var(--color-text-muted);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+}
+
+.how__when--each {
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent-text);
+}
+
+.how__steps {
+  display: grid;
+  gap: var(--space-5);
+  margin: 0;
+  padding: 0;
+}
+
+.how__step {
+  display: grid;
+  gap: var(--space-2);
+  padding-block-start: var(--space-4);
+  border-block-start: var(--border-width) solid var(--color-border);
+}
+
+.how__number {
+  color: var(--color-accent-text);
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-variant-numeric: tabular-nums;
+}
+
+.how__title {
+  color: var(--color-heading);
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+}
+
+.how__text {
+  max-inline-size: var(--measure-md);
+  color: var(--color-text-muted);
+  line-height: var(--leading-normal);
+}
+
+/* ---------- Benefits ---------- */
+.benefits {
+  display: grid;
+  gap: var(--space-7);
+}
+
+.benefits__list {
+  display: grid;
+  gap: var(--space-5);
+  margin: 0;
+  padding: 0;
+}
+
+.benefits__item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--space-3);
+}
+
+.benefits__check {
+  block-size: calc(var(--leading-tight) * var(--text-lg));
+  color: var(--color-accent-text);
+}
+
+.benefits__title {
+  color: var(--color-heading);
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+}
+
+.benefits__text {
+  max-inline-size: var(--measure-md);
+  margin-block-start: var(--space-1);
+  color: var(--color-text-muted);
+  line-height: var(--leading-normal);
+}
+
+/* ---------- Who it is for ---------- */
+.channels {
+  display: grid;
+  gap: var(--space-5);
+  margin: var(--space-6) 0 0;
+  padding: 0;
+}
+
+.channels__item {
+  display: grid;
+  gap: var(--space-2);
+  padding-block-start: var(--space-4);
+  border-block-start: calc(var(--border-width) * 2) solid var(--color-accent);
+}
+
+.channels__title {
+  color: var(--color-heading);
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+}
+
+.channels__text {
+  color: var(--color-text-muted);
+  line-height: var(--leading-normal);
+}
+
+/* ---------- Documents ---------- */
+.documents {
+  display: grid;
+  gap: var(--space-3);
+  margin: var(--space-6) 0 0;
+  padding: 0;
+}
+
+.documents__item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface);
+}
+
+.documents__code {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-inline-size: var(--space-7);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent-text);
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+}
+
+.documents__name {
+  color: var(--color-text);
+  font-weight: var(--weight-medium);
+}
+
+.documents__item.is-soon .documents__code {
+  background-color: var(--color-bg-alt);
+  color: var(--color-text-muted);
+}
+
+.documents__item.is-soon .documents__name {
+  color: var(--color-text-muted);
+}
+
+/* ---------- Tablet ---------- */
+@media (min-width: 48em) {
+  .intro__title {
+    font-size: calc(var(--text-4xl) * 1.25);
+  }
+
+  .how {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-8);
+  }
+
+  .benefits__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-6) var(--space-7);
+  }
+
+  .channels {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-6);
+  }
+
+  .documents {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ---------- Desktop ---------- */
+@media (min-width: 64em) {
+  .intro {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+  }
+
+  .intro__visual {
+    max-inline-size: none;
+  }
+
+  .benefits {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    gap: var(--space-8);
+    align-items: start;
+  }
+}

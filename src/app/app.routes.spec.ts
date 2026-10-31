@@ -20,10 +20,17 @@ describe('routes', () => {
     }
   });
 
-  it('unbuilt pages exist and are noindex', () => {
-    for (const p of ['productos', 'productos/operaai', 'productos/sophia']) {
-      expect(find(p)).withContext(p).toBeDefined();
-      expect(seo(p).indexable).withContext(p).toBeFalse();
+  it('productos goes straight to khipu, the only product, which is indexable', async () => {
+    expect(find('productos')?.redirectTo).toBe('productos/khipu');
+    expect(seo('productos/khipu').indexable).toBeTrue();
+    expect(seo('productos/khipu').titleKey).toBe('application.site.seo.khipu.title');
+    const component = await (find('productos/khipu')!.loadComponent as () => Promise<unknown>)();
+    expect((component as { name: string }).name).toBe('KhipuPageComponent');
+  });
+
+  it('retired products have no route', () => {
+    for (const p of ['productos/operaai', 'productos/sophia']) {
+      expect(find(p)).withContext(p).toBeUndefined();
     }
   });
 

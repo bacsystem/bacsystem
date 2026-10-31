@@ -30,14 +30,28 @@ export interface ServiceItem {
 }
 
 export interface ProductItem {
-  id: 'operaai' | 'sophia';
+  id: 'khipu';
   route: string;
-  logo: string;
+  /** Square logo; without one the card shows a receipt-style monogram. */
+  logo?: string;
   nameKey: string;
   taglineKey: string;
 }
 
-/** One stage of how we work (shared process section on Home and Nosotros). */
+/** One step of how khipu works, grouped by how often it happens. */
+export interface KhipuStep {
+  id: 'certificate' | 'series' | 'issue' | 'receipt';
+  when: 'once' | 'each';
+}
+
+/** A document type and whether khipu issues it today (from the khipu repo, not a promise). */
+export interface KhipuDocument {
+  id: 'invoice' | 'creditNote' | 'debitNote' | 'voiding' | 'receipt' | 'dailySummary' | 'dispatchGuide' | 'withholding';
+  code: string;
+  available: boolean;
+}
+
+/** One stage of how we work (process section, Home only). */
 export interface ProcessStep {
   id: 'understand' | 'design' | 'build' | 'maintain';
   titleKey: string;
@@ -80,19 +94,37 @@ export const SERVICES: ServiceItem[] = [
 
 export const PRODUCTS: ProductItem[] = [
   {
-    id: 'operaai',
-    route: '/productos/operaai',
-    logo: '/assets/img/clients/operaai-favicon.svg',
-    nameKey: 'application.home.products.operaai.name',
-    taglineKey: 'application.home.products.operaai.tagline',
+    id: 'khipu',
+    route: '/productos/khipu',
+    nameKey: 'application.home.products.khipu.name',
+    taglineKey: 'application.home.products.khipu.tagline',
   },
-  {
-    id: 'sophia',
-    route: '/productos/sophia',
-    logo: '/assets/img/clients/sophia-favicon.svg',
-    nameKey: 'application.home.products.sophia.name',
-    taglineKey: 'application.home.products.sophia.tagline',
-  },
+];
+
+/** khipu: setup happens once, then two steps repeat for every document. */
+export const KHIPU_STEPS: KhipuStep[] = [
+  { id: 'certificate', when: 'once' },
+  { id: 'series', when: 'once' },
+  { id: 'issue', when: 'each' },
+  { id: 'receipt', when: 'each' },
+];
+
+/** What khipu takes off your plate (each one exists in the khipu code today). */
+export const KHIPU_BENEFITS = ['totals', 'retries', 'checks', 'storage', 'pdf'] as const;
+
+/** Who uses it and how: a company on the portal, an accountant with several RUC, a system through the API. */
+export const KHIPU_CHANNELS = ['portal', 'accountants', 'api'] as const;
+
+/** SUNAT documents, marked as they are today in khipu (develop branch: portal landing and FAQ). */
+export const KHIPU_DOCUMENTS: KhipuDocument[] = [
+  { id: 'invoice', code: '01', available: true },
+  { id: 'receipt', code: '03', available: true },
+  { id: 'creditNote', code: '07', available: true },
+  { id: 'debitNote', code: '08', available: true },
+  { id: 'dailySummary', code: 'RC', available: true },
+  { id: 'voiding', code: 'RA', available: true },
+  { id: 'dispatchGuide', code: '09', available: false },
+  { id: 'withholding', code: '20/40', available: false },
 ];
 
 export const PROCESS: ProcessStep[] = [
@@ -103,7 +135,7 @@ export const PROCESS: ProcessStep[] = [
 ];
 
 // Vacío a propósito: la franja "Confían en nosotros" vuelve sola al agregar logos reales.
-// client-7.png y client-8.png (ya eliminados) eran los logos de OperaAI y sophIA (productos propios), no de clientes.
+// client-7.png y client-8.png (ya eliminados) eran logos de productos propios, no de clientes.
 export const CLIENTS: ClientLogo[] = [];
 
 // EJEMPLO: cifras de muestra, reemplazar por reales

@@ -1,0 +1,115 @@
+<ui-section sectionId="khipu">
+  <div class="intro">
+    <div class="intro__copy">
+      <p class="eyebrow">
+        <span class="eyebrow__rule" aria-hidden="true"></span>
+        <span class="eyebrow__text">{{ 'application.khipuPage.intro.eyebrow' | translate }}</span>
+      </p>
+      <h1 class="intro__title">{{ 'application.khipuPage.intro.title' | translate }}</h1>
+      <p class="intro__tagline">{{ 'application.khipuPage.intro.tagline' | translate }}</p>
+      <p class="intro__lead">{{ 'application.khipuPage.intro.lead' | translate }}</p>
+      <ui-tag tone="accent">{{ 'application.khipuPage.intro.status' | translate }}</ui-tag>
+      <div class="intro__actions">
+        <a ui-button size="lg" routerLink="/contacto">
+          {{ 'application.khipuPage.intro.cta' | translate }}
+          <ui-icon name="arrow-right" size="sm" />
+        </a>
+        <a ui-button variant="text" size="lg" routerLink="/productos/khipu" fragment="como-funciona">
+          {{ 'application.khipuPage.intro.secondary' | translate }}
+        </a>
+      </div>
+    </div>
+    <div class="intro__visual">
+      <app-invoice-preview />
+    </div>
+  </div>
+</ui-section>
+
+<ui-section sectionId="como-funciona" tone="alt">
+  <div [appRevealGroup]="choreo.heading">
+    <ui-section-heading
+      [title]="'application.khipuPage.how.title' | translate"
+      [subtitle]="'application.khipuPage.how.subtitle' | translate"
+    />
+  </div>
+  <div class="how">
+    @for (group of groups; track group.when) {
+      <div class="how__group" [appRevealGroup]="choreo.steps">
+        <h3 class="how__when" [class.how__when--each]="group.when === 'each'">
+          {{ 'application.khipuPage.how.when.' + group.when | translate }}
+        </h3>
+        <ol class="how__steps" role="list">
+          @for (step of group.steps; track step.id) {
+            <li class="how__step">
+              <span class="how__number" aria-hidden="true">{{ step.index | position }}</span>
+              <h4 class="how__title">{{ 'application.khipuPage.how.steps.' + step.id + '.title' | translate }}</h4>
+              <p class="how__text">{{ 'application.khipuPage.how.steps.' + step.id + '.text' | translate }}</p>
+            </li>
+          }
+        </ol>
+      </div>
+    }
+  </div>
+</ui-section>
+
+<ui-section sectionId="beneficios">
+  <div class="benefits">
+    <div [appRevealGroup]="choreo.heading">
+      <ui-section-heading
+        [title]="'application.khipuPage.benefits.title' | translate"
+        [subtitle]="'application.khipuPage.benefits.subtitle' | translate"
+      />
+    </div>
+    <ul class="benefits__list" role="list" appRevealGroup>
+      @for (id of benefits; track id) {
+        <li class="benefits__item">
+          <ui-icon class="benefits__check" name="check2-circle" />
+          <div>
+            <h3 class="benefits__title">{{ 'application.khipuPage.benefits.items.' + id + '.title' | translate }}</h3>
+            <p class="benefits__text">{{ 'application.khipuPage.benefits.items.' + id + '.text' | translate }}</p>
+          </div>
+        </li>
+      }
+    </ul>
+  </div>
+</ui-section>
+
+<ui-section sectionId="para-quien" tone="alt" spacing="compact">
+  <div [appRevealGroup]="choreo.heading">
+    <ui-section-heading [title]="'application.khipuPage.channels.title' | translate" />
+  </div>
+  <ul class="channels" role="list" appRevealGroup>
+    @for (id of channels; track id) {
+      <li class="channels__item">
+        <h3 class="channels__title">{{ 'application.khipuPage.channels.items.' + id + '.title' | translate }}</h3>
+        <p class="channels__text">{{ 'application.khipuPage.channels.items.' + id + '.text' | translate }}</p>
+      </li>
+    }
+  </ul>
+</ui-section>
+
+<ui-section sectionId="comprobantes">
+  <div [appRevealGroup]="choreo.heading">
+    <ui-section-heading
+      [title]="'application.khipuPage.documents.title' | translate"
+      [subtitle]="'application.khipuPage.documents.subtitle' | translate"
+    />
+  </div>
+  <ul class="documents" role="list" appRevealGroup>
+    @for (doc of documents; track doc.id) {
+      <li class="documents__item" [class.is-soon]="!doc.available">
+        <span class="documents__code" aria-hidden="true">{{ doc.code }}</span>
+        <span class="documents__name">{{ 'application.khipuPage.documents.items.' + doc.id | translate }}</span>
+        <ui-tag [tone]="doc.available ? 'accent' : 'neutral'">
+          {{ (doc.available ? 'application.khipuPage.documents.available' : 'application.khipuPage.documents.soon') | translate }}
+        </ui-tag>
+      </li>
+    }
+  </ul>
+</ui-section>
+
+<app-contact-band
+  titleKey="application.khipuPage.contact.title"
+  subtitleKey="application.khipuPage.contact.subtitle"
+  ctaKey="application.khipuPage.contact.cta"
+/>

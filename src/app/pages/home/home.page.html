@@ -118,7 +118,11 @@
       <ul class="products__list" role="list" [appRevealGroup]="choreo.products">
         @for (product of products; track product.id) {
           <li class="products__item">
-            <img class="products__logo" [src]="product.logo" alt="" width="32" height="32" loading="lazy" />
+            @if (product.logo) {
+              <img class="products__logo" [src]="product.logo" alt="" width="32" height="32" loading="lazy" />
+            } @else {
+              <span class="products__logo products__logo--monogram" aria-hidden="true">{{ (product.nameKey | translate).charAt(0) }}</span>
+            }
             <div class="products__body">
               <h3 class="products__name">{{ product.nameKey | translate }}</h3>
               <p class="products__tagline">{{ product.taglineKey | translate }}</p>

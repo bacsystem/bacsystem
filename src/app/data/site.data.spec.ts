@@ -34,8 +34,9 @@ describe('site.data', () => {
     }
   });
 
-  it('lists OperaAI and sophIA as products', () => {
-    expect(PRODUCTS.map((p) => p.id)).toEqual(['operaai', 'sophia']);
+  it('lists only khipu as a product', () => {
+    expect(PRODUCTS.map((p) => p.id)).toEqual(['khipu']);
+    expect(PRODUCTS[0].route).toBe('/productos/khipu');
   });
 
   it('shows no client logos until real ones are confirmed', () => {
