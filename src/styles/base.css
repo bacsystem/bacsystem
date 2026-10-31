@@ -153,3 +153,17 @@ ol[role='list'] {
     scroll-behavior: auto;
   }
 }
+
+/* Aparición al hacer scroll: solo oculta cuando la directiva lo pide (con JS). */
+.is-reveal-pending {
+  opacity: 0;
+  transform: translateY(var(--space-6));
+}
+
+.is-revealed {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity var(--duration-slow) var(--ease-out),
+    transform var(--duration-slow) var(--ease-out);
+}

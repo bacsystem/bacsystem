@@ -134,6 +134,40 @@
         "growth_desc": "We drive the growth of your business.",
         "team": "Team",
         "team_desc": "Professionals dedicated to your success."
+      },
+      "services": {
+        "web": {
+          "title": "Web development",
+          "description": "Custom web applications that are fast and work well on mobile."
+        },
+        "consulting": {
+          "title": "Consulting",
+          "description": "We help you choose technology and organize your processes before you invest."
+        },
+        "optimization": {
+          "title": "Optimization",
+          "description": "We improve the speed and stability of the systems you already use."
+        },
+        "cloud": {
+          "title": "Cloud solutions",
+          "description": "We move your systems to the cloud so they can grow without changing servers."
+        }
+      },
+      "products": {
+        "operaai": {
+          "name": "OperaAI",
+          "tagline": "Automation and electronic invoicing for SMEs, connected to SUNAT through an authorized OSE."
+        },
+        "sophia": {
+          "name": "sophIA",
+          "tagline": "AI assistant to query and work with your company information."
+        }
+      },
+      "stats": {
+        "years": "years of experience",
+        "projects": "projects delivered",
+        "clients": "active clients",
+        "support": "support"
       }
     },
     "contact": {
@@ -155,7 +189,8 @@
         "message": "Message",
         "message_error": "Message is required."
       }
-    },    "clients": {
+    },
+    "clients": {
       "pill": "Companies that trust us",
       "title": "150+ companies choose us",
       "subtitle": "We accompany companies of all sizes in their digital transformation, from startups to large corporations.",
@@ -277,35 +312,71 @@
         "tagline": "Intelligent automation platform for modern businesses",
         "cta": "Discover OperaAI",
         "description": "OperaAI is an enterprise Cloud SaaS platform that combines artificial intelligence, process automation and real-time analytics to transform the way your organization operates. Designed to scale with your business, from startup to enterprise.",
-        "f1": { "title": "AI-Powered Engine", "desc": "Built-in machine learning models that adapt and improve with your business data automatically." },
-        "f2": { "title": "Real-time Analytics", "desc": "Live dashboards and reports with actionable insights to drive smarter business decisions." },
-        "f3": { "title": "Enterprise Security", "desc": "End-to-end encryption, role-based access control and full compliance with SOC 2 & GDPR." },
-        "f4": { "title": "API-first Integration", "desc": "Seamlessly connects with your existing tools via REST API, webhooks and 100+ native integrations." }
+        "f1": {
+          "title": "AI-Powered Engine",
+          "desc": "Built-in machine learning models that adapt and improve with your business data automatically."
+        },
+        "f2": {
+          "title": "Real-time Analytics",
+          "desc": "Live dashboards and reports with actionable insights to drive smarter business decisions."
+        },
+        "f3": {
+          "title": "Enterprise Security",
+          "desc": "End-to-end encryption, role-based access control and full compliance with SOC 2 & GDPR."
+        },
+        "f4": {
+          "title": "API-first Integration",
+          "desc": "Seamlessly connects with your existing tools via REST API, webhooks and 100+ native integrations."
+        }
       },
       "sophia": {
         "tagline": "Facial recognition and AI for enterprise security",
         "cta": "Discover Sophia Smart",
         "description": "Sophia Smart is an AI-powered facial recognition platform enabling biometric access control, identity verification and real-time analysis. Intelligent security for businesses that need next-generation protection.",
-        "f1": { "title": "Facial Recognition", "desc": "Real-time face detection and verification with 99.5%+ accuracy using deep learning models." },
-        "f2": { "title": "Access Control", "desc": "Biometric access management with automatic logging, instant alerts and detailed reports." },
-        "f3": { "title": "Smart Analytics", "desc": "Dashboards with security metrics, access patterns and real-time anomaly detection." },
-        "f4": { "title": "Full Integration", "desc": "Compatible with IP cameras, turnstiles, smart locks and existing security systems." }
+        "f1": {
+          "title": "Facial Recognition",
+          "desc": "Real-time face detection and verification with 99.5%+ accuracy using deep learning models."
+        },
+        "f2": {
+          "title": "Access Control",
+          "desc": "Biometric access management with automatic logging, instant alerts and detailed reports."
+        },
+        "f3": {
+          "title": "Smart Analytics",
+          "desc": "Dashboards with security metrics, access patterns and real-time anomaly detection."
+        },
+        "f4": {
+          "title": "Full Integration",
+          "desc": "Compatible with IP cameras, turnstiles, smart locks and existing security systems."
+        }
       },
       "sophia_ia": {
         "tagline": "Autonomous AI-powered software generation system",
         "cta": "Discover sophIA",
         "status": "Under Construction",
         "description": "sophIA is an autonomous software generation system that orchestrates specialized AI agents to generate code layer by layer. Powered by Claude Code with Tool Use, sophIA transforms requirements into functional software with minimal human intervention.",
-        "f1": { "title": "Agent Orchestration", "desc": "Multiple coordinated specialized agents generating code by layers: models, services, controllers and UI." },
-        "f2": { "title": "Claude Code + Tool Use", "desc": "Generation engine powered by Claude with the ability to execute tools, validate and self-correct code in real time." },
-        "f3": { "title": "Layer-by-Layer Generation", "desc": "Layered architecture producing clean, modular, production-ready code following best practices." },
-        "f4": { "title": "Intelligent Autonomy", "desc": "Autonomous decision-making with human validation checkpoints at critical pipeline stages." }
+        "f1": {
+          "title": "Agent Orchestration",
+          "desc": "Multiple coordinated specialized agents generating code by layers: models, services, controllers and UI."
+        },
+        "f2": {
+          "title": "Claude Code + Tool Use",
+          "desc": "Generation engine powered by Claude with the ability to execute tools, validate and self-correct code in real time."
+        },
+        "f3": {
+          "title": "Layer-by-Layer Generation",
+          "desc": "Layered architecture producing clean, modular, production-ready code following best practices."
+        },
+        "f4": {
+          "title": "Intelligent Autonomy",
+          "desc": "Autonomous decision-making with human validation checkpoints at critical pipeline stages."
+        }
       },
       "categories": {
         "web": {
           "title": "Web Solutions",
           "items": {
-            "ecommerce": {  
+            "ecommerce": {
               "title": "E-commerce Platform",
               "description": "Complete online store with shopping cart, payment gateways and administration panel.",
               "f1": "Integration with multiple payment gateways",
