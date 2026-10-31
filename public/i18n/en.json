@@ -73,7 +73,35 @@
         "listLabel": "Contact details",
         "whatsapp": "WhatsApp",
         "phone": "Phone",
-        "address": "Address"
+        "address": "Address",
+        "form": {
+          "title": "Tell us about your case",
+          "name": "Your name",
+          "company": "Company (optional)",
+          "need": "What do you need to solve?",
+          "needHint": "For example: organizing the inventory of our two stores.",
+          "when": {
+            "label": "When?",
+            "options": {
+              "soon": "As soon as possible",
+              "months": "In 1 to 3 months",
+              "later": "Later on",
+              "exploring": "Just looking into it"
+            }
+          },
+          "submit": "Send via WhatsApp",
+          "note": "WhatsApp will open with your message ready to send. We don't store your data.",
+          "errors": {
+            "required": "We need this.",
+            "needShort": "Tell us a bit more (at least 10 characters).",
+            "tooLong": "It's a bit long; please shorten it."
+          },
+          "message": {
+            "who": "Hi, I'm {{name}}.",
+            "whoCompany": "Hi, I'm {{name}}, from {{company}}.",
+            "body": "{{who}} I need: {{need}} Timeline: {{when}}."
+          }
+        }
       },
       "notFound": {
         "eyebrow": "Error 404",

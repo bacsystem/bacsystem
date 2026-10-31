@@ -13,6 +13,7 @@
   display: block;
 }
 
+
 .contact__list {
   margin: 0;
   padding: 0;
@@ -83,10 +84,15 @@ a.contact__row:hover .contact__arrow {
   transform: translateX(var(--space-1));
 }
 
+/* Desktop: the heading across, then the brief (wider) beside the direct contact details. */
 @media (min-width: 64em) {
   .contact {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--space-9);
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: var(--space-7) var(--space-8);
+  }
+
+  .contact__heading {
+    grid-column: 1 / -1;
   }
 
   .contact ui-section-heading {

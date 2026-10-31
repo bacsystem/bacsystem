@@ -1,0 +1,47 @@
+:host {
+  display: block;
+}
+
+.brief {
+  display: grid;
+  gap: var(--space-5);
+  padding: var(--space-5);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.brief__title {
+  margin: 0;
+  font-size: var(--text-xl);
+}
+
+.brief__row {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.brief__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.brief__note {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+}
+
+@media (min-width: 48em) {
+  .brief {
+    padding: var(--space-6);
+  }
+
+  .brief__row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

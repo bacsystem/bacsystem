@@ -45,7 +45,7 @@ describe('ContactPageComponent', () => {
     expect(el.querySelectorAll('a').length).toBe(2);
   });
 
-  it('has no form', () => {
-    expect(el.querySelector('form')).toBeNull();
+  it('offers the brief that ends in WhatsApp next to the contact details', () => {
+    expect(el.querySelector('app-whatsapp-form.contact__form form')).toBeTruthy();
   });
 });
