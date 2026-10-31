@@ -10,9 +10,12 @@ import { BLUR_FROM, BLUR_TO, DURATION, EASE_OUT, RISE_SM, STAGGER } from './moti
 
 type Els = HTMLElement[];
 
-/** The mask a word starts behind: fully clipped from its bottom edge (top/sides left loose for accents). */
-const CLIP_HIDDEN = 'inset(-30% -10% 100% -10%)';
-const CLIP_SHOWN = 'inset(-30% -10% 0% -10%)';
+/**
+ * How far a title line starts below its place (a fraction of its own height). No clip mask: a clip
+ * travels with the text, so mid-entrance it cut the bottom of the letters (g, j, p) and the last line
+ * looked like it was waiting for the others, then popped in when the mask was cleared.
+ */
+const LINE_RISE = '0.35em';
 
 export function all(root: ParentNode, selector: string): HTMLElement[] {
   return Array.from(root.querySelectorAll<HTMLElement>(selector));
@@ -36,14 +39,13 @@ export function lines(words: Els): HTMLElement[][] {
 export function hideWords(words: Els): void {
   for (const w of words) {
     w.style.opacity = '0';
-    w.style.transform = 'translateY(100%)';
-    w.style.clipPath = CLIP_HIDDEN;
+    w.style.transform = `translateY(${LINE_RISE})`;
   }
 }
 
 /**
- * Masked line-up: each rendered line rises from behind its own bottom edge, sharpening from a
- * small blur. Words on one line move as one, lines follow one stagger step apart.
+ * Line-up: each rendered line fades in and rises a short way, sharpening from a small blur. Words on
+ * one line move as one, lines follow one stagger step apart, so every line is moving at once.
  */
 export function revealWords(motion: MotionService, words: Els, delay = 0, blur = true): Stoppable[] {
   return lines(words).map((line, i) => {
@@ -51,13 +53,12 @@ export function revealWords(motion: MotionService, words: Els, delay = 0, blur =
       line,
       {
         opacity: [0, 1],
-        transform: ['translateY(100%)', 'translateY(0%)'],
-        clipPath: [CLIP_HIDDEN, CLIP_SHOWN],
+        transform: [`translateY(${LINE_RISE})`, 'translateY(0em)'],
         ...(blur ? { filter: [BLUR_FROM, BLUR_TO] } : {}),
       },
       { duration: DURATION.enter, ease: EASE_OUT, delay: delay + i * STAGGER },
     );
-    controls.finished.then(() => clear(line, ['opacity', 'transform', 'clip-path', 'filter']));
+    controls.finished.then(() => clear(line, ['opacity', 'transform', 'filter']));
     return controls;
   });
 }

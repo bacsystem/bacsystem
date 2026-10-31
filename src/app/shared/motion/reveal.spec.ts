@@ -36,7 +36,7 @@ describe('reveal helpers', () => {
 
   it('hides words behind their mask, then clears every inline style once the reveal finishes', async () => {
     hideWords(words());
-    expect(words().every(w => w.style.opacity === '0' && w.style.clipPath !== '')).toBeTrue();
+    expect(words().every(w => w.style.opacity === '0' && w.style.transform !== '' && w.style.clipPath === '')).toBeTrue();
     const { motion, calls } = finishingMotion();
     revealWords(motion, words());
     expect(calls.length).toBe(lines(words()).length); // one animation per line

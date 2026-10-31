@@ -20,7 +20,10 @@ const SERVICE = {
 /** The number slides in from the side it sits on (from the right on flipped blocks). */
 const slideFrom = (block: HTMLElement) => (block.classList.contains('service--flip') ? RISE : -RISE);
 
-/** Service block: the big number slides in, title and summary rise, then each list staggers in under its label. */
+/**
+ * Service block: the big number slides in, title and summary rise, then both lists come in together
+ * (label, then its items). They used to chain, so "Qué recibes" sat empty until "Te sirve si" ended.
+ */
 export const SERVICE_REVEAL: Choreography = {
   hide: el => {
     all(el, SERVICE.number).forEach(n => {
@@ -40,8 +43,8 @@ export const SERVICE_REVEAL: Choreography = {
     );
     slide.finished.then(() => clearStyles(number, ['opacity', 'transform']));
     const stops: Stoppable[] = [slide, ...revealFade(motion, all(el, SERVICE.text), { delay: STAGGER })];
-    all(el, '.service__details > *').forEach((list, i) => {
-      const at = STAGGER * (3 + i * 2);
+    const at = STAGGER * 3;
+    all(el, '.service__details > *').forEach(list => {
       stops.push(
         ...revealFade(motion, all(list, SERVICE.labels), { delay: at }),
         ...revealFade(motion, all(list, SERVICE.items), { delay: at + STAGGER, step: STAGGER / 2 }),
