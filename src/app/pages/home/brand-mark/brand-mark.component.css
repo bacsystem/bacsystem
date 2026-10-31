@@ -3,6 +3,8 @@
 }
 
 .mark {
+  /* Decorative only: the (invisible) incoming piece must never intercept taps near the CTA. */
+  pointer-events: none;
   display: block;
   inline-size: 100%;
   block-size: auto;
@@ -110,23 +112,23 @@
 @keyframes mark-l-dock {
   0%,
   18% {
-    transform: translate(85%, -95%) rotate(22deg);
+    transform: translate(85%, -95%) rotate(22deg) scale(1);
     animation-timing-function: var(--ease-out);
   }
 
   66% {
-    transform: translate(-2.5%, 2.5%) rotate(-2deg);
+    transform: translate(-2.5%, 2.5%) rotate(-2deg) scale(1);
     animation-timing-function: var(--ease-out);
   }
 
   74% {
-    transform: scale(1.05);
+    transform: translate(0, 0) rotate(0deg) scale(1.05);
     animation-timing-function: var(--ease-out);
   }
 
   92%,
   100% {
-    transform: none;
+    transform: translate(0, 0) rotate(0deg) scale(1);
   }
 }
 
@@ -138,14 +140,14 @@
   10%,
   64% {
     opacity: var(--opacity-subtle);
-    transform: none;
+    transform: translate(0, 0) rotate(0deg) scale(1);
     stroke: var(--color-border-strong);
     animation-timing-function: var(--ease-out);
   }
 
   72% {
     opacity: 1;
-    transform: scale(1.08);
+    transform: translate(0, 0) rotate(0deg) scale(1.08);
     stroke: var(--color-accent);
     animation-timing-function: var(--ease-out);
   }
@@ -153,7 +155,7 @@
   92%,
   100% {
     opacity: 0;
-    transform: scale(1.14);
+    transform: translate(0, 0) rotate(0deg) scale(1.14);
     stroke: var(--color-accent);
   }
 }
@@ -162,57 +164,61 @@
 @keyframes mark-c-react {
   0%,
   68% {
-    transform: none;
+    transform: translate(0, 0) rotate(0deg) scale(1);
     animation-timing-function: var(--ease-out);
   }
 
   76% {
-    transform: translate(-1%, 1%);
+    transform: translate(-1%, 1%) rotate(0deg) scale(1);
     animation-timing-function: var(--ease-out);
   }
 
   94%,
   100% {
-    transform: none;
+    transform: translate(0, 0) rotate(0deg) scale(1);
   }
 }
 
 @keyframes mark-echo-react {
   0%,
   68% {
-    transform: none;
+    transform: translate(0, 0) rotate(0deg) scale(1);
     animation-timing-function: var(--ease-out);
   }
 
   80% {
-    transform: translate(0.6%, 0.6%);
+    transform: translate(0.6%, 0.6%) rotate(0deg) scale(1);
     animation-timing-function: var(--ease-out);
   }
 
   100% {
-    transform: none;
+    transform: translate(0, 0) rotate(0deg) scale(1);
   }
 }
 
 @keyframes mark-echo-l-react {
   0%,
   68% {
-    transform: none;
+    transform: translate(0, 0) rotate(0deg) scale(1);
     animation-timing-function: var(--ease-out);
   }
 
   80% {
-    transform: translate(3%, -4%);
+    transform: translate(3%, -4%) rotate(0deg) scale(1);
     animation-timing-function: var(--ease-out);
   }
 
   100% {
-    transform: none;
+    transform: translate(0, 0) rotate(0deg) scale(1);
   }
 }
 
 @keyframes mark-float {
+  from {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+
   to {
-    transform: translate(3%, -4%);
+    transform: translate(3%, -4%) rotate(0deg) scale(1);
   }
 }
