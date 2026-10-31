@@ -88,3 +88,6 @@ export const MARK = {
  * to accepted; after a rest the cycle starts again with a new send.
  */
 export const INVOICE = { start: 0.6, step: 0.6, accept: 0.35, rest: 4.5, reset: 0.6 } as const;
+
+/** Wanka menu illustration (seconds): each industry stays this long before the menu switches to the next. */
+export const INDUSTRY_CYCLE = { hold: 2.8 } as const;

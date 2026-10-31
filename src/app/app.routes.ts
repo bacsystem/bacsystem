@@ -38,12 +38,20 @@ export const routes: Routes = [
         loadComponent: () => import('./pages/services/services.page').then(m => m.ServicesPageComponent),
         data: { seo: { titleKey: 'application.site.seo.services.title', descriptionKey: 'application.site.seo.services.description', indexable: true } },
       },
-      // khipu is the only product for now: /productos goes straight to it (public/_redirects does the same for direct hits).
-      { path: 'productos', pathMatch: 'full', redirectTo: 'productos/khipu' },
+      {
+        path: 'productos',
+        loadComponent: () => import('./pages/products/products.page').then(m => m.ProductsPageComponent),
+        data: { seo: { titleKey: 'application.site.seo.products.title', descriptionKey: 'application.site.seo.products.description', indexable: true } },
+      },
       {
         path: 'productos/khipu',
         loadComponent: () => import('./pages/khipu/khipu.page').then(m => m.KhipuPageComponent),
         data: { seo: { titleKey: 'application.site.seo.khipu.title', descriptionKey: 'application.site.seo.khipu.description', indexable: true } },
+      },
+      {
+        path: 'productos/wanka',
+        loadComponent: () => import('./pages/wanka/wanka.page').then(m => m.WankaPageComponent),
+        data: { seo: { titleKey: 'application.site.seo.wanka.title', descriptionKey: 'application.site.seo.wanka.description', indexable: true } },
       },
       ...devOnly,
       { path: '**', redirectTo: '' },

@@ -105,7 +105,9 @@ Regla del dueño (2026-10-31): lo que aparece en Inicio no se repite en otra pá
 | Resumen de servicios (una línea cada uno) | Inicio | Cada uno enlaza a su bloque en Servicios |
 | Detalle de servicios (te sirve si / qué recibes) | Servicios | Los resúmenes no repiten las líneas de Inicio |
 | Proceso "Así trabajamos contigo" | Solo Inicio | |
-| Productos (nombre + una línea) | Inicio | El detalle irá en /productos; Servicios no repite el bloque |
+| Productos (nombre + una línea) | Inicio | Servicios no repite el bloque |
+| Productos (estado, resumen, para quién) | /productos | Una tarjeta por producto, con otras palabras que Inicio |
+| Detalle de cada producto | /productos/khipu, /productos/wanka | khipu disponible (plan gratis); Wanka marcado "En construcción", sin registro ni precios |
 | Cifras | Solo Inicio | |
 | "Hablas con quienes construyen" | Nosotros (dato "Con quién hablas") | |
 | Misión, visión, valores, equipo | Solo Nosotros | |

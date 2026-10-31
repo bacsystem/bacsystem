@@ -52,6 +52,14 @@
         "khipu": {
           "title": "khipu: facturación electrónica SUNAT | Bacsystem Solutions",
           "description": "khipu es la plataforma de facturación electrónica de Bacsystem: emite facturas, boletas y notas desde un portal web o por API, con firma digital, envío a SUNAT y constancia guardada."
+        },
+        "products": {
+          "title": "Productos: khipu y Wanka | Bacsystem Solutions",
+          "description": "Software propio de Bacsystem: khipu, facturación electrónica SUNAT con plan gratis, y Wanka, sistema de gestión por rubro en construcción."
+        },
+        "wanka": {
+          "title": "Wanka: sistema de gestión por rubro | Bacsystem Solutions",
+          "description": "Wanka, en construcción: punto de venta, inventario por almacén, clientes, compras y facturación electrónica para restaurantes, veterinarias, consultorios dentales y tiendas."
         }
       },
       "contactPage": {
@@ -135,7 +143,12 @@
         "khipu": {
           "name": "khipu",
           "tagline": "Emite facturas y boletas electrónicas desde un portal web o desde tu propio sistema, con la constancia de SUNAT guardada para cada una."
-        }
+        },
+        "wanka": {
+          "name": "Wanka",
+          "tagline": "Un sistema de gestión que se adapta a tu rubro, con punto de venta, inventario y facturación electrónica."
+        },
+        "building": "En construcción"
       },
       "stats": {
         "title": "Bacsystem en cifras",
@@ -427,6 +440,122 @@
         "title": "Emite tu primera factura hoy",
         "subtitle": "Crea tu cuenta, configura tu empresa y comprueba en el entorno de pruebas de SUNAT que tus comprobantes se aceptan, sin pagar un sol.",
         "cta": "Crear cuenta gratis"
+      }
+    },
+    "productsPage": {
+      "intro": {
+        "eyebrow": "Productos",
+        "title": "Nuestros productos",
+        "lead": "Software que construimos y mantenemos nosotros. Te decimos tal cual cuál ya puedes usar y cuál estamos construyendo."
+      },
+      "status": {
+        "available": "Disponible",
+        "building": "En construcción"
+      },
+      "forLabel": "Para",
+      "items": {
+        "khipu": {
+          "summary": "Facturación electrónica sin armar XML ni lidiar con reenvíos: khipu calcula, firma y envía cada comprobante. Empiezas con el plan gratis.",
+          "for": "Empresas, contadores y equipos con sistema propio",
+          "cta": "Conocer khipu"
+        },
+        "wanka": {
+          "summary": "Vende, controla tu stock por almacén y emite tus comprobantes desde un solo lugar.",
+          "for": "Restaurantes, veterinarias, consultorios dentales y tiendas",
+          "cta": "Conocer Wanka"
+        }
+      }
+    },
+    "wankaPage": {
+      "intro": {
+        "eyebrow": "Producto · Gestión empresarial",
+        "title": "Wanka",
+        "tagline": "El sistema de gestión para tu negocio, adaptado a tu rubro.",
+        "lead": "Un solo sistema para vender, controlar tu stock y emitir tus comprobantes. El panel y el menú cambian según tu tipo de negocio, así no ves pantallas que no usas.",
+        "status": "En construcción",
+        "cta": "Quiero saber cuándo sale"
+      },
+      "industries": {
+        "title": "Pensado para cada rubro",
+        "subtitle": "Además de lo que comparten todos, cada tipo de negocio tiene sus propias pantallas.",
+        "items": {
+          "restaurant": {
+            "title": "Restaurantes",
+            "text": "Salón con mesas, pantalla de cocina, delivery y reservas."
+          },
+          "veterinary": {
+            "title": "Veterinarias",
+            "text": "Ficha de cada mascota, hospitalización y servicio de grooming."
+          },
+          "dental": {
+            "title": "Consultorios dentales",
+            "text": "Agenda de citas e historia clínica con odontograma."
+          },
+          "retail": {
+            "title": "Tiendas",
+            "text": "Productos con variantes, como talla y color, y venta rápida en caja."
+          }
+        }
+      },
+      "modules": {
+        "title": "Lo que comparte todo negocio",
+        "items": {
+          "sales": {
+            "title": "Punto de venta y caja",
+            "text": "Ventas rápidas, cotizaciones y cierre de caja con su reporte del día."
+          },
+          "invoicing": {
+            "title": "Facturación electrónica",
+            "text": "Boletas, facturas, notas de crédito y guías de remisión para SUNAT."
+          },
+          "inventory": {
+            "title": "Inventario por almacén",
+            "text": "Stock en cada almacén o sede, movimientos, traslados, toma física y kardex."
+          },
+          "customers": {
+            "title": "Clientes",
+            "text": "La ficha de cada cliente, con sus compras y sus citas."
+          },
+          "purchases": {
+            "title": "Compras y cuentas",
+            "text": "Proveedores, órdenes de compra, cuentas por cobrar y por pagar."
+          },
+          "reports": {
+            "title": "Reportes",
+            "text": "Reportes de ventas y de gestión, y los registros que pide SUNAT."
+          }
+        }
+      },
+      "contact": {
+        "title": "¿Quieres usarla en tu negocio?",
+        "subtitle": "Cuéntanos qué tipo de negocio tienes y qué te gustaría resolver. Nos ayuda a decidir qué construir primero.",
+        "cta": "Escríbenos"
+      },
+      "preview": {
+        "label": "Ejemplo del menú de Wanka, que cambia según el rubro del negocio",
+        "common": {
+          "sales": "Ventas",
+          "inventory": "Inventario",
+          "customers": "Clientes"
+        },
+        "specific": {
+          "restaurant": {
+            "a": "Salón y mesas",
+            "b": "Cocina"
+          },
+          "veterinary": {
+            "a": "Mascotas",
+            "b": "Hospitalización"
+          },
+          "dental": {
+            "a": "Citas",
+            "b": "Odontograma"
+          },
+          "retail": {
+            "a": "Variantes",
+            "b": "Caja rápida"
+          }
+        }
       }
     }
   }

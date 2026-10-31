@@ -130,7 +130,9 @@ describe('HomePageComponent', () => {
     expect(items.length).toBe(PRODUCTS.length);
     expect(section.textContent).toContain('khipu');
     expect(section.textContent).not.toMatch(/OperaAI|sophIA/);
-    expect(section.querySelector('.products__logo--monogram')?.textContent?.trim()).toBe('k');
+    expect(Array.from(section.querySelectorAll('ui-monogram')).map(m => m.textContent?.trim())).toEqual(['k', 'W']);
+    const tags = Array.from(section.querySelectorAll('.products__name ui-tag')).map(t => t.textContent?.trim());
+    expect(tags).withContext('only Wanka is marked in construction').toEqual([es.application.home.products.building]);
     for (const product of PRODUCTS) {
       expect(section.querySelector(`a[href="${product.route}"]`)).toBeTruthy();
     }

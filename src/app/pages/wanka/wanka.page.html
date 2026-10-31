@@ -1,0 +1,61 @@
+<ui-section sectionId="wanka">
+  <div class="intro">
+    <div class="intro__copy">
+      <p class="eyebrow">
+        <span class="eyebrow__rule" aria-hidden="true"></span>
+        <span class="eyebrow__text">{{ 'application.wankaPage.intro.eyebrow' | translate }}</span>
+      </p>
+      <h1 class="intro__title">{{ 'application.wankaPage.intro.title' | translate }}</h1>
+      <p class="intro__tagline">{{ 'application.wankaPage.intro.tagline' | translate }}</p>
+      <p class="intro__lead">{{ 'application.wankaPage.intro.lead' | translate }}</p>
+      <ui-tag>{{ 'application.wankaPage.intro.status' | translate }}</ui-tag>
+      <a ui-button size="lg" routerLink="/contacto">
+        {{ 'application.wankaPage.intro.cta' | translate }}
+        <ui-icon name="arrow-right" size="sm" />
+      </a>
+    </div>
+    <div class="intro__visual">
+      <app-industry-preview />
+    </div>
+  </div>
+</ui-section>
+
+<ui-section sectionId="rubros" tone="alt">
+  <div [appRevealGroup]="choreo.heading">
+    <ui-section-heading
+      [title]="'application.wankaPage.industries.title' | translate"
+      [subtitle]="'application.wankaPage.industries.subtitle' | translate"
+    />
+  </div>
+  <ul class="industries" role="list" appRevealGroup>
+    @for (id of industries; track id) {
+      <li class="industries__item">
+        <h3 class="industries__title">{{ 'application.wankaPage.industries.items.' + id + '.title' | translate }}</h3>
+        <p class="industries__text">{{ 'application.wankaPage.industries.items.' + id + '.text' | translate }}</p>
+      </li>
+    }
+  </ul>
+</ui-section>
+
+<ui-section sectionId="modulos">
+  <div class="modules">
+    <div [appRevealGroup]="choreo.heading">
+      <ui-section-heading [title]="'application.wankaPage.modules.title' | translate" />
+    </div>
+    <ol class="modules__list" role="list" appRevealGroup>
+      @for (id of modules; track id; let i = $index) {
+        <li class="modules__item">
+          <span class="modules__number" aria-hidden="true">{{ i | position }}</span>
+          <h3 class="modules__title">{{ 'application.wankaPage.modules.items.' + id + '.title' | translate }}</h3>
+          <p class="modules__text">{{ 'application.wankaPage.modules.items.' + id + '.text' | translate }}</p>
+        </li>
+      }
+    </ol>
+  </div>
+</ui-section>
+
+<app-contact-band
+  titleKey="application.wankaPage.contact.title"
+  subtitleKey="application.wankaPage.contact.subtitle"
+  ctaKey="application.wankaPage.contact.cta"
+/>

@@ -34,9 +34,11 @@ describe('site.data', () => {
     }
   });
 
-  it('lists only khipu as a product', () => {
-    expect(PRODUCTS.map((p) => p.id)).toEqual(['khipu']);
-    expect(PRODUCTS[0].route).toBe('/productos/khipu');
+  it('lists khipu (available) and Wanka (in construction) as products', () => {
+    expect(PRODUCTS.map((p) => [p.id, p.status, p.route])).toEqual([
+      ['khipu', 'available', '/productos/khipu'],
+      ['wanka', 'building', '/productos/wanka'],
+    ]);
   });
 
   it('shows no client logos until real ones are confirmed', () => {

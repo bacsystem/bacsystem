@@ -182,36 +182,12 @@ dd {
 }
 
 /* Monogram until there is a photo: navy tile, white initials, the teal corner of the logo. */
-.team__monogram,
 .team__photo {
   position: relative;
   flex-shrink: 0;
   inline-size: var(--space-8);
   block-size: var(--space-8);
   border-radius: var(--radius-md);
-}
-
-.team__monogram {
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-  background-color: var(--color-primary);
-  color: var(--color-on-primary);
-  font-family: var(--font-display);
-  font-size: var(--text-lg);
-  letter-spacing: var(--tracking-normal);
-  user-select: none;
-}
-
-.team__monogram::after {
-  content: '';
-  position: absolute;
-  inset-block-start: 0;
-  inset-inline-end: 0;
-  inline-size: var(--space-4);
-  block-size: var(--space-4);
-  border-end-start-radius: var(--radius-sm);
-  background-color: var(--color-accent);
 }
 
 .team__photo {

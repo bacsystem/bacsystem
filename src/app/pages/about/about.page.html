@@ -66,7 +66,7 @@
               <img class="team__photo" [src]="member.photo" alt="" width="320" height="320" loading="lazy" />
             } @else {
               <!-- EJEMPLO: reemplazar por foto real (campo `photo` del integrante en site.data.ts) -->
-              <span class="team__monogram" aria-hidden="true">{{ member.initials }}</span>
+              <ui-monogram class="team__monogram" [text]="member.initials" />
             }
             <div class="team__id">
               <h3 class="team__name">{{ member.name }}</h3>

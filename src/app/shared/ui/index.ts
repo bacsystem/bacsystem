@@ -5,3 +5,4 @@ export * from './tag/tag.component';
 export * from './section-heading/section-heading.component';
 export * from './section/section.component';
 export * from './field/field.component';
+export * from './monogram/monogram.component';

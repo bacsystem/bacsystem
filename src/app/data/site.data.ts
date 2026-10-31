@@ -30,11 +30,14 @@ export interface ServiceItem {
 }
 
 export interface ProductItem {
-  id: 'khipu';
+  id: 'khipu' | 'wanka';
   route: string;
-  /** Square logo; without one the card shows a receipt-style monogram. */
+  /** 'available': people can use it today; 'building': in construction, shown as such everywhere. */
+  status: 'available' | 'building';
+  /** Square logo; without one the card shows the product's initial. */
   logo?: string;
   nameKey: string;
+  /** One line for the Home teaser. */
   taglineKey: string;
 }
 
@@ -96,10 +99,24 @@ export const PRODUCTS: ProductItem[] = [
   {
     id: 'khipu',
     route: '/productos/khipu',
+    status: 'available',
     nameKey: 'application.home.products.khipu.name',
     taglineKey: 'application.home.products.khipu.tagline',
   },
+  {
+    id: 'wanka',
+    route: '/productos/wanka',
+    status: 'building',
+    nameKey: 'application.home.products.wanka.name',
+    taglineKey: 'application.home.products.wanka.tagline',
+  },
 ];
+
+/** The industries Wanka adapts to (dashboards and navigation change with the business type). */
+export const WANKA_INDUSTRIES = ['restaurant', 'veterinary', 'dental', 'retail'] as const;
+
+/** What every Wanka business shares, whatever its industry (from the wanka repo, main branch). */
+export const WANKA_MODULES = ['sales', 'invoicing', 'inventory', 'customers', 'purchases', 'reports'] as const;
 
 /**
  * Public sign-up page of the khipu portal (its /registro). Empty until the production URL is confirmed:

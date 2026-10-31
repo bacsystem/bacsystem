@@ -1,0 +1,34 @@
+<!-- EJEMPLO: ilustración, no captura; reemplazar por captura real de Wanka cuando exista -->
+<div class="preview" role="img" [attr.aria-label]="'application.wankaPage.preview.label' | translate">
+  <div class="app" aria-hidden="true">
+    <ul class="tabs" role="list">
+      @for (id of industries; track id; let first = $first) {
+        <li class="tabs__item" [class.is-active]="first" [attr.data-industry]="id">
+          {{ 'application.wankaPage.industries.items.' + id + '.title' | translate }}
+        </li>
+      }
+    </ul>
+    <div class="menu">
+      <ul class="menu__list" role="list">
+        @for (item of common; track item) {
+          <li class="menu__item">
+            <span class="menu__dot"></span>
+            {{ 'application.wankaPage.preview.common.' + item | translate }}
+          </li>
+        }
+      </ul>
+      <div class="menu__specific">
+        @for (id of industries; track id; let first = $first) {
+          <ul class="menu__list menu__list--specific" role="list" [class.is-active]="first" [attr.data-industry]="id">
+            @for (slot of ['a', 'b']; track slot) {
+              <li class="menu__item menu__item--specific">
+                <span class="menu__dot"></span>
+                {{ 'application.wankaPage.preview.specific.' + id + '.' + slot | translate }}
+              </li>
+            }
+          </ul>
+        }
+      </div>
+    </div>
+  </div>
+</div>

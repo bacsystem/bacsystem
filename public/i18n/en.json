@@ -52,6 +52,14 @@
         "khipu": {
           "title": "khipu: SUNAT e-invoicing | Bacsystem Solutions",
           "description": "khipu is Bacsystem's electronic invoicing platform: issue invoices, receipts and notes from a web portal or through an API, with digital signature, sending to SUNAT and stored receipts."
+        },
+        "products": {
+          "title": "Products: khipu and Wanka | Bacsystem Solutions",
+          "description": "Bacsystem's own software: khipu, SUNAT e-invoicing with a free plan, and Wanka, an industry-specific management system in progress."
+        },
+        "wanka": {
+          "title": "Wanka: industry-specific management | Bacsystem Solutions",
+          "description": "Wanka, in progress: point of sale, inventory by warehouse, customers, purchases and electronic invoicing for restaurants, veterinary clinics, dental practices and shops."
         }
       },
       "contactPage": {
@@ -135,7 +143,12 @@
         "khipu": {
           "name": "khipu",
           "tagline": "Issue electronic invoices and receipts from a web portal or from your own system, with SUNAT's receipt stored for each one."
-        }
+        },
+        "wanka": {
+          "name": "Wanka",
+          "tagline": "A management system that adapts to your industry, with point of sale, inventory and electronic invoicing."
+        },
+        "building": "In progress"
       },
       "stats": {
         "title": "Bacsystem in numbers",
@@ -427,6 +440,122 @@
         "title": "Issue your first invoice today",
         "subtitle": "Create your account, set up your company and check in SUNAT's test environment that your documents are accepted, without paying anything.",
         "cta": "Create a free account"
+      }
+    },
+    "productsPage": {
+      "intro": {
+        "eyebrow": "Products",
+        "title": "Our products",
+        "lead": "Software we build and maintain ourselves. We tell you plainly which one you can use today and which one we are still building."
+      },
+      "status": {
+        "available": "Available",
+        "building": "In progress"
+      },
+      "forLabel": "For",
+      "items": {
+        "khipu": {
+          "summary": "Electronic invoicing without building XML or chasing resends: khipu calculates, signs and sends every document. You start on the free plan.",
+          "for": "Companies, accountants and teams with their own system",
+          "cta": "Discover khipu"
+        },
+        "wanka": {
+          "summary": "Sell, track your stock by warehouse and issue your documents from one place.",
+          "for": "Restaurants, veterinary clinics, dental practices and shops",
+          "cta": "Discover Wanka"
+        }
+      }
+    },
+    "wankaPage": {
+      "intro": {
+        "eyebrow": "Product · Business management",
+        "title": "Wanka",
+        "tagline": "The management system for your business, adapted to your industry.",
+        "lead": "One system to sell, track your stock and issue your documents. The dashboard and the menu change with your type of business, so you don't see screens you don't use.",
+        "status": "In progress",
+        "cta": "Tell me when it's ready"
+      },
+      "industries": {
+        "title": "Built for each industry",
+        "subtitle": "Besides what they all share, each type of business has its own screens.",
+        "items": {
+          "restaurant": {
+            "title": "Restaurants",
+            "text": "Floor plan with tables, kitchen display, delivery and reservations."
+          },
+          "veterinary": {
+            "title": "Veterinary clinics",
+            "text": "A record for each pet, hospitalization and grooming."
+          },
+          "dental": {
+            "title": "Dental practices",
+            "text": "Appointment calendar and clinical record with an odontogram."
+          },
+          "retail": {
+            "title": "Shops",
+            "text": "Products with variants, such as size and color, and quick checkout."
+          }
+        }
+      },
+      "modules": {
+        "title": "What every business shares",
+        "items": {
+          "sales": {
+            "title": "Point of sale and cash",
+            "text": "Quick sales, quotes and cash closing with its daily report."
+          },
+          "invoicing": {
+            "title": "Electronic invoicing",
+            "text": "Receipts, invoices, credit notes and dispatch guides for SUNAT."
+          },
+          "inventory": {
+            "title": "Inventory by warehouse",
+            "text": "Stock in each warehouse or branch, movements, transfers, physical counts and kardex."
+          },
+          "customers": {
+            "title": "Customers",
+            "text": "Each customer's record, with their purchases and appointments."
+          },
+          "purchases": {
+            "title": "Purchases and accounts",
+            "text": "Suppliers, purchase orders, receivables and payables."
+          },
+          "reports": {
+            "title": "Reports",
+            "text": "Sales and management reports, and the records SUNAT requires."
+          }
+        }
+      },
+      "contact": {
+        "title": "Want to use it in your business?",
+        "subtitle": "Tell us what kind of business you have and what you'd like to solve. It helps us decide what to build first.",
+        "cta": "Write to us"
+      },
+      "preview": {
+        "label": "Example of Wanka's menu, which changes with the type of business",
+        "common": {
+          "sales": "Sales",
+          "inventory": "Inventory",
+          "customers": "Customers"
+        },
+        "specific": {
+          "restaurant": {
+            "a": "Floor and tables",
+            "b": "Kitchen"
+          },
+          "veterinary": {
+            "a": "Pets",
+            "b": "Hospitalization"
+          },
+          "dental": {
+            "a": "Appointments",
+            "b": "Odontogram"
+          },
+          "retail": {
+            "a": "Variants",
+            "b": "Quick checkout"
+          }
+        }
       }
     }
   }

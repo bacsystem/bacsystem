@@ -272,18 +272,6 @@ p {
   background-color: var(--color-surface);
 }
 
-/* Without a logo file: the product's initial in the display face. */
-.products__logo--monogram {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--color-accent-soft);
-  color: var(--color-accent-text);
-  font-family: var(--font-display);
-  font-size: var(--text-lg);
-  line-height: 1;
-}
-
 .products__body {
   display: flex;
   flex-direction: column;
@@ -293,6 +281,10 @@ p {
 }
 
 .products__name {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
   font-size: var(--text-lg);
 }
 
@@ -333,11 +325,13 @@ p {
     box-shadow: var(--shadow-md);
   }
 
-  .products__logo {
+  .products__logo,
+  .products__monogram {
     transition: rotate var(--duration-spring) var(--ease-spring);
   }
 
-  .products__item:hover .products__logo {
+  .products__item:hover .products__logo,
+  .products__item:hover .products__monogram {
     rotate: var(--tilt-logo);
   }
 }

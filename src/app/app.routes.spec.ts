@@ -20,12 +20,17 @@ describe('routes', () => {
     }
   });
 
-  it('productos goes straight to khipu, the only product, which is indexable', async () => {
-    expect(find('productos')?.redirectTo).toBe('productos/khipu');
-    expect(seo('productos/khipu').indexable).toBeTrue();
-    expect(seo('productos/khipu').titleKey).toBe('application.site.seo.khipu.title');
-    const component = await (find('productos/khipu')!.loadComponent as () => Promise<unknown>)();
-    expect((component as { name: string }).name).toBe('KhipuPageComponent');
+  it('productos lists the products and each product has its own indexable page', async () => {
+    const pages: Record<string, string> = {
+      productos: 'ProductsPageComponent',
+      'productos/khipu': 'KhipuPageComponent',
+      'productos/wanka': 'WankaPageComponent',
+    };
+    for (const [path, name] of Object.entries(pages)) {
+      expect(seo(path).indexable).withContext(path).toBeTrue();
+      const component = await (find(path)!.loadComponent as () => Promise<unknown>)();
+      expect((component as { name: string }).name).withContext(path).toBe(name);
+    }
   });
 
   it('retired products have no route', () => {

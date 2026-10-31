@@ -23,7 +23,7 @@ import { WordsPipe } from '../../shared/pipes/words.pipe';
 import { ContactBandComponent, ProcessStepsComponent } from '../../shared/sections';
 import { BrandMarkComponent } from './brand-mark/brand-mark.component';
 import { HOME_CHOREO, hideHero, playHero } from './home.motion';
-import { ButtonComponent, IconComponent, SectionComponent, SectionHeadingComponent, TagComponent } from '../../shared/ui';
+import { ButtonComponent, IconComponent, MonogramComponent, SectionComponent, SectionHeadingComponent, TagComponent } from '../../shared/ui';
 
 /** Below this many logos the strip stays still: a loop of two logos reads as filler. */
 const MIN_LOGOS_TO_SCROLL = 5;
@@ -41,6 +41,7 @@ const FINE_POINTER = '(hover: hover) and (pointer: fine)';
     SectionComponent,
     SectionHeadingComponent,
     TagComponent,
+    MonogramComponent,
     RevealDirective,
     RevealGroupDirective,
     CountUpDirective,

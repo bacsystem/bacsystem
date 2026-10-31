@@ -121,10 +121,15 @@
             @if (product.logo) {
               <img class="products__logo" [src]="product.logo" alt="" width="32" height="32" loading="lazy" />
             } @else {
-              <span class="products__logo products__logo--monogram" aria-hidden="true">{{ (product.nameKey | translate).charAt(0) }}</span>
+              <ui-monogram class="products__monogram" size="sm" [text]="(product.nameKey | translate).charAt(0)" />
             }
             <div class="products__body">
-              <h3 class="products__name">{{ product.nameKey | translate }}</h3>
+              <h3 class="products__name">
+                {{ product.nameKey | translate }}
+                @if (product.status === 'building') {
+                  <ui-tag>{{ 'application.home.products.building' | translate }}</ui-tag>
+                }
+              </h3>
               <p class="products__tagline">{{ product.taglineKey | translate }}</p>
               <a ui-button variant="text" class="products__link" [routerLink]="product.route">
                 {{ 'application.home.products.cta' | translate }}
