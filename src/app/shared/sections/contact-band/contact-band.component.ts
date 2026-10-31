@@ -6,7 +6,7 @@ import { WordsPipe } from '../../pipes/words.pipe';
 import { ButtonComponent, IconComponent, SectionComponent } from '../../ui';
 import { CONTACT_REVEAL } from './contact-band.motion';
 
-/** The closing navy band that sends visitors to /contacto. Shared by every page except Contacto (the footer below carries the e-mail); renders its own #contacto section. */
+/** The closing navy band that sends visitors to /contacto. Shared by every page except Contacto (the footer below carries WhatsApp and the address); renders its own #contacto section. */
 @Component({
   selector: 'app-contact-band',
   standalone: true,

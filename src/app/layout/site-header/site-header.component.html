@@ -22,13 +22,13 @@
       <ul class="site-nav__list" role="list">
         @for (link of links; track link.path) {
           <li>
-            <a class="site-nav__link" [routerLink]="link.path" routerLinkActive="is-active" ariaCurrentWhenActive="page">
+            <a class="site-nav__link" [routerLink]="link.path" routerLinkActive="is-active" ariaCurrentWhenActive="page" (click)="closeMenu()">
               {{ link.labelKey | translate }}
             </a>
           </li>
         }
       </ul>
-      <a ui-button size="lg" class="site-nav__cta" routerLink="/contacto">
+      <a ui-button size="lg" class="site-nav__cta" routerLink="/contacto" (click)="closeMenu()">
         {{ 'application.site.nav.cta' | translate }}
       </a>
     </nav>

@@ -13,8 +13,8 @@
         "menuOpen": "Open menu",
         "menuClose": "Close menu",
         "languageTo": {
-          "en": "View the site in English",
-          "es": "View the site in Spanish"
+          "en": "EN, view the site in English",
+          "es": "ES, view the site in Spanish"
         },
         "theme": {
           "light": "Light theme. Switch to dark",

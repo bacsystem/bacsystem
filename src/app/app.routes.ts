@@ -1,19 +1,8 @@
-import { isDevMode } from '@angular/core';
-import { Route, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
+import { DEV_ROUTES } from './dev-routes';
 
 const notFound = () => import('./pages/not-found/not-found.page').then(m => m.NotFoundPageComponent);
 const notFoundSeo = { titleKey: 'application.site.seo.notFound.title', descriptionKey: 'application.site.seo.notFound.description', indexable: false };
-
-// Internal UI reference: only registered in development builds.
-const devOnly: Route[] = isDevMode()
-  ? [
-      {
-        path: 'guia-ui',
-        loadComponent: () => import('./pages/ui-guide/ui-guide.page').then(m => m.UiGuidePageComponent),
-        data: { seo: { titleKey: 'application.site.seo.uiGuide.title', descriptionKey: 'application.site.seo.uiGuide.description', indexable: false } },
-      },
-    ]
-  : [];
 
 export const routes: Routes = [
   {
@@ -56,7 +45,7 @@ export const routes: Routes = [
         loadComponent: () => import('./pages/wanka/wanka.page').then(m => m.WankaPageComponent),
         data: { seo: { titleKey: 'application.site.seo.wanka.title', descriptionKey: 'application.site.seo.wanka.description', indexable: true } },
       },
-      ...devOnly,
+      ...DEV_ROUTES,
       // Prerendered as 404.html (scripts/copy-404.mjs); '**' shows the same page for any unknown URL in the app.
       { path: '404', loadComponent: notFound, data: { seo: notFoundSeo } },
       { path: '**', loadComponent: notFound, data: { seo: notFoundSeo } },

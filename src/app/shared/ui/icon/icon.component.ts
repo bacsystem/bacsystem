@@ -10,7 +10,6 @@ export const ICON_NAMES = [
   'sun-fill',
   'moon-fill',
   'circle-half',
-  'envelope',
   'telephone',
   'geo-alt',
   'check2-circle',

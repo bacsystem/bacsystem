@@ -75,6 +75,17 @@ export class SiteHeaderComponent implements OnInit {
     this.menuOpen.update(open => !open);
   }
 
+  /** Any menu link closes it, also the one for the page already open (no navigation event then). */
+  protected closeMenu(): void {
+    this.menuOpen.set(false);
+  }
+
+  /** A tap outside the header closes the open menu. */
+  @HostListener('document:click', ['$event.target'])
+  protected onDocumentClick(target: EventTarget | null): void {
+    if (this.menuOpen() && target instanceof Node && !this.host.contains(target)) this.menuOpen.set(false);
+  }
+
   protected switchLanguage(): void {
     this.language.useLanguage(this.nextLang);
   }

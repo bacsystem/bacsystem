@@ -57,7 +57,6 @@ export class HomePageComponent implements AfterViewInit, OnDestroy {
   products: ProductItem[] = PRODUCTS;
 
   protected readonly choreo = HOME_CHOREO;
-  /** Each counter starts as its rule finishes growing (ms). */
 
   private readonly host = inject<ElementRef<HTMLElement>>(ElementRef).nativeElement;
   private readonly platformId = inject(PLATFORM_ID);

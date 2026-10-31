@@ -70,6 +70,20 @@ describe('SiteHeaderComponent', () => {
     el.remove();
   }));
 
+  it('closes the open menu on any menu link and on a tap outside the header', () => {
+    toggle().click();
+    fixture.detectChanges();
+    el.querySelector<HTMLAnchorElement>('.site-nav__link')!.click();
+    fixture.detectChanges();
+    expect(toggle().getAttribute('aria-expanded')).toBe('false');
+
+    toggle().click();
+    fixture.detectChanges();
+    document.body.click();
+    fixture.detectChanges();
+    expect(toggle().getAttribute('aria-expanded')).toBe('false');
+  });
+
   it('Escape closes the open menu', () => {
     toggle().click();
     fixture.detectChanges();

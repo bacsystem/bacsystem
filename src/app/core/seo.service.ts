@@ -7,7 +7,6 @@ import { filter } from 'rxjs/operators';
 
 /** Canonical base URL */
 const SITE_URL = 'https://bacsystemsolutions.com';
-// EJEMPLO: reemplazar por og-cover.png real
 /** Share preview (WhatsApp, LinkedIn, Facebook): 1200x630, the size those cards expect. */
 const OG_IMAGE = `${SITE_URL}/assets/img/og-cover.png`;
 

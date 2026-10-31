@@ -5,12 +5,12 @@ describe('IconComponent', () => {
   let fixture: ComponentFixture<IconComponent>;
   beforeEach(() => {
     fixture = TestBed.createComponent(IconComponent);
-    fixture.componentRef.setInput('name', 'envelope');
+    fixture.componentRef.setInput('name', 'whatsapp');
   });
 
   it('is decorative (aria-hidden) without a label', () => {
     fixture.detectChanges();
-    const i: HTMLElement = fixture.nativeElement.querySelector('i.bi.bi-envelope');
+    const i: HTMLElement = fixture.nativeElement.querySelector('i.bi.bi-whatsapp');
     expect(i).toBeTruthy();
     expect(i.getAttribute('aria-hidden')).toBe('true');
     expect(i.getAttribute('role')).toBeNull();
