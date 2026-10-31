@@ -1,6 +1,6 @@
 <section
   class="ui-section"
-  [id]="sectionId() ?? ''"
+  [attr.id]="sectionId() || null"
   [class.ui-section--default]="tone() === 'default'"
   [class.ui-section--alt]="tone() === 'alt'"
   [class.ui-section--primary]="tone() === 'primary'"
