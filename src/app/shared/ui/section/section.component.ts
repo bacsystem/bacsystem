@@ -10,4 +10,5 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 export class SectionComponent {
   readonly tone = input<'default' | 'alt' | 'primary'>('default');
   readonly sectionId = input<string>();
+  readonly spacing = input<'default' | 'compact'>('default');
 }

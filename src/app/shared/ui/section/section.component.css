@@ -6,6 +6,10 @@
   padding-block: var(--space-9);
 }
 
+.ui-section--compact {
+  padding-block: var(--space-6);
+}
+
 .ui-section--default {
   background-color: var(--color-bg);
   color: var(--color-text);

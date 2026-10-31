@@ -1,0 +1,169 @@
+<!-- Hero: no reveal, it is visible on load -->
+<ui-section sectionId="inicio">
+  <div class="hero">
+    <div class="hero__copy">
+      <p class="eyebrow">{{ 'application.home.hero.eyebrow' | translate }}</p>
+      <h1 class="hero__title">{{ 'application.home.hero.title' | translate }}</h1>
+      <p class="hero__subtitle">{{ 'application.home.hero.subtitle' | translate }}</p>
+      <div class="hero__actions">
+        <a ui-button size="lg" class="hero__cta" routerLink="/contacto">
+          {{ 'application.home.hero.cta' | translate }}
+          <ui-icon name="arrow-right" size="sm" />
+        </a>
+        <a ui-button variant="text" size="lg" class="hero__secondary" routerLink="/productos">
+          {{ 'application.home.hero.secondary' | translate }}
+        </a>
+      </div>
+    </div>
+    <div class="hero__visual">
+      <app-product-preview />
+    </div>
+  </div>
+</ui-section>
+
+@if (clients.length > 0) {
+  <ui-section sectionId="clientes" spacing="compact">
+    <div class="clients" appReveal>
+      <p class="clients__label">{{ 'application.home.clients.label' | translate }}</p>
+      <div class="clients__viewport" [class.is-scrolling]="logosScroll">
+        <div class="clients__track" [class.is-scrolling]="logosScroll">
+          <ul class="clients__list" role="list">
+            @for (client of clients; track client.id) {
+              <li>
+                <img class="clients__logo" [src]="client.logo" [alt]="client.name" width="400" height="125" loading="lazy" />
+              </li>
+            }
+          </ul>
+          @if (logosScroll) {
+            <ul class="clients__list" role="list" aria-hidden="true">
+              @for (client of clients; track client.id) {
+                <li>
+                  <img class="clients__logo" [src]="client.logo" alt="" aria-hidden="true" width="400" height="125" loading="lazy" />
+                </li>
+              }
+            </ul>
+          }
+        </div>
+      </div>
+    </div>
+  </ui-section>
+}
+
+@if (services.length > 0) {
+  <ui-section sectionId="servicios">
+    <div appReveal>
+      <ui-section-heading
+        [title]="'application.home.services.title' | translate"
+        [subtitle]="'application.home.services.subtitle' | translate"
+      />
+    </div>
+    <div class="services">
+      @let lead = services[0];
+      <article class="services__lead" appReveal>
+        <p class="services__kicker">
+          <span class="services__index">{{ index(0) }}</span>
+          {{ 'application.home.services.lead' | translate }}
+        </p>
+        <h3 class="services__lead-title">{{ lead.titleKey | translate }}</h3>
+        <p class="services__lead-text">{{ lead.descriptionKey | translate }}</p>
+        @if (lead.tagKeys?.length) {
+          <ul class="services__tags" role="list">
+            @for (tag of lead.tagKeys; track tag) {
+              <li><ui-tag>{{ tag | translate }}</ui-tag></li>
+            }
+          </ul>
+        }
+        <a ui-button variant="text" class="services__more" routerLink="/servicios">
+          {{ 'application.home.services.more' | translate }}
+          <ui-icon name="arrow-right" size="sm" />
+        </a>
+      </article>
+
+      <ol class="services__list" role="list" appReveal>
+        @for (service of services.slice(1); track service.id; let i = $index) {
+          <li class="services__item">
+            <span class="services__index">{{ index(i + 1) }}</span>
+            <div>
+              <h3 class="services__item-title">{{ service.titleKey | translate }}</h3>
+              <p class="services__item-text">{{ service.descriptionKey | translate }}</p>
+            </div>
+          </li>
+        }
+      </ol>
+    </div>
+  </ui-section>
+}
+
+@if (featured; as product) {
+  <ui-section sectionId="producto" tone="alt">
+    <div class="featured">
+      <div class="featured__visual" appReveal>
+        <app-product-preview variant="invoice" />
+      </div>
+      <div class="featured__copy" appReveal>
+        <img class="featured__logo" [src]="product.logo" alt="" width="32" height="32" />
+        <ui-section-heading
+          [eyebrow]="'application.home.featured.eyebrow' | translate"
+          [title]="product.nameKey | translate"
+          [subtitle]="product.taglineKey | translate"
+        />
+        @if (product.highlightKeys?.length) {
+          <ul class="featured__points" role="list">
+            @for (point of product.highlightKeys; track point) {
+              <li>
+                <ui-icon name="check2-circle" size="sm" />
+                <span>{{ point | translate }}</span>
+              </li>
+            }
+          </ul>
+        }
+        <a ui-button variant="secondary" class="featured__cta" [routerLink]="product.route">
+          {{ 'application.home.featured.cta' | translate }}
+          <ui-icon name="arrow-right" size="sm" />
+        </a>
+      </div>
+    </div>
+  </ui-section>
+}
+
+@if (stats.length > 0) {
+  <ui-section sectionId="cifras">
+    <div class="stats">
+      <div class="stats__intro" appReveal>
+        <ui-section-heading
+          [title]="'application.home.stats.title' | translate"
+          [subtitle]="'application.home.stats.subtitle' | translate"
+        />
+      </div>
+      <dl class="stats__grid" appReveal>
+        @for (stat of stats; track stat.id) {
+          <div class="stats__item">
+            <dt class="stats__label">{{ stat.labelKey | translate }}</dt>
+            <dd class="stats__figure">
+              <span class="stats__value" [appCountUp]="stat.value"></span><span class="stats__suffix">{{ stat.suffix }}</span>
+            </dd>
+          </div>
+        }
+      </dl>
+    </div>
+  </ui-section>
+}
+
+<ui-section sectionId="contacto" tone="primary">
+  <div class="contact" appReveal>
+    <div class="contact__copy">
+      <h2 class="contact__title">{{ 'application.home.contact.title' | translate }}</h2>
+      <p class="contact__subtitle">{{ 'application.home.contact.subtitle' | translate }}</p>
+    </div>
+    <div class="contact__actions">
+      <a ui-button size="lg" class="contact__cta" routerLink="/contacto">
+        {{ 'application.home.contact.cta' | translate }}
+        <ui-icon name="arrow-right" size="sm" />
+      </a>
+      <p class="contact__mail">
+        {{ 'application.home.contact.or' | translate }}
+        <a [href]="'mailto:' + email">{{ email }}</a>
+      </p>
+    </div>
+  </div>
+</ui-section>

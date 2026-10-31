@@ -13,6 +13,8 @@ export interface ServiceItem {
   icon: IconName;
   titleKey: string;
   descriptionKey: string;
+  /** Concrete kinds of work, shown when the service leads the home page list. */
+  tagKeys?: string[];
 }
 
 export interface ProductItem {
@@ -21,6 +23,8 @@ export interface ProductItem {
   logo: string;
   nameKey: string;
   taglineKey: string;
+  /** Short capability lines shown when the product is featured on the home page. */
+  highlightKeys?: string[];
   featured?: boolean;
 }
 
@@ -39,7 +43,18 @@ export interface StatItem {
 }
 
 export const SERVICES: ServiceItem[] = [
-  { id: 'web', icon: 'code-slash', titleKey: 'application.home.services.web.title', descriptionKey: 'application.home.services.web.description' },
+  {
+    id: 'web',
+    icon: 'code-slash',
+    titleKey: 'application.home.services.web.title',
+    descriptionKey: 'application.home.services.web.description',
+    tagKeys: [
+      'application.home.services.web.tags.internal',
+      'application.home.services.web.tags.portals',
+      'application.home.services.web.tags.mobile',
+      'application.home.services.web.tags.integrations',
+    ],
+  },
   { id: 'consulting', icon: 'gear', titleKey: 'application.home.services.consulting.title', descriptionKey: 'application.home.services.consulting.description' },
   { id: 'optimization', icon: 'graph-up-arrow', titleKey: 'application.home.services.optimization.title', descriptionKey: 'application.home.services.optimization.description' },
   { id: 'cloud', icon: 'cloud', titleKey: 'application.home.services.cloud.title', descriptionKey: 'application.home.services.cloud.description' },
@@ -52,6 +67,11 @@ export const PRODUCTS: ProductItem[] = [
     logo: '/assets/img/clients/operaai-favicon.svg',
     nameKey: 'application.home.products.operaai.name',
     taglineKey: 'application.home.products.operaai.tagline',
+    highlightKeys: [
+      'application.home.products.operaai.highlights.p1',
+      'application.home.products.operaai.highlights.p2',
+      'application.home.products.operaai.highlights.p3',
+    ],
     featured: true,
   },
   {

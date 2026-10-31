@@ -88,57 +88,46 @@
       "language": "Idioma"
     },
     "home": {
-      "hero_tag": "Transformación Digital",
-      "title": "Transformamos ideas en soluciones digitales",
-      "description": "Bacsystem Solutions es una empresa especializada en desarrollo de software, consultoría tecnológica y transformación digital. Creamos soluciones innovadoras que impulsan el crecimiento de tu negocio.",
-      "welcome": "Bienvenido a Bacsystem Solutions",
-      "content": "En Bacsystem Solutions nos especializamos en el desarrollo de software a medida, aplicaciones web y móviles, consultoría tecnológica y transformación digital. Nuestro equipo de expertos combina creatividad, tecnología de vanguardia y metodologías ágiles para entregar soluciones que realmente marquen la diferencia en tu negocio.",
-      "badge_projects": "320+ Proyectos",
-      "badge_clients": "150+ Clientes",
-      "dash": {
-        "status": "live",
-        "greeting": "Overview · Q2",
-        "title": "Dashboard",
-        "live": "● Live",
-        "stat_revenue": "Revenue",
-        "stat_users": "Usuarios",
-        "stat_projects": "Proyectos",
-        "stat_uptime": "Uptime",
-        "chart_revenue": "Revenue",
-        "chart_sessions": "Sesiones",
-        "chart_projects": "Proyectos",
-        "donut_done": "listo",
-        "legend_done": "Listo",
-        "legend_live": "Activo",
-        "legend_queue": "Cola",
-        "tasks_title": "Tareas recientes",
-        "tasks_active": "4 activas",
-        "task1": "API Gateway",
-        "task2": "App Móvil",
-        "task3": "Analytics",
-        "task4": "Infra upgrade",
-        "status_done": "Listo",
-        "status_live": "Activo",
-        "status_queue": "Cola",
-        "act1": "Desplegado",
-        "act2": "Alta cliente",
-        "act3": "API mergeada",
-        "act4": "Reporte"
+      "hero": {
+        "eyebrow": "Software a medida · Lima, Perú",
+        "title": "Software que tu equipo sí usa.",
+        "subtitle": "Desarrollamos sistemas web, móviles y de IA a medida para empresas que quieren crecer sin complicarse.",
+        "cta": "Cotizar proyecto",
+        "secondary": "Ver productos"
       },
-      "cards": {
-        "development": "Desarrollo",
-        "development_desc": "Soluciones de software a medida para tus necesidades.",
-        "innovation": "Innovación",
-        "innovation_desc": "Ideas creativas y tecnologías de vanguardia.",
-        "growth": "Crecimiento",
-        "growth_desc": "Impulsamos el crecimiento de tu negocio.",
-        "team": "Equipo",
-        "team_desc": "Profesionales dedicados a tu éxito."
+      "preview": {
+        "label": "Ejemplo de interfaz: panel de facturación electrónica",
+        "app": "Facturación",
+        "title": "Comprobantes de octubre",
+        "total": "Emitido este mes",
+        "trend": "+12% vs. septiembre",
+        "accepted": "Aceptado",
+        "pending": "En envío",
+        "toast": "F001-000219 aceptado por SUNAT",
+        "toastTime": "hace 2 min",
+        "invoice": "Factura electrónica",
+        "subtotal": "Subtotal",
+        "tax": "IGV (18%)",
+        "totalDue": "Total",
+        "invoiceStatus": "Aceptada por SUNAT"
+      },
+      "clients": {
+        "label": "Confían en nosotros"
       },
       "services": {
+        "title": "Qué hacemos",
+        "subtitle": "Un mismo equipo diseña, programa y mantiene tu sistema. Empezamos por entender cómo trabajas hoy.",
+        "lead": "Lo que más hacemos",
+        "more": "Ver todos los servicios",
         "web": {
           "title": "Desarrollo web",
-          "description": "Aplicaciones web a medida, rápidas y que se ven bien en el celular."
+          "description": "Aplicaciones web a medida, rápidas y que se ven bien en el celular.",
+          "tags": {
+            "internal": "Sistemas internos",
+            "portals": "Portales de clientes",
+            "mobile": "Apps móviles",
+            "integrations": "Integraciones"
+          }
         },
         "consulting": {
           "title": "Consultoría",
@@ -153,10 +142,19 @@
           "description": "Migramos tus sistemas a la nube para que crezcan sin cambiar de servidor."
         }
       },
+      "featured": {
+        "eyebrow": "Producto propio",
+        "cta": "Conocer más"
+      },
       "products": {
         "operaai": {
           "name": "OperaAI",
-          "tagline": "Automatización y facturación electrónica para pymes, conectada a SUNAT mediante un OSE autorizado."
+          "tagline": "Automatización y facturación electrónica para pymes, conectada a SUNAT mediante un OSE autorizado.",
+          "highlights": {
+            "p1": "Facturas, boletas y notas de crédito desde el navegador.",
+            "p2": "Envío a SUNAT mediante un OSE autorizado.",
+            "p3": "Ventas y cobranzas del mes en un solo panel."
+          }
         },
         "sophia": {
           "name": "sophIA",
@@ -164,10 +162,18 @@
         }
       },
       "stats": {
+        "title": "Un equipo cercano, de principio a fin.",
+        "subtitle": "Hablas directo con quienes diseñan y programan tu sistema, también después de la entrega.",
         "years": "años de experiencia",
         "projects": "proyectos entregados",
         "clients": "clientes activos",
         "support": "soporte"
+      },
+      "contact": {
+        "title": "¿Tienes un proyecto en mente?",
+        "subtitle": "Cuéntanos qué necesitas. Te respondemos con preguntas concretas y una propuesta sin compromiso.",
+        "cta": "Hablemos",
+        "or": "o escríbenos a"
       }
     },
     "contact": {

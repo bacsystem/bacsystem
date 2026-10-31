@@ -88,57 +88,46 @@
       "language": "Language"
     },
     "home": {
-      "hero_tag": "Digital Innovation",
-      "title": "We transform ideas into digital solutions",
-      "description": "Bacsystem Solutions is a company specialized in software development, technology consulting and digital transformation. We create innovative solutions that drive your business growth.",
-      "welcome": "Welcome to Bacsystem Solutions",
-      "content": "At Bacsystem Solutions we specialize in custom software development, web and mobile applications, technology consulting and digital transformation. Our team of experts combines creativity, cutting-edge technology and agile methodologies to deliver solutions that truly make a difference in your business.",
-      "badge_projects": "320+ Projects",
-      "badge_clients": "150+ Clients",
-      "dash": {
-        "status": "live",
-        "greeting": "Overview · Q2",
-        "title": "Dashboard",
-        "live": "● Live",
-        "stat_revenue": "Revenue",
-        "stat_users": "Users",
-        "stat_projects": "Projects",
-        "stat_uptime": "Uptime",
-        "chart_revenue": "Revenue",
-        "chart_sessions": "Sessions",
-        "chart_projects": "Projects",
-        "donut_done": "done",
-        "legend_done": "Done",
-        "legend_live": "Live",
-        "legend_queue": "Queue",
-        "tasks_title": "Recent tasks",
-        "tasks_active": "4 active",
-        "task1": "API Gateway",
-        "task2": "Mobile App",
-        "task3": "Analytics",
-        "task4": "Infra upgrade",
-        "status_done": "Done",
-        "status_live": "Live",
-        "status_queue": "Queue",
-        "act1": "Deployed",
-        "act2": "Onboarded",
-        "act3": "API merged",
-        "act4": "Report"
+      "hero": {
+        "eyebrow": "Custom software · Lima, Peru",
+        "title": "Software your team actually uses.",
+        "subtitle": "We build custom web, mobile and AI systems for companies that want to grow without the hassle.",
+        "cta": "Get a quote",
+        "secondary": "See products"
       },
-      "cards": {
-        "development": "Development",
-        "development_desc": "Custom software solutions for your needs.",
-        "innovation": "Innovation",
-        "innovation_desc": "Creative ideas and cutting-edge technologies.",
-        "growth": "Growth",
-        "growth_desc": "We drive the growth of your business.",
-        "team": "Team",
-        "team_desc": "Professionals dedicated to your success."
+      "preview": {
+        "label": "Sample interface: electronic invoicing dashboard",
+        "app": "Invoicing",
+        "title": "October receipts",
+        "total": "Issued this month",
+        "trend": "+12% vs. September",
+        "accepted": "Accepted",
+        "pending": "Sending",
+        "toast": "F001-000219 accepted by SUNAT",
+        "toastTime": "2 min ago",
+        "invoice": "Electronic invoice",
+        "subtotal": "Subtotal",
+        "tax": "IGV (18%)",
+        "totalDue": "Total",
+        "invoiceStatus": "Accepted by SUNAT"
+      },
+      "clients": {
+        "label": "Trusted by"
       },
       "services": {
+        "title": "What we do",
+        "subtitle": "One team designs, builds and maintains your system. We start by understanding how you work today.",
+        "lead": "What we do most",
+        "more": "See all services",
         "web": {
           "title": "Web development",
-          "description": "Custom web applications that are fast and work well on mobile."
+          "description": "Custom web applications that are fast and work well on mobile.",
+          "tags": {
+            "internal": "Internal systems",
+            "portals": "Customer portals",
+            "mobile": "Mobile apps",
+            "integrations": "Integrations"
+          }
         },
         "consulting": {
           "title": "Consulting",
@@ -153,10 +142,19 @@
           "description": "We move your systems to the cloud so they can grow without changing servers."
         }
       },
+      "featured": {
+        "eyebrow": "Our own product",
+        "cta": "Learn more"
+      },
       "products": {
         "operaai": {
           "name": "OperaAI",
-          "tagline": "Automation and electronic invoicing for SMEs, connected to SUNAT through an authorized OSE."
+          "tagline": "Automation and electronic invoicing for SMEs, connected to SUNAT through an authorized OSE.",
+          "highlights": {
+            "p1": "Invoices, receipts and credit notes from the browser.",
+            "p2": "Sent to SUNAT through an authorized OSE.",
+            "p3": "The month's sales and collections in one dashboard."
+          }
         },
         "sophia": {
           "name": "sophIA",
@@ -164,10 +162,18 @@
         }
       },
       "stats": {
+        "title": "A close team, start to finish.",
+        "subtitle": "You talk directly to the people who design and build your system, also after launch.",
         "years": "years of experience",
         "projects": "projects delivered",
         "clients": "active clients",
         "support": "support"
+      },
+      "contact": {
+        "title": "Have a project in mind?",
+        "subtitle": "Tell us what you need. We reply with concrete questions and a no-commitment proposal.",
+        "cta": "Let's talk",
+        "or": "or email us at"
       }
     },
     "contact": {

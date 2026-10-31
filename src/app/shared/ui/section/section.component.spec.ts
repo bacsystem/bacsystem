@@ -19,4 +19,13 @@ describe('SectionComponent', () => {
     expect(section.classList).toContain('ui-section--alt');
     expect(section.querySelector('.container .inner')).toBeTruthy();
   });
+
+  it('applies compact spacing only when requested', () => {
+    const f = TestBed.createComponent(SectionComponent);
+    f.detectChanges();
+    expect(f.nativeElement.querySelector('section').classList).not.toContain('ui-section--compact');
+    f.componentRef.setInput('spacing', 'compact');
+    f.detectChanges();
+    expect(f.nativeElement.querySelector('section').classList).toContain('ui-section--compact');
+  });
 });
