@@ -91,7 +91,7 @@ export const PROCESS: ProcessStep[] = [
 ];
 
 // Vacío a propósito: la franja "Confían en nosotros" vuelve sola al agregar logos reales.
-// client-7.png y client-8.png eran los logos de OperaAI y sophIA (productos propios), no de clientes.
+// client-7.png y client-8.png (ya eliminados) eran los logos de OperaAI y sophIA (productos propios), no de clientes.
 export const CLIENTS: ClientLogo[] = [];
 
 // EJEMPLO: cifras de muestra, reemplazar por reales

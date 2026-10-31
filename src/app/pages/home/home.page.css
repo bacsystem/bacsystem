@@ -126,15 +126,21 @@ p {
   inline-size: var(--border-width);
   background-color: var(--color-border);
   transform-origin: top;
-  animation: process-thread var(--duration-slow) var(--ease-out) both;
 }
 
-.process__step:nth-child(2)::before {
-  animation-delay: var(--duration-fast);
-}
+/* The thread draws in on load only when motion is welcome; otherwise it is simply there. */
+@media (prefers-reduced-motion: no-preference) {
+  .process__step:not(:last-child)::before {
+    animation: process-thread var(--duration-slow) var(--ease-out) both;
+  }
 
-.process__step:nth-child(3)::before {
-  animation-delay: calc(var(--duration-fast) * 2);
+  .process__step:nth-child(2)::before {
+    animation-delay: var(--duration-fast);
+  }
+
+  .process__step:nth-child(3)::before {
+    animation-delay: calc(var(--duration-fast) * 2);
+  }
 }
 
 .process__marker {
@@ -625,8 +631,7 @@ p {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .clients__track.is-scrolling,
-  .process__step::before {
+  .clients__track.is-scrolling {
     animation: none;
   }
 }

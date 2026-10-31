@@ -58,7 +58,8 @@ describe('HomePageComponent', () => {
     const el = render();
     const steps = Array.from(el.querySelectorAll('#inicio .process__step'));
     expect(steps.map(s => s.classList.contains('is-current'))).toEqual([true, false, false, false]);
-    expect(steps[0].getAttribute('aria-current')).toBe('step');
+    expect(steps.some(s => s.hasAttribute('aria-current'))).toBeFalse();
+    expect(steps[0].querySelector('ui-tag')?.textContent?.trim()).toBe('Empezamos aquí');
   });
 
   it('renders the sections in order', () => {

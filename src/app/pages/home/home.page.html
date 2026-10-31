@@ -20,7 +20,7 @@
         <figcaption class="process__label">{{ 'application.home.process.label' | translate }}</figcaption>
         <ol class="process__steps" role="list">
           @for (step of process; track step.id; let i = $index, first = $first) {
-            <li class="process__step" [class.is-current]="first" [attr.aria-current]="first ? 'step' : null">
+            <li class="process__step" [class.is-current]="first">
               <span class="process__marker" aria-hidden="true">{{ index(i) }}</span>
               <div class="process__body">
                 <p class="process__head">
@@ -116,7 +116,7 @@
 @if (products.length > 0) {
   <ui-section sectionId="productos" tone="alt" spacing="compact">
     <div class="products">
-      <div class="products__intro" appReveal>
+      <div appReveal>
         <ui-section-heading
           [title]="'application.home.products.title' | translate"
           [subtitle]="'application.home.products.subtitle' | translate"
