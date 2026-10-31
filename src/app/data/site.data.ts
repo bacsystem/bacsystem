@@ -119,8 +119,8 @@ export const WANKA_INDUSTRIES = ['restaurant', 'veterinary', 'dental', 'retail']
 export const WANKA_MODULES = ['sales', 'invoicing', 'inventory', 'customers', 'purchases', 'reports'] as const;
 
 /**
- * Public sign-up page of the khipu portal (its /registro). Empty until the production URL is confirmed:
- * meanwhile the "Crear cuenta gratis" buttons send people to /contacto.
+ * Public sign-up page of the khipu portal (its /registro). Kept empty on purpose: links to the product
+ * portals are blocked for now (owner's decision, 2026-10-31), so "Crear cuenta gratis" goes to /contacto.
  */
 export const KHIPU_SIGNUP_URL = '';
 
