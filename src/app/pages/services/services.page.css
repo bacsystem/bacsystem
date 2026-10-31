@@ -185,34 +185,6 @@ li:last-child > .intro__index-link {
   color: var(--color-accent-text);
 }
 
-/* ---------- Products pointer ---------- */
-.products {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--space-5);
-}
-
-.products__copy {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-}
-
-.products__title {
-  font-size: var(--text-xl);
-}
-
-.products__text {
-  max-inline-size: var(--measure-xl);
-  color: var(--color-text-muted);
-  line-height: var(--leading-normal);
-}
-
-.products__link {
-  flex-shrink: 0;
-}
-
 /* ---------- Tablet ---------- */
 @media (min-width: 48em) {
   .intro__title {
@@ -225,13 +197,6 @@ li:last-child > .intro__index-link {
 
   .service__details {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .products {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-7);
   }
 }
 

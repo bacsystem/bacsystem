@@ -32,7 +32,7 @@ describe('ServicesPageComponent', () => {
   const text = (el: Element | null | undefined) => el?.textContent?.replace(/\s+/g, ' ').trim();
   const blocks = (el: HTMLElement) => Array.from(el.querySelectorAll<HTMLElement>('.service'));
 
-  it('renders exactly one h1 with the page statement and the three-pillar lead', () => {
+  it('renders exactly one h1 with the page statement and the lead', () => {
     setup();
     const el = render();
     const h1s = el.querySelectorAll('h1');
@@ -41,9 +41,7 @@ describe('ServicesPageComponent', () => {
     expect(h1s[0].getAttribute('aria-label')).toBe(t.intro.title);
     const lead = text(el.querySelector('.intro__lead')) ?? '';
     expect(lead).toBe(t.intro.lead);
-    for (const pillar of ['desarrollo de software', 'consultoría tecnológica', 'transformación digital']) {
-      expect(lead).withContext(pillar).toContain(pillar);
-    }
+    expect(t.intro.title).not.toBe(es.application.home.services.title);
   });
 
   it('keeps the h1 short (the display face wraps badly past ~32 characters)', () => {
@@ -95,20 +93,19 @@ describe('ServicesPageComponent', () => {
     expect(text(cloud.querySelector('.service__fit li'))).toBe(t.services.cloud.fit.server);
   });
 
-  it('reuses the shared process steps', () => {
+  it('does not repeat the process or the products teaser that live on Home', () => {
     setup();
     const el = render();
-    expect(el.querySelector('app-process-steps #proceso')).toBeTruthy();
-    expect(el.querySelectorAll('#proceso .process__step').length).toBe(4);
+    expect(el.querySelector('#proceso')).toBeNull();
+    expect(el.querySelector('#productos')).toBeNull();
   });
 
-  it('points to the products page without describing the products', () => {
-    setup();
-    const el = render();
-    const band = el.querySelector('#productos') as HTMLElement;
-    expect(text(band.querySelector('h2'))).toBe(t.products.title);
-    expect(band.querySelector('a[href="/productos"]')).toBeTruthy();
-    expect(band.textContent).not.toMatch(/OperaAI|sophIA|SUNAT/);
+  it('does not repeat the Home service descriptions in the summaries', () => {
+    const home = es.application.home.services as Record<string, { description?: string }>;
+    for (const [id, service] of Object.entries(t.services)) {
+      const homeText = home[id]?.description;
+      if (homeText) expect(service.summary).withContext(id).not.toContain(homeText.split(/[.:]/)[0]);
+    }
   });
 
   it('ends with the shared contact band linking to /contacto', () => {
@@ -121,7 +118,7 @@ describe('ServicesPageComponent', () => {
     setup();
     const el = render();
     const ids = Array.from(el.querySelectorAll('section')).map(s => s.id);
-    expect(ids).toEqual(['servicios', 'detalle', 'proceso', 'productos', 'contacto']);
+    expect(ids).toEqual(['servicios', 'detalle', 'contacto']);
   });
 
   it('renders everything visible on the server (no inline pre-state)', () => {

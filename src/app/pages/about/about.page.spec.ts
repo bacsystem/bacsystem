@@ -68,11 +68,11 @@ describe('AboutPageComponent', () => {
     expect(items.every(i => !i.querySelector('ui-icon'))).withContext('typographic list, not icon cards').toBeTrue();
   });
 
-  it('reuses the shared process steps', () => {
+  it('does not repeat what Home already shows (process, positioning phrase)', () => {
     setup();
     const el = render();
-    expect(el.querySelector('app-process-steps #proceso')).toBeTruthy();
-    expect(el.querySelectorAll('#proceso .process__step').length).toBe(4);
+    expect(el.querySelector('#proceso')).toBeNull();
+    expect(t.intro.lead).not.toBe(es.application.home.hero.subtitle);
   });
 
   it('introduces the three team members with real names, roles and monograms when there is no photo', () => {
@@ -122,7 +122,7 @@ describe('AboutPageComponent', () => {
     setup();
     const el = render();
     const ids = Array.from(el.querySelectorAll('section')).map(s => s.id);
-    expect(ids).toEqual(['nosotros', 'mision', 'valores', 'proceso', 'equipo', 'contacto']);
+    expect(ids).toEqual(['nosotros', 'mision', 'valores', 'equipo', 'contacto']);
   });
 
   it('renders everything visible on the server (no inline pre-state)', () => {

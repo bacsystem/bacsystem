@@ -53,22 +53,6 @@ p {
   outline-color: var(--color-on-primary);
 }
 
-.contact__mail {
-  color: var(--color-on-primary);
-  font-size: var(--text-sm);
-  opacity: var(--opacity-muted);
-}
-
-.contact__mail a {
-  color: inherit;
-  font-weight: var(--weight-medium);
-  text-decoration: underline;
-}
-
-.contact__mail a:hover {
-  color: inherit;
-}
-
 @media (min-width: 48em) {
   .contact {
     grid-template-columns: minmax(0, 1fr) auto;

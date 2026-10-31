@@ -95,6 +95,23 @@ Para la fase de Productos: la ilustración de facturación de OperaAI (panel de 
 
 Contenido de ejemplo (cifras, textos de casos, fotos de equipo) se identifica con un comentario `EJEMPLO` y vive en el archivo de datos para sustituirlo fácil. Las cifras de ejemplo no deben contradecirse entre sí ni con el SEO.
 
+## Dónde va cada información (sin duplicados)
+
+Regla del dueño (2026-10-31): lo que aparece en Inicio no se repite en otra página; cada idea vive en un solo lugar.
+
+| Información | Dónde vive | Notas |
+|---|---|---|
+| Frase del dueño ("Somos el complemento estratégico…") | Inicio (hero) | Nosotros explica el concepto de la pieza verde con otras palabras |
+| Resumen de servicios (una línea cada uno) | Inicio | Cada uno enlaza a su bloque en Servicios |
+| Detalle de servicios (te sirve si / qué recibes) | Servicios | Los resúmenes no repiten las líneas de Inicio |
+| Proceso "Así trabajamos contigo" | Solo Inicio | |
+| Productos (nombre + una línea) | Inicio | El detalle irá en /productos; Servicios no repite el bloque |
+| Cifras | Solo Inicio | |
+| "Hablas con quienes construyen" | Nosotros (dato "Con quién hablas") | |
+| Misión, visión, valores, equipo | Solo Nosotros | |
+| Correo, teléfono, dirección | Footer y Contacto | La banda de contacto solo lleva el botón |
+| Banda de contacto (CTA) | Al final de cada página salvo Contacto | Es una acción, no información; se repite a propósito |
+
 ## Restricciones
 
 - Angular 18, componentes standalone, yarn, despliegue en Cloudflare Pages vía GitHub Actions (`dist/browser`).

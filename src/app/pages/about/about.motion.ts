@@ -6,7 +6,7 @@ import { all, hideFade, revealFade } from '../../shared/motion/reveal';
 /*
  * Nosotros choreography, played with Motion by appRevealGroup (scroll entrances, once).
  * Calm on purpose: headings line up, groups rise in one stagger step apart. The intro is on
- * screen at load and is never hidden. The process steps and the contact band bring their own.
+ * screen at load and is never hidden. The contact band brings its own.
  */
 
 /** Values: each top rule grows left to right, then its number, name and sentence fade up. */

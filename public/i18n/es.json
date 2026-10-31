@@ -23,7 +23,7 @@
         }
       },
       "footer": {
-        "description": "Somos el complemento estratégico de nuestros clientes: desarrollo de software, consultoría tecnológica y transformación digital desde Lima.",
+        "description": "Desarrollo de software, consultoría tecnológica y transformación digital para empresas, desde Lima, Perú.",
         "navTitle": "Navegación",
         "contactTitle": "Contacto",
         "rights": "Todos los derechos reservados."
@@ -74,8 +74,8 @@
       },
       "contactPage": {
         "eyebrow": "Contacto",
-        "title": "Cuéntanos qué quieres resolver",
-        "subtitle": "Escríbenos o llámanos. Te atiende alguien del equipo que construye el software, no un vendedor.",
+        "title": "Escríbenos o llámanos",
+        "subtitle": "Cuéntanos qué necesitas resolver, aunque todavía no sepas cómo hacerlo. Con eso preparamos la primera conversación.",
         "listLabel": "Datos de contacto",
         "email": "Correo",
         "phone": "Teléfono",
@@ -116,7 +116,7 @@
       },
       "services": {
         "title": "Lo que hacemos por tu empresa",
-        "subtitle": "Diseñamos, programamos y mantenemos. Hablas directo con quienes construyen tu sistema, sin intermediarios.",
+        "subtitle": "Servicios que puedes contratar por separado o combinar, según la etapa en la que está tu empresa.",
         "lead": "Nuestro fuerte",
         "more": "Ver todos los servicios",
         "web": {
@@ -160,8 +160,8 @@
         }
       },
       "stats": {
-        "title": "Hablas con quienes programan",
-        "subtitle": "Te atienden las mismas personas que diseñan y construyen tu sistema, antes, durante y después de la entrega.",
+        "title": "Bacsystem en cifras",
+        "subtitle": "Lo que hemos construido hasta hoy.",
         "years": "años construyendo software",
         "projects": "proyectos entregados",
         "clients": "empresas que trabajan con nosotros",
@@ -170,23 +170,18 @@
       "contact": {
         "title": "Cuéntanos qué te quita tiempo",
         "subtitle": "En una primera conversación entendemos tu caso y te decimos con franqueza si te conviene un sistema a medida. Sin compromiso.",
-        "cta": "Hablemos de tu caso",
-        "or": "o escríbenos a"
+        "cta": "Hablemos de tu caso"
       }
     },
     "aboutPage": {
       "intro": {
         "eyebrow": "Nosotros",
         "title": "El complemento de tu empresa",
-        "lead": "Somos el complemento estratégico de nuestros clientes, brindando soluciones tecnológicas y corporativas que impulsan su crecimiento y fortalecen su competitividad.",
+        "lead": "En nuestro logo, la pieza verde es la que completa la forma. Así entendemos nuestro trabajo: ser la parte de tecnología que a tu empresa le falta, para que tu equipo se concentre en lo que mejor sabe hacer.",
         "facts": {
           "place": {
             "label": "Dónde estamos",
             "value": "Lima, Perú"
-          },
-          "work": {
-            "label": "Qué hacemos",
-            "value": "Software a medida, consultoría tecnológica y transformación digital"
           },
           "people": {
             "label": "Con quién hablas",
@@ -234,7 +229,7 @@
       },
       "team": {
         "title": "El equipo",
-        "subtitle": "Hablas directo con quienes dirigen y construyen tu proyecto, sin intermediarios.",
+        "subtitle": "Las personas que dirigen y construyen tu proyecto.",
         "members": {
           "christian": {
             "role": "CEO y cofundador",
@@ -254,8 +249,8 @@
     "servicesPage": {
       "intro": {
         "eyebrow": "Servicios",
-        "title": "Lo que hacemos por tu empresa",
-        "lead": "Trabajamos en tres frentes: desarrollo de software, consultoría tecnológica y transformación digital. Aquí verás cada servicio, en qué situaciones te sirve y qué te entregamos.",
+        "title": "Encuentra lo que necesitas",
+        "lead": "Cada servicio, con las situaciones en las que te sirve y lo que te entregamos. Si no tienes claro por dónde empezar, la consultoría es un buen primer paso.",
         "index": "En esta página"
       },
       "labels": {
@@ -265,7 +260,7 @@
       "services": {
         "web": {
           "title": "Desarrollo web y móvil",
-          "summary": "Construimos sistemas web y apps móviles a partir de cómo trabaja tu equipo: sistemas internos, portales para tus clientes, apps para el personal que está en la calle e integraciones con el software que ya usas.",
+          "summary": "Desde el sistema interno que ordena tu operación hasta la app para tu personal en campo o el portal donde tus clientes consultan por su cuenta.",
           "fit": {
             "spreadsheets": "Tu operación depende de hojas de cálculo que se copian, se pisan y nadie sabe cuál es la versión buena.",
             "workaround": "Probaste un software comercial y terminaste adaptando tu forma de trabajar a él, en lugar de al revés.",
@@ -280,7 +275,7 @@
         },
         "consulting": {
           "title": "Consultoría tecnológica",
-          "summary": "Antes de invertir, te ayudamos a decidir qué construir, qué comprar y qué dejar como está. Revisamos tus procesos y tus sistemas actuales y te damos una recomendación clara, con sus razones, aunque esa recomendación sea no construir nada.",
+          "summary": "Revisamos tus procesos y los sistemas que usas hoy, y te damos una recomendación clara, con sus razones, aunque esa recomendación sea no construir nada.",
           "fit": {
             "quotes": "Tienes cotizaciones muy distintas para el mismo proyecto y no sabes cómo compararlas.",
             "buyOrBuild": "Debes elegir entre un software comercial y uno a medida, y no quieres equivocarte.",
@@ -295,7 +290,7 @@
         },
         "transformation": {
           "title": "Transformación digital",
-          "summary": "Pasamos a digital los procesos que hoy dependen de papel, correos sueltos o pasos manuales, y automatizamos las tareas repetitivas. Empezamos por el proceso que más tiempo le quita a tu equipo, no por todos a la vez.",
+          "summary": "Empezamos por el proceso que más tiempo le quita a tu equipo, no por todos a la vez. Lo llevamos a un solo lugar, conectamos sus pasos y dejamos que el sistema haga lo repetitivo.",
           "fit": {
             "paper": "Aprobaciones, pedidos o reportes todavía pasan por papel o por cadenas de correos.",
             "retyping": "Tu equipo digita los mismos datos en dos o tres sistemas distintos.",
@@ -310,7 +305,7 @@
         },
         "optimization": {
           "title": "Optimización de sistemas",
-          "summary": "Si tienes un sistema lento, que falla seguido o que nadie quiere usar, lo revisamos y lo mejoramos sin tirar lo que ya funciona. Primero encontramos dónde está el problema; después lo corregimos.",
+          "summary": "Primero encontramos dónde está el problema; después lo corregimos, empezando por lo que más afecta a tu equipo en el día a día.",
           "fit": {
             "slow": "Tu sistema tarda en responder y el equipo pierde tiempo esperando.",
             "avoided": "La gente evita el sistema y vuelve a Excel porque usarlo es complicado.",
@@ -325,7 +320,7 @@
         },
         "cloud": {
           "title": "Migración a la nube",
-          "summary": "Llevamos tus sistemas y tus datos a la nube para que tu equipo entre desde donde esté y dejes de depender de un servidor en la oficina. Planificamos el cambio por etapas para afectar lo menos posible el trabajo diario.",
+          "summary": "Hacemos el cambio por etapas, para afectar lo menos posible el trabajo diario de tu equipo mientras tus sistemas y tus datos se mudan.",
           "fit": {
             "server": "Tus sistemas viven en un servidor en la oficina y, si falla, se detiene todo.",
             "remote": "Tu equipo necesita trabajar desde casa, desde otra sede o en campo.",
@@ -338,11 +333,6 @@
             "costs": "Recomendaciones para controlar lo que pagas cada mes por la nube."
           }
         }
-      },
-      "products": {
-        "title": "¿Buscas algo listo para usar?",
-        "text": "Además de los proyectos a medida, tenemos productos propios que tu empresa puede empezar a usar sin desarrollar nada desde cero.",
-        "cta": "Ver productos"
       }
     },
     "products": {

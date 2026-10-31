@@ -7,8 +7,7 @@ import { all, hideFade, revealFade } from '../../shared/motion/reveal';
 /*
  * Servicios choreography, played with Motion by appRevealGroup (scroll entrances, once).
  * Each service block is its own group, so blocks enter one by one as they reach the viewport.
- * The intro is on screen at load and is never hidden. The process steps and the contact band
- * bring their own; the products band uses the default rise.
+ * The intro is on screen at load and is never hidden. The contact band brings its own.
  */
 
 const SERVICE = {

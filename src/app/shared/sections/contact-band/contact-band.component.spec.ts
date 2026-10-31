@@ -3,7 +3,6 @@ import { TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import es from '../../../../../public/i18n/es.json';
-import { SITE } from '../../../data/site.data';
 import { ContactBandComponent } from './contact-band.component';
 
 describe('ContactBandComponent', () => {
@@ -30,10 +29,10 @@ describe('ContactBandComponent', () => {
     expect(h2.textContent?.replace(/\s+/g, ' ').trim()).toBe(es.application.home.contact.title);
   });
 
-  it('links to /contacto and offers the e-mail address', () => {
+  it('links to /contacto and leaves the e-mail to the footer below', () => {
     const el = create();
     expect(el.querySelector('a[href="/contacto"]')?.textContent).toContain(es.application.home.contact.cta);
-    expect(el.querySelector(`a[href="mailto:${SITE.email}"]`)?.textContent?.trim()).toBe(SITE.email);
+    expect(el.querySelector('a[href^="mailto:"]')).toBeNull();
   });
 
   it('renders fully visible on the server', () => {

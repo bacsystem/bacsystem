@@ -5,14 +5,14 @@ import { SERVICE_DETAILS, ServiceDetail } from '../../data/site.data';
 import { RevealGroupDirective } from '../../shared/directives/reveal-group.directive';
 import { PositionPipe } from '../../shared/pipes/position.pipe';
 import { WordsPipe } from '../../shared/pipes/words.pipe';
-import { ContactBandComponent, ProcessStepsComponent } from '../../shared/sections';
-import { ButtonComponent, IconComponent, SectionComponent } from '../../shared/ui';
+import { ContactBandComponent } from '../../shared/sections';
+import { IconComponent, SectionComponent } from '../../shared/ui';
 import { SERVICES_PAGE_CHOREO } from './services.motion';
 
 /**
  * Servicios: intro with an index of the services, one block per service (alternating sides,
- * big number, what it is / when it fits / what you get, each with its #anchor), how we work
- * (shared process), a short pointer to /productos, and the shared contact band. Everything
+ * big number, what it is / when it fits / what you get, each with its #anchor) and the shared
+ * contact band. The process and the products teaser live only on Home. Everything
  * renders in its final state on the server; entrances only play for blocks below the fold.
  */
 @Component({
@@ -21,11 +21,9 @@ import { SERVICES_PAGE_CHOREO } from './services.motion';
   imports: [
     RouterLink,
     TranslateModule,
-    ButtonComponent,
     IconComponent,
     SectionComponent,
     RevealGroupDirective,
-    ProcessStepsComponent,
     ContactBandComponent,
     PositionPipe,
     WordsPipe,

@@ -23,7 +23,7 @@
         }
       },
       "footer": {
-        "description": "Our clients' strategic complement: software development, technology consulting and digital transformation from Lima.",
+        "description": "Software development, technology consulting and digital transformation for companies, from Lima, Peru.",
         "navTitle": "Navigation",
         "contactTitle": "Contact",
         "rights": "All rights reserved."
@@ -74,8 +74,8 @@
       },
       "contactPage": {
         "eyebrow": "Contact",
-        "title": "Tell us what you need to solve",
-        "subtitle": "Email or call us. You'll talk to someone from the team that builds the software, not a salesperson.",
+        "title": "Write or call us",
+        "subtitle": "Tell us what you need to solve, even if you don't know how yet. We'll use it to prepare our first conversation.",
         "listLabel": "Contact details",
         "email": "Email",
         "phone": "Phone",
@@ -116,7 +116,7 @@
       },
       "services": {
         "title": "What we do for your business",
-        "subtitle": "We design, build and maintain. You talk directly to the people building your system, no middlemen.",
+        "subtitle": "Services you can hire separately or combine, depending on where your company is today.",
         "lead": "Our core",
         "more": "See all services",
         "web": {
@@ -160,8 +160,8 @@
         }
       },
       "stats": {
-        "title": "You talk to the people who build",
-        "subtitle": "The same people who design and build your system work with you before, during and after launch.",
+        "title": "Bacsystem in numbers",
+        "subtitle": "What we have built so far.",
         "years": "years building software",
         "projects": "projects delivered",
         "clients": "companies working with us",
@@ -170,23 +170,18 @@
       "contact": {
         "title": "Tell us what's slowing you down",
         "subtitle": "In a first conversation we get to know your case and tell you honestly whether custom software makes sense for you. No strings attached.",
-        "cta": "Let's talk it through",
-        "or": "or email us at"
+        "cta": "Let's talk it through"
       }
     },
     "aboutPage": {
       "intro": {
         "eyebrow": "About us",
         "title": "Your company’s complement",
-        "lead": "We are the strategic complement to our clients, providing technological and corporate solutions that drive their growth and strengthen their competitiveness.",
+        "lead": "In our logo, the green piece is the one that completes the shape. That is how we see our work: being the technology piece your company is missing, so your team can focus on what it does best.",
         "facts": {
           "place": {
             "label": "Where we are",
             "value": "Lima, Peru"
-          },
-          "work": {
-            "label": "What we do",
-            "value": "Custom software, technology consulting and digital transformation"
           },
           "people": {
             "label": "Who you talk to",
@@ -234,7 +229,7 @@
       },
       "team": {
         "title": "The team",
-        "subtitle": "You talk directly to the people who run and build your project, with no middlemen.",
+        "subtitle": "The people who lead and build your project.",
         "members": {
           "christian": {
             "role": "CEO and co-founder",
@@ -254,8 +249,8 @@
     "servicesPage": {
       "intro": {
         "eyebrow": "Services",
-        "title": "What we do for your business",
-        "lead": "We work on three fronts: software development, technology consulting and digital transformation. Here you'll find each service, the situations it fits and what we deliver.",
+        "title": "Find what you need",
+        "lead": "Each service, with the situations where it helps and what you get. If you are not sure where to start, consulting is a good first step.",
         "index": "On this page"
       },
       "labels": {
@@ -265,7 +260,7 @@
       "services": {
         "web": {
           "title": "Web and mobile development",
-          "summary": "We build web systems and mobile apps around the way your team works: internal systems, portals for your customers, apps for staff out in the field, and integrations with the software you already use.",
+          "summary": "From the internal system that organizes your operation to the app for your field staff or the portal where your customers look things up on their own.",
           "fit": {
             "spreadsheets": "Your operation runs on spreadsheets that get copied and overwritten, and nobody knows which version is the right one.",
             "workaround": "You tried an off-the-shelf product and ended up adapting your way of working to it, instead of the other way around.",
@@ -280,7 +275,7 @@
         },
         "consulting": {
           "title": "Technology consulting",
-          "summary": "Before you invest, we help you decide what to build, what to buy and what to leave as it is. We review your processes and current systems and give you a clear recommendation, with its reasons, even if that recommendation is to build nothing.",
+          "summary": "We review your processes and the systems you use today, and give you a clear recommendation with its reasons, even if that recommendation is to build nothing.",
           "fit": {
             "quotes": "You have very different quotes for the same project and don't know how to compare them.",
             "buyOrBuild": "You have to choose between an off-the-shelf product and custom software, and you don't want to get it wrong.",
@@ -295,7 +290,7 @@
         },
         "transformation": {
           "title": "Digital transformation",
-          "summary": "We take the processes that still depend on paper, scattered emails or manual steps and make them digital, and we automate the repetitive tasks. We start with the process that costs your team the most time, not with all of them at once.",
+          "summary": "We start with the process that takes up most of your team's time, not all of them at once. We bring it into one place, connect its steps and let the system handle the repetitive work.",
           "fit": {
             "paper": "Approvals, orders or reports still go through paper or long email chains.",
             "retyping": "Your team types the same data into two or three different systems.",
@@ -310,7 +305,7 @@
         },
         "optimization": {
           "title": "Systems optimization",
-          "summary": "If you have a system that is slow, breaks often or that nobody wants to use, we review it and improve it without throwing out what already works. First we find where the problem is; then we fix it.",
+          "summary": "First we find where the problem is; then we fix it, starting with what affects your team the most day to day.",
           "fit": {
             "slow": "Your system is slow to respond and the team loses time waiting.",
             "avoided": "People avoid the system and go back to Excel because it's hard to use.",
@@ -325,7 +320,7 @@
         },
         "cloud": {
           "title": "Cloud migration",
-          "summary": "We move your systems and data to the cloud so your team can log in from anywhere and you stop depending on a server in the office. We plan the move in stages so day-to-day work is affected as little as possible.",
+          "summary": "We make the move in stages, so your team's daily work is affected as little as possible while your systems and data move over.",
           "fit": {
             "server": "Your systems live on a server in the office and, if it fails, everything stops.",
             "remote": "Your team needs to work from home, from another branch or out in the field.",
@@ -338,11 +333,6 @@
             "costs": "Recommendations to keep your monthly cloud bill under control."
           }
         }
-      },
-      "products": {
-        "title": "Looking for something ready to use?",
-        "text": "Besides custom projects, we have our own products your company can start using without building anything from scratch.",
-        "cta": "See products"
       }
     },
     "products": {
