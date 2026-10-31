@@ -168,8 +168,48 @@ ol[role='list'] {
     transform var(--duration-slow) var(--ease-out);
 }
 
+/*
+ * Motion (Home, via the Motion library). Headings are split into words so they can be
+ * revealed line by line; each word is an inline-block so it can move without reflowing.
+ */
+.ui-word {
+  display: inline-block;
+}
+
+/*
+ * Hero intro. The head script in index.html flags <html class="motion-intro"> only when JS runs
+ * and motion is welcome; the hero parts marked data-intro="pending" then wait hidden until the
+ * page code takes over (it sets data-intro="on" after writing its own inline pre-state).
+ * No JS, prerender or reduced motion: no flag, so everything is visible. If the app never
+ * starts, the failsafe animation reveals the hero anyway.
+ */
+.motion-intro [data-intro='pending'] {
+  opacity: 0;
+  animation: intro-failsafe var(--duration-slow) var(--ease-out) var(--duration-failsafe) forwards;
+}
+
+@keyframes intro-failsafe {
+  to {
+    opacity: 1;
+  }
+}
+
+/*
+ * Arrows on buttons and text links nudge forward on hover/focus (spring easing).
+ * Global because the icon is projected into a[ui-button] by the page, outside the button's styles.
+ */
+a ui-icon[name='arrow-right'] {
+  transition: translate var(--duration-spring) var(--ease-spring);
+}
+
+a:hover ui-icon[name='arrow-right'],
+a:focus-visible ui-icon[name='arrow-right'] {
+  translate: var(--nudge) 0;
+}
+
 @media print {
-  .is-reveal-pending {
+  .is-reveal-pending,
+  .motion-intro [data-intro='pending'] {
     opacity: 1;
     transform: none;
   }

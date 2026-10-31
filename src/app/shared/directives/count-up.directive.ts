@@ -5,6 +5,8 @@ import { Directive, ElementRef, OnDestroy, OnInit, PLATFORM_ID, inject, input } 
 export class CountUpDirective implements OnInit, OnDestroy {
   readonly appCountUp = input.required<number>();
   readonly duration = input(1200);
+  /** Wait this long (ms) after entering the viewport before counting (e.g. while a rule draws in). */
+  readonly delay = input(0);
 
   private readonly el = inject<ElementRef<HTMLElement>>(ElementRef).nativeElement;
   private readonly platformId = inject(PLATFORM_ID);
@@ -34,9 +36,9 @@ export class CountUpDirective implements OnInit, OnDestroy {
 
   private animate(target: number): void {
     const duration = Math.max(this.duration(), 1);
-    const start = performance.now();
+    const start = performance.now() + Math.max(this.delay(), 0);
     const step = (now: number) => {
-      const t = Math.min((now - start) / duration, 1);
+      const t = Math.min(Math.max((now - start) / duration, 0), 1);
       const eased = 1 - Math.pow(1 - t, 3);
       this.el.textContent = String(Math.round(target * eased));
       if (t < 1) this.frame = requestAnimationFrame(step);

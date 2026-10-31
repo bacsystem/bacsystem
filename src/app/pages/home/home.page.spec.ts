@@ -3,7 +3,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import es from '../../../../public/i18n/es.json';
-import { ClientLogo, PRODUCTS, STATS } from '../../data/site.data';
+import { ClientLogo, PROCESS, PRODUCTS, STATS } from '../../data/site.data';
+import { MotionService } from '../../shared/motion/motion.service';
 import { HomePageComponent } from './home.page';
 
 describe('HomePageComponent', () => {
@@ -186,5 +187,81 @@ describe('HomePageComponent', () => {
     setup();
     const el = render();
     expect(el.querySelector('#contacto a[href="/contacto"]')).toBeTruthy();
+  });
+
+  describe('motion', () => {
+    /** Records animate calls instead of running them. */
+    class FakeMotion {
+      enabled = true;
+      calls = 0;
+      stopped = 0;
+      animate = () => {
+        this.calls++;
+        return { stop: () => this.stopped++, finished: new Promise(() => undefined) };
+      };
+      matches = () => false;
+      scroll = () => () => undefined;
+      inViewOnce = () => ({ stop: () => undefined });
+      stagger = () => 0;
+    }
+
+    function setupWith(motion: FakeMotion, platform: 'browser' | 'server' = 'browser'): HTMLElement {
+      TestBed.configureTestingModule({
+        imports: [HomePageComponent, TranslateModule.forRoot()],
+        providers: [provideRouter([]), { provide: PLATFORM_ID, useValue: platform }, { provide: MotionService, useValue: motion }],
+      });
+      const translate = TestBed.inject(TranslateService);
+      translate.setTranslation('es', es);
+      translate.use('es');
+      fixture = TestBed.createComponent(HomePageComponent);
+      fixture.detectChanges();
+      return fixture.nativeElement as HTMLElement;
+    }
+
+    const introParts = (el: HTMLElement) => Array.from(el.querySelectorAll<HTMLElement>('.hero__copy [data-intro]'));
+
+    it('renders the hero fully visible on the server: intro parts pending, no inline pre-state', () => {
+      const motion = new FakeMotion();
+      const el = setupWith(motion, 'server');
+      expect(introParts(el).length).toBe(4);
+      expect(introParts(el).every(p => p.dataset['intro'] === 'pending')).toBeTrue();
+      expect(el.querySelector('.hero__copy [style]')).toBeNull();
+      expect(motion.calls).toBe(0);
+    });
+
+    it('keeps the h1 text intact when split into words', () => {
+      const el = setupWith(new FakeMotion());
+      const h1 = el.querySelector('h1') as HTMLElement;
+      expect(h1.querySelectorAll('.ui-word').length).toBe(es.application.home.hero.title.split(' ').length);
+      expect(h1.textContent?.replace(/\s+/g, ' ').trim()).toBe(es.application.home.hero.title);
+    });
+
+    it('plays the hero intro in the browser and releases the CSS hold', () => {
+      const motion = new FakeMotion();
+      const el = setupWith(motion);
+      expect(motion.calls).toBeGreaterThan(0);
+      expect(introParts(el).every(p => p.dataset['intro'] === 'on')).toBeTrue();
+    });
+
+    it('shows the hero at once with reduced motion, without animating', () => {
+      const motion = new FakeMotion();
+      motion.enabled = false;
+      const el = setupWith(motion);
+      expect(motion.calls).toBe(0);
+      expect(introParts(el).every(p => p.dataset['intro'] === 'off')).toBeTrue();
+      expect(el.querySelector('.hero__copy [style]')).toBeNull();
+    });
+
+    it('stops its animations on destroy', () => {
+      const motion = new FakeMotion();
+      setupWith(motion);
+      fixture.destroy();
+      expect(motion.stopped).toBeGreaterThan(0);
+    });
+
+    it('draws one connector between each pair of process markers', () => {
+      const el = setupWith(new FakeMotion(), 'server');
+      expect(el.querySelectorAll('#proceso .process__link').length).toBe(PROCESS.length - 1);
+    });
   });
 });

@@ -1,11 +1,17 @@
-<!-- Hero: no reveal, it is visible on load -->
+<!--
+  Hero: plays its intro on load (HomePageComponent + Motion). The data-intro parts are held
+  hidden only while <html class="motion-intro"> is set by the head script (JS + motion welcome).
+-->
 <ui-section sectionId="inicio">
   <div class="hero">
     <div class="hero__copy">
-      <p class="eyebrow">{{ 'application.home.hero.eyebrow' | translate }}</p>
-      <h1 class="hero__title">{{ 'application.home.hero.title' | translate }}</h1>
-      <p class="hero__subtitle">{{ 'application.home.hero.subtitle' | translate }}</p>
-      <div class="hero__actions">
+      <p class="eyebrow" data-intro="pending">
+        <span class="eyebrow__rule" aria-hidden="true"></span>
+        <span class="eyebrow__text">{{ 'application.home.hero.eyebrow' | translate }}</span>
+      </p>
+      <h1 class="hero__title" data-intro="pending">@for (word of 'application.home.hero.title' | translate | words; track $index) {<span class="ui-word">{{ word }}</span>&ngsp;}</h1>
+      <p class="hero__subtitle" data-intro="pending">{{ 'application.home.hero.subtitle' | translate }}</p>
+      <div class="hero__actions" data-intro="pending">
         <a ui-button size="lg" class="hero__cta" routerLink="/contacto">
           {{ 'application.home.hero.cta' | translate }}
           <ui-icon name="arrow-right" size="sm" />
@@ -51,15 +57,15 @@
 
 @if (services.length > 0) {
   <ui-section sectionId="servicios">
-    <div appReveal>
+    <div [appRevealGroup]="choreo.heading">
       <ui-section-heading
         [title]="'application.home.services.title' | translate"
         [subtitle]="'application.home.services.subtitle' | translate"
       />
     </div>
-    <div class="services">
+    <div class="services" [appRevealGroup]="choreo.services">
       @let lead = services[0];
-      <article class="services__lead" appReveal>
+      <article class="services__lead">
         <p class="services__kicker">
           <span class="services__index">{{ index(0) }}</span>
           {{ 'application.home.services.lead' | translate }}
@@ -79,7 +85,7 @@
         </a>
       </article>
 
-      <ol class="services__list" role="list" appReveal>
+      <ol class="services__list" role="list">
         @for (service of services.slice(1); track service.id; let i = $index) {
           <li class="services__item">
             <span class="services__index">{{ index(i + 1) }}</span>
@@ -95,7 +101,7 @@
 }
 
 <ui-section sectionId="proceso" spacing="compact">
-  <div class="process" appReveal>
+  <div class="process" [appRevealGroup]="choreo.process">
     <ui-section-heading
       [title]="'application.home.process.label' | translate"
       [subtitle]="'application.home.process.note' | translate"
@@ -103,6 +109,9 @@
     <ol class="process__steps" role="list">
       @for (step of process; track step.id; let i = $index, first = $first) {
         <li class="process__step" [class.is-current]="first">
+          @if (!$last) {
+            <span class="process__link" aria-hidden="true"></span>
+          }
           <span class="process__marker" aria-hidden="true">{{ index(i) }}</span>
           <div class="process__body">
             <p class="process__head">
@@ -122,13 +131,13 @@
 @if (products.length > 0) {
   <ui-section sectionId="productos" tone="alt" spacing="compact">
     <div class="products">
-      <div appReveal>
+      <div [appRevealGroup]="choreo.heading">
         <ui-section-heading
           [title]="'application.home.products.title' | translate"
           [subtitle]="'application.home.products.subtitle' | translate"
         />
       </div>
-      <ul class="products__list" role="list" appReveal>
+      <ul class="products__list" role="list" [appRevealGroup]="choreo.products">
         @for (product of products; track product.id) {
           <li class="products__item">
             <img class="products__logo" [src]="product.logo" alt="" width="32" height="32" loading="lazy" />
@@ -150,13 +159,13 @@
 @if (stats.length > 0) {
   <ui-section sectionId="cifras">
     <div class="stats">
-      <div class="stats__intro" appReveal>
+      <div class="stats__intro" [appRevealGroup]="choreo.heading">
         <ui-section-heading
           [title]="'application.home.stats.title' | translate"
           [subtitle]="'application.home.stats.subtitle' | translate"
         />
       </div>
-      <dl class="stats__grid" appReveal>
+      <dl class="stats__grid" [appRevealGroup]="choreo.stats">
         @for (stat of stats; track stat.id) {
           <div class="stats__item">
             <dt class="stats__label">{{ stat.labelKey | translate }}</dt>
@@ -164,7 +173,7 @@
               @if (stat.animate === false) {
                 <span class="stats__value">{{ stat.value }}</span>
               } @else {
-                <span class="stats__value" [appCountUp]="stat.value"></span>
+                <span class="stats__value" [appCountUp]="stat.value" [delay]="countDelay"></span>
               }<span class="stats__suffix">{{ stat.suffix }}</span>
             </dd>
           </div>
@@ -175,9 +184,9 @@
 }
 
 <ui-section sectionId="contacto" tone="primary">
-  <div class="contact" appReveal>
+  <div class="contact" [appRevealGroup]="choreo.contact">
     <div class="contact__copy">
-      <h2 class="contact__title">{{ 'application.home.contact.title' | translate }}</h2>
+      <h2 class="contact__title">@for (word of 'application.home.contact.title' | translate | words; track $index) {<span class="ui-word">{{ word }}</span>&ngsp;}</h2>
       <p class="contact__subtitle">{{ 'application.home.contact.subtitle' | translate }}</p>
     </div>
     <div class="contact__actions">

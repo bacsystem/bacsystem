@@ -1,6 +1,18 @@
 import { PLATFORM_ID } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MotionService } from '../../../shared/motion/motion.service';
 import { BrandMarkComponent } from './brand-mark.component';
+
+/** Records animate calls instead of running them; `finished` never settles, so nothing chains. */
+class FakeMotion {
+  enabled = true;
+  calls = 0;
+  stopped = 0;
+  animate = () => {
+    this.calls++;
+    return { stop: () => this.stopped++, finished: new Promise(() => undefined) };
+  };
+}
 
 describe('BrandMarkComponent', () => {
   function render(platform: 'browser' | 'server' = 'browser'): HTMLElement {
@@ -27,7 +39,9 @@ describe('BrandMarkComponent', () => {
     expect(el.querySelector('.mark__l')).toBeTruthy();
     // the empty place the complement docks into, drawn with the same geometry as the teal piece
     expect(el.querySelector('.mark__slot')?.getAttribute('href')).toBe(el.querySelector('.mark__l')?.getAttribute('href'));
-    expect(el.querySelectorAll('.mark__echo').length).toBeGreaterThanOrEqual(2);
+    // exactly one clean echo, and no dashed construction guides
+    expect(el.querySelectorAll('.mark__echo').length).toBe(1);
+    expect(el.querySelector('line, .mark__guides')).toBeNull();
     expect(el.querySelector('text, title, desc')).toBeNull();
     expect(el.textContent?.trim()).toBe('');
   });
@@ -44,6 +58,57 @@ describe('BrandMarkComponent', () => {
     let el: HTMLElement | undefined;
     expect(() => (el = render('server'))).not.toThrow();
     expect(el?.querySelector('svg')).toBeTruthy();
+  });
+
+  it('shows the finished logo in the server markup (no hidden pre-state)', () => {
+    const el = render('server');
+    const pieces = Array.from(el.querySelectorAll<SVGElement>('svg *'));
+    expect(pieces.every(p => !p.getAttribute('style'))).toBeTrue();
+    expect(el.querySelector('svg')?.getAttribute('data-intro')).toBe('pending');
+  });
+
+  describe('docking motion (Motion library)', () => {
+    function create(platform: 'browser' | 'server', enabled: boolean): { fixture: ComponentFixture<BrandMarkComponent>; motion: FakeMotion } {
+      const motion = new FakeMotion();
+      motion.enabled = enabled;
+      TestBed.configureTestingModule({
+        imports: [BrandMarkComponent],
+        providers: [
+          { provide: PLATFORM_ID, useValue: platform },
+          { provide: MotionService, useValue: motion },
+        ],
+      });
+      const fixture = TestBed.createComponent(BrandMarkComponent);
+      fixture.detectChanges();
+      return { fixture, motion };
+    }
+
+    it('plays the intro in the browser when motion is welcome', () => {
+      const { fixture, motion } = create('browser', true);
+      const el = fixture.nativeElement as HTMLElement;
+      expect(motion.calls).toBeGreaterThan(0);
+      expect(el.querySelector('svg')?.getAttribute('data-intro')).toBe('on');
+    });
+
+    it('never animates on the server', () => {
+      const { motion } = create('server', true);
+      expect(motion.calls).toBe(0);
+    });
+
+    it('shows the docked logo at once with reduced motion', () => {
+      const { fixture, motion } = create('browser', false);
+      const el = fixture.nativeElement as HTMLElement;
+      expect(motion.calls).toBe(0);
+      expect(el.querySelector('svg')?.getAttribute('data-intro')).toBe('off');
+      expect(el.querySelector<SVGElement>('.mark__c')?.style.opacity).toBe('');
+    });
+
+    it('stops every running animation on destroy', () => {
+      const { fixture, motion } = create('browser', true);
+      const started = motion.calls;
+      fixture.destroy();
+      expect(motion.stopped).toBe(started);
+    });
   });
 
   describe('pointer parallax', () => {

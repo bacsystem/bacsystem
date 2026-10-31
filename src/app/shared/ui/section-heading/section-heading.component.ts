@@ -1,8 +1,10 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { WordsPipe } from '../../pipes/words.pipe';
 
 @Component({
   selector: 'ui-section-heading',
   standalone: true,
+  imports: [WordsPipe],
   templateUrl: './section-heading.component.html',
   styleUrl: './section-heading.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

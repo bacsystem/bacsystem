@@ -3,9 +3,9 @@
     <p class="ui-section-heading__eyebrow">{{ eyebrow() }}</p>
   }
   @if (level() === 'h1') {
-    <h1 class="ui-section-heading__title">{{ title() }}</h1>
+    <h1 class="ui-section-heading__title">@for (word of title() | words; track $index) {<span class="ui-word">{{ word }}</span>&ngsp;}</h1>
   } @else {
-    <h2 class="ui-section-heading__title">{{ title() }}</h2>
+    <h2 class="ui-section-heading__title">@for (word of title() | words; track $index) {<span class="ui-word">{{ word }}</span>&ngsp;}</h2>
   }
   @if (subtitle()) {
     <p class="ui-section-heading__subtitle">{{ subtitle() }}</p>

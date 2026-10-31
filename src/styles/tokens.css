@@ -131,10 +131,17 @@ html {
   --duration-base: 250ms;
   --duration-slow: 500ms;
   --duration-slower: 1600ms; /* intros contadas en una sola línea de tiempo (gráfico de marca del hero) */
-  --duration-loop: 7500ms; /* ciclo del gráfico de marca: ~2.4s de movimiento + ~5s en reposo */
-  --duration-drift: 12000ms; /* deriva ambiental lenta (ida y vuelta) */
+  --duration-enter: 700ms; /* entradas (texto, tarjetas); espejo en shared/motion/motion.tokens.ts */
+  --duration-spring: 450ms; /* duración de --ease-spring */
+  --duration-failsafe: 2500ms; /* si la app no arranca, la intro del hero aparece igual */
+  --stagger-step: 70ms; /* paso único de escalonado */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);
+  /* Resorte (rigidez 500, amortiguación 30, masa 1) muestreado a linear(): ~6% de rebote, se asienta en ~450ms. */
+  --ease-spring: linear(0, 0.068, 0.224, 0.412, 0.594, 0.751, 0.873, 0.96, 1.015, 1.045, 1.057, 1.057, 1.05, 1.039, 1.028, 1.018, 1.01, 1.004, 1, 0.998, 0.997, 0.997, 1);
+  --press-scale: 0.97;
+  --nudge: calc(var(--space-1) * 0.75); /* 3px: flecha de botones y enlaces */
+  --lift: calc(var(--space-1) * -1); /* -4px: tarjetas al pasar el puntero */
 
   /* Capas */
   --z-header: 100;
@@ -193,7 +200,8 @@ html {
     --duration-base: 0.01ms;
     --duration-slow: 0.01ms;
     --duration-slower: 0.01ms;
-    --duration-loop: 0.01ms;
-    --duration-drift: 0.01ms;
+    --duration-enter: 0.01ms;
+    --duration-spring: 0.01ms;
+    --stagger-step: 0ms;
   }
 }

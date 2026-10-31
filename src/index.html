@@ -22,6 +22,15 @@
     })();
   </script>
 
+  <!-- Flag the hero intro before first paint: only with JS and motion welcome (see base.css). -->
+  <script>
+    try {
+      if (!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.classList.add('motion-intro');
+      }
+    } catch (e) {}
+  </script>
+
   <!-- Primary meta — updated per route by SeoService -->
   <title>Software a medida en Lima, Perú | Bacsystem Solutions</title>
   <meta name="description" content="Software a medida para empresas en Perú: sistemas web, apps móviles e IA que reemplazan el Excel y el trabajo manual. Un solo equipo en Lima, de inicio a fin.">

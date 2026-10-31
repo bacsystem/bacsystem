@@ -17,16 +17,19 @@ p {
   text-transform: uppercase;
 }
 
-.eyebrow::before {
-  content: '';
+.eyebrow__rule {
+  flex-shrink: 0;
   inline-size: var(--space-6);
   block-size: calc(var(--border-width) * 2);
   border-radius: var(--radius-pill);
   background-color: var(--color-accent);
+  transform-origin: left;
 }
 
 /* ---------- Hero ---------- */
 .hero {
+  /* The brand mark's incoming arc may pass the edge: clip sideways only, never a scrollbar. */
+  overflow-x: clip;
   display: grid;
   gap: var(--space-8);
   align-items: center;
@@ -93,13 +96,13 @@ p {
   padding-block-end: 0;
 }
 
-.process__step:not(:last-child)::before {
-  content: '';
+/* The connector to the next marker; Motion draws it by scroll progress (scaleY / scaleX). */
+.process__link {
   position: absolute;
   inset-block: calc(var(--space-6) + var(--space-1)) var(--space-1);
   inset-inline-start: calc(var(--space-6) / 2 - var(--border-width) / 2);
   inline-size: var(--border-width);
-  background-color: var(--color-border);
+  background-color: var(--color-border-strong);
   transform-origin: top;
 }
 
@@ -157,33 +160,6 @@ p {
 
 .is-current .process__text {
   color: var(--color-text);
-}
-
-/* The thread draws in once the section is revealed, only when motion is welcome; otherwise it is simply there. */
-@media (prefers-reduced-motion: no-preference) {
-  .process.is-revealed .process__step:not(:last-child)::before {
-    animation: process-thread-y var(--duration-slow) var(--ease-out) both;
-  }
-
-  .process.is-revealed .process__step:nth-child(2)::before {
-    animation-delay: var(--duration-fast);
-  }
-
-  .process.is-revealed .process__step:nth-child(3)::before {
-    animation-delay: calc(var(--duration-fast) * 2);
-  }
-}
-
-@keyframes process-thread-y {
-  from {
-    transform: scaleY(0);
-  }
-}
-
-@keyframes process-thread-x {
-  from {
-    transform: scaleX(0);
-  }
 }
 
 /* ---------- Clients ---------- */
@@ -381,9 +357,11 @@ p {
   border: var(--border-width) solid var(--color-border);
   border-radius: var(--radius-lg);
   background-color: var(--color-surface);
+  box-shadow: var(--shadow-sm);
 }
 
 .products__logo {
+  flex-shrink: 0;
   inline-size: var(--space-7);
   block-size: var(--space-7);
   padding: var(--space-2);
@@ -416,6 +394,34 @@ p {
   padding-block-start: var(--space-2);
 }
 
+/*
+ * Hover (fine pointers, motion welcome): the card lifts on a spring, its shadow steps up and the
+ * logo tile tilts a touch; reversed on leave. The pointer tilt itself is Motion (HomePageComponent).
+ * Lift and tilt use the individual translate/rotate properties, so they never fight Motion's transform.
+ */
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .products__item {
+    transition:
+      translate var(--duration-spring) var(--ease-spring),
+      box-shadow var(--duration-base) var(--ease-out),
+      border-color var(--duration-base) var(--ease-out);
+  }
+
+  .products__item:hover {
+    translate: 0 var(--lift);
+    border-color: var(--color-border-strong);
+    box-shadow: var(--shadow-md);
+  }
+
+  .products__logo {
+    transition: rotate var(--duration-spring) var(--ease-spring);
+  }
+
+  .products__item:hover .products__logo {
+    rotate: -3deg;
+  }
+}
+
 /* ---------- Stats ---------- */
 .stats {
   display: grid;
@@ -430,12 +436,24 @@ p {
 }
 
 .stats__item {
+  position: relative;
   display: flex;
   flex-direction: column-reverse;
   justify-content: flex-end;
   gap: var(--space-2);
   padding-block-start: var(--space-4);
-  border-block-start: var(--border-width) solid var(--color-border);
+}
+
+/* The top rule; Motion grows it left to right through --rule (0 → 1). Static: full width. */
+.stats__item::before {
+  content: '';
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline: 0;
+  block-size: var(--border-width);
+  background-color: var(--color-border);
+  transform: scaleX(var(--rule, 1));
+  transform-origin: left;
 }
 
 .stats__figure {
@@ -577,7 +595,7 @@ p {
     padding-block-end: 0;
   }
 
-  .process__step:not(:last-child)::before {
+  .process__link {
     inset-block: calc(var(--space-6) / 2 - var(--border-width) / 2) auto;
     inset-inline: calc(var(--space-6) + var(--space-2)) calc(var(--space-2) - var(--space-6));
     inline-size: auto;
@@ -623,12 +641,6 @@ p {
   .stats__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--space-7) var(--space-6);
-  }
-}
-
-@media (min-width: 64em) and (prefers-reduced-motion: no-preference) {
-  .process.is-revealed .process__step:not(:last-child)::before {
-    animation-name: process-thread-x;
   }
 }
 

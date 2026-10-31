@@ -1,45 +1,37 @@
 <!--
   The story: the navy "C" is the client company, incomplete; the teal corner is Bacsystem,
-  the complement it was missing. On load the teal piece flies in and docks into the empty slot,
-  and every few seconds it lifts out, circles and clicks back in.
+  the complement it was missing. On load the C is drawn, its empty slot appears and the teal
+  piece arcs in and clicks into place; every few seconds it lifts out, circles and clicks back.
 
   Geometry traced from public/assets/img/bacsystem/Logo_BACSYSTEM-[Color-Isotipo].png (843 x 622),
   drawn in that coordinate space and placed on the canvas by the wrapping group.
   Colors come from CSS (semantic tokens), never from attributes. The markup is the docked,
-  finished logo: that is what prerender, no-JS and reduced motion show.
+  finished logo: that is what prerender, no-JS and reduced motion show. The motion itself is
+  played by the component with the Motion library (browser only).
 
-  Layering: outer "layer" groups carry the ambient drift (transform) and the pointer parallax
-  (the individual `translate` property); the shapes inside carry the docking reactions.
+  Layering: the outer "layer" groups carry the pointer parallax (the individual `translate`
+  property); the shapes inside carry the Motion transforms, so the two never fight.
 -->
-<svg class="mark" viewBox="0 0 1000 760" aria-hidden="true" focusable="false">
+<svg class="mark" viewBox="0 0 1000 760" aria-hidden="true" focusable="false" data-intro="pending">
   <defs>
     <path
       id="brand-mark-c"
+      pathLength="1"
       d="M395 0H240A240 205 0 0 0 0 205V415A240 207 0 0 0 240 622H605A238 207 0 0 0 843 415V352H705V415A100 69 0 0 1 605 484H240A103 69 0 0 1 137 415V205A103 68 0 0 1 240 137H395Z"
     />
     <path id="brand-mark-l" d="M507 0H843V251H703V139H507Z" />
   </defs>
 
-  <!-- Construction guides: the inner top edge of the C and the inner edge of the teal corner. -->
-  <g class="mark__layer mark__layer--guides">
-    <g class="mark__echo mark__guides">
-      <line x1="40" y1="218" x2="960" y2="218" />
-      <line x1="706" y1="30" x2="706" y2="730" />
-    </g>
-  </g>
-
   <g transform="translate(100 100) scale(0.86)">
-    <!-- Outlined echoes, behind the solid pieces. -->
-    <g class="mark__layer mark__layer--echo-c">
-      <use class="mark__echo mark__echo--c" href="#brand-mark-c" x="48" y="48" />
-    </g>
-    <g class="mark__layer mark__layer--echo-l">
-      <use class="mark__echo mark__echo--l" href="#brand-mark-l" x="64" y="-64" />
+    <!-- One echo: a crisp outline of the C, offset down-right. It only ever translates. -->
+    <g class="mark__layer mark__layer--echo">
+      <use class="mark__echo" href="#brand-mark-c" x="48" y="48" />
     </g>
 
-    <!-- The isotype: the company (C), the empty slot it shows while incomplete, and the complement. -->
+    <!-- The isotype: the company (C, drawn by its outline then filled), its empty slot, and the complement. -->
     <g class="mark__layer mark__layer--front">
       <use class="mark__piece mark__c" href="#brand-mark-c" />
+      <use class="mark__line" href="#brand-mark-c" />
       <use class="mark__slot" href="#brand-mark-l" />
       <use class="mark__piece mark__l" href="#brand-mark-l" />
     </g>
