@@ -82,7 +82,8 @@ Base común:
 - Se eliminan los menús y servicios de la versión anterior que ya no se usen, y los vendors no utilizados.
 
 Inicio (secciones, de arriba hacia abajo). **Revisado 2026-10-30 por el dueño:** la portada habla de Bacsystem como empresa de software a medida; el detalle de los productos va en Productos.
-1. Hero: titular concreto en español peruano, subtítulo, botón "Cotizar proyecto" y enlace a servicios; a la derecha un visual propio sobre cómo trabaja la empresa (proceso: entender → diseñar → construir → mantener), sin datos inventados ni pantallas de producto.
+1. Hero: titular concreto en español peruano, subtítulo ("Desarrollamos software a medida y asesoramos a empresas en tecnología y transformación digital."), botón "Cotizar proyecto" y enlace a servicios; a la derecha un **gráfico de marca** hecho con las formas del isotipo (la "C" navy y el cuadrado teal) cuyas piezas se acomodan al cargar (movimiento suave, desactivado con reduced motion). Sin personas, sin código, sin datos inventados. Es provisional hasta tener la imagen definitiva (prompt en `docs/prompt/gemini-hero-image.md`).
+   - El proceso (entender → diseñar → construir → mantener) deja el hero y pasa a una sección propia compacta después de "Qué hacemos".
 2. Qué hacemos: resumen de servicios con layout no repetitivo (no una fila de cuatro tarjetas iguales).
 3. Productos propios: franja corta con todos los productos de `PRODUCTS` (hoy OperaAI y sophIA) lado a lado: logo, nombre, una línea y enlace "Ver producto" a su página. Sin factura ni detalle.
 4. Cifras: contadores animados con datos de ejemplo claramente marcados.
