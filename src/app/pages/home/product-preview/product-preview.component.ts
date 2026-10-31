@@ -16,10 +16,10 @@ interface InvoiceLine {
 
 // EJEMPLO: datos ficticios para ilustrar la interfaz; reemplazar por captura real.
 const ROWS: PreviewRow[] = [
-  { number: 'F001-000219', client: 'Comercial Huallaga S.A.C.', amount: 'S/ 2,360.00', status: 'accepted' },
-  { number: 'B001-001842', client: 'Taller Rímac E.I.R.L.', amount: 'S/ 418.90', status: 'accepted' },
-  { number: 'F001-000218', client: 'Distribuidora Nazca S.A.', amount: 'S/ 7,045.20', status: 'pending' },
-  { number: 'F001-000217', client: 'Inversiones Pacífico Sur', amount: 'S/ 1,284.00', status: 'accepted' },
+  { number: 'F001-000219', client: 'Cliente Ejemplo S.A.C.', amount: 'S/ 2,360.00', status: 'accepted' },
+  { number: 'B001-001842', client: 'Empresa Demo E.I.R.L.', amount: 'S/ 418.90', status: 'accepted' },
+  { number: 'F001-000218', client: 'Negocio Muestra S.A.', amount: 'S/ 7,045.20', status: 'pending' },
+  { number: 'F001-000217', client: 'Cliente Demo S.A.C.', amount: 'S/ 1,284.00', status: 'accepted' },
 ];
 
 // EJEMPLO: alturas relativas de las barras (ventas por semana).

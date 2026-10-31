@@ -140,7 +140,11 @@
           <div class="stats__item">
             <dt class="stats__label">{{ stat.labelKey | translate }}</dt>
             <dd class="stats__figure">
-              <span class="stats__value" [appCountUp]="stat.value"></span><span class="stats__suffix">{{ stat.suffix }}</span>
+              @if (stat.animate === false) {
+                <span class="stats__value">{{ stat.value }}</span>
+              } @else {
+                <span class="stats__value" [appCountUp]="stat.value"></span>
+              }<span class="stats__suffix">{{ stat.suffix }}</span>
             </dd>
           </div>
         }

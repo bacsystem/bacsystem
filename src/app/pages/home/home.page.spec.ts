@@ -110,6 +110,14 @@ describe('HomePageComponent', () => {
     expect(values).toEqual(STATS.map(s => String(s.value)));
   });
 
+  it('renders the 24/7 stat statically, without count-up', () => {
+    setup();
+    spyOn(window, 'matchMedia').and.returnValue({ matches: false } as MediaQueryList);
+    const el = render();
+    const items = Array.from(el.querySelectorAll('#cifras .stats__figure'));
+    expect(items[items.length - 1].textContent?.replace(/\s+/g, '')).toBe('24/7');
+  });
+
   it('never shows the retired figures', () => {
     setup();
     const text = render().textContent ?? '';

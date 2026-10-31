@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { checkTokenParity, checkTemplates, checkIconUsage } from './check-ui.mjs';
+import { checkTokenParity, checkTemplates, checkIconUsage, checkInlineStyles } from './check-ui.mjs';
 
 test('checkTokenParity names a token missing from the dark theme', () => {
   const css = `:root { --color-text: #111; --color-bg: #fff; }
@@ -41,4 +41,23 @@ test('checkIconUsage flags bi classes outside the icon component', () => {
   const errors = checkIconUsage(files);
   assert.equal(errors.length, 1);
   assert.match(errors[0], /x\.component\.html/);
+});
+
+test('checkInlineStyles flags inline styles arrays and template literals', () => {
+  const errors = checkInlineStyles([
+    { path: 'a.component.ts', content: "@Component({ styles: ['a{}'] }) class A {}" },
+    { path: 'b.component.ts', content: '@Component({ styles: `a{}` }) class B {}' },
+    { path: 'c.component.ts', content: "@Component({ styles : ['a{}'] }) class C {}" },
+  ]);
+  assert.equal(errors.length, 3);
+});
+
+test('checkInlineStyles passes styleUrl and ignores specs', () => {
+  assert.deepEqual(
+    checkInlineStyles([
+      { path: 'a.component.ts', content: "@Component({ styleUrl: './a.css' }) class A {}" },
+      { path: 'a.spec.ts', content: "TestBed.overrideComponent(A, { set: { styles: ['a{}'] } })" },
+    ]),
+    [],
+  );
 });

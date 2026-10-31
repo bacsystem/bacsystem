@@ -39,7 +39,7 @@
         },
         "contact": {
           "title": "Contact | Bacsystem Solutions",
-          "description": "Tell us what you need and we will reply within one business day. Write to us or book a call with the Bacsystem team in Lima."
+          "description": "Write or call us to talk about your software project with the Bacsystem Solutions team in Lima."
         },
         "services": {
           "title": "Services | Bacsystem Solutions",
@@ -77,7 +77,7 @@
       "contactPage": {
         "eyebrow": "Contact",
         "title": "Let's talk about your project",
-        "subtitle": "Tell us what you need to solve. We reply by email or phone, usually within the same business day.",
+        "subtitle": "Tell us what you need to solve. You can write to us by email or call us by phone.",
         "listLabel": "Contact details",
         "email": "Email",
         "phone": "Phone",

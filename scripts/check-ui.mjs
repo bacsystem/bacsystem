@@ -48,6 +48,14 @@ export function checkIconUsage(files) {
     .map(({ path }) => `${path}: use <ui-icon> instead of bi bi-* classes`);
 }
 
+/** Component styles must live in .css files (styleUrl), not inline `styles:` in the decorator. */
+export function checkInlineStyles(files) {
+  return files
+    .filter(({ path }) => path.endsWith('.ts') && !path.endsWith('.spec.ts'))
+    .filter(({ content }) => /(?<![\w.])styles\s*:\s*[\[`'"]/.test(content))
+    .map(({ path }) => `${path}: inline component styles are not allowed; use styleUrl with a .css file`);
+}
+
 function walk(dir) {
   return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
     const full = join(dir, entry.name);
@@ -70,7 +78,12 @@ function main() {
         .filter((f) => f.endsWith('.html'))
         .map((f) => ({ path: relative(root, f), content: readFileSync(f, 'utf8') }))
     : [];
-  errors.push(...checkTemplates(files), ...checkIconUsage(files));
+  const tsFiles = existsSync(appDir)
+    ? walk(appDir)
+        .filter((f) => f.endsWith('.ts'))
+        .map((f) => ({ path: relative(root, f), content: readFileSync(f, 'utf8') }))
+    : [];
+  errors.push(...checkTemplates(files), ...checkIconUsage(files), ...checkInlineStyles(tsFiles));
   errors.forEach((e) => console.error(e));
   if (errors.length) process.exit(1);
   console.log('check-ui: OK');

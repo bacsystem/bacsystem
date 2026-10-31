@@ -86,7 +86,8 @@ export class SeoService {
   private normalize(path: string): string {
     const clean = path.split(/[?#]/)[0].replace(/\/+$/, '');
     if (!clean) return '/';
-    return clean.startsWith('/') ? clean : `/${clean}`;
+    // Cloudflare Pages serves contacto/index.html at /contacto/ (308 from /contacto).
+    return `${clean.startsWith('/') ? clean : `/${clean}`}/`;
   }
 
   private setCanonical(url: string): void {

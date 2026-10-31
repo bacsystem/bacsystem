@@ -18,6 +18,10 @@ export class CountUpDirective implements OnInit, OnDestroy {
     if (typeof IntersectionObserver === 'undefined') return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
+    // Already visible at init (e.g. right after hydration): keep the final value, no flip.
+    const rect = this.el.getBoundingClientRect();
+    if (rect.bottom > 0 && rect.top < window.innerHeight) return;
+
     this.el.textContent = '0';
     this.observer = new IntersectionObserver((entries) => {
       if (entries.some((e) => e.isIntersecting)) {

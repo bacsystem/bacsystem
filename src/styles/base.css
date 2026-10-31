@@ -167,3 +167,10 @@ ol[role='list'] {
     opacity var(--duration-slow) var(--ease-out),
     transform var(--duration-slow) var(--ease-out);
 }
+
+@media print {
+  .is-reveal-pending {
+    opacity: 1;
+    transform: none;
+  }
+}

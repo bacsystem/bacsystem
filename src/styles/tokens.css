@@ -139,6 +139,24 @@ html {
   /* Layout (puntos de corte permitidos en @media: 48em y 64em) */
   --container-max: 72rem;
   --header-height: 4.5rem;
+
+  /* Tracking */
+  --tracking-tight: -0.01em;
+  --tracking-normal: 0.04em;
+  --tracking-wide: 0.06em;
+  --tracking-wider: 0.08em;
+
+  /* Medidas de línea / bloque */
+  --measure-xs: 10rem;
+  --measure-sm: 28rem;
+  --measure-md: 30rem;
+  --measure-lg: 34rem;
+  --measure-xl: 42rem;
+
+  /* Opacidad */
+  --opacity-muted: 0.85;
+  --opacity-subtle: 0.7;
+  --opacity-disabled: 0.5;
 }
 
 /* 3. Tema oscuro: reasigna todos los --color-* */

@@ -34,10 +34,10 @@ describe('SeoService', () => {
   it('applies title, canonical and index robots', () => {
     service.apply({ titleKey: 't', descriptionKey: 'd' }, '/contacto');
     expect(document.title).toBe('Titulo ES');
-    expect(canonical()).toBe('https://bacsystemsolutions.com/contacto');
+    expect(canonical()).toBe('https://bacsystemsolutions.com/contacto/');
     expect(meta('meta[name="robots"]')).toBe('index, follow');
     expect(meta('meta[name="description"]')).toBe('Descripcion ES');
-    expect(meta('meta[property="og:url"]')).toBe('https://bacsystemsolutions.com/contacto');
+    expect(meta('meta[property="og:url"]')).toBe('https://bacsystemsolutions.com/contacto/');
     expect(meta('meta[property="og:locale"]')).toBe('es_PE');
   });
 
@@ -53,7 +53,7 @@ describe('SeoService', () => {
 
   it('strips trailing slash, query and fragment from canonical', () => {
     service.apply({ titleKey: 't', descriptionKey: 'd' }, '/contacto/?a=1#x');
-    expect(canonical()).toBe('https://bacsystemsolutions.com/contacto');
+    expect(canonical()).toBe('https://bacsystemsolutions.com/contacto/');
   });
 
   it('reapplies on navigation and on language change', async () => {
@@ -61,7 +61,7 @@ describe('SeoService', () => {
     const router = TestBed.inject(Router);
     await router.navigateByUrl('/contacto');
     expect(document.title).toBe('Titulo ES');
-    expect(canonical()).toBe('https://bacsystemsolutions.com/contacto');
+    expect(canonical()).toBe('https://bacsystemsolutions.com/contacto/');
 
     translate.use('en');
     expect(document.title).toBe('Title EN');

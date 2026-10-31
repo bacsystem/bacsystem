@@ -40,6 +40,8 @@ export interface StatItem {
   suffix: string;
   labelKey: string;
   example: true;
+  /** false: render the value as static text (e.g. 24/7), no count-up. */
+  animate?: boolean;
 }
 
 export const SERVICES: ServiceItem[] = [
@@ -94,5 +96,5 @@ export const STATS: StatItem[] = [
   { id: 'years', value: 8, suffix: '+', labelKey: 'application.home.stats.years', example: true },
   { id: 'projects', value: 45, suffix: '+', labelKey: 'application.home.stats.projects', example: true },
   { id: 'clients', value: 20, suffix: '+', labelKey: 'application.home.stats.clients', example: true },
-  { id: 'support', value: 24, suffix: '/7', labelKey: 'application.home.stats.support', example: true },
+  { id: 'support', value: 24, suffix: '/7', labelKey: 'application.home.stats.support', example: true, animate: false },
 ];

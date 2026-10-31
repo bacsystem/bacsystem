@@ -30,6 +30,23 @@ describe('CountUpDirective', () => {
     expect(mount().textContent).toBe('42');
   });
 
+  it('keeps the final value when already in the viewport at init', () => {
+    spyOn(window, 'matchMedia').and.returnValue({ matches: false } as MediaQueryList);
+    spyOn(HTMLElement.prototype, 'getBoundingClientRect').and.returnValue({
+      top: 10, bottom: 50, left: 0, right: 50, width: 50, height: 40, x: 0, y: 10, toJSON: () => ({}),
+    } as DOMRect);
+    expect(mount().textContent).toBe('42');
+  });
+
+  it('resets to 0 when off-screen at init', () => {
+    spyOn(window, 'matchMedia').and.returnValue({ matches: false } as MediaQueryList);
+    spyOn(HTMLElement.prototype, 'getBoundingClientRect').and.returnValue({
+      top: window.innerHeight + 500, bottom: window.innerHeight + 540, left: 0, right: 50, width: 50, height: 40,
+      x: 0, y: window.innerHeight + 500, toJSON: () => ({}),
+    } as DOMRect);
+    expect(mount().textContent).toBe('0');
+  });
+
   it('writes the final value on the server', () => {
     expect(mount('server').textContent).toBe('42');
   });

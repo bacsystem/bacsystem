@@ -3,7 +3,6 @@
 ![Angular](https://img.shields.io/badge/Angular-18-DD0031?logo=angular&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.5-3178C6?logo=typescript&logoColor=white)
 ![Cloudflare Pages](https://img.shields.io/badge/Deploy-Cloudflare%20Pages-F38020?logo=cloudflare&logoColor=white)
-![Version](https://img.shields.io/badge/Version-1.2.2-blue)
 ![License](https://img.shields.io/badge/License-Private-lightgrey)
 
 Sitio corporativo de **Bacsystem Solutions** (Angular 18, componentes standalone, prerender estático). Se despliega en Cloudflare Pages.
@@ -12,7 +11,7 @@ Sitio corporativo de **Bacsystem Solutions** (Angular 18, componentes standalone
 
 ## Comandos
 
-Requiere Node 18+ y yarn 1.x. Instalar con `yarn install`.
+Requiere Node 20.19+ (CI usa 22) y yarn 1.x. Instalar con `yarn install`.
 
 | Comando | Qué hace |
 |---|---|

@@ -39,7 +39,7 @@
         },
         "contact": {
           "title": "Contacto | Bacsystem Solutions",
-          "description": "Cuéntanos qué necesitas y te respondemos en un día hábil. Escríbenos o agenda una llamada con el equipo de Bacsystem en Lima."
+          "description": "Escríbenos o llámanos para hablar de tu proyecto de software con el equipo de Bacsystem Solutions en Lima."
         },
         "services": {
           "title": "Servicios | Bacsystem Solutions",
@@ -77,7 +77,7 @@
       "contactPage": {
         "eyebrow": "Contacto",
         "title": "Hablemos de tu proyecto",
-        "subtitle": "Cuéntanos qué necesitas resolver. Respondemos por correo o teléfono, normalmente dentro del mismo día hábil.",
+        "subtitle": "Cuéntanos qué necesitas resolver. Puedes escribirnos por correo o llamarnos por teléfono.",
         "listLabel": "Datos de contacto",
         "email": "Correo",
         "phone": "Teléfono",

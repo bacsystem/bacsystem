@@ -17,37 +17,7 @@ import { SiteHeaderComponent } from './site-header/site-header.component';
     </main>
     <app-site-footer />
   `,
-  styles: `
-    :host {
-      display: flex;
-      flex-direction: column;
-      min-block-size: 100vh;
-    }
-
-    main {
-      flex: 1;
-    }
-
-    main:focus {
-      outline: none;
-    }
-
-    .skip-link {
-      position: absolute;
-      inset-block-start: var(--space-2);
-      inset-inline-start: var(--space-2);
-      z-index: var(--z-overlay);
-      padding: var(--space-2) var(--space-4);
-      border-radius: var(--radius-pill);
-      background-color: var(--color-primary);
-      color: var(--color-on-primary);
-      transform: translateY(calc(-100% - var(--space-4)));
-    }
-
-    .skip-link:focus {
-      transform: none;
-    }
-  `,
+  styleUrl: './site-layout.component.css',
 })
 export class SiteLayoutComponent {
   private readonly main = viewChild.required<ElementRef<HTMLElement>>('main');

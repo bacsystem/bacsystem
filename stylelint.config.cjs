@@ -1,4 +1,8 @@
 const PX = /\d+(\.\d+)?px/;
+const LENGTH = /\d+(\.\d+)?(rem|em|px)\b/;
+// Any number except 0 and 1 (also rejects 0.5, 01, 1.5, ...).
+const OPACITY_LITERAL = /^(?!(0|1)$)[+-]?\d*\.?\d+%?$/;
+const TRACKING_LITERAL = /^[+-]?\d*\.?\d+(em|rem|px)$/;
 
 module.exports = {
   rules: {
@@ -14,6 +18,10 @@ module.exports = {
       'row-gap': [PX],
       'column-gap': [PX],
       'border-radius': [PX],
+      'letter-spacing': [TRACKING_LITERAL],
+      opacity: [OPACITY_LITERAL],
+      'max-inline-size': [LENGTH],
+      'max-width': [LENGTH],
     },
   },
   // Breakpoints: only 48em and 64em are allowed in @media.
