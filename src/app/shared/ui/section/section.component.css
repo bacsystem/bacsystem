@@ -2,12 +2,19 @@
   display: block;
 }
 
+/* Phones get a tighter rhythm: at 6rem a section break filled most of a small screen. */
 .ui-section {
-  padding-block: var(--space-9);
+  padding-block: var(--space-8);
 }
 
 .ui-section--compact {
   padding-block: var(--space-6);
+}
+
+@media (min-width: 48em) {
+  .ui-section {
+    padding-block: var(--space-9);
+  }
 }
 
 .ui-section--default {

@@ -62,9 +62,15 @@ describe('routes', () => {
     expect(children.findIndex(r => r.path === 'guia-ui')).toBeLessThan(children.findIndex(r => r.path === '**'));
   });
 
-  it('wildcard redirects to root', () => {
-    const w = children.find(r => r.path === '**');
-    expect(w?.redirectTo).toBe('');
+  it('unknown URLs show the noindex not-found page, also prerendered at /404 for 404.html', async () => {
+    for (const path of ['**', '404']) {
+      const route = find(path)!;
+      expect(route.redirectTo).withContext(path).toBeUndefined();
+      expect(seo(path).indexable).withContext(path).toBeFalse();
+      const component = await (route.loadComponent as () => Promise<unknown>)();
+      expect((component as { name: string }).name).withContext(path).toBe('NotFoundPageComponent');
+    }
+    expect(children.at(-1)?.path).toBe('**');
   });
 
   it('no route starts with public', () => {

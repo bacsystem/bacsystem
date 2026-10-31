@@ -45,7 +45,7 @@ describe('ProductsPageComponent', () => {
   it('uses the shared monogram when a product has no logo', () => {
     setup();
     const el = render();
-    expect(Array.from(el.querySelectorAll('.product ui-monogram')).map(m => text(m))).toEqual(['k', 'W']);
+    expect(Array.from(el.querySelectorAll('.product ui-monogram')).map(m => text(m))).toEqual(['K', 'W']);
   });
 
   it('does not repeat the Home teaser lines', () => {

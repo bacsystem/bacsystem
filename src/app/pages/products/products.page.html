@@ -15,7 +15,7 @@
           @if (product.logo) {
             <img class="product__logo" [src]="product.logo" alt="" width="64" height="64" loading="lazy" />
           } @else {
-            <ui-monogram [text]="(product.nameKey | translate).charAt(0)" />
+            <ui-monogram [text]="(product.nameKey | translate).charAt(0).toUpperCase()" />
           }
           <ui-tag [tone]="product.status === 'available' ? 'accent' : 'neutral'">
             {{ 'application.productsPage.status.' + product.status | translate }}

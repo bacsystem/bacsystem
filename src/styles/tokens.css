@@ -155,6 +155,9 @@ html {
   /* Layout (puntos de corte permitidos en @media: 48em y 64em) */
   --container-max: 72rem;
   --header-height: 4.5rem;
+  --touch-target: 2.75rem; /* 44px: smallest tap area for any control or link on its own line */
+  /* Header logo height: scales with the screen so logo + three 44px controls fit from 320px phones up. */
+  --logo-height: clamp(1rem, 5vw, 1.5rem);
 
   /* Tracking */
   --tracking-tight: -0.01em;

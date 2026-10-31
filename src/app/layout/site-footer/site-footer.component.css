@@ -25,6 +25,8 @@
 
 .site-footer__logo-link {
   display: inline-flex;
+  align-items: center;
+  min-block-size: var(--touch-target);
   border-radius: var(--radius-sm);
 }
 
@@ -61,7 +63,7 @@
 
 .site-footer__list {
   display: grid;
-  gap: var(--space-3);
+  gap: 0;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -71,9 +73,14 @@
   display: flex;
   align-items: center;
   gap: var(--space-2);
+  min-block-size: var(--touch-target);
 }
 
 .site-footer__list a {
+  /* Each link is a full 44px tap row; the rows themselves set the rhythm, so the list has no gap. */
+  display: inline-flex;
+  align-items: center;
+  min-block-size: var(--touch-target);
   color: var(--color-text);
   text-decoration: none;
 }

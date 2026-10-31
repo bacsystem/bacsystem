@@ -60,6 +60,10 @@
         "wanka": {
           "title": "Wanka: industry-specific management | Bacsystem Solutions",
           "description": "Wanka, in progress: point of sale, inventory by warehouse, customers, purchases and electronic invoicing for restaurants, veterinary clinics, dental practices and shops."
+        },
+        "notFound": {
+          "title": "Page not found | Bacsystem Solutions",
+          "description": "The page you are looking for doesn't exist. Go back home or look at our services and products."
         }
       },
       "contactPage": {
@@ -70,6 +74,13 @@
         "email": "Email",
         "phone": "Phone",
         "address": "Address"
+      },
+      "notFound": {
+        "eyebrow": "Error 404",
+        "title": "We can't find this page",
+        "text": "The link may be mistyped or the page may no longer exist. You can carry on from here.",
+        "home": "Back to home",
+        "linksLabel": "Site sections"
       }
     },
     "home": {

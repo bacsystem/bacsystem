@@ -38,8 +38,12 @@ export class MotionService {
 
   readonly animate = ((...args: unknown[]) => this.run(() => (animate as (...a: unknown[]) => unknown)(...args))) as typeof animate;
 
-  /** Runs `onEnter` the first time the element is in view, then stops watching it. */
-  inViewOnce(element: Element, onEnter: () => void, amount = 0.2): Stoppable {
+  /**
+   * Runs `onEnter` the first time the element is in view, then stops watching it. The default starts a
+   * little before the element reaches the screen (any pixel, viewport extended 10% downwards), so a fast
+   * scroll never lands on an empty, still-hidden section.
+   */
+  inViewOnce(element: Element, onEnter: () => void, amount = 0, margin: `${number}px ${number}px ${number}% ${number}px` = '0px 0px 10% 0px'): Stoppable {
     const cancel = this.run(() =>
       inView(
         element,
@@ -47,7 +51,7 @@ export class MotionService {
           cancel();
           onEnter();
         },
-        { amount },
+        { amount, margin },
       ),
     );
     return { stop: cancel };
