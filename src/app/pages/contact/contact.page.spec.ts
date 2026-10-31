@@ -25,12 +25,9 @@ describe('ContactPageComponent', () => {
     expect(el.querySelector('h1')?.textContent?.trim()).toBe(es.application.site.contactPage.title);
   });
 
-  it('opens WhatsApp first, in a new tab, and shows no e-mail', () => {
-    const a = el.querySelector<HTMLAnchorElement>('.contact__list li:first-child a');
-    expect(a?.getAttribute('href')).toBe('https://wa.me/51972107074');
-    expect(a?.target).toBe('_blank');
-    expect(a?.rel).toBe('noopener');
-    expect(a?.textContent).toContain(SITE.phone);
+  it('shows the number once (phone and WhatsApp share it) and no e-mail', () => {
+    expect(el.querySelector('.contact__list')?.textContent?.split(SITE.phone).length).toBe(2);
+    expect(el.querySelector('.contact__list a[href^="https://wa.me/"]')).toBeNull();
     expect(el.querySelector('a[href^="mailto:"]')).toBeNull();
   });
 
@@ -42,10 +39,16 @@ describe('ContactPageComponent', () => {
 
   it('shows the address as plain text, not a link', () => {
     expect(el.textContent).toContain(SITE.address);
-    expect(el.querySelectorAll('a').length).toBe(2);
+    expect(el.querySelectorAll('.contact__list a').length).toBe(1);
   });
 
-  it('offers the brief that ends in WhatsApp next to the contact details', () => {
-    expect(el.querySelector('app-whatsapp-form.contact__form form')).toBeTruthy();
+  it('leads with a WhatsApp button whose chat opens with the default message, and has no form', () => {
+    const cta = el.querySelector<HTMLAnchorElement>('.contact__cta a[ui-button]');
+    expect(cta?.textContent).toContain(es.application.site.contactPage.whatsappCta);
+    const url = new URL(cta!.href);
+    expect(url.origin + url.pathname).toBe('https://wa.me/51972107074');
+    expect(url.searchParams.get('text')).toBe(es.application.site.contactPage.whatsappMessage);
+    expect(cta?.target).toBe('_blank');
+    expect(el.querySelector('form')).toBeNull();
   });
 });

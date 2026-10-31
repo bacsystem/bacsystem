@@ -72,36 +72,11 @@
         "subtitle": "Cuéntanos qué necesitas resolver, aunque todavía no sepas cómo hacerlo. Con eso preparamos la primera conversación.",
         "listLabel": "Datos de contacto",
         "whatsapp": "WhatsApp",
-        "phone": "Teléfono",
+        "phone": "Teléfono y WhatsApp",
         "address": "Dirección",
-        "form": {
-          "title": "Cuéntanos tu caso",
-          "name": "Tu nombre",
-          "company": "Empresa (opcional)",
-          "need": "¿Qué necesitas resolver?",
-          "needHint": "Por ejemplo: ordenar el inventario de nuestros dos locales.",
-          "when": {
-            "label": "¿Para cuándo?",
-            "options": {
-              "soon": "Lo antes posible",
-              "months": "En 1 a 3 meses",
-              "later": "Más adelante",
-              "exploring": "Solo estoy averiguando"
-            }
-          },
-          "submit": "Enviar por WhatsApp",
-          "note": "Se abrirá WhatsApp con tu mensaje listo para enviar. No guardamos tus datos.",
-          "errors": {
-            "required": "Necesitamos este dato.",
-            "needShort": "Cuéntanos un poco más (al menos 10 caracteres).",
-            "tooLong": "Es un poco largo; resúmelo, por favor."
-          },
-          "message": {
-            "who": "Hola, soy {{name}}.",
-            "whoCompany": "Hola, soy {{name}}, de {{company}}.",
-            "body": "{{who}} Necesito: {{need}} Plazo: {{when}}."
-          }
-        }
+        "whatsappCta": "Escríbenos por WhatsApp",
+        "whatsappMessage": "Hola, vengo de su página web y quiero contarles sobre un proyecto.",
+        "whatsappNote": "Se abre WhatsApp con un mensaje listo; solo agrega lo que necesitas."
       },
       "notFound": {
         "eyebrow": "Error 404",

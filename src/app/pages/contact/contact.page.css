@@ -13,6 +13,26 @@
   display: block;
 }
 
+.contact__main {
+  display: grid;
+  gap: var(--space-6);
+}
+
+/* The main action: WhatsApp with a message already written. */
+.contact__cta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.contact__note {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+}
+
 
 .contact__list {
   margin: 0;
@@ -84,15 +104,10 @@ a.contact__row:hover .contact__arrow {
   transform: translateX(var(--space-1));
 }
 
-/* Desktop: the heading across, then the brief (wider) beside the direct contact details. */
 @media (min-width: 64em) {
   .contact {
-    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-    gap: var(--space-7) var(--space-8);
-  }
-
-  .contact__heading {
-    grid-column: 1 / -1;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-9);
   }
 
   .contact ui-section-heading {

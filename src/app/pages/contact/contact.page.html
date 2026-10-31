@@ -1,25 +1,22 @@
 <ui-section sectionId="contacto">
   <div class="contact">
-    <ui-section-heading
-      class="contact__heading"
-      level="h1"
-      [eyebrow]="'application.site.contactPage.eyebrow' | translate"
-      [title]="'application.site.contactPage.title' | translate"
-      [subtitle]="'application.site.contactPage.subtitle' | translate"
-    />
-    <app-whatsapp-form class="contact__form" />
+    <div class="contact__main">
+      <ui-section-heading
+        level="h1"
+        [eyebrow]="'application.site.contactPage.eyebrow' | translate"
+        [title]="'application.site.contactPage.title' | translate"
+        [subtitle]="'application.site.contactPage.subtitle' | translate"
+      />
+      <div class="contact__cta">
+        <a ui-button size="lg" [href]="'application.site.contactPage.whatsappMessage' | translate | whatsapp" target="_blank" rel="noopener">
+          <ui-icon name="whatsapp" size="sm" />
+          {{ 'application.site.contactPage.whatsappCta' | translate }}
+        </a>
+        <p class="contact__note">{{ 'application.site.contactPage.whatsappNote' | translate }}</p>
+      </div>
+    </div>
 
     <ul class="contact__list" role="list" [attr.aria-label]="'application.site.contactPage.listLabel' | translate">
-      <li>
-        <a class="contact__row" [href]="whatsappHref" target="_blank" rel="noopener">
-          <span class="contact__icon"><ui-icon name="whatsapp" /></span>
-          <span class="contact__text">
-            <span class="contact__label">{{ 'application.site.contactPage.whatsapp' | translate }}</span>
-            <span class="contact__value">{{ site.phone }}</span>
-          </span>
-          <ui-icon class="contact__arrow" name="arrow-up-right" size="sm" />
-        </a>
-      </li>
       <li>
         <a class="contact__row" [href]="telHref">
           <span class="contact__icon"><ui-icon name="telephone" /></span>

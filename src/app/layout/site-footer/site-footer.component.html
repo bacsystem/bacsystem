@@ -36,11 +36,12 @@
       <ul class="site-footer__list" role="list">
         <li>
           <ui-icon name="whatsapp" size="sm" />
-          <a [href]="whatsappHref" target="_blank" rel="noopener">{{ 'application.site.contactPage.whatsapp' | translate }}</a>
-        </li>
-        <li>
-          <ui-icon name="telephone" size="sm" />
-          <a [href]="phoneHref">{{ contact.phone }}</a>
+          <a
+            [href]="'application.site.contactPage.whatsappMessage' | translate | whatsapp"
+            target="_blank"
+            rel="noopener"
+            [attr.aria-label]="('application.site.contactPage.whatsapp' | translate) + ' ' + contact.phone"
+          >{{ contact.phone }}</a>
         </li>
         <li>
           <ui-icon name="geo-alt" size="sm" />

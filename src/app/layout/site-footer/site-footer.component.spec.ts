@@ -17,13 +17,13 @@ describe('SiteFooterComponent', () => {
     el = fixture.nativeElement;
   });
 
-  it('shows WhatsApp and the phone as links, and no e-mail', () => {
+  it('shows the number once, opening WhatsApp, and no e-mail', () => {
     const wa = el.querySelector<HTMLAnchorElement>('a[href^="https://wa.me/"]');
-    const tel = el.querySelector<HTMLAnchorElement>('a[href^="tel:"]');
-    expect(wa?.getAttribute('href')).toBe('https://wa.me/51972107074');
+    expect(wa?.getAttribute('href')).toContain('https://wa.me/51972107074?text=');
     expect(wa?.rel).toBe('noopener');
-    expect(tel?.getAttribute('href')).toBe('tel:+51972107074');
-    expect(tel?.textContent).toContain('+51 972 107 074');
+    expect(wa?.textContent).toContain('+51 972 107 074');
+    expect(el.querySelector('.site-footer__contact')?.textContent?.split('+51 972 107 074').length).toBe(2);
+    expect(el.querySelector('a[href^="tel:"]')).toBeNull();
     expect(el.querySelector('a[href^="mailto:"]')).toBeNull();
   });
 
