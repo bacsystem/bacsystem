@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
-import { KHIPU_BENEFITS, KHIPU_CHANNELS, KHIPU_DOCUMENTS, KHIPU_STEPS, KhipuDocument, KhipuStep } from '../../data/site.data';
+import { KHIPU_BENEFITS, KHIPU_CHANNELS, KHIPU_DOCUMENTS, KHIPU_SIGNUP_URL, KHIPU_STEPS, KhipuDocument, KhipuStep } from '../../data/site.data';
 import { RevealGroupDirective } from '../../shared/directives/reveal-group.directive';
 import { PositionPipe } from '../../shared/pipes/position.pipe';
 import { ContactBandComponent } from '../../shared/sections';
@@ -23,7 +23,7 @@ function groupSteps(steps: KhipuStep[]): StepGroup[] {
 /**
  * khipu (/productos/khipu): what it is with an invoice illustration, how it works (once vs. every
  * document), what it takes off your plate, who it is for, which SUNAT documents it issues today, and a
- * contact band asking for beta access. Everything renders in its final state on the server.
+ * contact band to create a free account. Everything renders in its final state on the server.
  */
 @Component({
   selector: 'app-khipu-page',
@@ -50,6 +50,8 @@ export class KhipuPageComponent {
   protected readonly benefits = KHIPU_BENEFITS;
   protected readonly channels = KHIPU_CHANNELS;
   documents: KhipuDocument[] = KHIPU_DOCUMENTS;
+  /** Where "Crear cuenta gratis" goes: the khipu portal sign-up, or /contacto while it is not set. */
+  signupUrl = KHIPU_SIGNUP_URL;
 
   protected readonly choreo = KHIPU_CHOREO;
 }

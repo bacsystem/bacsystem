@@ -5,10 +5,17 @@
       <p class="contact__subtitle">{{ subtitleKey() | translate }}</p>
     </div>
     <div class="contact__actions">
-      <a ui-button size="lg" class="contact__cta" routerLink="/contacto">
-        {{ ctaKey() | translate }}
-        <ui-icon name="arrow-right" size="sm" />
-      </a>
+      @if (ctaHref()) {
+        <a ui-button size="lg" class="contact__cta" [href]="ctaHref()" rel="noopener">
+          {{ ctaKey() | translate }}
+          <ui-icon name="arrow-up-right" size="sm" />
+        </a>
+      } @else {
+        <a ui-button size="lg" class="contact__cta" routerLink="/contacto">
+          {{ ctaKey() | translate }}
+          <ui-icon name="arrow-right" size="sm" />
+        </a>
+      }
     </div>
   </div>
 </ui-section>

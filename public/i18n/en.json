@@ -319,8 +319,8 @@
         "title": "khipu",
         "tagline": "Electronic invoicing for SUNAT, from a web portal or connected to your system.",
         "lead": "You record the sale; khipu calculates the totals, builds the XML in SUNAT's format, signs it with your digital certificate and sends it. You get the acceptance receipt and the PDF for your customer.",
-        "status": "Invitation-only beta",
-        "cta": "Request access",
+        "status": "Free plan forever, no card needed",
+        "cta": "Create a free account",
         "secondary": "See how it works"
       },
       "preview": {
@@ -424,9 +424,9 @@
         }
       },
       "contact": {
-        "title": "Request beta access",
-        "subtitle": "We enable accounts one at a time so we can help you set up your certificate and SOL credentials.",
-        "cta": "Request access"
+        "title": "Issue your first invoice today",
+        "subtitle": "Create your account, set up your company and check in SUNAT's test environment that your documents are accepted, without paying anything.",
+        "cta": "Create a free account"
       }
     }
   }

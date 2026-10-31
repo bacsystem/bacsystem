@@ -20,6 +20,8 @@ export class ContactBandComponent {
   readonly titleKey = input('application.home.contact.title');
   readonly subtitleKey = input('application.home.contact.subtitle');
   readonly ctaKey = input('application.home.contact.cta');
+  /** An external destination for the button (e.g. a product's sign-up); empty keeps /contacto. */
+  readonly ctaHref = input('');
 
   protected readonly reveal = CONTACT_REVEAL;
 }

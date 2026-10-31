@@ -319,8 +319,8 @@
         "title": "khipu",
         "tagline": "Facturación electrónica para SUNAT, desde un portal web o conectada a tu sistema.",
         "lead": "Tú registras la venta; khipu calcula los totales, arma el XML en el formato de SUNAT, lo firma con tu certificado digital y lo envía. Recibes la constancia de aceptación y el PDF para tu cliente.",
-        "status": "Beta por invitación",
-        "cta": "Solicitar acceso",
+        "status": "Plan gratis permanente, sin tarjeta",
+        "cta": "Crear cuenta gratis",
         "secondary": "Ver cómo funciona"
       },
       "preview": {
@@ -424,9 +424,9 @@
         }
       },
       "contact": {
-        "title": "Pide acceso a la beta",
-        "subtitle": "Habilitamos las cuentas una por una para acompañarte a configurar tu certificado y tus credenciales SOL.",
-        "cta": "Solicitar acceso"
+        "title": "Emite tu primera factura hoy",
+        "subtitle": "Crea tu cuenta, configura tu empresa y comprueba en el entorno de pruebas de SUNAT que tus comprobantes se aceptan, sin pagar un sol.",
+        "cta": "Crear cuenta gratis"
       }
     }
   }

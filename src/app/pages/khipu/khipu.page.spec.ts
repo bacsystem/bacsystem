@@ -30,7 +30,7 @@ describe('KhipuPageComponent', () => {
 
   const text = (el: Element | null | undefined) => el?.textContent?.replace(/\s+/g, ' ').trim();
 
-  it('renders one h1 with the product name, its tagline and the access CTA to /contacto', () => {
+  it('renders one h1 with the product name, its tagline and the free sign-up CTA (to /contacto while no URL is set)', () => {
     setup();
     const el = render();
     const h1s = el.querySelectorAll('h1');
@@ -71,13 +71,23 @@ describe('KhipuPageComponent', () => {
     expect(soon).toEqual([t.documents.items.dispatchGuide, t.documents.items.withholding]);
   });
 
-  it('ends with a beta-access contact band instead of the custom-software pitch', () => {
+  it('ends with a free sign-up contact band instead of the custom-software pitch', () => {
     setup();
     const el = render();
     const band = el.querySelector('app-contact-band #contacto') as HTMLElement;
     expect(band.querySelector('h2')?.getAttribute('aria-label')).toBe(t.contact.title);
     expect(text(band.querySelector('a[href="/contacto"]'))).toContain(t.contact.cta);
     expect(band.textContent).not.toContain(es.application.home.contact.title);
+  });
+
+  it('sends both sign-up buttons to the khipu portal once its URL is set', () => {
+    const page = setup();
+    page.signupUrl = 'https://portal.example/registro';
+    const el = render();
+    const links = Array.from(el.querySelectorAll<HTMLAnchorElement>('a[href="https://portal.example/registro"]'));
+    expect(links.length).toBe(2);
+    expect(links.every(a => a.rel === 'noopener')).toBeTrue();
+    expect(el.querySelector('.intro__cta[href="/contacto"]')).toBeNull();
   });
 
   it('renders the sections in order', () => {

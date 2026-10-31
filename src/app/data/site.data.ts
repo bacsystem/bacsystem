@@ -101,6 +101,12 @@ export const PRODUCTS: ProductItem[] = [
   },
 ];
 
+/**
+ * Public sign-up page of the khipu portal (its /registro). Empty until the production URL is confirmed:
+ * meanwhile the "Crear cuenta gratis" buttons send people to /contacto.
+ */
+export const KHIPU_SIGNUP_URL = '';
+
 /** khipu: setup happens once, then two steps repeat for every document. */
 export const KHIPU_STEPS: KhipuStep[] = [
   { id: 'certificate', when: 'once' },

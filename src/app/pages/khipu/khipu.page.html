@@ -10,10 +10,17 @@
       <p class="intro__lead">{{ 'application.khipuPage.intro.lead' | translate }}</p>
       <ui-tag tone="accent">{{ 'application.khipuPage.intro.status' | translate }}</ui-tag>
       <div class="intro__actions">
-        <a ui-button size="lg" routerLink="/contacto">
-          {{ 'application.khipuPage.intro.cta' | translate }}
-          <ui-icon name="arrow-right" size="sm" />
-        </a>
+        @if (signupUrl) {
+          <a ui-button size="lg" class="intro__cta" [href]="signupUrl" rel="noopener">
+            {{ 'application.khipuPage.intro.cta' | translate }}
+            <ui-icon name="arrow-up-right" size="sm" />
+          </a>
+        } @else {
+          <a ui-button size="lg" class="intro__cta" routerLink="/contacto">
+            {{ 'application.khipuPage.intro.cta' | translate }}
+            <ui-icon name="arrow-right" size="sm" />
+          </a>
+        }
         <a ui-button variant="text" size="lg" routerLink="/productos/khipu" fragment="como-funciona">
           {{ 'application.khipuPage.intro.secondary' | translate }}
         </a>
@@ -112,4 +119,5 @@
   titleKey="application.khipuPage.contact.title"
   subtitleKey="application.khipuPage.contact.subtitle"
   ctaKey="application.khipuPage.contact.cta"
+  [ctaHref]="signupUrl"
 />
