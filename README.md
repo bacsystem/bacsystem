@@ -54,7 +54,17 @@ El contenido de la web (servicios, productos, clientes, cifras) vive en `src/app
 
 ## Prerender y despliegue
 
-`yarn build:prod` prerenderiza las rutas estáticas con `@angular/ssr` y genera `dist/browser` (incluye `_redirects`, `robots.txt` y `sitemap.xml`). Se despliega en **Cloudflare Pages** publicando `dist/browser` (ver `wrangler.toml`). Las páginas aún no construidas (`/servicios`, `/productos*`, `/nosotros`) son `noindex` y no están en el sitemap.
+`yarn build:prod` prerenderiza las rutas estáticas con `@angular/ssr` y genera `dist/browser` (incluye `_redirects`, `robots.txt`, `sitemap.xml` y `404.html`). Se despliega en **Cloudflare Pages** publicando `dist/browser` (ver `wrangler.toml`).
+
+**Producción se publica solo con un tag de versión** (`vX.Y.Z`); un push a `main` o un pull request no despliegan (`.github/workflows/deploy.yaml`). Para publicar:
+
+```bash
+# 1. Con main actualizado y la versión subida en package.json
+git tag v1.3.0
+git push origin v1.3.0
+```
+
+O desde GitHub: **Releases → Draft a new release → Choose a tag → `v1.3.0` (nuevo)** → Publish. Crear el tag dispara el despliegue. Para volver a una versión anterior, despliega de nuevo ese tag desde **Actions** (Re-run jobs del run de ese tag).
 
 ---
 
