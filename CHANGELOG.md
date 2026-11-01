@@ -5,6 +5,30 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.3.0] — 2026-11-01
+
+Full redesign of the site (#7) and production deploys from version tags (#8).
+
+### Added
+- Multi-page site with Angular routes: Inicio, Servicios, Productos (index, khipu, Wanka), Nosotros, Contacto and a real 404 (prerendered as `404.html`).
+- UI convention: design tokens only (`src/styles/tokens.css`), shared UI components (icon, button, card, tag, section, section heading, field, monogram), enforced by stylelint and `scripts/check-ui.mjs`.
+- Visual direction "clara y cercana" (navy #1B3080, teal as accent), light/dark/system themes, Michroma + DM Sans.
+- Motion with motion.dev: animated brand mark in the hero, scroll entrances capped so no list trails behind, sticky side headings on desktop; reduced motion and server render show the final state.
+- Products: khipu (SUNAT e-invoicing) with an animated invoice illustration, and Wanka (in construction) with an industry menu illustration.
+- Contact through WhatsApp with a default message (+51 972 107 074).
+- SEO per route (title, description, canonical, robots, Open Graph/Twitter with a 1200x630 share image), JSON-LD, sitemap and `_redirects` for the old `/public/*` URLs.
+- Accessibility: WCAG AA contrast in both themes, 44px touch targets, visible focus, keyboard-friendly mobile menu.
+
+### Changed
+- Spanish is the default language; ES/EN selector kept, same URLs for both languages.
+- Production deploys only when a `vX.Y.Z` tag is created (git tag or GitHub Release); pushes to `main` and pull requests no longer deploy.
+
+### Removed
+- Single-page legacy layout, unused fonts and legacy copy (OperaAI, sophIA, FlowSync).
+- E-mail from the site, example figures and client logos (the company is starting).
+
+---
+
 ## [1.2.2] — 2026-03-27
 
 ### Added
