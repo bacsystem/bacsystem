@@ -1,0 +1,39 @@
+<ui-section sectionId="productos">
+  <div class="intro">
+    <p class="eyebrow">
+      <span class="eyebrow__rule" aria-hidden="true"></span>
+      <span class="eyebrow__text">{{ 'application.productsPage.intro.eyebrow' | translate }}</span>
+    </p>
+    <h1 class="intro__title" [attr.aria-label]="'application.productsPage.intro.title' | translate">@for (word of 'application.productsPage.intro.title' | translate | words; track $index) {<span class="ui-word" aria-hidden="true">{{ word }}</span>&ngsp;}</h1>
+    <p class="intro__lead">{{ 'application.productsPage.intro.lead' | translate }}</p>
+  </div>
+
+  <ul class="products" role="list" appRevealGroup>
+    @for (product of products; track product.id) {
+      <li class="product">
+        <div class="product__head">
+          @if (product.logo) {
+            <img class="product__logo" [src]="product.logo" alt="" width="64" height="64" loading="lazy" />
+          } @else {
+            <ui-monogram [text]="(product.nameKey | translate).charAt(0).toUpperCase()" />
+          }
+          <ui-tag [tone]="product.status === 'available' ? 'accent' : 'neutral'">
+            {{ 'application.productsPage.status.' + product.status | translate }}
+          </ui-tag>
+        </div>
+        <h2 class="product__name">{{ product.nameKey | translate }}</h2>
+        <p class="product__summary">{{ 'application.productsPage.items.' + product.id + '.summary' | translate }}</p>
+        <p class="product__for">
+          <span class="product__for-label">{{ 'application.productsPage.forLabel' | translate }}</span>
+          {{ 'application.productsPage.items.' + product.id + '.for' | translate }}
+        </p>
+        <a ui-button variant="secondary" class="product__link" [routerLink]="product.route">
+          {{ 'application.productsPage.items.' + product.id + '.cta' | translate }}
+          <ui-icon name="arrow-right" size="sm" />
+        </a>
+      </li>
+    }
+  </ul>
+</ui-section>
+
+<app-contact-band />

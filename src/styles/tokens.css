@@ -1,0 +1,219 @@
+/*
+ * Design tokens — Bacsystem Solutions (dirección B: clara y cercana).
+ *
+ * Los únicos valores literales del proyecto viven aquí.
+ * Componentes y temas consumen SOLO tokens semánticos (--color-*, --space-*, ...),
+ * nunca primitivos (--navy-*, --teal-*, --gray-*) ni valores escritos a mano.
+ *
+ * Estructura:
+ *   1. Primitivos de color (paleta de marca).
+ *   2. Bloque raíz: escalas + colores semánticos del tema claro (predeterminado).
+ *   3. [data-theme='dark']: reasigna TODOS los --color-* (paridad verificada por
+ *      scripts/check-ui.mjs; mantener ambos bloques planos, sin reglas anidadas).
+ *
+ * Contraste (WCAG 2.1, calculado):
+ *   claro  --color-text      #161C38 / #FFFFFF = 16.70:1
+ *          --color-heading   #1B3080 / #FFFFFF = 11.79:1  (sobre bg-alt 10.90:1)
+ *          --color-text-muted #5B5A55 / #FFFFFF = 6.91:1  (sobre bg-alt 6.39:1)
+ *          --color-accent-text #267A70 / #FFFFFF = 5.12:1 (sobre bg-alt 4.74:1,
+ *                                   sobre accent-soft 4.66:1). El teal de marca
+ *          #41B7A8 solo da 2.45:1 sobre blanco: usarlo como acento, no como texto.
+ *          --color-focus     #3550A6 / #FFFFFF = 7.37:1
+ *   oscuro --color-text      #E9EAF0 / #0D1226 = 15.46:1
+ *          --color-text-muted #A9AEC2 / #0D1226 = 8.41:1  (sobre bg-alt 7.66:1)
+ *          --color-accent-text #6FCDC0 / #0D1226 = 9.87:1 (sobre surface 8.14:1)
+ *          --color-primary   #3550A6 con texto #FFFFFF = 7.37:1
+ */
+
+/* 1. Primitivos */
+html {
+  --navy-50: #eef1fa;
+  --navy-100: #c9d2f0;
+  --navy-200: #a5b4e4;
+  --navy-300: #8c9fd8;
+  --navy-400: #6f7aa6;
+  --navy-500: #3550a6;
+  --navy-700: #1b3080; /* marca */
+  --navy-800: #152663;
+  --navy-850: #1a2346;
+  --navy-900: #141b38;
+  --navy-950: #0d1226;
+  --navy-ink: #161c38;
+
+  --teal-50: #eaf7f5;
+  --teal-300: #6fcdc0;
+  --teal-400: #55c2b4;
+  --teal-500: #41b7a8; /* marca */
+  --teal-700: #267a70;
+  --teal-900: #14363a;
+
+  --gray-0: #ffffff;
+  --gray-50: #f7f6f2;
+  --gray-100: #e9eaf0;
+  --gray-200: #e3e2dc;
+  --gray-300: #a9aec2;
+  --gray-500: #85847e;
+  --gray-600: #5b5a55;
+  --gray-750: #2a3358;
+
+  --shadow-color: 22 28 56; /* RGB de --navy-ink, para sombras suaves */
+}
+
+/* 2. Escalas + tema claro (predeterminado) */
+:root {
+  /* Color — semánticos (tema claro) */
+  --color-bg: var(--gray-0);
+  --color-bg-alt: var(--gray-50);
+  --color-surface: var(--gray-0);
+  --color-text: var(--navy-ink);
+  --color-text-muted: var(--gray-600);
+  --color-heading: var(--navy-700);
+  --color-primary: var(--navy-700);
+  --color-primary-hover: var(--navy-800);
+  --color-on-primary: var(--gray-0);
+  /* Enlaces de texto y la "C" del logo (en oscuro se separan del botón primario) */
+  --color-link: var(--navy-700);
+  --color-link-hover: var(--navy-800);
+  --color-mark: var(--navy-700);
+  --color-accent: var(--teal-500);
+  --color-accent-text: var(--teal-700);
+  --color-accent-soft: var(--teal-50);
+  --color-border: var(--gray-200);
+  /* Borde de controles de formulario: #85847E / #FFFFFF = 3.75:1 (sobre bg-alt 3.47:1) */
+  --color-border-strong: var(--gray-500);
+  --color-focus: var(--navy-500);
+
+  color-scheme: light;
+
+  /* Espaciado (base 0.25rem) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+
+  /* Radios */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1.25rem;
+  --radius-pill: 999rem;
+
+  /* Bordes */
+  --border-width: 1px;
+
+  /* Sombras (suaves, tintadas de navy; sin brillos) */
+  --shadow-sm: 0 1px 2px rgb(var(--shadow-color) / 0.06), 0 1px 3px rgb(var(--shadow-color) / 0.04);
+  --shadow-md: 0 4px 12px rgb(var(--shadow-color) / 0.07), 0 2px 4px rgb(var(--shadow-color) / 0.04);
+  --shadow-lg: 0 16px 40px rgb(var(--shadow-color) / 0.10), 0 4px 10px rgb(var(--shadow-color) / 0.05);
+
+  /* Tipografía */
+  --font-display: 'Michroma', 'DM Sans Variable', system-ui, sans-serif;
+  --font-body: 'DM Sans Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: clamp(1.25rem, 1.15rem + 0.4vw, 1.5rem);
+  --text-2xl: clamp(1.5rem, 1.3rem + 0.8vw, 2rem);
+  --text-3xl: clamp(1.875rem, 1.5rem + 1.5vw, 2.75rem);
+  --text-4xl: clamp(2.25rem, 1.7rem + 2.4vw, 3.75rem);
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-bold: 700;
+
+  --leading-tight: 1.2;
+  --leading-normal: 1.6;
+
+  /* Movimiento */
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+  --duration-slow: 500ms;
+  --duration-slower: 1600ms; /* intros contadas en una sola línea de tiempo (gráfico de marca del hero) */
+  --duration-enter: 700ms; /* entradas (texto, tarjetas); espejo en shared/motion/motion.tokens.ts */
+  --duration-spring: 450ms; /* duración de --ease-spring */
+  --duration-failsafe: 2500ms; /* si la app no arranca, la intro del hero aparece igual; espejo en src/index.html (estilo inline) y INTRO_FAILSAFE en motion.tokens.ts: cambiar los tres juntos */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);
+  /* Resorte (rigidez 500, amortiguación 30, masa 1) muestreado a linear(): ~6% de rebote, se asienta en ~450ms. */
+  --ease-spring: linear(0, 0.068, 0.224, 0.412, 0.594, 0.751, 0.873, 0.96, 1.015, 1.045, 1.057, 1.057, 1.05, 1.039, 1.028, 1.018, 1.01, 1.004, 1, 0.998, 0.997, 0.997, 1);
+  --press-scale: 0.97;
+  --nudge: calc(var(--space-1) * 0.75); /* 3px: flecha de botones y enlaces */
+  --lift: calc(var(--space-1) * -1); /* -4px: tarjetas al pasar el puntero */
+  --tilt-perspective: 900px; /* profundidad de la inclinación de tarjetas hacia el puntero */
+  --tilt-logo: -3deg; /* el logo de la tarjeta se inclina al pasar el puntero */
+
+  /* Capas */
+  --z-header: 100;
+  --z-overlay: 1000;
+
+  /* Layout (puntos de corte permitidos en @media: 48em y 64em) */
+  --container-max: 72rem;
+  --header-height: 4.5rem;
+  --touch-target: 2.75rem; /* 44px: smallest tap area for any control or link on its own line */
+  /* Header logo height: scales with the screen so logo + three 44px controls fit from 320px phones up. */
+  --logo-height: clamp(1rem, 5vw, 1.5rem);
+
+  /* Tracking */
+  --tracking-tight: -0.01em;
+  --tracking-normal: 0.04em;
+  --tracking-wide: 0.06em;
+  --tracking-wider: 0.08em;
+
+  /* Medidas de línea / bloque */
+  --measure-xs: 10rem;
+  --measure-sm: 28rem;
+  --measure-md: 30rem;
+  --measure-lg: 34rem;
+  --measure-xl: 42rem;
+
+  /* Opacidad */
+  --opacity-muted: 0.85;
+  --opacity-subtle: 0.7;
+  --opacity-disabled: 0.5;
+}
+
+/* 3. Tema oscuro: reasigna todos los --color-* */
+[data-theme='dark'] {
+  --color-bg: var(--navy-950);
+  --color-bg-alt: var(--navy-900);
+  --color-surface: var(--navy-850);
+  --color-text: var(--gray-100);
+  --color-text-muted: var(--gray-300);
+  --color-heading: var(--gray-0);
+  /* Botones y banda de contacto en navy de marca: blanco sobre #3550A6 = 7.37:1, sobre #1B3080 = 11.79:1 */
+  --color-primary: var(--navy-500);
+  --color-primary-hover: var(--navy-700);
+  --color-on-primary: var(--gray-0);
+  /* Enlaces en teal claro: #6FCDC0 / bg = 9.87:1; logo en blanco, como la versión oficial "Blanco" */
+  --color-link: var(--teal-300);
+  --color-link-hover: var(--teal-50);
+  --color-mark: var(--gray-0);
+  --color-accent: var(--teal-400);
+  --color-accent-text: var(--teal-300);
+  --color-accent-soft: var(--teal-900);
+  --color-border: var(--gray-750);
+  /* #6F7AA6 / surface #1A2346 = 3.65:1 (sobre bg 4.43:1) */
+  --color-border-strong: var(--navy-400);
+  --color-focus: var(--teal-300);
+
+  --shadow-color: 0 0 0;
+  color-scheme: dark;
+}
+
+/* Movimiento reducido: las duraciones colapsan para todo componente que use tokens. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0.01ms;
+    --duration-base: 0.01ms;
+    --duration-slow: 0.01ms;
+    --duration-slower: 0.01ms;
+    --duration-enter: 0.01ms;
+    --duration-spring: 0.01ms;
+  }
+}

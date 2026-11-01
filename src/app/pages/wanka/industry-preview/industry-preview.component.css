@@ -1,0 +1,108 @@
+:host {
+  display: block;
+}
+
+.preview {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+}
+
+.app {
+  display: grid;
+  gap: var(--space-5);
+  padding: var(--space-5);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ---------- Industry tabs ---------- */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+}
+
+.tabs__item {
+  padding: var(--space-1) var(--space-3);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-pill);
+  color: var(--color-text-muted);
+  font-weight: var(--weight-medium);
+  transition:
+    background-color var(--duration-base) var(--ease-out),
+    border-color var(--duration-base) var(--ease-out),
+    color var(--duration-base) var(--ease-out);
+}
+
+.tabs__item.is-active {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+/* ---------- Menu: three shared items, then the two that belong to the industry ---------- */
+.menu {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.menu__list {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+}
+
+.menu__specific {
+  display: grid;
+  padding-block-start: var(--space-2);
+  border-block-start: var(--border-width) dashed var(--color-border);
+}
+
+/* Every industry's list sits in the same cell; only the active one shows. */
+.menu__list--specific {
+  grid-area: 1 / 1;
+  visibility: hidden;
+}
+
+.menu__list--specific.is-active {
+  visibility: visible;
+}
+
+.menu__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg-alt);
+  color: var(--color-text);
+}
+
+.menu__item--specific {
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent-text);
+  font-weight: var(--weight-medium);
+}
+
+.menu__dot {
+  flex-shrink: 0;
+  inline-size: var(--space-2);
+  block-size: var(--space-2);
+  border-radius: var(--radius-pill);
+  background-color: var(--color-border-strong);
+}
+
+.menu__item--specific .menu__dot {
+  background-color: var(--color-accent);
+}
+
+@media (min-width: 48em) {
+  .app {
+    padding: var(--space-6);
+  }
+}

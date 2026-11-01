@@ -1,0 +1,28 @@
+<ui-section sectionId="no-encontrado">
+  <div class="not-found">
+    <ui-section-heading
+      level="h1"
+      [eyebrow]="'application.site.notFound.eyebrow' | translate"
+      [title]="'application.site.notFound.title' | translate"
+      [subtitle]="'application.site.notFound.text' | translate"
+    />
+    <div class="not-found__actions">
+      <a ui-button size="lg" routerLink="/">
+        {{ 'application.site.notFound.home' | translate }}
+        <ui-icon name="arrow-right" size="sm" />
+      </a>
+    </div>
+    <nav class="not-found__links" [attr.aria-label]="'application.site.notFound.linksLabel' | translate">
+      <ul class="not-found__list" role="list">
+        @for (link of links; track link.path) {
+          <li>
+            <a class="not-found__link" [routerLink]="link.path">
+              {{ link.labelKey | translate }}
+              <ui-icon name="chevron-right" size="sm" />
+            </a>
+          </li>
+        }
+      </ul>
+    </nav>
+  </div>
+</ui-section>

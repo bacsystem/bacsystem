@@ -1,0 +1,146 @@
+<!--
+  Hero: plays its intro on load (HomePageComponent + Motion). The data-intro parts are held
+  hidden only while <html class="motion-intro"> is set by the head script (JS + motion welcome).
+-->
+<ui-section sectionId="inicio">
+  <div class="hero">
+    <div class="hero__copy">
+      <p class="eyebrow" data-intro="pending">
+        <span class="eyebrow__rule" aria-hidden="true"></span>
+        <span class="eyebrow__text">{{ 'application.home.hero.eyebrow' | translate }}</span>
+      </p>
+      <h1 class="hero__title" data-intro="pending" [attr.aria-label]="'application.home.hero.title' | translate">@for (word of 'application.home.hero.title' | translate | words; track $index) {<span class="ui-word" aria-hidden="true">{{ word }}</span>&ngsp;}</h1>
+      <p class="hero__subtitle" data-intro="pending">{{ 'application.home.hero.subtitle' | translate }}</p>
+      <div class="hero__actions" data-intro="pending">
+        <a ui-button size="lg" class="hero__cta" routerLink="/contacto">
+          {{ 'application.home.hero.cta' | translate }}
+          <ui-icon name="arrow-right" size="sm" />
+        </a>
+        <a ui-button variant="text" size="lg" class="hero__secondary" routerLink="/servicios">
+          {{ 'application.home.hero.secondary' | translate }}
+        </a>
+      </div>
+    </div>
+    <div class="hero__visual">
+      <app-brand-mark />
+    </div>
+  </div>
+</ui-section>
+
+@if (clients.length > 0) {
+  <ui-section sectionId="clientes" spacing="compact">
+    <div class="clients" appReveal>
+      <p class="clients__label">{{ 'application.home.clients.label' | translate }}</p>
+      <div class="clients__viewport" [class.is-scrolling]="logosScroll">
+        <div class="clients__track" [class.is-scrolling]="logosScroll">
+          <ul class="clients__list" role="list">
+            @for (client of clients; track client.id) {
+              <li>
+                <img class="clients__logo" [src]="client.logo" [alt]="client.name" width="400" height="125" loading="lazy" />
+              </li>
+            }
+          </ul>
+          @if (logosScroll) {
+            <ul class="clients__list" role="list" aria-hidden="true">
+              @for (client of clients; track client.id) {
+                <li>
+                  <img class="clients__logo" [src]="client.logo" alt="" aria-hidden="true" width="400" height="125" loading="lazy" />
+                </li>
+              }
+            </ul>
+          }
+        </div>
+      </div>
+    </div>
+  </ui-section>
+}
+
+@if (services.length > 0) {
+  <ui-section sectionId="servicios">
+    <div [appRevealGroup]="choreo.heading">
+      <ui-section-heading
+        [title]="'application.home.services.title' | translate"
+        [subtitle]="'application.home.services.subtitle' | translate"
+      />
+    </div>
+    <div class="services" [appRevealGroup]="choreo.services">
+      @let lead = services[0];
+      <article class="services__lead">
+        <p class="services__kicker">
+          <span class="services__index">{{ 0 | position }}</span>
+          {{ 'application.home.services.lead' | translate }}
+        </p>
+        <h3 class="services__lead-title">
+          <a class="services__title-link" routerLink="/servicios" [fragment]="lead.anchor">{{ lead.titleKey | translate }}</a>
+        </h3>
+        <p class="services__lead-text">{{ lead.descriptionKey | translate }}</p>
+        @if (lead.tagKeys?.length) {
+          <ul class="services__tags" role="list">
+            @for (tag of lead.tagKeys; track tag) {
+              <li><ui-tag>{{ tag | translate }}</ui-tag></li>
+            }
+          </ul>
+        }
+        <a ui-button variant="text" class="services__more" routerLink="/servicios">
+          {{ 'application.home.services.more' | translate }}
+          <ui-icon name="arrow-right" size="sm" />
+        </a>
+      </article>
+
+      <ol class="services__list" role="list">
+        @for (service of services.slice(1); track service.id; let i = $index) {
+          <li class="services__item">
+            <span class="services__index">{{ i + 1 | position }}</span>
+            <div>
+              <h3 class="services__item-title">
+                <a class="services__title-link" routerLink="/servicios" [fragment]="service.anchor">{{ service.titleKey | translate }}</a>
+              </h3>
+              <p class="services__item-text">{{ service.descriptionKey | translate }}</p>
+            </div>
+          </li>
+        }
+      </ol>
+    </div>
+  </ui-section>
+}
+
+<app-process-steps />
+
+@if (products.length > 0) {
+  <ui-section sectionId="productos" tone="alt" spacing="compact">
+    <div class="products">
+      <div [appRevealGroup]="choreo.heading">
+        <ui-section-heading
+          [title]="'application.home.products.title' | translate"
+          [subtitle]="'application.home.products.subtitle' | translate"
+        />
+      </div>
+      <ul class="products__list" role="list" [appRevealGroup]="choreo.products">
+        @for (product of products; track product.id) {
+          <li class="products__item">
+            @if (product.logo) {
+              <img class="products__logo" [src]="product.logo" alt="" width="32" height="32" loading="lazy" />
+            } @else {
+              <ui-monogram class="products__monogram" size="sm" [text]="(product.nameKey | translate).charAt(0).toUpperCase()" />
+            }
+            <div class="products__body">
+              <h3 class="products__name">
+                {{ product.nameKey | translate }}
+                @if (product.status === 'building') {
+                  <ui-tag>{{ 'application.home.products.building' | translate }}</ui-tag>
+                }
+              </h3>
+              <p class="products__tagline">{{ product.taglineKey | translate }}</p>
+              <a ui-button variant="text" class="products__link" [routerLink]="product.route">
+                {{ 'application.home.products.cta' | translate }}
+                <ui-icon name="arrow-right" size="sm" />
+              </a>
+            </div>
+          </li>
+        }
+      </ul>
+    </div>
+  </ui-section>
+}
+
+<app-contact-band />

@@ -1,0 +1,91 @@
+<div class="guide">
+  <header class="guide__intro">
+    <h1 class="guide__title">Guía de UI</h1>
+    <p class="guide__lead">Referencia interna de tokens y componentes compartidos. Solo existe en desarrollo.</p>
+    <button ui-button variant="secondary" type="button" (click)="theme.cycle()">
+      <ui-icon [name]="theme.icon" />
+      Tema: {{ theme.currentMode }}
+    </button>
+  </header>
+
+  <section class="guide__block" aria-labelledby="guide-colors">
+    <h2 id="guide-colors" class="guide__heading">Color (semánticos)</h2>
+    <ul class="guide__grid guide__grid--swatches" role="list">
+      @for (c of colors; track c.name) {
+        <li class="swatch">
+          <span class="swatch__chip" [style.--swatch]="c.value"></span>
+          <code>{{ c.name }}</code>
+        </li>
+      }
+    </ul>
+  </section>
+
+  <section class="guide__block" aria-labelledby="guide-type">
+    <h2 id="guide-type" class="guide__heading">Tipografía</h2>
+    <div class="guide__type">
+      @for (t of typeScale; track t.name) {
+        <div class="type-row">
+          <code>{{ t.name }}</code>
+          <span class="type-row__display" [style.--size]="t.value">Bacsystem</span>
+          <span class="type-row__body" [style.--size]="t.value">Software a medida para tu empresa</span>
+        </div>
+      }
+    </div>
+  </section>
+
+  <section class="guide__block" aria-labelledby="guide-icons">
+    <h2 id="guide-icons" class="guide__heading">Iconos</h2>
+    <ul class="guide__grid guide__grid--icons" role="list">
+      @for (name of icons; track name) {
+        <li class="icon-cell">
+          <ui-icon [name]="name" size="lg" />
+          <code>{{ name }}</code>
+        </li>
+      }
+    </ul>
+  </section>
+
+  <section class="guide__block" aria-labelledby="guide-buttons">
+    <h2 id="guide-buttons" class="guide__heading">Botones</h2>
+    <div class="guide__row">
+      <button ui-button type="button">Primario</button>
+      <button ui-button variant="secondary" type="button">Secundario</button>
+      <button ui-button variant="text" type="button">Texto <ui-icon name="arrow-right" size="sm" /></button>
+      <button ui-button size="lg" type="button">Primario lg</button>
+      <button ui-button type="button" disabled>Deshabilitado</button>
+    </div>
+  </section>
+
+  <section class="guide__block" aria-labelledby="guide-cards">
+    <h2 id="guide-cards" class="guide__heading">Tarjetas</h2>
+    <div class="guide__grid guide__grid--cards">
+      <ui-card><h3 class="guide__card-title">outlined</h3><p>Variante por defecto.</p></ui-card>
+      <ui-card variant="plain"><h3 class="guide__card-title">plain</h3><p>Sombra suave, sin borde.</p></ui-card>
+      <ui-card variant="tinted"><h3 class="guide__card-title">tinted</h3><p>Fondo alterno.</p></ui-card>
+      <ui-card [interactive]="true"><h3 class="guide__card-title">interactive</h3><p>Se eleva al pasar el cursor.</p></ui-card>
+    </div>
+  </section>
+
+  <section class="guide__block" aria-labelledby="guide-tags">
+    <h2 id="guide-tags" class="guide__heading">Etiquetas</h2>
+    <div class="guide__row">
+      <ui-tag>neutral</ui-tag>
+      <ui-tag tone="accent">accent</ui-tag>
+      <ui-tag tone="primary">primary</ui-tag>
+    </div>
+  </section>
+
+  <section class="guide__block" aria-labelledby="guide-fields">
+    <h2 id="guide-fields" class="guide__heading">Campos</h2>
+    <div class="guide__grid guide__grid--fields">
+      <ui-field label="Nombre" hint="Como quieres que te llamemos"><input type="text" /></ui-field>
+      <ui-field label="Correo" error="Escribe un correo válido"><input type="email" value="hola@" /></ui-field>
+      <ui-field label="Mensaje"><textarea rows="3"></textarea></ui-field>
+    </div>
+  </section>
+
+  <section class="guide__block" aria-labelledby="guide-heading">
+    <h2 id="guide-heading" class="guide__heading">Encabezado de sección</h2>
+    <ui-section-heading eyebrow="Servicios" title="Lo que construimos" subtitle="Subtítulo opcional de una o dos líneas." />
+  </section>
+</div>

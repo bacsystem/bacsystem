@@ -1,0 +1,81 @@
+:host {
+  display: block;
+}
+
+.mark {
+  /* Decorative only: the (invisible) incoming piece must never intercept taps near the CTA. */
+  pointer-events: none;
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  overflow: visible;
+}
+
+/* ---------- Static state = the finished, docked logo (prerender, no-JS, reduced motion) ---------- */
+.mark__piece,
+.mark__slot,
+.mark__echo,
+.mark__line {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.mark__c {
+  fill: var(--color-mark);
+}
+
+.mark__l {
+  fill: var(--color-accent);
+}
+
+.mark__echo,
+.mark__slot,
+.mark__line {
+  fill: none;
+  stroke-width: calc(var(--border-width) * 2);
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.mark__echo {
+  stroke: var(--color-border-strong);
+  opacity: var(--opacity-disabled);
+}
+
+/* The C's outline, drawn in during the intro (the defs path has pathLength 1); hidden at rest. */
+.mark__line {
+  stroke: var(--color-mark);
+  stroke-dasharray: 1;
+  opacity: 0;
+}
+
+/* The empty place where the complement belongs: only seen while the company is incomplete. */
+.mark__slot {
+  stroke: var(--color-border-strong);
+  opacity: 0;
+  transition: stroke var(--duration-base) var(--ease-out);
+}
+
+/* At the click the slot outline turns teal for its single pulse. */
+.mark__slot.is-click {
+  stroke: var(--color-accent);
+}
+
+/*
+ * Pointer parallax (desktop, fed by the component as unitless --mark-px/--mark-py in [-1, 1]):
+ * the solid pieces lean with the pointer, the echo against it. On screen the echo moves at most
+ * about 5.5px (plus a 2-3px breath) and the front about 3.5px.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  .mark__layer {
+    transition: translate var(--duration-slow) var(--ease-out);
+  }
+
+  .mark__layer--front {
+    translate: calc(var(--mark-px, 0) * var(--space-2)) calc(var(--mark-py, 0) * var(--space-2));
+  }
+
+  .mark__layer--echo {
+    translate: calc(var(--mark-px, 0) * var(--space-3) * -1) calc(var(--mark-py, 0) * var(--space-3) * -1);
+  }
+}

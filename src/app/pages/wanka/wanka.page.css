@@ -1,0 +1,158 @@
+:host {
+  display: block;
+}
+
+p,
+h3 {
+  margin: 0;
+}
+
+/* ---------- Intro (same frame as the khipu page) ---------- */
+.intro {
+  display: grid;
+  gap: var(--space-8);
+}
+
+.intro__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-5);
+}
+
+.intro__title {
+  font-size: var(--text-4xl);
+  letter-spacing: var(--tracking-tight);
+  line-height: 1;
+}
+
+.intro__tagline {
+  max-inline-size: var(--measure-md);
+  color: var(--color-heading);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-tight);
+}
+
+.intro__lead {
+  max-inline-size: var(--measure-lg);
+  color: var(--color-text-muted);
+  font-size: var(--text-lg);
+  line-height: var(--leading-normal);
+}
+
+.intro__visual {
+  inline-size: 100%;
+  max-inline-size: var(--measure-lg);
+  justify-self: center;
+}
+
+/* ---------- Industries ---------- */
+.industries {
+  display: grid;
+  gap: var(--space-5);
+  margin: var(--space-6) 0 0;
+  padding: 0;
+}
+
+.industries__item {
+  display: grid;
+  gap: var(--space-2);
+  padding-block-start: var(--space-4);
+  border-block-start: calc(var(--border-width) * 2) solid var(--color-accent);
+}
+
+.industries__title {
+  color: var(--color-heading);
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+}
+
+.industries__text {
+  color: var(--color-text-muted);
+  line-height: var(--leading-normal);
+}
+
+/* ---------- Shared modules ---------- */
+.modules {
+  display: grid;
+  gap: var(--space-7);
+}
+
+.modules__list {
+  display: grid;
+  gap: var(--space-5);
+  margin: 0;
+  padding: 0;
+}
+
+.modules__item {
+  display: grid;
+  gap: var(--space-2);
+  padding-block-start: var(--space-4);
+  border-block-start: var(--border-width) solid var(--color-border);
+}
+
+.modules__number {
+  color: var(--color-accent-text);
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-variant-numeric: tabular-nums;
+}
+
+.modules__title {
+  color: var(--color-heading);
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+}
+
+.modules__text {
+  max-inline-size: var(--measure-md);
+  color: var(--color-text-muted);
+  line-height: var(--leading-normal);
+}
+
+@media (min-width: 48em) {
+  .intro__title {
+    font-size: calc(var(--text-4xl) * 1.25);
+  }
+
+  .industries {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-6);
+  }
+
+  .modules__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-6) var(--space-7);
+  }
+}
+
+@media (min-width: 64em) {
+  .intro {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+  }
+
+  .intro__visual {
+    max-inline-size: none;
+  }
+
+  .industries {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .modules {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    gap: var(--space-8);
+    align-items: start;
+  }
+
+  /* Same as Servicios: the heading stays in view while its (taller) list scrolls past, then moves on. */
+  .modules__heading {
+    position: sticky;
+    inset-block-start: calc(var(--header-height) + var(--space-6));
+  }
+}

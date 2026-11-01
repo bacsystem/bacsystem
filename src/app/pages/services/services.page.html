@@ -1,0 +1,61 @@
+<ui-section sectionId="servicios">
+  <div class="intro">
+    <div class="intro__copy">
+      <p class="eyebrow">
+        <span class="eyebrow__rule" aria-hidden="true"></span>
+        <span class="eyebrow__text">{{ 'application.servicesPage.intro.eyebrow' | translate }}</span>
+      </p>
+      <h1 class="intro__title" [attr.aria-label]="'application.servicesPage.intro.title' | translate">@for (word of 'application.servicesPage.intro.title' | translate | words; track $index) {<span class="ui-word" aria-hidden="true">{{ word }}</span>&ngsp;}</h1>
+      <p class="intro__lead">{{ 'application.servicesPage.intro.lead' | translate }}</p>
+    </div>
+    <nav class="intro__index" [attr.aria-label]="'application.servicesPage.intro.index' | translate">
+      <ol class="intro__index-list" role="list">
+        @for (service of services; track service.id; let i = $index) {
+          <li>
+            <a class="intro__index-link" routerLink="/servicios" [fragment]="service.anchor">
+              <span class="intro__index-number" aria-hidden="true">{{ i | position }}</span>
+              <span class="intro__index-title">{{ service.titleKey | translate }}</span>
+            </a>
+          </li>
+        }
+      </ol>
+    </nav>
+  </div>
+</ui-section>
+
+<ui-section sectionId="detalle" tone="alt">
+  <div class="services">
+    @for (service of services; track service.id; let i = $index, odd = $odd) {
+      <article class="service" [class.service--flip]="odd" [id]="service.anchor" [appRevealGroup]="choreo.service">
+        <div class="service__head">
+          <span class="service__number" aria-hidden="true">{{ i | position }}</span>
+          <h2 class="service__title">{{ service.titleKey | translate }}</h2>
+          <p class="service__summary">{{ service.summaryKey | translate }}</p>
+        </div>
+        <div class="service__details">
+          <div class="service__fit">
+            <h3 class="service__label">{{ 'application.servicesPage.labels.fit' | translate }}</h3>
+            <ul class="service__list" role="list">
+              @for (key of service.fitKeys; track key) {
+                <li class="service__item">{{ key | translate }}</li>
+              }
+            </ul>
+          </div>
+          <div class="service__deliverables">
+            <h3 class="service__label">{{ 'application.servicesPage.labels.deliverables' | translate }}</h3>
+            <ul class="service__list" role="list">
+              @for (key of service.deliverableKeys; track key) {
+                <li class="service__item">
+                  <ui-icon class="service__check" name="check2-circle" size="sm" />
+                  <span>{{ key | translate }}</span>
+                </li>
+              }
+            </ul>
+          </div>
+        </div>
+      </article>
+    }
+  </div>
+</ui-section>
+
+<app-contact-band />

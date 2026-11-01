@@ -1,0 +1,52 @@
+import { TestBed } from '@angular/core/testing';
+import { SectionHeadingComponent } from './section-heading.component';
+
+describe('SectionHeadingComponent', () => {
+  function create(inputs: Record<string, unknown>) {
+    const f = TestBed.createComponent(SectionHeadingComponent);
+    for (const [k, v] of Object.entries(inputs)) f.componentRef.setInput(k, v);
+    f.detectChanges();
+    return f.nativeElement as HTMLElement;
+  }
+
+  it('renders the h2 title and is-center alignment', () => {
+    const el = create({ title: 'X', align: 'center' });
+    expect(el.querySelector('h2')?.textContent?.trim()).toBe('X');
+    expect(el.querySelector('.ui-section-heading')?.classList).toContain('is-center');
+  });
+
+  it('does not render eyebrow or subtitle when absent', () => {
+    const el = create({ title: 'X' });
+    expect(el.querySelector('.ui-section-heading__eyebrow')).toBeNull();
+    expect(el.querySelector('.ui-section-heading__subtitle')).toBeNull();
+    expect(el.querySelector('.ui-section-heading')?.classList).not.toContain('is-center');
+  });
+
+  it('renders eyebrow and subtitle when given', () => {
+    const el = create({ title: 'X', eyebrow: 'E', subtitle: 'S' });
+    expect(el.querySelector('.ui-section-heading__eyebrow')?.textContent?.trim()).toBe('E');
+    expect(el.querySelector('.ui-section-heading__subtitle')?.textContent?.trim()).toBe('S');
+  });
+
+  it('renders an h2 by default and no h1', () => {
+    const el = create({ title: 'X' });
+    expect(el.querySelector('h2.ui-section-heading__title')).not.toBeNull();
+    expect(el.querySelector('h1')).toBeNull();
+  });
+
+  it('renders an h1 with the same title class when level is h1', () => {
+    const el = create({ title: 'X', level: 'h1' });
+    expect(el.querySelector('h1.ui-section-heading__title')?.textContent?.trim()).toBe('X');
+    expect(el.querySelector('h2')).toBeNull();
+  });
+
+  it('splits the title into aria-hidden words and keeps the full title as the accessible name', () => {
+    const el = create({ title: 'Lo que hacemos por tu empresa' });
+    const h2 = el.querySelector('h2') as HTMLElement;
+    expect(h2.getAttribute('aria-label')).toBe('Lo que hacemos por tu empresa');
+    const words = Array.from(h2.querySelectorAll('.ui-word'));
+    expect(words.map(w => w.textContent)).toEqual(['Lo', 'que', 'hacemos', 'por', 'tu', 'empresa']);
+    expect(words.every(w => w.getAttribute('aria-hidden') === 'true')).toBeTrue();
+    expect(h2.textContent?.replace(/\s+/g, ' ').trim()).toBe('Lo que hacemos por tu empresa');
+  });
+});

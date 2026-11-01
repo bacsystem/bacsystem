@@ -1,0 +1,14 @@
+<!-- Titles are split into word spans for the line reveal; the heading carries the full title as its accessible name. -->
+<div class="ui-section-heading" [class.is-center]="align() === 'center'">
+  @if (eyebrow()) {
+    <p class="ui-section-heading__eyebrow">{{ eyebrow() }}</p>
+  }
+  @if (level() === 'h1') {
+    <h1 class="ui-section-heading__title" [attr.aria-label]="title()">@for (word of title() | words; track $index) {<span class="ui-word" aria-hidden="true">{{ word }}</span>&ngsp;}</h1>
+  } @else {
+    <h2 class="ui-section-heading__title" [attr.aria-label]="title()">@for (word of title() | words; track $index) {<span class="ui-word" aria-hidden="true">{{ word }}</span>&ngsp;}</h2>
+  }
+  @if (subtitle()) {
+    <p class="ui-section-heading__subtitle">{{ subtitle() }}</p>
+  }
+</div>

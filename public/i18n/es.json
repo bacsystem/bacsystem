@@ -1,354 +1,568 @@
 {
   "application": {
-    "title": "hello demo",
-    "start": "Empezar",
-    "menu": {
-      "home": "Inicio",
-      "about": "Acerca de",
-      "services": "Soluciones",
-      "portfolio": "Portafolio",
-      "products": "Productos",
-      "team": "Equipo",
-      "contact": "Contacto",
-      "language": "Idioma"
+    "site": {
+      "nav": {
+        "label": "Navegación principal",
+        "home": "Bacsystem Solutions, ir al inicio",
+        "skip": "Saltar al contenido",
+        "services": "Servicios",
+        "products": "Productos",
+        "about": "Nosotros",
+        "contact": "Contacto",
+        "cta": "Cotizar proyecto",
+        "menuOpen": "Abrir menú",
+        "menuClose": "Cerrar menú",
+        "languageTo": {
+          "en": "EN, ver el sitio en inglés",
+          "es": "ES, ver el sitio en español"
+        },
+        "theme": {
+          "light": "Tema claro. Cambiar a oscuro",
+          "dark": "Tema oscuro. Usar el del sistema",
+          "system": "Tema del sistema. Cambiar a claro"
+        }
+      },
+      "footer": {
+        "description": "Desarrollo de software, consultoría tecnológica y transformación digital para empresas, desde Lima, Perú.",
+        "navTitle": "Navegación",
+        "contactTitle": "Contacto",
+        "rights": "Todos los derechos reservados."
+      },
+      "seo": {
+        "uiGuide": {
+          "title": "Guía de UI | Bacsystem Solutions",
+          "description": "Referencia interna de tokens y componentes."
+        },
+        "home": {
+          "title": "Software a medida en Lima, Perú | Bacsystem Solutions",
+          "description": "Bacsystem Solutions, el complemento estratégico de tu empresa: software a medida, consultoría tecnológica y transformación digital en Lima, Perú."
+        },
+        "contact": {
+          "title": "Cotiza tu software a medida | Bacsystem Solutions",
+          "description": "Cuéntanos qué necesitas resolver. Habla directo con el equipo que diseña y construye tu software a medida en Lima, por WhatsApp o por teléfono."
+        },
+        "services": {
+          "title": "Servicios de software y consultoría | Bacsystem Solutions",
+          "description": "Desarrollo web y móvil, consultoría tecnológica, transformación digital, optimización de sistemas y migración a la nube para empresas en Lima, Perú."
+        },
+        "about": {
+          "title": "Nosotros: misión, valores y equipo | Bacsystem Solutions",
+          "description": "Conoce al equipo de Bacsystem Solutions en Lima: nuestra misión, visión y valores, y las personas que diseñan, construyen y mantienen tu software a medida."
+        },
+        "khipu": {
+          "title": "khipu: facturación electrónica SUNAT | Bacsystem Solutions",
+          "description": "khipu, de Bacsystem: emite facturas, boletas y notas electrónicas desde un portal web o por API, con firma digital y envío a SUNAT. Plan gratis."
+        },
+        "products": {
+          "title": "Productos: khipu y Wanka | Bacsystem Solutions",
+          "description": "Software propio de Bacsystem: khipu, facturación electrónica SUNAT con plan gratis, y Wanka, sistema de gestión por rubro en construcción."
+        },
+        "wanka": {
+          "title": "Wanka: sistema de gestión por rubro | Bacsystem Solutions",
+          "description": "Wanka, en construcción: punto de venta, inventario y facturación electrónica para restaurantes, veterinarias, consultorios dentales y tiendas."
+        },
+        "notFound": {
+          "title": "Página no encontrada | Bacsystem Solutions",
+          "description": "La página que buscas no existe. Vuelve al inicio o revisa nuestros servicios y productos."
+        }
+      },
+      "contactPage": {
+        "eyebrow": "Contacto",
+        "title": "Escríbenos o llámanos",
+        "subtitle": "Cuéntanos qué necesitas resolver, aunque todavía no sepas cómo hacerlo. Con eso preparamos la primera conversación.",
+        "listLabel": "Datos de contacto",
+        "whatsapp": "WhatsApp",
+        "phone": "Teléfono y WhatsApp",
+        "address": "Dirección",
+        "whatsappCta": "Escríbenos por WhatsApp",
+        "whatsappMessage": "Hola, vengo de su página web y quiero contarles sobre un proyecto.",
+        "whatsappNote": "Se abre WhatsApp con un mensaje listo; solo agrega lo que necesitas."
+      },
+      "notFound": {
+        "eyebrow": "Error 404",
+        "title": "No encontramos esta página",
+        "text": "Puede que el enlace esté mal escrito o que la página ya no exista. Desde aquí puedes seguir.",
+        "home": "Volver al inicio",
+        "linksLabel": "Secciones del sitio"
+      }
     },
     "home": {
-      "hero_tag": "Transformación Digital",
-      "title": "Transformamos ideas en soluciones digitales",
-      "description": "Bacsystem Solutions es una empresa especializada en desarrollo de software, consultoría tecnológica y transformación digital. Creamos soluciones innovadoras que impulsan el crecimiento de tu negocio.",
-      "welcome": "Bienvenido a Bacsystem Solutions",
-      "content": "En Bacsystem Solutions nos especializamos en el desarrollo de software a medida, aplicaciones web y móviles, consultoría tecnológica y transformación digital. Nuestro equipo de expertos combina creatividad, tecnología de vanguardia y metodologías ágiles para entregar soluciones que realmente marquen la diferencia en tu negocio.",
-      "badge_projects": "320+ Proyectos",
-      "badge_clients": "150+ Clientes",
-      "dash": {
-        "status": "live",
-        "greeting": "Overview · Q2",
-        "title": "Dashboard",
-        "live": "● Live",
-        "stat_revenue": "Revenue",
-        "stat_users": "Usuarios",
-        "stat_projects": "Proyectos",
-        "stat_uptime": "Uptime",
-        "chart_revenue": "Revenue",
-        "chart_sessions": "Sesiones",
-        "chart_projects": "Proyectos",
-        "donut_done": "listo",
-        "legend_done": "Listo",
-        "legend_live": "Activo",
-        "legend_queue": "Cola",
-        "tasks_title": "Tareas recientes",
-        "tasks_active": "4 activas",
-        "task1": "API Gateway",
-        "task2": "App Móvil",
-        "task3": "Analytics",
-        "task4": "Infra upgrade",
-        "status_done": "Listo",
-        "status_live": "Activo",
-        "status_queue": "Cola",
-        "act1": "Desplegado",
-        "act2": "Alta cliente",
-        "act3": "API mergeada",
-        "act4": "Reporte"
+      "hero": {
+        "eyebrow": "Web, móvil e IA · Lima, Perú",
+        "title": "Software a medida para empresas",
+        "subtitle": "Somos el complemento estratégico de nuestros clientes, brindando soluciones tecnológicas y corporativas que impulsan su crecimiento y fortalecen su competitividad.",
+        "cta": "Cotizar mi proyecto",
+        "secondary": "Ver qué hacemos"
       },
-      "cards": {
-        "development": "Desarrollo",
-        "development_desc": "Soluciones de software a medida para tus necesidades.",
-        "innovation": "Innovación",
-        "innovation_desc": "Ideas creativas y tecnologías de vanguardia.",
-        "growth": "Crecimiento",
-        "growth_desc": "Impulsamos el crecimiento de tu negocio.",
-        "team": "Equipo",
-        "team_desc": "Profesionales dedicados a tu éxito."
-      }
-    },
-    "contact": {
-      "title": "Contacto",
-      "description": "¿Tienes alguna pregunta o proyecto en mente? Estamos aquí para ayudarte.",
-      "address": "Dirección",
-      "email": "Correo Electrónico",
-      "number": "Teléfono",
-      "button": "Enviar Mensaje",
-      "sent": "¡Mensaje enviado con éxito! Te responderemos pronto.",
-      "send_another": "Enviar otro mensaje",
-      "form": {
-        "name": "Tu Nombre",
-        "name_error": "El nombre es obligatorio.",
-        "email": "Correo Electrónico",
-        "email_error": "Ingresa un correo válido.",
-        "subject": "Asunto",
-        "subject_error": "El asunto es obligatorio.",
-        "message": "Mensaje",
-        "message_error": "El mensaje es obligatorio."
-      }
-    },
-    "clients": {
-      "pill": "Empresas que confían en nosotros",
-      "title": "Más de 150 empresas nos eligen",
-      "subtitle": "Acompañamos a empresas de todos los sectores en su transformación digital, desde startups hasta grandes corporaciones.",
-      "uptime": "Uptime garantizado"
-    },
-    "about": {
-      "title": "Sobre nosotros",
-      "description": "Explore nuestra trayectoria innovadora, nuestra visión disruptiva y cómo co-creamos soluciones tecnológicas que redefinen industrias.",
-      "subject": "Construyendo Futuro con Nuestros Clientes",
-      "reference": "Somos el complemento estratégico de nuestros clientes, brindando soluciones tecnológicas y corporativas que impulsan su crecimiento y fortalecen su competitividad.",
-      "button": "Sobre nosotros",
-      "years": "Años de experiencia",
-      "stat_clients": "Clientes activos",
-      "stat_projects": "Proyectos entregados",
-      "cards": {
-        "item1": {
-          "label": "Misión",
-          "description": "Crear soluciones tecnológicas innovadoras y de calidad que mejoren los procesos de los clientes y fomenten su crecimiento."
+      "process": {
+        "label": "Así trabajamos contigo",
+        "start": "Empezamos aquí",
+        "understand": {
+          "title": "Entender",
+          "text": "Vemos cómo trabaja tu equipo hoy, dónde se pierde tiempo y dónde aparecen los errores. Recién ahí proponemos."
         },
-        "item2": {
-          "label": "Visión",
-          "description": "Ser líderes en transformación digital y desarrollo de software, destacando por excelencia y soluciones escalables."
+        "design": {
+          "title": "Diseñar",
+          "text": "Revisas y corriges las pantallas con nosotros antes de que se programe una sola línea."
         },
-        "item3": {
-          "label": "Valores",
-          "description": "Innovación, Integridad, Compromiso, Orientación al Cliente, Trabajo en Equipo y Calidad."
+        "build": {
+          "title": "Construir",
+          "text": "Entregamos por partes: pruebas el sistema mientras se construye, no recién al final."
         },
-        "item4": {
-          "label": "Equipo",
-          "description": "Somos un equipo dedicado de profesionales capacitados comprometidos a entregar resultados excepcionales."
-        }
-      }
-    },
-    "services": {
-      "title": "Nuestras Soluciones",
-      "description": "Descubre nuestras soluciones tecnológicas personalizadas",
-      "subtitle": "Soluciones Innovadoras",
-      "content": "En Bacsystem, ofrecemos soluciones tecnológicas de vanguardia que impulsan el crecimiento de tu negocio. Nuestro enfoque se centra en la innovación, la calidad y la eficiencia para satisfacer las necesidades específicas de cada cliente.",
-      "button": "Contáctanos",
-      "cards": {
-        "webdev": {
-          "tag": "Web",
-          "title": "Desarrollo Web",
-          "description": "Creación de aplicaciones web modernas y responsivas utilizando las últimas tecnologías."
+        "maintain": {
+          "title": "Mantener",
+          "text": "Después de la entrega seguimos ahí: ajustamos y agregamos lo que tu operación vaya pidiendo."
+        },
+        "note": "Un solo equipo en las cuatro etapas. Nada se pierde entre proveedores."
+      },
+      "clients": {
+        "label": "Confían en nosotros"
+      },
+      "services": {
+        "title": "Lo que hacemos por tu empresa",
+        "subtitle": "Servicios que puedes contratar por separado o combinar, según la etapa en la que está tu empresa.",
+        "lead": "Nuestro fuerte",
+        "more": "Ver todos los servicios",
+        "web": {
+          "title": "Desarrollo web y móvil",
+          "description": "Sistemas web y apps móviles construidos sobre tu forma de trabajar, no sobre una plantilla genérica.",
+          "tags": {
+            "internal": "Sistemas internos",
+            "portals": "Portales de clientes",
+            "mobile": "Apps móviles",
+            "integrations": "Integraciones"
+          }
         },
         "consulting": {
-          "tag": "Estrategia",
           "title": "Consultoría",
-          "description": "Asesoramiento experto en tecnologías y mejores prácticas para optimizar tus procesos."
+          "description": "Antes de invertir, te ayudamos a decidir qué construir, qué comprar y qué dejar como está."
+        },
+        "transformation": {
+          "title": "Transformación digital",
+          "description": "Pasamos a digital los procesos que dependen de papel o de pasos manuales, y automatizamos las tareas repetitivas."
         },
         "optimization": {
-          "tag": "Rendimiento",
           "title": "Optimización",
-          "description": "Mejora del rendimiento y eficiencia de tus sistemas existentes."
+          "description": "¿Tienes un sistema lento o que nadie quiere usar? Lo revisamos y lo mejoramos sin tirar lo que ya funciona."
         },
         "cloud": {
-          "tag": "Cloud",
-          "title": "Soluciones Cloud",
-          "description": "Migración e implementación de soluciones en la nube para mayor escalabilidad."
+          "title": "Migración a la nube",
+          "description": "Llevamos tus sistemas a la nube: entras desde donde estés y dejas de depender de un servidor en la oficina."
+        }
+      },
+      "products": {
+        "title": "Productos propios",
+        "subtitle": "Además de proyectos a medida, convertimos lo que aprendemos en herramientas para problemas que muchas empresas comparten.",
+        "cta": "Conocer el producto",
+        "khipu": {
+          "name": "khipu",
+          "tagline": "Emite facturas y boletas electrónicas desde un portal web o desde tu propio sistema, con la constancia de SUNAT guardada para cada una."
+        },
+        "wanka": {
+          "name": "Wanka",
+          "tagline": "Un sistema de gestión que se adapta a tu rubro, con punto de venta, inventario y facturación electrónica."
+        },
+        "building": "En construcción"
+      },
+      "contact": {
+        "title": "Cuéntanos qué te quita tiempo",
+        "subtitle": "En una primera conversación entendemos tu caso y te decimos con franqueza si te conviene un sistema a medida. Sin compromiso.",
+        "cta": "Hablemos de tu caso"
+      }
+    },
+    "aboutPage": {
+      "intro": {
+        "eyebrow": "Nosotros",
+        "title": "El complemento de tu empresa",
+        "lead": "En nuestro logo, la pieza verde es la que completa la forma. Así entendemos nuestro trabajo: ser la parte de tecnología que a tu empresa le falta, para que tu equipo se concentre en lo que mejor sabe hacer.",
+        "facts": {
+          "place": {
+            "label": "Dónde estamos",
+            "value": "Lima, Perú"
+          },
+          "people": {
+            "label": "Con quién hablas",
+            "value": "Con quienes diseñan y programan tu sistema"
+          }
+        }
+      },
+      "mission": {
+        "label": "Misión",
+        "text": "Crear soluciones tecnológicas innovadoras y de calidad que mejoren los procesos de los clientes y fomenten su crecimiento."
+      },
+      "vision": {
+        "label": "Visión",
+        "text": "Ser líderes en transformación digital y desarrollo de software, destacando por excelencia y soluciones escalables."
+      },
+      "values": {
+        "title": "Nuestros valores",
+        "subtitle": "Lo que significan cuando trabajamos contigo.",
+        "items": {
+          "innovation": {
+            "title": "Innovación",
+            "text": "Usamos tecnología nueva cuando resuelve tu problema mejor que la conocida, no por moda."
+          },
+          "integrity": {
+            "title": "Integridad",
+            "text": "Te decimos lo que conviene, aunque eso signifique construir menos."
+          },
+          "commitment": {
+            "title": "Compromiso",
+            "text": "Si acordamos una fecha o un alcance, lo cumplimos; si algo cambia, te enteras por nosotros primero."
+          },
+          "client": {
+            "title": "Orientación al cliente",
+            "text": "Diseñamos a partir de cómo trabaja tu equipo, no de lo que nos resulta cómodo programar."
+          },
+          "teamwork": {
+            "title": "Trabajo en equipo",
+            "text": "Diseño, desarrollo y soporte trabajan juntos desde el primer día, contigo en la mesa."
+          },
+          "quality": {
+            "title": "Calidad",
+            "text": "Probamos cada entrega antes de que la uses, y la seguimos cuidando después."
+          }
+        }
+      },
+      "team": {
+        "title": "El equipo",
+        "subtitle": "Las personas que dirigen y construyen tu proyecto.",
+        "members": {
+          "christian": {
+            "role": "CEO y cofundador",
+            "bio": "Dirige la empresa y acompaña a cada cliente desde la primera conversación: entiende el problema, define el alcance y cuida que lo entregado resuelva lo acordado."
+          },
+          "jose": {
+            "role": "Lead Developer",
+            "bio": "Lidera el desarrollo: define la arquitectura de cada sistema, revisa el código del equipo y responde por que funcione bien en producción."
+          },
+          "faustina": {
+            "role": "CMO",
+            "bio": "Dirige el marketing y la comunicación de Bacsystem: cómo presentamos nuestros servicios y productos, y cómo llegan a las empresas que los necesitan."
+          }
         }
       }
     },
-    "portfolio": {
-      "title": "Nuestro Portafolio",
-      "description": "Descubre nuestros proyectos destacados y casos de éxito",
-      "filters": {
-        "all": "Todos",
-        "web": "Web",
-        "mobile": "Móvil",
-        "cloud": "Cloud",
-        "security": "Seguridad"
+    "servicesPage": {
+      "intro": {
+        "eyebrow": "Servicios",
+        "title": "Encuentra lo que necesitas",
+        "lead": "Cada servicio, con las situaciones en las que te sirve y lo que te entregamos. Si no tienes claro por dónde empezar, la consultoría es un buen primer paso.",
+        "index": "En esta página"
       },
-      "projects": {
-        "web1": {
-          "title": "Plataforma E-commerce",
-          "description": "Desarrollo de tienda online completa con integración de pagos"
-        },
-        "mobile1": {
-          "title": "App de Delivery",
-          "description": "Aplicación móvil para gestión de entregas y seguimiento en tiempo real"
-        },
-        "cloud1": {
-          "title": "Migración Cloud",
-          "description": "Migración completa de infraestructura local a soluciones cloud"
-        },
-        "web2": {
-          "title": "Sistema de Gestión",
-          "description": "Plataforma web para gestión empresarial con dashboard analítico"
-        },
-        "mobile2": {
-          "title": "App de Salud",
-          "description": "Aplicación móvil para seguimiento médico y recordatorios"
-        },
-        "web3": {
-          "title": "Portal Corporativo",
-          "description": "Sitio web corporativo responsive con CMS integrado"
-        },
-        "security1": {
-          "title": "Sistema de Ciberseguridad",
-          "description": "Implementación de soluciones de seguridad avanzadas con encriptación y monitoreo continuo"
-        },
-        "sophia": {
-          "title": "Sophia Smart - Reconocimiento Facial",
-          "description": "Sistema avanzado de reconocimiento facial con IA para control de acceso, verificación de identidad y análisis biométrico en tiempo real"
-        }
-      }
-    },
-    "products": {
-      "title": "Productos",
-      "description": "Descubre nuestros productos tecnológicos organizados por área de solución",
-      "flowsync": {
-        "title": "FlowSync",
-        "description": "Plataforma cloud de automatización de flujos de trabajo que conecta tu equipo, tareas y herramientas en un único espacio colaborativo.",
-        "f1": "Constructor visual de flujos drag-and-drop",
-        "f2": "Colaboración de equipo en tiempo real",
-        "f3": "Integración con más de 200 herramientas empresariales"
+      "labels": {
+        "fit": "Te sirve si…",
+        "deliverables": "Qué recibes"
       },
-      "operaai": {
-        "tagline": "Plataforma de automatización inteligente para empresas modernas",
-        "cta": "Descubrir OperaAI",
-        "description": "OperaAI es una plataforma Cloud SaaS empresarial que combina inteligencia artificial, automatización de procesos y analítica en tiempo real para transformar la forma en que opera tu organización. Diseñada para escalar con tu negocio, desde startup hasta enterprise.",
-        "f1": { "title": "Motor con IA", "desc": "Modelos de machine learning integrados que se adaptan y mejoran automáticamente con los datos de tu negocio." },
-        "f2": { "title": "Analítica en Tiempo Real", "desc": "Dashboards y reportes en vivo con insights accionables para tomar decisiones empresariales más inteligentes." },
-        "f3": { "title": "Seguridad Enterprise", "desc": "Cifrado extremo a extremo, control de acceso por roles y cumplimiento total con SOC 2 y GDPR." },
-        "f4": { "title": "Integración API-first", "desc": "Se conecta sin fricción con tus herramientas existentes vía REST API, webhooks y más de 100 integraciones nativas." }
-      },
-      "sophia": {
-        "tagline": "Reconocimiento facial e inteligencia artificial para seguridad empresarial",
-        "cta": "Descubrir Sophia Smart",
-        "description": "Sophia Smart es una plataforma de reconocimiento facial con IA que permite control de acceso biométrico, verificación de identidad y análisis en tiempo real. Seguridad inteligente para empresas que necesitan protección de próxima generación.",
-        "f1": { "title": "Reconocimiento Facial", "desc": "Detección y verificación facial en tiempo real con precisión superior al 99.5% usando modelos de deep learning." },
-        "f2": { "title": "Control de Acceso", "desc": "Gestión biométrica de accesos con registro automático, alertas instantáneas y reportes detallados." },
-        "f3": { "title": "Análisis Inteligente", "desc": "Dashboards con métricas de seguridad, patrones de acceso y detección de anomalías en tiempo real." },
-        "f4": { "title": "Integración Total", "desc": "Compatible con cámaras IP, torniquetes, cerraduras inteligentes y sistemas de seguridad existentes." }
-      },
-      "sophia_ia": {
-        "tagline": "Sistema autónomo de generación de software impulsado por IA",
-        "cta": "Conocer sophIA",
-        "status": "En construcción",
-        "description": "sophIA es un sistema autónomo de generación de software que orquesta agentes especializados de IA para generar código capa por capa. Impulsado por Claude Code con Tool Use, sophIA transforma requerimientos en software funcional con mínima intervención humana.",
-        "f1": { "title": "Orquestación de Agentes", "desc": "Múltiples agentes especializados coordinados que generan código por capas: modelos, servicios, controladores y UI." },
-        "f2": { "title": "Claude Code + Tool Use", "desc": "Motor de generación basado en Claude con capacidad de ejecutar herramientas, validar y autocorregir código en tiempo real." },
-        "f3": { "title": "Generación Capa por Capa", "desc": "Arquitectura layered que produce código limpio, modular y listo para producción siguiendo mejores prácticas." },
-        "f4": { "title": "Autonomía Inteligente", "desc": "Toma de decisiones autónoma con checkpoints de validación humana en puntos críticos del pipeline." }
-      },
-      "categories": {
+      "services": {
         "web": {
-          "title": "Soluciones Web",
-          "items": {
-            "ecommerce": {
-              "title": "Plataforma E-commerce",
-              "description": "Tienda online completa con carrito de compras, pasarelas de pago y panel de administración.",
-              "f1": "Integración con múltiples pasarelas de pago",
-              "f2": "Gestión de inventario en tiempo real",
-              "f3": "Panel administrativo intuitivo"
-            },
-            "erp": {
-              "title": "Sistema ERP Empresarial",
-              "description": "Plataforma integral de gestión empresarial con módulos personalizables.",
-              "f1": "Módulos de RR.HH., finanzas y ventas",
-              "f2": "Reportes y dashboard analítico",
-              "f3": "Integración con sistemas existentes"
-            },
-            "analytics": {
-              "title": "Portal de Analytics",
-              "description": "Herramienta de análisis de datos con visualizaciones interactivas en tiempo real.",
-              "f1": "Dashboards configurables",
-              "f2": "Exportación en múltiples formatos",
-              "f3": "Alertas automáticas de KPIs"
-            }
+          "title": "Desarrollo web y móvil",
+          "summary": "Desde el sistema interno que ordena tu operación hasta la app para tu personal en campo o el portal donde tus clientes consultan por su cuenta.",
+          "fit": {
+            "spreadsheets": "Tu operación depende de hojas de cálculo que se copian, se pisan y nadie sabe cuál es la versión buena.",
+            "workaround": "Probaste un software comercial y terminaste adaptando tu forma de trabajar a él, en lugar de al revés.",
+            "requests": "Tus clientes te piden por correo o por WhatsApp información que podrían consultar por su cuenta."
+          },
+          "deliverables": {
+            "system": "El sistema funcionando: web, móvil o ambos, según lo que acordemos.",
+            "integrations": "La conexión con los sistemas que ya usas, cuando hace falta.",
+            "training": "Capacitación y guías de uso para las personas que lo van a usar.",
+            "support": "Acompañamiento después de la entrega para ajustar lo que tu operación vaya pidiendo."
           }
         },
-        "mobile": {
-          "title": "Soluciones Móvil",
-          "items": {
-            "delivery": {
-              "title": "App de Delivery",
-              "description": "Aplicación móvil para entregas a domicilio con seguimiento GPS y notificaciones.",
-              "f1": "Seguimiento GPS en tiempo real",
-              "f2": "Notificaciones push automáticas",
-              "f3": "Gestión de repartidores"
-            },
-            "health": {
-              "title": "App de Salud",
-              "description": "Aplicación móvil para seguimiento médico, citas y recordatorios de medicación.",
-              "f1": "Historial clínico digital",
-              "f2": "Recordatorios de medicación",
-              "f3": "Agendamiento de citas online"
-            }
+        "consulting": {
+          "title": "Consultoría tecnológica",
+          "summary": "Revisamos tus procesos y los sistemas que usas hoy, y te damos una recomendación clara, con sus razones, aunque esa recomendación sea no construir nada.",
+          "fit": {
+            "quotes": "Tienes cotizaciones muy distintas para el mismo proyecto y no sabes cómo compararlas.",
+            "buyOrBuild": "Debes elegir entre un software comercial y uno a medida, y no quieres equivocarte.",
+            "noTeam": "Tu empresa creció, pero no tienes un área de sistemas que te ayude a decidir."
+          },
+          "deliverables": {
+            "diagnosis": "Un diagnóstico de tus procesos y de los sistemas que usas hoy.",
+            "recommendation": "Una recomendación por escrito: qué construir, qué comprar y qué mantener.",
+            "plan": "Un plan por etapas, con prioridades, para avanzar según tu presupuesto.",
+            "review": "Una revisión de las propuestas de otros proveedores, si ya tienes alguna sobre la mesa."
           }
         },
-        "ai": {
-          "title": "IA y Seguridad",
-          "items": {
-            "sophia": {
-              "title": "Sophia Smart",
-              "description": "Sistema avanzado de reconocimiento facial con inteligencia artificial para control de acceso e identidad.",
-              "f1": "Reconocimiento facial en tiempo real",
-              "f2": "Control de acceso biométrico",
-              "f3": "Análisis e informes de acceso"
-            },
-            "cybersecurity": {
-              "title": "Ciberseguridad Avanzada",
-              "description": "Solución integral de seguridad con monitoreo continuo, encriptación y detección de amenazas.",
-              "f1": "Monitoreo 24/7 de amenazas",
-              "f2": "Encriptación de datos avanzada",
-              "f3": "Respuesta automática a incidentes"
-            },
-            "cloud": {
-              "title": "Infraestructura Cloud",
-              "description": "Migración e implementación de infraestructura escalable en la nube con backup automático.",
-              "f1": "Escalado automático de recursos",
-              "f2": "Backup automático diario",
-              "f3": "Monitoreo y alertas 24/7"
-            }
+        "transformation": {
+          "title": "Transformación digital",
+          "summary": "Empezamos por el proceso que más tiempo le quita a tu equipo, no por todos a la vez. Lo llevamos a un solo lugar, conectamos sus pasos y dejamos que el sistema haga lo repetitivo.",
+          "fit": {
+            "paper": "Aprobaciones, pedidos o reportes todavía pasan por papel o por cadenas de correos.",
+            "retyping": "Tu equipo digita los mismos datos en dos o tres sistemas distintos.",
+            "reports": "Para saber cómo va el negocio, alguien tiene que armar un reporte a mano."
+          },
+          "deliverables": {
+            "map": "Un mapa de cómo funciona el proceso hoy y de cómo va a funcionar.",
+            "digital": "El proceso en digital: formularios, aprobaciones y registros en un solo lugar.",
+            "automation": "Automatizaciones para las tareas repetitivas, como avisos, cálculos o reportes.",
+            "adoption": "Acompañamiento a tu equipo mientras se acostumbra a la nueva forma de trabajar."
+          }
+        },
+        "optimization": {
+          "title": "Optimización de sistemas",
+          "summary": "Primero encontramos dónde está el problema; después lo corregimos, empezando por lo que más afecta a tu equipo en el día a día.",
+          "fit": {
+            "slow": "Tu sistema tarda en responder y el equipo pierde tiempo esperando.",
+            "avoided": "La gente evita el sistema y vuelve a Excel porque usarlo es complicado.",
+            "untouchable": "Nadie se atreve a tocar el sistema porque quien lo hizo ya no está."
+          },
+          "deliverables": {
+            "review": "Una revisión técnica con los problemas encontrados, ordenados por impacto.",
+            "fixes": "Las correcciones de errores y de rendimiento, aplicadas en tu sistema.",
+            "screens": "Mejoras en las pantallas que más usa tu equipo.",
+            "docs": "Documentación de lo que cambiamos, para que el sistema deje de depender de una sola persona."
+          }
+        },
+        "cloud": {
+          "title": "Migración a la nube",
+          "summary": "Hacemos el cambio por etapas, para afectar lo menos posible el trabajo diario de tu equipo mientras tus sistemas y tus datos se mudan.",
+          "fit": {
+            "server": "Tus sistemas viven en un servidor en la oficina y, si falla, se detiene todo.",
+            "remote": "Tu equipo necesita trabajar desde casa, desde otra sede o en campo.",
+            "backups": "No tienes claro cuándo se hizo la última copia de seguridad de tus datos."
+          },
+          "deliverables": {
+            "plan": "Un plan de migración: qué se mueve, en qué orden y cómo volver atrás si algo falla.",
+            "migration": "Tus sistemas y tus datos funcionando en la nube.",
+            "access": "Copias de seguridad automáticas y accesos por usuario.",
+            "costs": "Recomendaciones para controlar lo que pagas cada mes por la nube."
           }
         }
       }
     },
-    "stats": {
-      "clients": "Clientes Satisfechos",
-      "projects": "Proyectos Completados",
-      "support": "Horas de Soporte",
-      "workers": "Profesionales"
+    "khipuPage": {
+      "intro": {
+        "eyebrow": "Producto · Facturación electrónica",
+        "title": "khipu",
+        "tagline": "Facturación electrónica para SUNAT, desde un portal web o conectada a tu sistema.",
+        "lead": "Tú registras la venta; khipu calcula los totales, arma el XML en el formato de SUNAT, lo firma con tu certificado digital y lo envía. Recibes la constancia de aceptación y el PDF para tu cliente.",
+        "status": "Plan gratis permanente, sin tarjeta",
+        "cta": "Crear cuenta gratis",
+        "secondary": "Ver cómo funciona"
+      },
+      "preview": {
+        "label": "Ejemplo de una factura emitida con khipu, con los pasos del envío a SUNAT",
+        "kind": "Factura electrónica",
+        "sent": "Enviada",
+        "accepted": "Aceptada por SUNAT",
+        "subtotal": "Op. gravadas",
+        "tax": "IGV 18 %",
+        "total": "Importe total",
+        "steps": {
+          "totals": "Totales calculados",
+          "signed": "XML firmado",
+          "sent": "Enviado a SUNAT",
+          "cdr": "Constancia recibida"
+        }
+      },
+      "how": {
+        "title": "Cómo funciona",
+        "subtitle": "La configuración se hace una vez. Después, emitir es un solo paso.",
+        "when": {
+          "once": "Una sola vez",
+          "each": "En cada comprobante"
+        },
+        "steps": {
+          "certificate": {
+            "title": "Subes tu certificado digital y tus credenciales SOL",
+            "text": "Se guardan cifrados y khipu los usa para firmar cada comprobante. No vuelves a tocarlos."
+          },
+          "series": {
+            "title": "Configuras tus series",
+            "text": "F001, B001…, cada una con su correlativo y, si tienes varios locales, su establecimiento."
+          },
+          "issue": {
+            "title": "Emites desde el portal o desde tu sistema",
+            "text": "khipu calcula los totales, arma el XML, lo firma y lo envía a SUNAT."
+          },
+          "receipt": {
+            "title": "Recibes la constancia",
+            "text": "El XML firmado, el PDF y la constancia de SUNAT quedan guardados, y puedes enviarlos por correo a tu cliente."
+          }
+        }
+      },
+      "benefits": {
+        "title": "Lo que deja de ser tu problema",
+        "subtitle": "El cálculo, la firma y los reenvíos corren por cuenta de khipu.",
+        "items": {
+          "totals": {
+            "title": "Totales revisados antes de firmar",
+            "text": "Los montos se calculan y validan en el servidor, así se evitan los rechazos por descuadre."
+          },
+          "retries": {
+            "title": "Si SUNAT no responde, khipu reintenta",
+            "text": "El comprobante queda pendiente y se reenvía solo, sin perderse ni numerarse dos veces."
+          },
+          "checks": {
+            "title": "Errores atajados antes de numerar",
+            "text": "Si falta un dato que SUNAT rechazaría, como un RUC mal escrito, te avisa antes de usar un número de tu serie."
+          },
+          "storage": {
+            "title": "Tus comprobantes, siempre a mano",
+            "text": "Descargas el XML, el PDF y la constancia de cualquier comprobante cuando los necesites."
+          },
+          "pdf": {
+            "title": "El PDF con tu marca",
+            "text": "Eliges la plantilla, el color, tu logo y los textos de la versión impresa."
+          }
+        }
+      },
+      "channels": {
+        "title": "Para quién es",
+        "items": {
+          "portal": {
+            "title": "Empresas y comercios",
+            "text": "Emites desde el portal, filtras por serie, estado o fecha, y revisas el historial de cada comprobante, sin escribir código."
+          },
+          "api": {
+            "title": "Equipos con sistema propio",
+            "text": "Si ya tienes un sistema de ventas o un ERP, lo conectas a khipu por API REST, con documentación y entorno de pruebas."
+          },
+          "accountants": {
+            "title": "Contadores y estudios",
+            "text": "Administras varias empresas (RUC) desde una sola cuenta y descargas sus comprobantes cuando los necesites."
+          }
+        }
+      },
+      "documents": {
+        "title": "Qué puedes emitir",
+        "subtitle": "Lo marcamos tal cual está hoy. Las notas de crédito y débito se emiten sobre facturas; las notas sobre boletas también están en camino.",
+        "available": "Disponible",
+        "soon": "En construcción",
+        "items": {
+          "invoice": "Factura electrónica",
+          "creditNote": "Nota de crédito",
+          "debitNote": "Nota de débito",
+          "voiding": "Comunicación de baja",
+          "receipt": "Boleta de venta",
+          "dailySummary": "Resumen diario (anulación de boletas)",
+          "dispatchGuide": "Guía de remisión",
+          "withholding": "Retención y percepción"
+        }
+      },
+      "contact": {
+        "title": "Emite tu primera factura hoy",
+        "subtitle": "Crea tu cuenta, configura tu empresa y comprueba en el entorno de pruebas de SUNAT que tus comprobantes se aceptan, sin pagar un sol.",
+        "cta": "Crear cuenta gratis"
+      }
     },
-    "team": {
-      "title": "Nuestro Equipo",
-      "description": "Conoce a los profesionales apasionados que hacen posible la transformación digital de nuestros clientes.",
-      "members": {
-        "member1": {
-          "name": "Christian Bacilio",
-          "role": "CEO & Co-Fundador",
-          "bio": "Líder estratégico con visión en transformación digital e innovación tecnológica."
+    "productsPage": {
+      "intro": {
+        "eyebrow": "Productos",
+        "title": "Nuestros productos",
+        "lead": "Software que construimos y mantenemos nosotros. Te decimos tal cual cuál ya puedes usar y cuál estamos construyendo."
+      },
+      "status": {
+        "available": "Disponible",
+        "building": "En construcción"
+      },
+      "forLabel": "Para",
+      "items": {
+        "khipu": {
+          "summary": "Facturación electrónica sin armar XML ni lidiar con reenvíos: khipu calcula, firma y envía cada comprobante. Empiezas con el plan gratis.",
+          "for": "Empresas, contadores y equipos con sistema propio",
+          "cta": "Conocer khipu"
         },
-        "member2": {
-          "name": "José Bacilio",
-          "role": "Lead Developer",
-          "bio": "Desarrollador full-stack especializado en soluciones escalables y sistemas distribuidos."
-        },
-        "member3": {
-          "name": "Faustina Del Rosario",
-          "role": "CMO & Marketing",
-          "bio": "Estratega de marketing especializado en crecimiento digital, posicionamiento de marca y captación de clientes."
+        "wanka": {
+          "summary": "Vende, controla tu stock por almacén y emite tus comprobantes desde un solo lugar.",
+          "for": "Restaurantes, veterinarias, consultorios dentales y tiendas",
+          "cta": "Conocer Wanka"
         }
       }
     },
-    "footer": {
-      "svc1": "Desarrollo de Software",
-      "svc2": "Apps Móviles",
-      "svc3": "Cloud & DevOps",
-      "svc4": "IA & Machine Learning",
-      "svc5": "Consultoría IT",
-      "svc6": "Transformación Digital",
-      "rights": "Todos los derechos reservados",
-      "designed_by": "Diseñado por",
-      "nav_title": "Navegación",
-      "contact_title": "Contacto",
-      "services_title": "Servicios",
-      "cta_title": "¿Listo para transformar tu negocio?",
-      "schedule": "Lun–Vie: 9:00 – 18:00",
-      "support": "Soporte técnico",
-      "description": "Transformamos ideas en soluciones digitales innovadoras que impulsan el crecimiento de tu negocio."
-    },
-    "seo": {
-      "title": "Bacsystem Solutions | Desarrollo de Software y Transformación Digital",
-      "description": "Bacsystem Solutions: especialistas en desarrollo de software a medida, consultoría tecnológica y transformación digital. Más de 150 clientes y 320 proyectos entregados en Latinoamérica.",
-      "keywords": "desarrollo de software, consultoría tecnológica, transformación digital, aplicaciones web, apps móviles, cloud, Angular, Bacsystem"
+    "wankaPage": {
+      "intro": {
+        "eyebrow": "Producto · Gestión empresarial",
+        "title": "Wanka",
+        "tagline": "El sistema de gestión para tu negocio, adaptado a tu rubro.",
+        "lead": "Un solo sistema para vender, controlar tu stock y emitir tus comprobantes. El panel y el menú cambian según tu tipo de negocio, así no ves pantallas que no usas.",
+        "status": "En construcción",
+        "cta": "Quiero saber cuándo sale"
+      },
+      "industries": {
+        "title": "Pensado para cada rubro",
+        "subtitle": "Además de lo que comparten todos, cada tipo de negocio tiene sus propias pantallas.",
+        "items": {
+          "restaurant": {
+            "title": "Restaurantes",
+            "text": "Salón con mesas, pantalla de cocina, delivery y reservas."
+          },
+          "veterinary": {
+            "title": "Veterinarias",
+            "text": "Ficha de cada mascota, hospitalización y servicio de grooming."
+          },
+          "dental": {
+            "title": "Consultorios dentales",
+            "text": "Agenda de citas e historia clínica con odontograma."
+          },
+          "retail": {
+            "title": "Tiendas",
+            "text": "Productos con variantes, como talla y color, y venta rápida en caja."
+          }
+        }
+      },
+      "modules": {
+        "title": "Lo que comparte todo negocio",
+        "items": {
+          "sales": {
+            "title": "Punto de venta y caja",
+            "text": "Ventas rápidas, cotizaciones y cierre de caja con su reporte del día."
+          },
+          "invoicing": {
+            "title": "Facturación electrónica",
+            "text": "Boletas, facturas, notas de crédito y guías de remisión para SUNAT."
+          },
+          "inventory": {
+            "title": "Inventario por almacén",
+            "text": "Stock en cada almacén o sede, movimientos, traslados, toma física y kardex."
+          },
+          "customers": {
+            "title": "Clientes",
+            "text": "La ficha de cada cliente, con sus compras y sus citas."
+          },
+          "purchases": {
+            "title": "Compras y cuentas",
+            "text": "Proveedores, órdenes de compra, cuentas por cobrar y por pagar."
+          },
+          "reports": {
+            "title": "Reportes",
+            "text": "Reportes de ventas y de gestión, y los registros que pide SUNAT."
+          }
+        }
+      },
+      "contact": {
+        "title": "¿Quieres usarla en tu negocio?",
+        "subtitle": "Cuéntanos qué tipo de negocio tienes y qué te gustaría resolver. Nos ayuda a decidir qué construir primero.",
+        "cta": "Escríbenos"
+      },
+      "preview": {
+        "label": "Ejemplo del menú de Wanka, que cambia según el rubro del negocio",
+        "common": {
+          "sales": "Ventas",
+          "inventory": "Inventario",
+          "customers": "Clientes"
+        },
+        "specific": {
+          "restaurant": {
+            "a": "Salón y mesas",
+            "b": "Cocina"
+          },
+          "veterinary": {
+            "a": "Mascotas",
+            "b": "Hospitalización"
+          },
+          "dental": {
+            "a": "Citas",
+            "b": "Odontograma"
+          },
+          "retail": {
+            "a": "Variantes",
+            "b": "Caja rápida"
+          }
+        }
+      }
     }
   }
 }

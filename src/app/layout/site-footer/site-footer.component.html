@@ -1,0 +1,57 @@
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__brand">
+      <a class="site-footer__logo-link" routerLink="/" [attr.aria-label]="'application.site.nav.home' | translate">
+        <img
+          class="site-footer__logo site-footer__logo--light"
+          src="assets/img/bacsystem/Logo_BACSYSTEM-[Color-Horizontal].png"
+          alt=""
+          width="1523"
+          height="210"
+          loading="lazy"
+        />
+        <img
+          class="site-footer__logo site-footer__logo--dark"
+          src="assets/img/bacsystem/Logo_BACSYSTEM-[Blanco-Horizontal].png"
+          alt=""
+          width="1523"
+          height="210"
+          loading="lazy"
+        />
+      </a>
+      <p class="site-footer__description">{{ 'application.site.footer.description' | translate }}</p>
+    </div>
+
+    <nav class="site-footer__nav" aria-labelledby="site-footer-nav-title">
+      <h2 id="site-footer-nav-title" class="site-footer__title">{{ 'application.site.footer.navTitle' | translate }}</h2>
+      <ul class="site-footer__list" role="list">
+        @for (link of links; track link.path) {
+          <li><a [routerLink]="link.path">{{ link.labelKey | translate }}</a></li>
+        }
+      </ul>
+    </nav>
+
+    <div class="site-footer__contact">
+      <h2 class="site-footer__title">{{ 'application.site.footer.contactTitle' | translate }}</h2>
+      <ul class="site-footer__list" role="list">
+        <li>
+          <ui-icon name="whatsapp" size="sm" />
+          <a
+            [href]="'application.site.contactPage.whatsappMessage' | translate | whatsapp"
+            target="_blank"
+            rel="noopener"
+            [attr.aria-label]="('application.site.contactPage.whatsapp' | translate) + ' ' + contact.phone"
+          >{{ contact.phone }}</a>
+        </li>
+        <li>
+          <ui-icon name="geo-alt" size="sm" />
+          <span>{{ contact.address }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="site-footer__bottom">
+    <p>© {{ year }} Bacsystem Solutions. {{ 'application.site.footer.rights' | translate }}</p>
+  </div>
+</footer>

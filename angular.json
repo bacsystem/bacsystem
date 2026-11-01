@@ -16,6 +16,9 @@
             "outputPath": "dist",
             "index": "src/index.html",
             "browser": "src/main.ts",
+            "server": "src/main.server.ts",
+            "prerender": true,
+            "ssr": false,
             "polyfills": [
               "zone.js"
             ],
@@ -27,30 +30,20 @@
               }
             ],
             "styles": [
-              "public/assets/vendor/google-fonts/google-fonts.css",
-              "public/assets/vendor/bootstrap/css/bootstrap.min.css",
-              "public/assets/vendor/bootstrap-icons/bootstrap-icons.min.css",
-              "public/assets/vendor/g-lightbox/css/glightbox.css",
-              "public/assets/vendor/swiper/swiper-bundle.min.css",
-              "public/assets/vendor/aos/aos.css",
-              "src/styles.css"
+              "src/styles/fonts.css",
+              "src/styles/tokens.css",
+              "src/styles/base.css",
+              "public/assets/vendor/bootstrap-icons/bootstrap-icons.min.css"
             ],
-            "scripts": [
-              "public/assets/vendor/bootstrap/js/bootstrap.bundle.min.js",
-              "public/assets/vendor/aos/aos.js",
-              "public/assets/vendor/g-lightbox/js/glightbox.min.js",
-              "public/assets/vendor/swiper/swiper-bundle.min.js",
-              "public/assets/vendor/purecounter/purecounter_vanilla.js",
-              "public/assets/js/main.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "1.5MB",
-                  "maximumError": "2MB"
+                  "maximumWarning": "600kB",
+                  "maximumError": "800kB"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -59,7 +52,12 @@
                 }
               ],
               "outputHashing": "all",
-              "allowedCommonJsDependencies": ["aos"]
+              "fileReplacements": [
+                {
+                  "replace": "src/app/dev-routes.ts",
+                  "with": "src/app/dev-routes.prod.ts"
+                }
+              ]
             },
             "development": {
               "optimization": false,
@@ -99,21 +97,12 @@
               }
             ],
             "styles": [
-              "public/assets/vendor/google-fonts/google-fonts.css",
-              "public/assets/vendor/bootstrap/css/bootstrap.min.css",
-              "public/assets/vendor/bootstrap-icons/bootstrap-icons.min.css",
-              "public/assets/vendor/g-lightbox/css/glightbox.css",
-              "public/assets/vendor/swiper/swiper-bundle.min.css",
-              "src/styles.css"
+              "src/styles/fonts.css",
+              "src/styles/tokens.css",
+              "src/styles/base.css",
+              "public/assets/vendor/bootstrap-icons/bootstrap-icons.min.css"
             ],
-            "scripts": [
-              "public/assets/vendor/bootstrap/js/bootstrap.bundle.min.js",
-              "public/assets/vendor/aos/aos.js",
-              "public/assets/vendor/g-lightbox/js/glightbox.min.js",
-              "public/assets/vendor/swiper/swiper-bundle.min.js",
-              "public/assets/vendor/purecounter/purecounter_vanilla.js",
-              "public/assets/js/main.js"
-            ]
+            "scripts": []
           }
         }
       }
@@ -121,9 +110,5 @@
   },
   "cli": {
     "analytics": false
-  }
-  },
-  "cli": {
-    "analytics": "eadb6e96-3940-4d11-b394-7d5bfe57570a"
   }
 }

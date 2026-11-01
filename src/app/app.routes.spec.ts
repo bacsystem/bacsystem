@@ -1,0 +1,81 @@
+import { Route } from '@angular/router';
+import { routes } from './app.routes';
+import { SeoRouteData } from './core/seo.service';
+
+describe('routes', () => {
+  const layout = routes.find(r => r.children)!;
+  const children = layout.children as Route[];
+  const find = (p: string) => children.find(r => r.path === p);
+  const seo = (p: string) => (find(p)?.data as { seo: SeoRouteData }).seo;
+
+  it('has a layout parent', () => {
+    expect(layout).toBeTruthy();
+    expect(layout.loadComponent).toBeDefined();
+  });
+
+  it('home, contact, about and services are indexable', () => {
+    for (const p of ['', 'contacto', 'nosotros', 'servicios']) {
+      expect(find(p)).withContext(p).toBeDefined();
+      expect(seo(p).indexable ?? true).withContext(p).toBeTrue();
+    }
+  });
+
+  it('productos lists the products and each product has its own indexable page', async () => {
+    const pages: Record<string, string> = {
+      productos: 'ProductsPageComponent',
+      'productos/khipu': 'KhipuPageComponent',
+      'productos/wanka': 'WankaPageComponent',
+    };
+    for (const [path, name] of Object.entries(pages)) {
+      expect(seo(path).indexable).withContext(path).toBeTrue();
+      const component = await (find(path)!.loadComponent as () => Promise<unknown>)();
+      expect((component as { name: string }).name).withContext(path).toBe(name);
+    }
+  });
+
+  it('retired products have no route', () => {
+    for (const p of ['productos/operaai', 'productos/sophia']) {
+      expect(find(p)).withContext(p).toBeUndefined();
+    }
+  });
+
+  it('nosotros loads the about page, not the coming-soon placeholder', async () => {
+    const about = find('nosotros')!;
+    expect((about.data as { headingKey?: string }).headingKey).toBeUndefined();
+    expect(seo('nosotros').titleKey).toBe('application.site.seo.about.title');
+    const component = await (about.loadComponent as () => Promise<unknown>)();
+    expect((component as { name: string }).name).toBe('AboutPageComponent');
+  });
+
+  it('servicios loads the services page, not the coming-soon placeholder', async () => {
+    const services = find('servicios')!;
+    expect((services.data as { headingKey?: string }).headingKey).toBeUndefined();
+    expect(seo('servicios').titleKey).toBe('application.site.seo.services.title');
+    const component = await (services.loadComponent as () => Promise<unknown>)();
+    expect((component as { name: string }).name).toBe('ServicesPageComponent');
+  });
+
+  it('guia-ui exists in dev mode, is noindex and precedes the wildcard', () => {
+    // Tests run in dev mode; the route is excluded from production builds.
+    expect(find('guia-ui')).toBeDefined();
+    expect(seo('guia-ui').indexable).toBeFalse();
+    expect(children.findIndex(r => r.path === 'guia-ui')).toBeLessThan(children.findIndex(r => r.path === '**'));
+  });
+
+  it('unknown URLs show the noindex not-found page, also prerendered at /404 for 404.html', async () => {
+    for (const path of ['**', '404']) {
+      const route = find(path)!;
+      expect(route.redirectTo).withContext(path).toBeUndefined();
+      expect(seo(path).indexable).withContext(path).toBeFalse();
+      const component = await (route.loadComponent as () => Promise<unknown>)();
+      expect((component as { name: string }).name).withContext(path).toBe('NotFoundPageComponent');
+    }
+    expect(children.at(-1)?.path).toBe('**');
+  });
+
+  it('no route starts with public', () => {
+    for (const r of [...routes, ...children]) {
+      expect(r.path?.startsWith('public') ?? false).toBeFalse();
+    }
+  });
+});

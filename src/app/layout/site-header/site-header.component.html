@@ -1,0 +1,70 @@
+<header class="site-header" [class.is-open]="menuOpen()">
+  <div class="site-header__bar">
+    <a class="site-header__brand" routerLink="/" [attr.aria-label]="'application.site.nav.home' | translate">
+      <img
+        class="site-header__logo site-header__logo--light"
+        src="assets/img/bacsystem/Logo_BACSYSTEM-[Color-Horizontal].png"
+        alt=""
+        width="1523"
+        height="210"
+      />
+      <img
+        class="site-header__logo site-header__logo--dark"
+        src="assets/img/bacsystem/Logo_BACSYSTEM-[Blanco-Horizontal].png"
+        alt=""
+        width="1523"
+        height="210"
+        loading="lazy"
+      />
+    </a>
+
+    <nav id="site-nav" class="site-nav" [attr.aria-label]="'application.site.nav.label' | translate">
+      <ul class="site-nav__list" role="list">
+        @for (link of links; track link.path) {
+          <li>
+            <a class="site-nav__link" [routerLink]="link.path" routerLinkActive="is-active" ariaCurrentWhenActive="page" (click)="closeMenu()">
+              {{ link.labelKey | translate }}
+            </a>
+          </li>
+        }
+      </ul>
+      <a ui-button size="lg" class="site-nav__cta" routerLink="/contacto" (click)="closeMenu()">
+        {{ 'application.site.nav.cta' | translate }}
+      </a>
+    </nav>
+
+    <div class="site-header__actions">
+      <button
+        type="button"
+        class="site-header__control site-header__lang"
+        [attr.aria-label]="'application.site.nav.languageTo.' + nextLang | translate"
+        (click)="switchLanguage()"
+      >
+        <ui-icon class="site-header__lang-icon" name="globe2" size="sm" />
+        <span aria-hidden="true">{{ nextLang.toUpperCase() }}</span>
+      </button>
+      <button
+        type="button"
+        class="site-header__control site-header__theme"
+        [attr.aria-label]="'application.site.nav.theme.' + theme.currentMode | translate"
+        (click)="theme.cycle()"
+      >
+        <ui-icon [name]="theme.icon" size="sm" />
+      </button>
+      <a ui-button class="site-header__cta" routerLink="/contacto">
+        {{ 'application.site.nav.cta' | translate }}
+      </a>
+      <button
+        #toggle
+        type="button"
+        class="site-header__control site-header__toggle"
+        aria-controls="site-nav"
+        [attr.aria-expanded]="menuOpen()"
+        [attr.aria-label]="(menuOpen() ? 'application.site.nav.menuClose' : 'application.site.nav.menuOpen') | translate"
+        (click)="toggleMenu()"
+      >
+        <ui-icon [name]="menuOpen() ? 'x-lg' : 'list'" />
+      </button>
+    </div>
+  </div>
+</header>

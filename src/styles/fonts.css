@@ -1,0 +1,22 @@
+/*
+ * Fuentes del sitio.
+ *
+ * Elección:
+ *   --font-display: Michroma (@fontsource/michroma, peso 400). Cuadrada y ancha,
+ *     cercana al logo. Solo para títulos cortos y etiquetas; no para párrafos.
+ *   --font-body: DM Sans Variable (@fontsource-variable/dm-sans, eje wght 100–1000).
+ *     Cuerpo de texto y títulos largos.
+ *   Licencia de ambas: SIL Open Font License 1.1 (uso comercial y web permitido;
+ *   ver node_modules/@fontsource/michroma/LICENSE y
+ *   node_modules/@fontsource-variable/dm-sans/LICENSE).
+ *
+ * Descartadas (fuentes en public/assets/font/, leído de su tabla `name`):
+ *   - Elemental End: "Creative Commons Attribution-NonCommercial-NoDerivs 3.0"
+ *     (no permite uso comercial).
+ *   - Caviar Dreams: "may be used personally or commercially however the font data
+ *     itself may not be redistributed" (servirla como webfont la redistribuye).
+ *
+ * Las variables --font-display / --font-body se definen en tokens.css.
+ */
+@import '@fontsource/michroma/index.css';
+@import '@fontsource-variable/dm-sans/index.css';
