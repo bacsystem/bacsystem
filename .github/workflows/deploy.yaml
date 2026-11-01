@@ -1,17 +1,26 @@
-name: Deploy to Cloudflare Pages
+name: Deploy to production (Cloudflare Pages)
 
+# Production deploys only from a version tag (vX.Y.Z). Both ways of releasing trigger it:
+#   - git tag v1.3.0 && git push origin v1.3.0
+#   - a GitHub Release that creates a new vX.Y.Z tag (creating the tag fires this push event)
+# Pushes to main and pull requests no longer deploy.
 on:
   push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+    tags:
+      - 'v*.*.*'
+
+# One production deploy at a time; a newer tag waits instead of overlapping.
+concurrency:
+  group: production-deploy
+  cancel-in-progress: false
 
 jobs:
   deploy:
-    name: Build & Deploy
+    name: Build & Deploy (production)
     runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://bacsystemsolutions.com
     permissions:
       contents: read
       deployments: write
@@ -38,9 +47,11 @@ jobs:
       - name: Build
         run: yarn build:prod
 
+      # A tag checkout is a detached HEAD: name the production branch explicitly, otherwise
+      # Cloudflare Pages would publish it as a preview deployment instead of the live site.
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist/browser --project-name=bacsystem-solutions --commit-dirty=true
+          command: pages deploy dist/browser --project-name=bacsystem-solutions --branch=main --commit-dirty=true
