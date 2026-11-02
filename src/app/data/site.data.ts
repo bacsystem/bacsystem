@@ -117,10 +117,10 @@ export const WANKA_INDUSTRIES = ['restaurant', 'veterinary', 'dental', 'retail']
 export const WANKA_MODULES = ['sales', 'invoicing', 'inventory', 'customers', 'purchases', 'reports'] as const;
 
 /**
- * Public sign-up page of the khipu portal (its /registro). Kept empty on purpose: links to the product
- * portals are blocked for now (owner's decision, 2026-10-31), so "Crear cuenta gratis" goes to /contacto.
+ * Public sign-up page of the khipu portal (its /registro). Leave it empty to send "Crear cuenta gratis"
+ * to /contacto instead.
  */
-export const KHIPU_SIGNUP_URL = '';
+export const KHIPU_SIGNUP_URL = 'https://khipu.bacsystemsolutions.com/registro';
 
 /** khipu: setup happens once, then two steps repeat for every document. */
 export const KHIPU_STEPS: KhipuStep[] = [

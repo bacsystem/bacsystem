@@ -4,7 +4,7 @@ import { provideRouter } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import es from '../../../../public/i18n/es.json';
 import en from '../../../../public/i18n/en.json';
-import { KHIPU_DOCUMENTS } from '../../data/site.data';
+import { KHIPU_DOCUMENTS, KHIPU_SIGNUP_URL } from '../../data/site.data';
 import { KhipuPageComponent } from './khipu.page';
 
 describe('KhipuPageComponent', () => {
@@ -31,7 +31,8 @@ describe('KhipuPageComponent', () => {
   const text = (el: Element | null | undefined) => el?.textContent?.replace(/\s+/g, ' ').trim();
 
   it('renders one h1 with the product name, its tagline and the free sign-up CTA (to /contacto while no URL is set)', () => {
-    setup();
+    const page = setup();
+    page.signupUrl = '';
     const el = render();
     const h1s = el.querySelectorAll('h1');
     expect(h1s.length).toBe(1);
@@ -72,7 +73,8 @@ describe('KhipuPageComponent', () => {
   });
 
   it('ends with a free sign-up contact band instead of the custom-software pitch', () => {
-    setup();
+    const page = setup();
+    page.signupUrl = '';
     const el = render();
     const band = el.querySelector('app-contact-band #contacto') as HTMLElement;
     expect(band.querySelector('h2')?.getAttribute('aria-label')).toBe(t.contact.title);
@@ -88,6 +90,13 @@ describe('KhipuPageComponent', () => {
     expect(links.length).toBe(2);
     expect(links.every(a => a.rel === 'noopener')).toBeTrue();
     expect(el.querySelector('.intro__cta[href="/contacto"]')).toBeNull();
+  });
+
+  it('points sign-up at the khipu portal registration page', () => {
+    expect(KHIPU_SIGNUP_URL).toBe('https://khipu.bacsystemsolutions.com/registro');
+    setup();
+    const el = render();
+    expect(el.querySelectorAll(`a[href="${KHIPU_SIGNUP_URL}"]`).length).toBe(2);
   });
 
   it('renders the sections in order', () => {
